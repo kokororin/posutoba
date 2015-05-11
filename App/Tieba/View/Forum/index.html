@@ -159,9 +159,9 @@
          <include file="Forum:right" />
          <?php endif;?>
          <div id="forumInfoPanel" class="region_bright forum_info_bright" data-region="">
-          <div class="region_header">
-           <div class="region_title region_icon j_title">
-           本吧信息
+          <div class="region_header">           
+            <div class="region_title region_icon j_title">
+           <a id="j_forum_title" href="javascript:void(0)">本吧信息</a>
            </div>
           </div>
           <div class="region_cnt">
@@ -169,16 +169,21 @@
             <span id="tbManagerApply"> </span>
             <h4> <a href="#" class="manager_btn" onclick="return false;">吧主</a>： </h4>
             <ul class="clearfix">
+              <foreach name="manager_list" item="vo">
              <li class="user_avt_card">
               <div class="manager_pic">
-               <a href="{:U('Home/main',array('id'=>$forum_info['user_id']))}" target="_blank" title="{$forum_info.user_name}"><img src="{:U('Home/getAvatar',array('uid'=>$forum_info['user_id']))}" alt="" /></a>
+               <a href="{:U('Home/main',array('id'=>$vo['user_id']))}" target="_blank" title="{$vo.user_name}"><img src="{:U('Home/getAvatar',array('uid'=>$vo['user_id']))}" alt="" /></a>
               </div>
               <div class="manager_name">
-               <a href="{:U('Home/main',array('id'=>$forum_info['user_id']))}" target="_blank">{$forum_info.user_name}</a>
+               <a href="{:U('Home/main',array('id'=>$vo['user_id']))}" target="_blank">{$vo.user_name}</a>
               </div> </li>
+               </foreach>
              <li id="tbManagerCandidatesNum" style="display: none"> </li>
             </ul>
            </div>
+          <h4>小吧：</h4>
+          <ul><li>小吧主共<span class="assist_num">{$small_manager_count}</span>人 
+            <span id="tbManagerAssistApply" style="display: none;"></span></li></ul>
            <h4>会员：</h4>
            <ul>
             <li><a id="member_name_link" href="{:U('Forum/memberList',array('id'=>$forum_info['forum_id']))}" target="_blank">{$member_name}</a><span class="member_num_o">共<span class="member_num">{$member_count}</span>人 </span></li>
@@ -188,17 +193,19 @@
             <li><a href="{:U('Forum/forumPark',array('pid'=>$forum_class['parent_id'],'cid'=>$forum_class['class_id']))}" target="_blank">{$forum_class.class_name}</a></li>
            </ul>
            <div class="bottom_list">
-            <span><a href="" target="_blank">申请吧主</a></span> | <span><a href="" target="_blank">申请小吧主</a></span>
+            <span><a href="{:U('Forum/applyManager',array('id'=>$forum_info['forum_id']))}" target="_blank">申请吧主</a></span> | <span><a href="" target="_blank">申请小吧主</a></span>
            </div>
           </div>
           <div class="region_footer"></div>
          </div>
-           <?php if ($manage_status == true): ?>
+           <?php if ($manage_status != '-1'): ?>
            <div class="region_bright adminModePanel_bright" id="adminModePanel">
    <div class="amPanel_top"></div>
    <div class="amPanel_content clearfix">
     <div id="tbAdminTip" class="admin_tip" style="display: block;"></div>
+    <?php if($manage_status == '0'):?>
     <a class="tbAdminManage ltbtn" href="javascript:void(0)" onclick="showForumCard()"><span>设置本吧名片</span></a>
+    <?php endif;?>
     <a class="titleManageIndex rtbtn" target="_blank" href="{:U('Admin/index',array('id'=>$forum_info['forum_id']))}"><span>吧务后台</span></a>
    </div>
    <div class="amPanel_bottom"></div>
@@ -266,6 +273,9 @@
 	   $('.j_ypic').fancybox();
 	 });
  </script>
+ <?php if($manage_status == '0'):?>
  <include file="Admin:forumCard" />
+ <?php endif;?>
+ <include file="Forum:managerGroup" />
  </body>
 </html>

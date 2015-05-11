@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>吧务审批_{$forum_info.forum_name}吧</title>
+  <import type="css" file="theme,common,admin_common,admin_manager" basepath="__PUBLIC__/common/css"/>  
+ </head>
+ <body class="manager_page">
+  <include file="Public:userbar" />
+  <header class="head">
+   <include file="Public:head" />
+  </header>
+  <div class="message_container">
+   <div class="page_message" id="page_message"></div>
+  </div>
+  <!--[if lte IE 7]><div class="ie_height_hacker"></div><![endif]-->
+  <div id="container" class="container clearfix"> 
+   <include file="Admin:left" />
+   <div class="main_content"> 
+    <div class="panel" style="border-bottom:0">
+     <h3>吧务审批</h3>
+     <div class="panel_content" style="padding-bottom:50px;">
+      <div class="exam-w clearfix" id="bawu-exam">
+       <div class="exam-condition">
+        <span class="icon"></span>本吧申请吧主的基本条件：发言数不得少于
+        <span class="blue post-num"> 1 </span>贴，成为会员天数不得少于
+        <span class="blue">0</span>天，会员等级不得低于
+        <span class="blue member-time">3级</span>。
+       </div>
+       <div class="exam-btn set_manager_btn" id="exam-btn">
+        设置吧主申请条件
+       </div>
+      </div>
+      <div class="exam-w clearfix">
+       <div title="小吧主需要与大吧主一起担负着建设好本吧的使命，需要小吧主有强烈责任感和成就感。需要长期参与本吧的内容建设和治安维护，及时删除而已灌水贴、商业广告、与主题不相关以及百度官方禁止的贴子。" class="exam-condition assist-condition">
+        <span class="icon"></span>本吧申请小吧主的条件(会员等级需高于3级)：小吧主需要与大吧主一起担负着建设好本吧的使命，需要小吧主有强烈责任感和成就感。需要长期参与本吧的内容建设和治安维护，及时删除而已灌水贴、商业广告、与主题不相关以及百度官方禁止的贴子。
+       </div>
+       <div class="exam-btn set_manager_btn" id="assist-exam-btn">
+        设置小吧主申请条件
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="panel panel_margin pos-rel">
+     <div class="bawu-tab-w">
+      <a class="tab cur-tab" href="#">待审批吧务</a>
+      <a class="tab left-t" href="/bawu2/platform/auditFinish?type=0&amp;word=%B4%F3%D1%DB%ED%F8">已审批吧务</a>
+     </div> 
+     <table class="data_table">
+      <thead>
+       <tr>
+        <th style="width:81px;" class="left_cell">用户名</th>
+        <th style="width:37px;">职务</th>
+        <th style="width:99px;">申请时间</th>
+        <th style="width:246px;">申请人资料</th>
+        <th style="width:159px;">申请感言</th>
+        <th style="width:149px;">操作</th>
+       </tr>
+      </thead>
+      <tbody> 
+       <tr>
+        <td class="left_cell"><span class="user-name-icon">摸摸受受</span></td>
+        <td>小吧主</td>
+        <td>2015-05-07 09:29</td>
+        <td class="left_cell">
+         <div>
+          注册天数：1521
+         </div>
+         <div>
+          加入本吧会员时长：1
+         </div>
+         <div>
+          本吧发言：3
+         </div>
+         <div>
+          会员等级：5级
+         </div>
+         <div>
+          现任吧主：夏天是个萌妹纸吧&nbsp;&nbsp;
+         </div></td>
+        <td class="left_cell">1123121</td>
+        <td><button style="margin-top:30px;" class="success" manager-type="2" apply-id="2757005">批准</button><button style="margin-top:30px;" class="fail" manager-type="2" apply-id="2757005">拒绝</button></td>
+       </tr> 
+      </tbody>
+     </table> 
+     <div class="tbui_pagination tbui_pagination_right"> 
+     </div>
+    </div> 
+   </div>
+  </div>
+  <div id="tbLcsContainer"></div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js"/>
+  <script>
+     $(function(){
+             setAdminNav();
+         });
+ </script>
+  <script>
+     var page_name = '<?php echo ACTION_NAME?>';
+ </script>
+  <include file="Public:bottom" />
+  <include file="Post:block" />
+  
+ </body>
+</html>

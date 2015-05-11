@@ -825,6 +825,11 @@ $(function() {
         location.href = MODULE + '/Home/forumList/id/' + uid;
     });
 
+    $('#j_forum_title').click(function() {
+        center('.managergroup_dialog.dialogJ');
+        $('.dialogJ').draggable();
+    });
+
     //签到按钮
     $(document).delegate('.j_signbtn.signstar_signed,.j_succ_info', 'mouseenter', function(event) {
         //延迟执行鼠标移除事件
@@ -1138,11 +1143,28 @@ $(function() {
     });
 
     $('#j_save_btn').click(function() {
-        $('.apply_form').hide();
-        $('.fill_step').removeClass('agreement_step');
-        $('.last_step').addClass('agreement_step');
-        $('#apply_success1_dialog').show();
+        $('#apply_form').submit();
     });
+
+    $('#apply_form').submit(function() {
+        $(this).ajaxSubmit({
+            success: function(data) {
+                if (data == "empty-field") {
+                    createAlertbox('错误', '请填写所有的空格！');
+                } else if (data == "not-agree") {
+                    createAlertbox('错误', '请勾选同意协议！');
+                } else {
+                    $('.apply_form').hide();
+                    $('.fill_step').removeClass('agreement_step');
+                    $('.last_step').addClass('agreement_step');
+                    $('#apply_success1_dialog').show();
+                }
+            }
+        });
+        return false;
+    });
+
+
 
     //帖子页管理按钮
     $('#thread_manage_btn').click(function() {

@@ -143,9 +143,9 @@ class PostController extends BaseController
      */
     private function getPostList($tid, $see_lz = 0)
     {
-        $p                           = $this->table_name['post'];
-        $t                           = $this->table_name['thread'];
-        $u                           = $this->table_name['users'];
+        $p                           = getTableName('post');
+        $t                           = getTableName('thread');
+        $u                           = getTableName('users');
         $condition["{$p}.thread_id"] = $tid;
         $condition["{$p}.is_exist"]  = 1;
         if ($see_lz == 1) {
@@ -276,8 +276,8 @@ class PostController extends BaseController
      */
     public function getForumInfoByTid($tid)
     {
-        $f    = $this->table_name['forum'];
-        $t    = $this->table_name['thread'];
+        $f    = getTableName('forum');
+        $t    = getTableName('thread');
         $info = M('thread')->field("{$f}.forum_id,{$f}.forum_name")->join("{$f} ON {$t}.forum_id = {$f}.forum_id")->where(array("{$t}.thread_id" => $tid))->find();
         return $info;
     }
@@ -290,9 +290,9 @@ class PostController extends BaseController
      */
     public function getForumInfoByPid($pid)
     {
-        $f    = $this->table_name['forum'];
-        $t    = $this->table_name['thread'];
-        $p    = $this->table_name['post'];
+        $f    = getTableName('forum');
+        $t    = getTableName('thread');
+        $p    = getTableName('post');
         $info = M('post')->field("{$f}.forum_id,{$f}.forum_name")->join("{$t} ON {$p}.thread_id = {$t}.thread_id")->join("{$f} ON {$t}.forum_id = {$f}.forum_id")->where(array("{$p}.post_id" => $pid))->find();
         return $info;
     }
@@ -305,8 +305,8 @@ class PostController extends BaseController
      */
     private function getReply($rid)
     {
-        $u = $this->table_name['users'];
-        $p = $this->table_name['post'];
+        $u = getTableName('users');
+        $p = getTableName('post');
         if ($rid != '0') {
             $info = M('post')->field("{$p}.user_id,{$u}.user_name,{$p}.post_content,{$p}.floor_id")->join("{$u} ON {$p}.user_id = {$u}.user_id")->where(array("{$p}.post_id" => $rid))->find();
             $html = '<blockquote class="d_quote"><fieldset><legend> 回复 <a class="at j_user_card" data-uid="' . $info['user_id'] . '" target="_blank" href="' . U('Home/main') . '"/id/' . $info['user_id'] . '>@' . $info['user_name'] . '</a> (' . $info['floor_id']

@@ -1,0 +1,32 @@
+  <div class="managergroup_dialog dialogJ dialogJfix dialogJshadow ui-draggable" style="z-index: 50001; width: 550px; display">
+   <div class="uiDialogWrapper">
+    <div class="dialogJtitle" style="cursor: move;">
+     <span class="dialogJtxt">吧务团队</span>
+     <a href="javascript:void(0)" class="dialogJclose" title="关闭本窗口">&nbsp;</a>
+    </div>
+    <div class="dialogJcontent">
+     <div class="dialogJbody" id="dialogJbody" style="height: 260px;">
+      <table style="line-height:20px;" width="100%" border="0" cellspacing="0" cellpadding="0"> 
+   <tbody>
+    <tr valign="top">
+     <td width="70" align="right">本吧吧主：</td>
+     <td style="padding-bottom:20px;">&nbsp; 
+    <foreach name="manager_list" item="vo">
+      <a target="_blank" href="{:U('Home/main',array('id'=>$vo['user_id']))}">{$vo.user_name}</a>&nbsp; 
+    </foreach></td>
+    </tr> 
+    <tr valign="top">
+     <td width="70" align="right">小吧主：</td>
+     <td style="padding-bottom:20px;">&nbsp; 
+      <foreach name="small_manager_list" item="vo">
+      <a target="_blank" href="{:U('Home/main',array('id'=>$vo['user_id']))}">{$vo.user_name}</a>&nbsp; 
+      </foreach>
+    </td>
+    </tr> 
+   </tbody>
+  </table>
+     </div>
+     <div style="position: absolute; left: 0px; top: 0px; cursor: move; display: none; width: 560px; height: 327px;"></div>
+    </div>
+   </div>
+  </div>

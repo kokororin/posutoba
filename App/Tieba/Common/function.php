@@ -149,6 +149,17 @@ function getMikuInt()
 }
 
 /**
+ * 获取表全名
+ * @access public
+ * @param $table 表名
+ * @return string
+ */
+function getTableName($table)
+{
+    return C('DB_PREFIX') . $table;
+}
+
+/**
  * 二维数组按指定的键值排序
  * @access public
  * @param array $array 数组
@@ -230,12 +241,14 @@ function getUtf8Strlen($str)
  */
 function newJson($data, $type)
 {
-    if ($type == 1) {
-        return str_replace('"', "'", json_encode($data));
-    } else {
-        return str_replace('"', "", json_encode($data));
+    switch ($type) {
+        case 1:
+            return str_replace('"', "'", json_encode($data));
+            break;
+        case 2:
+            return str_replace('"', "", json_encode($data));
+            break;
     }
-
 }
 
 /**

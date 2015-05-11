@@ -128,8 +128,8 @@ class HomeController extends BaseController
      */
     public function getForumList($uid, $page = false)
     {
-        $f                          = $this->table_name['forum'];
-        $ff                         = $this->table_name['forum_fans'];
+        $f                          = getTableName('forum');
+        $ff                         = getTableName('forum_fans');
         $condition["{$ff}.fans_id"] = $uid;
         if ($page == true) {
             $count = M('forum_fans')->where($condition)->count();
@@ -326,8 +326,8 @@ class HomeController extends BaseController
      */
     public function getExp($uid, $fid)
     {
-        $t = $this->table_name['thread'];
-        $p = $this->table_name['post'];
+        $t = getTableName('thread');
+        $p = getTableName('post');
         //主题贴
         $thread_count = M('thread')->where(array('user_id' => $uid, 'forum_id' => $fid))->count();
         //回复贴
@@ -457,9 +457,9 @@ class HomeController extends BaseController
      */
     private function getPostList($uid)
     {
-        $p    = $this->table_name['post'];
-        $t    = $this->table_name['thread'];
-        $f    = $this->table_name['forum'];
+        $p    = getTableName('post');
+        $t    = getTableName('thread');
+        $f    = getTableName('forum');
         $info = M('post')->field("{$p}.post_id,{$p}.thread_id,{$p}.user_id,{$p}.post_content,{$p}.post_date,{$p}.floor_id,{$t}.thread_title,{$t}.forum_id,{$f}.forum_name")->join("{$t} ON {$p}.thread_id = {$t}.thread_id")->join("{$f} ON {$t}.forum_id = {$f}.forum_id")
                          ->where(array("{$p}.user_id" => $uid, "{$p}.is_exist" => 1))->order("{$p}.post_date desc")->select();
         foreach ($info as $key => $value) {
@@ -588,8 +588,8 @@ class HomeController extends BaseController
         if ($this->uid != null) {
             $logined_uid = $this->uid;
         }
-        $u                          = $this->table_name['users'];
-        $uf                         = $this->table_name['user_fans'];
+        $u                          = getTableName('users');
+        $uf                         = getTableName('user_fans');
         $condition["{$uf}.fans_id"] = $uid;
         if ($page == true) {
             $count = M('user_fans')->where($condition)->count();
@@ -635,8 +635,8 @@ class HomeController extends BaseController
         if ($this->uid != null) {
             $logined_uid = $this->uid;
         }
-        $u                          = $this->table_name['users'];
-        $uf                         = $this->table_name['user_fans'];
+        $u                          = getTableName('users');
+        $uf                         = getTableName('user_fans');
         $condition["{$uf}.user_id"] = $uid;
         if ($page == true) {
             $count = M('user_fans')->where($condition)->count();
@@ -827,11 +827,11 @@ class HomeController extends BaseController
      */
     private function getReplyList($uid)
     {
-        $t                             = $this->table_name['thread'];
-        $p                             = $this->table_name['post'];
-        $u                             = $this->table_name['users'];
-        $n                             = $this->table_name['notify'];
-        $f                             = $this->table_name['forum'];
+        $t                             = getTableName('thread');
+        $p                             = getTableName('post');
+        $u                             = getTableName('users');
+        $n                             = getTableName('notify');
+        $f                             = getTableName('forum');
         $condition["{$n}.notify_type"] = 'reply';
         $condition["{$n}.user_id"]     = $uid;
         $count                         = M('notify')->where($condition)->count();
@@ -855,10 +855,10 @@ class HomeController extends BaseController
      */
     private function getLikedThreadList($uid)
     {
-        $f          = $this->table_name['forum'];
-        $t          = $this->table_name['thread'];
-        $p          = $this->table_name['post'];
-        $u          = $this->table_name['users'];
+        $f          = getTableName('forum');
+        $t          = getTableName('thread');
+        $p          = getTableName('post');
+        $u          = getTableName('users');
         $forum_list = $this->getForumList($uid);
         foreach ($forum_list as $key => $value) {
             $small_forum_list[$key] = $forum_list[$key]['forum_id'];
@@ -954,10 +954,10 @@ class HomeController extends BaseController
      */
     private function getStoredThreadList($uid)
     {
-        $f                          = $this->table_name['forum'];
-        $t                          = $this->table_name['thread'];
-        $st                         = $this->table_name['stored_thread'];
-        $u                          = $this->table_name['users'];
+        $f                          = getTableName('forum');
+        $t                          = getTableName('thread');
+        $st                         = getTableName('stored_thread');
+        $u                          = getTableName('users');
         $condition["{$st}.user_id"] = $uid;
         $count                      = M('stored_thread')->where($condition)->count();
         $Pager                      = new \Tieba\Library\Pager($count, 20, 'current', false);
@@ -995,8 +995,8 @@ class HomeController extends BaseController
      */
     private function getThreadList($uid)
     {
-        $t                         = $this->table_name['thread'];
-        $f                         = $this->table_name['forum'];
+        $t                         = getTableName('thread');
+        $f                         = getTableName('forum');
         $condition["{$t}.user_id"] = $uid;
         $count                     = M('thread')->where($condition)->count();
         $Pager                     = new \Tieba\Library\Pager($count, 20, 'cur', false);
@@ -1036,9 +1036,9 @@ class HomeController extends BaseController
      */
     private function getReplyPostList($uid)
     {
-        $p                          = $this->table_name['post'];
-        $t                          = $this->table_name['thread'];
-        $f                          = $this->table_name['forum'];
+        $p                          = getTableName('post');
+        $t                          = getTableName('thread');
+        $f                          = getTableName('forum');
         $condition["{$p}.user_id"]  = $uid;
         $condition["{$p}.is_exist"] = 1;
         $condition["{$p}.floor_id"] = array('neq', 1);
@@ -1082,11 +1082,11 @@ class HomeController extends BaseController
      */
     private function getGoodList($uid)
     {
-        $tt                             = $this->table_name['thread_type'];
-        $t                              = $this->table_name['thread'];
-        $l                              = $this->table_name['log'];
-        $u                              = $this->table_name['users'];
-        $f                              = $this->table_name['forum'];
+        $tt                             = getTableName('thread_type');
+        $t                              = getTableName('thread');
+        $l                              = getTableName('log');
+        $u                              = getTableName('users');
+        $f                              = getTableName('forum');
         $condition["{$t}.user_id"]      = $uid;
         $condition["{$tt}.thread_type"] = array('in', array('good', 'good,top'));
         $condition["{$l}.log_type"]     = 'set-good';

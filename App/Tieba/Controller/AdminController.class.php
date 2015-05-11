@@ -52,7 +52,7 @@ class AdminController extends BaseController
             $this->error('未登录！');
             return;
         }
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) == '-1') {
             $this->error('权限验证失败！');
             return;
         }
@@ -97,8 +97,8 @@ class AdminController extends BaseController
     private function getCensusDataByDate($date, $fid)
     {
         $array['thread_count'] = M('thread')->where(array('thread_date' => array('like', $date . '%'), 'forum_id' => $fid))->count();
-        $p                     = $this->table_name['post'];
-        $t                     = $this->table_name['thread'];
+        $p                     = getTableName('post');
+        $t                     = getTableName('thread');
         $array['post_count']   = M('post')->join("{$t} ON {$p}.thread_id = {$t}.thread_id")->where(array("{$p}.post_date" => array('like', $date . '%'), "{$t}.forum_id" => $fid))->count() - $array['thread_count'];
         $array['sign_count']   = M('forum_sign')->where(array('sign_date' => array('like', $date . '%'), 'forum_id' => $fid))->count();
         $array['sign_ratio']   = number_format(($array['sign_count'] / $array['member_count']) * 100, 2);
@@ -261,10 +261,10 @@ class AdminController extends BaseController
      */
     private function getPostLogList($fid, $action = 'all', $username, $utype, $startTime, $endTime)
     {
-        $t                          = $this->table_name['thread'];
-        $p                          = $this->table_name['post'];
-        $l                          = $this->table_name['log'];
-        $u                          = $this->table_name['users'];
+        $t                          = getTableName('thread');
+        $p                          = getTableName('post');
+        $l                          = getTableName('log');
+        $u                          = getTableName('users');
         $condition["{$l}.forum_id"] = $fid;
         //公共join
         $join = "{$p} ON {$l}.object_id = {$p}.post_id";
@@ -402,8 +402,8 @@ class AdminController extends BaseController
                 }
                 break;
             case 'set-top':
-                $tt        = $this->table_name['thread_type'];
-                $t         = $this->table_name['thread'];
+                $tt        = getTableName('thread_type');
+                $t         = getTableName('thread');
                 $top_count = M('thread_type')->join("{$t} ON {$tt}.thread_id = {$t}.thread_id")->where(array("{$t}.forum_id" => $fid, "{$tt}.thread_type" => array('in', array('top', 'good,top'))))->count();
                 if ($top_count >= 2) {
                     $this->ajaxReturn('top-limit');
@@ -796,9 +796,9 @@ class AdminController extends BaseController
      */
     private function getBlockMemberList($fid, $username, $utype, $startTime, $endTime)
     {
-        $u  = $this->table_name['users'];
-        $l  = $this->table_name['log'];
-        $bu = $this->table_name['block_users'];
+        $u  = getTableName('users');
+        $l  = getTableName('log');
+        $bu = getTableName('block_users');
 
         $member_list = M('forum_fans')->field('fans_id')->where(array('forum_id' => $fid))->select();
         foreach ($member_list as $key => $value) {
@@ -888,9 +888,9 @@ class AdminController extends BaseController
      */
     private function getBlackMemberList($fid, $username = '')
     {
-        $l  = $this->table_name['log'];
-        $u  = $this->table_name['users'];
-        $us = $this->table_name['user_status'];
+        $l  = getTableName('log');
+        $u  = getTableName('users');
+        $us = getTableName('user_status');
 
         $member_list = M('forum_fans')->field('fans_id')->where(array('forum_id' => $fid))->select();
         foreach ($member_list as $key => $value) {
@@ -966,10 +966,10 @@ class AdminController extends BaseController
      */
     private function getMemberLogList($fid, $action, $username, $utype, $startTime, $endTime)
     {
-        $l                          = $this->table_name['log'];
-        $u                          = $this->table_name['users'];
-        $us                         = $this->table_name['user_status'];
-        $bu                         = $this->table_name['block_users'];
+        $l                          = getTableName('log');
+        $u                          = getTableName('users');
+        $us                         = getTableName('user_status');
+        $bu                         = getTableName('block_users');
         $condition["{$l}.forum_id"] = $fid;
         $condition["{$l}.log_type"] = array('in', array('block-user', 'black-user', 'restore-block', 'restore-black'));
         if ($action != 'all') {
@@ -1022,6 +1022,11 @@ class AdminController extends BaseController
         $array[2] = $count;
         $array[3] = $Pager->totalPages;
         return $array;
+    }
+
+    public function managerPendList($id){
+        $this->getPublic();
+        $this->display();
     }
 
     /**

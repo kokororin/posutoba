@@ -13,17 +13,6 @@ class BaseController extends Controller
 {
     /**
      * @access public
-     * @var 数据表名
-     */
-    public $table_name;
-
-    /**
-     * @access public
-     * @var 登录用户id
-     */
-
-    /**
-     * @access public
      * @var 用户id
      */
     public $uid;
@@ -34,24 +23,7 @@ class BaseController extends Controller
      */
     public function _initialize()
     {
-        $this->table_name = $this->getTableName();
-        $this->uid        = $this->decryptUid();
-    }
-
-    /**
-     * 获取表名
-     * @access private
-     * @return array
-     */
-    private function getTableName()
-    {
-        $tables       = ['block_users', 'forum', 'forum_class', 'forum_fans', 'log', 'member_title', 'notify', 'post', 'related_forum', 'forum_sign', 'stored_thread', 'thread', 'thread_type', 'user_fans', 'users', 'uuid', 'user_status', 'user_visitor'];
-        $table_name   = array();
-        $table_prefix = C('DB_PREFIX');
-        foreach ($tables as $value) {
-            $table_name[$value] = $table_prefix . $value;
-        }
-        return $table_name;
+        $this->uid = $this->decryptUid();
     }
 
     /**

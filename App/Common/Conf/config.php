@@ -18,7 +18,7 @@ return array(
     //伪静态后缀
     'URL_HTML_SUFFIX'      => '',
     //自定义错误页面
-    'TMPL_EXCEPTION_FILE'  => './App/Tieba/View/Public/exception.php',
+    'TMPL_EXCEPTION_FILE'  => './App/Tieba/View/Public/exception.html',
     //默认错误跳转对应的模板文件
     'TMPL_ACTION_ERROR'    => 'Public:error',
     //URL模式

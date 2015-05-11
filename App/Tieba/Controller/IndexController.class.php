@@ -182,10 +182,10 @@ class IndexController extends BaseController
      */
     private function getThreadList()
     {
-        $f = $this->table_name['forum'];
-        $t = $this->table_name['thread'];
-        $p = $this->table_name['post'];
-        $u = $this->table_name['users'];
+        $f = getTableName('forum');
+        $t = getTableName('thread');
+        $p = getTableName('post');
+        $u = getTableName('users');
         $info = M('thread')->field("{$t}.thread_id,{$t}.thread_title,{$t}.user_id,{$u}.user_name,{$p}.post_content,{$p}.post_date,{$t}.forum_id,{$f}.forum_name")->join("{$p} ON {$t}.thread_id = {$p}.thread_id")->join("{$u} ON {$t}.user_id = {$u}.user_id")
             ->join("{$f} ON {$t}.forum_id = {$f}.forum_id")->where(array("{$p}.floor_id" => 1, "{$t}.is_exist" => 1))->order("{$p}.post_date desc")->select();
         foreach ($info as $key => $value) {
@@ -237,8 +237,8 @@ class IndexController extends BaseController
      */
     public function getThreadHasImgList()
     {
-        $t = $this->table_name['thread'];
-        $p = $this->table_name['post'];
+        $t = getTableName('thread');
+        $p = getTableName('post');
         $info = M('thread')->field("{$t}.thread_id,{$t}.thread_title,{$p}.post_content")->join("{$p} ON {$t}.thread_id = {$p}.thread_id")->where(array("{$p}.floor_id" => 1, "{$t}.is_exist" => 1, "{$p}.post_content" => array('like', '%[img]%[/img]%')))->order("{$p}.post_date desc")->limit(6)
             ->select();
         foreach ($info as $key => $value) {

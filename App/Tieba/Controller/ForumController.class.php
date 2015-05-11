@@ -42,6 +42,9 @@ class ForumController extends BaseController
         $forum_class        = $this->getForumClass($id);
         $member_name        = $this->getMemberName($id);
         $related_forum_list = $this->getRelatedForumList($id);
+        $manager_list       = $this->getManagerList($id, 0);
+        $small_manager_list = $this->getManagerList($id, 1);
+        $small_manager_count = count($small_manager_list);
         if ($this->uid != null) {
             $uid         = $this->uid;
             $user_status = $this->getUserStatus($uid, $id);
@@ -56,6 +59,9 @@ class ForumController extends BaseController
         $this->assign('forum_class', $forum_class);
         $this->assign('member_name', $member_name);
         $this->assign('related_forum_list', $related_forum_list);
+        $this->assign('manager_list',$manager_list);
+        $this->assign('small_manager_list',$small_manager_list);
+        $this->assign('small_manager_count',$small_manager_count);
         $this->display();
     }
 
@@ -67,9 +73,23 @@ class ForumController extends BaseController
      */
     public function getForumInfo($fid)
     {
-        $u    = $this->table_name['users'];
-        $f    = $this->table_name['forum'];
-        $info = M('forum')->field("{$u}.user_name,{$u}.user_id,{$f}.forum_id,{$f}.forum_name,{$f}.forum_desc")->join("{$u} ON {$f}.owner_id = {$u}.user_id")->where(array("{$f}.forum_id" => $fid))->find();
+        $info = M('forum')->field('forum_id,forum_name,forum_desc')->where(array('forum_id' => $fid))->find();
+        return $info;
+    }
+
+    /**
+     * 获取吧主列表
+     * @access public
+     * @param string $fid 贴吧id
+     * @param int $type 吧主类型
+     * @return array
+     */
+    public function getManagerList($fid, $type)
+    {
+        $fm = getTableName('forum_manager');
+        $u  = getTableName('users');
+
+        $info = M('forum_manager')->field("{$u}.user_name,{$fm}.user_id")->join("{$u} ON {$fm}.user_id = {$u}.user_id")->where(array('forum_id' => $fid, 'manager_type' => $type))->select();
         return $info;
     }
 
@@ -139,10 +159,10 @@ class ForumController extends BaseController
      */
     private function getThreadList($fid, $type)
     {
-        $p  = $this->table_name['post'];
-        $u  = $this->table_name['users'];
-        $t  = $this->table_name['thread'];
-        $tt = $this->table_name['thread_type'];
+        $p  = getTableName('post');
+        $u  = getTableName('users');
+        $t  = getTableName('thread');
+        $tt = getTableName('thread_type');
         //公用join
         $join = "{$tt} ON {$t}.thread_id = {$tt}.thread_id";
         //公用where条件
@@ -227,8 +247,8 @@ class ForumController extends BaseController
      */
     private function getLastUser($tid)
     {
-        $u        = $this->table_name['users'];
-        $p        = $this->table_name['post'];
+        $u        = getTableName('users');
+        $p        = getTableName('post');
         $lastuser = M('post')->field("{$u}.user_name,{$p}.user_id")->join("{$u} ON {$p}.user_id = {$u}.user_id")->where(array("{$p}.thread_id" => $tid))->order('post_date desc')->find();
         return $lastuser;
     }
@@ -337,7 +357,7 @@ class ForumController extends BaseController
     }
 
     /**
-     * 获取当前是否是吧主登录
+     * 获取当前吧主登录类型
      * @access public
      * @param string $fid 贴吧id
      * @return boolean
@@ -345,14 +365,14 @@ class ForumController extends BaseController
     public function getManageStatus($fid)
     {
         if ($this->uid == null) {
-            return false;
+            return '-1';
         } else {
             $uid  = $this->uid;
-            $info = M('forum')->field('owner_id')->where(array('forum_id' => $fid))->find();
-            if ($info['owner_id'] == $uid) {
-                return true;
+            $info = M('forum_manager')->field('manager_type')->where(array('forum_id' => $fid, 'user_id' => $uid))->find();
+            if (empty($info)) {
+                return '-1';
             } else {
-                return false;
+                return $info['manager_type'];
             }
         }
     }
@@ -753,8 +773,8 @@ class ForumController extends BaseController
      */
     public function getPostCount($fid)
     {
-        $p    = $this->table_name['post'];
-        $t    = $this->table_name['thread'];
+        $p    = getTableName('post');
+        $t    = getTableName('thread');
         $info = M('post')->join("{$t} ON {$p}.thread_id = {$t}.thread_id")->where(array("{$t}.forum_id" => $fid))->count();
         return $info;
     }
@@ -781,11 +801,11 @@ class ForumController extends BaseController
      */
     public function getMemberList($fid, $username = '')
     {
-        $ff                    = $this->table_name['forum_fans'];
-        $u                     = $this->table_name['users'];
-        $t                     = $this->table_name['thread'];
-        $p                     = $this->table_name['post'];
-        $tt                    = $this->table_name['thread_type'];
+        $ff                    = getTableName('forum_fans');
+        $u                     = getTableName('users');
+        $t                     = getTableName('thread');
+        $p                     = getTableName('post');
+        $tt                    = getTableName('thread_type');
         $condition['forum_id'] = $fid;
         $join                  = "{$u} ON {$ff}.fans_id = {$u}.user_id";
         if ($username != '') {
@@ -895,8 +915,8 @@ class ForumController extends BaseController
      */
     public function getRelatedForumList($fid)
     {
-        $f    = $this->table_name['forum'];
-        $rf   = $this->table_name['related_forum'];
+        $f    = getTableName('forum');
+        $rf   = getTableName('related_forum');
         $info = M('related_forum')->field("{$rf}.object_id as forum_id,{$f}.forum_name")->join("{$f} ON {$rf}.object_id = {$f}.forum_id")->where(array("{$rf}.forum_id" => $fid))->select();
         return $info;
     }
@@ -1228,6 +1248,39 @@ class ForumController extends BaseController
     }
 
     /**
+     * 申请吧主
+     * @access public
+     */
+    public function applyManager($id)
+    {
+        $this->assign('forum_id', $id);
+        $this->display();
+    }
+
+    /**
+     * 申请吧主表单
+     * @access public
+     */
+    public function doApplyManager()
+    {
+        $param     = I('post.');
+        $realname  = $param['realname'];
+        $idcard    = $param['idcard'];
+        $address   = $param['address'];
+        $qq        = $param['qq'];
+        $content   = $param['content'];
+        $agreement = $param['agreement'];
+        $forum_id  = $param['forum_id'];
+        if ($realname == '' || $idcard == '' || $address == '' || $qq == '' || $content == '') {
+            $this->ajaxReturn('empty-field');
+        }
+        if ($agreement != 'true') {
+            $this->ajaxReturn('not-agree');
+        }
+
+    }
+
+    /**
      * ajax获取父级贴吧目录
      * @access public
      */
@@ -1480,10 +1533,10 @@ class ForumController extends BaseController
      */
     private function getSearchResultList($fid, $word, $order)
     {
-        $f = $this->table_name['forum'];
-        $p = $this->table_name['post'];
-        $t = $this->table_name['thread'];
-        $u = $this->table_name['users'];
+        $f = getTableName('forum');
+        $p = getTableName('post');
+        $t = getTableName('thread');
+        $u = getTableName('users');
 
         if ($fid != '') {
             $condition_is_forum = "AND {$t}.forum_id='{$fid}'";
