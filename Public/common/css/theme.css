@@ -1,0 +1,742 @@
+@CHARSET "UTF-8";
+
+* {
+	font-family: 'Microsoft Yahei' ! important;
+}
+
+.u_username_avatar {
+	width: 30px !important;
+	height: 30px !important;
+	margin: 0px 0px 0px !important;
+}
+
+.u_username {
+	font-weight: 400;
+}
+
+/* 防止右上角铃铛错位 */
+#com_userbar>ul:nth-child(1) {
+	padding-right: 10px
+}
+/* 以下修改自https://userstyles.org/styles/81454/tieba-1-0 */
+.profile_bottom {
+	display: none !important;
+}
+
+.user_level {
+	margin-left: 0 !important;
+}
+
+.badge {
+	float: right !important;
+	margin-top: -30px !important;
+}
+
+.exp {
+	width: 118% !important;
+} /*经验条长度,自己调整*/
+.exp_bar {
+	border: 1px #9DCFF2 solid !important;
+	border-radius: 3px !important;
+}
+
+body {
+	background: url("../images/7544f3f6cff95cf3.jpg") repeat scroll 0% 0%
+}
+
+.wrap1, .wrap2 {
+	background: none !important;
+}
+
+.search_bright .search_main_wrap {
+	height: 5px !important;
+}
+
+.search_main {
+	filter: alpha(opacity : 85);
+	opacity: 0.85;
+}
+
+/* 
+.right_section {
+	display: none !important;
+}
+
+.left_section, .core_title_wrap_bright, .l_post_bright,
+	.lzl_simple_wrapper, .core, .core_title_wrap, .l_post, .p_postlist,
+	.p_content_nameplate, .p_content, .lzl_editor_container .lzl_panel_wrapper
+	{
+	width: 100% !important;
+}
+
+.d_post_content_main {
+	width: calc(100% - 160px) !important;
+	width: calc(100% - 160px) !important;
+}
+
+.d_author {
+	width: 138px !important;
+}
+
+.core_title_absolute_bright {
+	display: none !important;
+} */
+
+/* #thread_theme_7>div.l_thread_info>ul, .pager, #thread_theme_4>div>ul {
+	position: fixed !important;
+	bottom: 0px !important;
+	left: 195px !important;
+	z-index: 999 !important;
+	background: #FFF !important;
+	height: 30px !important;
+	padding: 0 0 0 0 !important;
+} */
+/* .d_post_content_main {
+	background: #FFF
+}
+
+.d_post_content {
+	width: 780px;
+}
+
+.user-hide-post-down {
+	right: 30px !important;
+} */
+
+/* .p_author .icon .icon_relative, .icon_relative img, .p_author_face {
+	height: 100px !important;
+	width: 100px !important;
+	background: none !important;
+	border: none !important;
+	padding: 0px !important;
+} */
+/* .p_author .d_nameplate {
+	margin-top: 10px !important;
+}
+
+.content {
+	border: 0px solid #E9EBF0 !important;
+} */
+/* 修改一下贴吧页头部 */
+/* .card_banner {
+	background-color: transparent !important;
+	width: 0px !important;
+	height: 100px !important;
+} */
+
+/* .card_top_theme1 .card_head, .card_top_theme1 .card_head_img {
+	width: 60px !important;
+	height: 60px !important;
+} */
+
+/*修正一下userbar*/
+#com_userbar {
+	top: 5px;
+	right: 10px;
+	position: fixed;
+	z-index: 60001;
+	font-size: 14px;
+}
+
+#com_userbar ul {
+	overflow: visible;
+}
+
+#com_userbar  .u_menu_username+.u_ddl .u_ddl_con li:nth-child(n+2)  a,
+	#com_userbar  .u_menu_setting+.u_ddl .u_ddl_con li:nth-child(n+2)  a {
+	border-top: 1px dotted #ABA17D;
+}
+
+#com_userbar  .u_menu_username+.u_ddl .u_ddl_con li:first-child a,
+	#com_userbar  .u_menu_setting+.u_ddl .u_ddl_con li:first-child a {
+	border-top: 0px dotted #ABA17D;
+}
+
+/*lightblue+++++++++++++*/
+/*去广告*/
+li.u_appcenterEntrance, #encourage_entry, .fMember_cnt, p.profile_bottom_link,
+	#j_navtab_wanle {
+	display: none !important;
+}
+
+/*帖子列表背景色*/
+#content_leftList, .thread_top_list_folder, #pic_theme_list,
+	.threadlist_bright li.threadlist_li_gray {
+	background: rgb(251, 252, 253) !important;
+}
+
+.threadlist_bright li:hover, #thread_list .j_beMember:hover {
+	background-color: rgb(243, 246, 249) !important;
+}
+
+li#topic_post_thread:hover {
+	background-color: rgb(251, 252, 253) !important;
+}
+
+.threadlist_bright li.thread_top_list_folder:hover {
+	background-color: rgb(251, 252, 253) !important;
+}
+
+.thread_list_bottom #frs_list_pager {
+	border-bottom: none !important;
+}
+
+/*吧装修背景*/
+.card_top_wrap {
+	background: url(../images/bg_f_top.png) no-repeat scroll 0% 0%
+		transparent !important;
+}
+/*调整右侧栏排版*/
+#forumInfoPanel .j_op, #forumInfoPanel .forum_info_link, #balv_mod .score_tbmall,
+	#bakan_mod dd.gray {
+	opacity: 0 !important;
+	-moz-transition: opacity .2s ease-in-out;
+	-webkit-transition: opacity .2s ease-in-out;
+	-o-transition: opacity .2s ease-in-out;
+}
+
+#forumInfoPanel:hover .j_op, #forumInfoPanel:hover .forum_info_link,
+	#balv_mod:hover .score_tbmall, #bakan_mod:hover dd.gray {
+	opacity: 1 !important;
+}
+
+#bakan_mod, #forumInfoPanel {
+	padding: 16px 20px 26px !important;
+}
+
+#forumInfoPanel .forum_info_link {
+	margin-top: 3px !important;
+}
+
+#forumInfoPanel {
+	padding-bottom: 1px !important;
+}
+
+#forumInfoPanel .region_cnt>ul:last-child {
+	padding-bottom: 23px !important;
+}
+
+#balv_mod {
+	padding-top: 16px !important;
+	padding-bottom: 16px !important;
+}
+
+.user_avt_card {
+	float: none !important;
+	height: 22px !important;
+	text-align: left !important;
+}
+
+.manager_pic img {
+	display: none !important;
+	width: 78px !important;
+	height: 78px !important;
+}
+
+.user_avt_card:hover .manager_pic img {
+	display: block !important;
+	position: absolute !important;
+	margin-top: -50px;
+	margin-left: 60px;
+}
+
+.manager_list ul {
+	margin-left: 36px !important;
+	margin-top: -23px !important;
+	padding-bottom: 3px !important;
+}
+
+#forumInfoPanel .region_cnt, #zyq>*>.cnt, #aside_album_good .aside_album_good_main
+	{
+	padding-top: 13px !important;
+}
+
+.threadlist_abs.threadlist_abs_onlyline {
+	color: rgb(125, 125, 125) !important;
+}
+
+.j_th_tit:visited, .p_content a:visited, .lzl_content_main a:visited,
+	.j_feedtitle:visited, .feed_left a:visited, .wrap_body #contents a:visited,
+	.member_thread_title_frs a:visited {
+	color: rgb(69, 139, 176) !important;
+}
+
+.tb_icon_author_rely a {
+	color: rgb(147, 153, 159) !important;
+}
+
+#nav_bar.nav_bar a, #nav_bar.nav_bar a:visited, .main_header a,
+	.j_tbname a, #sign_dir_tip p, #aside .ui_bubble_wrap *, .recycle_tip,
+	.aep_title_link {
+	color: white !important;
+}
+
+a.card_title_fname, .star_title_h3 {
+	color: rgb(51, 51, 51) !important;
+}
+
+#forumInfoPanel .region_header a, #quick_reply, .core_title_txt {
+	color: black !important;
+}
+
+.tb_preload_setting {
+	color: rgb(102, 102, 102) !important;
+}
+/*帖子页加宽*/
+#sofa_post {
+	width: 978px !important;
+	border-color: rgb(221, 229, 240) !important;
+	background: none !important;
+}
+
+.right_section {
+	display: none !important;
+}
+
+.core, .l_post, #thread_theme_3 .l_thread_info, #thread_theme_4 {
+	width: 100% !important;
+}
+
+.lzl_simple_wrapper, .lzl_panel_wrapper {
+	width: 85% !important;
+}
+
+.d_post_content_main {
+	width: 800px !important;
+}
+
+.j_lzl_wrapper {
+	width: 750px !important;
+	margin-left: 50px !important;
+}
+
+.louzhubiaoshi {
+	right: -848px !important;
+}
+
+#j_core_title_wrap {
+	width: 980px !important;
+}
+
+#pb_content .left_section, .core {
+	background: url(../images/theme_bg1.png) repeat-y scroll 0% 0%
+		transparent !important
+}
+
+#pb_content .left_section {
+	width: 100% !important;
+	border-right: 1px solid rgb(221, 229, 240) !important;
+}
+
+.core_reply_wrapper {
+	width: auto !important;
+	margin: 0px 0px 8px 15px !important;
+}
+
+.l_post_bright .core_reply_tail {
+	margin-right: 0px !important;
+}
+
+#tb_nav {
+	background: rgb(250, 251, 252) !important;
+	border: 1px solid rgb(221, 229, 240) !important;
+}
+
+.core_title_theme_bright {
+	width: 978px !important;
+	background: rgb(251, 253, 255) !important;
+}
+
+.core_title *, .core_title, #j_core_title_wrap {
+	height: 43px !important;
+	line-height: 43px !important;
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+#thread_theme_5 {
+	border-left: none !important;
+	border-right: none !important;
+	background: none !important;
+	padding: 5px 0 !important;
+}
+
+#tofrs_up {
+	display: none !important;
+}
+
+#thread_theme_7 {
+	background: rgb(253, 254, 255) !important;
+	padding: 15px 0 !important;
+}
+
+.tb_rich_poster_container {
+	padding: 30px 0px 25px !important;
+}
+
+/*置顶帖相关*/
+.icon_top_folder {
+	background: none !important;
+	left: 669px !important;
+	top: -47px !important;
+	width: 70px !important;
+	height: 47px !important;
+	z-index: 100 !important;
+}
+
+.icon_top_folder:before {
+	content: "置顶" !important;
+	line-height: 46px !important;
+	font-size: 16px !important;
+	font-family: 微软雅黑 !important;
+	font-weight: 400 !important;
+	padding-left: 15px !important;
+}
+
+.threadlist_bright li.thread_top_list_folder {
+	border-bottom: none !important;
+}
+
+.thread_top_list_folder {
+	position: static !important;
+}
+
+#contet_wrap {
+	position: relative !important;
+}
+/*去除各种背景*/
+#star_class_nav .space, div.card_top, #sofa_content_area, #thread_list .j_beMember,
+	.golden_id span, .golden_id, #container .content, .pb_footer,
+	.l_post_bright, .d_post_content_main, .nav_wrap, .nav_list .space,
+	.nav_list .focus, .nav_list li:hover, .nav_list li:hover .tbnav_tab_inner,
+	.nav_list .focus .tbnav_tab_inner, .nav_right *, .ui_btn span,
+	.search_bright .search_btn_wrap, .l_post, #lzonly_cntn,
+	#thread_manage_btn, .p_favthr_main, #quick_reply, .threadlist_bright .threadlist_rep_num,
+	#head, .forum_foot {
+	background: none !important;
+}
+/*放大图片尺寸*/
+.BDE_Image:not ([width="1"] ), .imgwrap, .d_content_img {
+	width: auto !important;
+	height: auto !important;
+	max-width: 100% !important;
+}
+
+.p_content .BDE_Flash {
+	width: 800px !important;
+	max-width: 100% !important;
+	height: 485px !important;
+	max-height: 100% !important;
+}
+/*去除各种边框*/
+.frs_nav_3 .nav_wrap, .v2_tab_tab_normal, .v2_tab_tab_text,
+	#tab_forumname, .threadlist_bright .t_con {
+	border: none !important;
+}
+
+.l_post_bright:last-child {
+	border-bottom: none !important;
+}
+
+.threadlist_bright li {
+	border-bottom: solid 1px rgb(231, 239, 250) !important;
+}
+
+#container .content, #j_p_postlist, #thread_theme_4 {
+	border-width: 1px !important;
+	border-color: rgb(221, 229, 240) !important;
+}
+
+.l_post, .left_section .core, .core_title_wrap {
+	border-color: rgb(221, 229, 240) !important;
+}
+
+.p_author_face {
+	border-color: rgb(208, 216, 227) !important;
+}
+
+.search_bright .j_search_post {
+	background: none !important;
+	font-size: 12px !important;
+}
+
+.senior-search-link {
+	margin-top: 7px !important;
+	text-decoration: none !important;
+}
+
+#frs_nav_wrap, .tb_nav_sub_divide, .tab_picture_2, .tab_picture_1,
+	.tab_picture, .tab_forumname, .tab_youliao, .v2_tab_tab,
+	.v2_tab_tab_text {
+	background: rgb(253, 254, 255) !important;
+}
+
+.frs_nav_3 {
+	border: solid 1px rgb(217, 225, 243) !important;
+}
+
+#title1 {
+	-moz-appearance: none !important;
+	-webkit-appearance: none !important;
+	-o-appearance: none !important;
+	background: white !important;
+	border-color: rgb(180, 188, 210) rgb(208, 216, 238) rgb(208, 216, 238)
+		rgb(180, 188, 210) !important
+}
+
+.forum_header #tb_nav {
+	background: rgb(249, 250, 251) !important;
+	border-left: none !important;
+	border-right: none !important;
+}
+
+#switch_bar {
+	border-color: rgb(217, 225, 243) !important;
+	border-top: none !important;
+	background: rgb(253, 254, 255) !important;
+}
+
+#pager_go1, #pager_go2, #pager_go3, #pager_go4, #pager_go5 {
+	background: none !important;
+	border: none !important;
+	-moz-appearance: none !important;
+	-webkit-appearance: none !important;
+	-o-appearance: none !important;
+	height: 19px !important
+}
+
+#jumpPage1, #jumpPage2, #jumpPage3, #jumpPage4, #jumpPage5 {
+	height: 16px !important
+}
+/*杂项细节*/
+.top_cont_toggle, .dasense_cont_toggle {
+	opacity: 0.7 !important;
+}
+
+.edui-editor-body {
+	border-color: rgb(210, 210, 210) !important;
+}
+
+input.editor_title {
+	border-color: rgb(205, 205, 205) !important;
+}
+
+.body-container-focus, input.editor_title:focus {
+	border-color: rgb(92, 157, 255) !important;
+}
+
+.j_lzl_wrapper .edui-editor-body {
+	border-color: rgb(200, 220, 255) !important;
+}
+
+#thread_top_list .j_threadlist_li_right {
+	padding-top: 2px !important;
+}
+
+#thread_top_list .threadlist_rep_num {
+	line-height: 29px !important;
+}
+/*楼中楼调整*/
+.core_reply_content, .lzl_link_fold {
+	background: rgb(250, 252, 255) !important
+}
+
+.j_lzl_p a {
+	background: none !important
+}
+
+#frs_list_pager {
+	border-bottom: solid 1px rgb(216, 225, 236) !important
+}
+
+.wrap2 #container {
+	padding-bottom: 0 !important
+}
+
+.core_reply_content li {
+	border-top: none !important;
+	padding-top: 6px !important
+}
+
+.core_reply_content {
+	padding-bottom: 12px !important;
+	border: 1px solid rgb(221, 230, 241) !important;
+	border-radius: 2px !important
+}
+
+.lzl_link_fold {
+	border: 1px solid rgb(221, 230, 241) !important;
+	border-bottom: none !important;
+	border-radius: 2px !important
+}
+
+.j_lzl_s_p {
+	border-bottom: 1px solid rgb(221, 230, 241) !important;
+}
+/*消息提醒*/
+.ui_bubble_up, .editor_banned_tip_info {
+	background: rgba(80, 129, 205, 0.85) !important;
+	border: none !important;
+	color: white !important;
+}
+
+.ui_bubble_up li a {
+	color: white !important
+}
+
+.ui_triangle_outter em, .ui_triangle_inner em {
+	color: rgba(80, 129, 205, 0.55) !important;
+	font-family: "宋体" !important;
+}
+/*发表按钮*/
+.ui_btn {
+	background: rgb(80, 129, 205) !important
+}
+
+.ui_btn:hover {
+	background: rgb(130, 179, 235) !important
+}
+
+.ui_btn:active {
+	background: rgb(30, 99, 155) !important
+}
+/*已签背景*/
+span.sign_keep_span {
+	margin-left: 18px !important;
+	margin-top: 15px !important;
+	font-size: 15px !important;
+	font-weight: bold;
+	color: black !important;
+}
+
+.sign_mod_bright {
+	padding: 10px 0 !important;
+}
+
+.sign_box_bright_signed {
+	background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.exp_bar_current {
+	background: rgb(100, 149, 225) !important;
+}
+
+.exp_bar .exp_current_num, .exp_bar span {
+	font-size: 12px !important;
+	color: rgb(230, 240, 255) !important;
+	font-weight: bold !important;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.5) !important
+}
+
+.exp_bar {
+	background: rgb(255, 255, 255) !important;
+	border: 1px solid rgb(200, 200, 200) !important;
+	padding: 0 !important;
+	margin-top: 1px !important;
+	height: 11px !important;
+}
+
+.exp_bar {
+	width: 155px !important;
+}
+
+.d_badge_bright {
+	background: rgb(251, 253, 255) !important;
+}
+/*bilibili吧*/
+.card_banner {
+	display: none !important;
+}
+
+.card_top_wrap {
+	border-top: none !important;
+}
+
+.card_top_theme1 .card_head, .card_top_theme1 .card_head_img {
+	width: 60px !important;
+	height: 60px !important;
+}
+
+.card_top_theme1 .card_head {
+	padding: 2px !important;
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
+	left: 0px !important;
+	top: 0px !important;
+	margin: 15px !important;
+}
+
+.card_top_theme1 .card_title {
+	margin: 5px 0px 0px -100px !important;
+}
+
+.card_top_theme1 .card_slogan {
+	margin-left: -100px !important;
+}
+/*应要求兼容吧主专区吧*/
+.core_title .icon_pre {
+	height: 17px !important;
+	margin-top: 14px !important;
+}
+
+.card_top_theme2 {
+	margin-top: 0px !important;
+	height: 89px !important;
+	border: solid 1px rgb(221, 229, 240) !important;
+}
+
+.card_top_theme2 .card_head {
+	margin-top: 9px !important;
+	margin-left: 15px !important;
+	padding: 2px !important;
+}
+
+.card_top_theme2 .card_title_fname {
+	margin-top: 0px !important;
+	font-size: 22px !important;
+}
+
+.card_top_theme2 .card_top {
+	height: 50px !important;
+}
+
+#tb_nav a, #thread_theme_5 a, #allsign, #getDown, .icon_top_folder:before,
+	#frs_nav.frs_nav_3 a, #switch_bar a {
+	color: rgb(0, 94, 157) !important;
+}
+
+#thread_theme_5 {
+	margin-top: -35px !important;
+}
+
+#thread_theme_5 .l_posts_num {
+	margin-top: -20px !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+
+#thread_theme_5 .l_thread_info {
+	margin-top: 25px !important;
+	margin-left: 1px !important;
+}
+
+#jumpPage4 {
+	background: rgba(0, 0, 0, 0.1) !important;
+	border: none !important;
+	-moz-appearance: none !important;
+	-webkit-appearance: none !important;
+	-o-appearance: none !important;
+}
+
+.nav_wrap_add_border, .star_nav_wrap_margin {
+	display: none !important;
+}
+
+div.top-sec, #frs_nav.frs_nav_3, .star_head_theme2 {
+	margin-top: 38px !important;
+}
+
+/*头像框*/
+.p_author_face.j_frame_guide, .userinfo_head {
+	background: none no-repeat scroll 0% 0% transparent !important;
+}

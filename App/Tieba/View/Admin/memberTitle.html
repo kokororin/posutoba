@@ -1,0 +1,169 @@
+ <div class="membertitle_dialog dialogJ user_title_dlg dialogJfix dialogJshadow ui-draggable" style="z-index: 50001; width: 770px; display:none;">
+   <div class="uiDialogWrapper">
+    <div class="dialogJtitle" style="-moz-user-select: none; cursor: move;">
+     <span class="dialogJtxt">设置吧头衔</span>
+     <a title="关闭本窗口" class="dialogJclose" href="javascript:void(0)">&nbsp;</a>
+    </div>
+    <div class="dialogJcontent">
+     <div id="dialogJbody" class="dialogJbody" style="height: 475px;"> 
+      <form id="member_set_form" method="post" action="{:U('Admin/setMemberTitle')}">
+      <input type="hidden" name="fid" value="{$forum_info.forum_id}" />
+      <div class="member_main" id="main"> 
+       <div class="operation" style="display: block;">
+        <div id="member_savemsg" class="operation_msg" style="display: block;">
+         头衔不超过4个汉字或8个字节，仅使用汉字，字母或数字。
+        </div>
+        <div id="member_editmsg" class="operation_msg" style="display: block;">
+             设置会员名：<input type="text" class="title_set" name="member_name" value="{$member_name}" />
+        </div>
+        <div id="member_set" class="ui_btn ui_btn_s operation_button" style="display: block;">
+         <span><em>保存</em></span>
+        </div>
+        <div class="cl"></div>
+       </div>
+       <div style="width:100%;">
+        <table id="level_l_table">
+         <tbody>
+          <tr class="level_lvbg_tr">
+           <th style="width:60px;height:35px;">级别</th>
+           <th style="width:122px;">经验值</th>
+           <th style="width:172px;">头衔</th>
+           <th style="width:60px;height:35px;">级别</th>
+           <th style="width:122px;">经验值</th>
+           <th style="width:172px;">头衔</th>
+          </tr> 
+          <tr>
+           <td class="b"> 1</td>
+           <td> 1</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title1" value="{$member_title.1}" />
+            </div></td>
+           <td class="b"> 10</td>
+           <td> 2000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title10" value="{$member_title.10}" />
+            </div></td>
+          </tr> 
+          <tr>
+           <td class="b"> 2</td>
+           <td> 5</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title2" value="{$member_title.2}" />
+            </div></td>
+           <td class="b"> 11</td>
+           <td> 3000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title11" value="{$member_title.11}" />
+            </div></td>
+          </tr> 
+          <tr>
+           <td class="b"> 3</td>
+           <td> 15</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title3" value="{$member_title.3}" />
+            </div></td>
+           <td class="b"> 12</td>
+           <td> 6000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title12" value="{$member_title.12}" />
+            </div></td>
+          </tr> 
+          <tr>
+           <td class="b"> 4</td>
+           <td> 30</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title4" value="{$member_title.4}" />
+            </div></td>
+           <td class="b"> 13</td>
+           <td> 10000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title13" value="{$member_title.13}" />
+            </div></td>
+          </tr> 
+          <tr>
+           <td class="b"> 5</td>
+           <td> 50</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title5" value="{$member_title.5}" />
+            </div></td>
+           <td class="b"> 14</td>
+           <td> 18000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title14" value="{$member_title.14}" />
+            </div></td>
+          </tr> 
+          <tr>
+           <td class="b"> 6</td>
+           <td> 100</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title6" value="{$member_title.6}" />
+            </div></td>
+           <td class="b"> 15</td>
+           <td> 30000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title15" value="{$member_title.15}" />
+            </div></td>
+          </tr> 
+          <tr>
+           <td class="b"> 7</td>
+           <td> 200</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title7" value="{$member_title.7}" />
+            </div></td>
+           <td class="b"> 16</td>
+           <td> 60000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title16" value="{$member_title.16}" />
+            </div></td>
+          </tr> 
+          <tr>
+           <td class="b"> 8</td>
+           <td> 500</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title8" value="{$member_title.8}" />
+            </div></td>
+           <td class="b"> 17</td>
+           <td> 100000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title17" value="{$member_title.17}" />
+            </div></td>
+          </tr> 
+          <tr>
+           <td class="b"> 9</td>
+           <td> 1000</td>
+           <td class="j_pre_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title9" value="{$member_title.9}" />
+            </div></td>
+           <td class="b"> 18</td>
+           <td> 300000</td>
+           <td class="j_next_half_badge">
+            <div class="like_badge_input" style="display: block;">
+             <input type="text" class="title_set" name="member_title18" value="{$member_title.18}" />
+            </div></td>
+          </tr> 
+         </tbody>
+        </table>
+       </div>
+      </div>
+      </form>
+     </div>
+    </div>
+   </div>
+  </div>

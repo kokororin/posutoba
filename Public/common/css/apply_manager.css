@@ -1,0 +1,637 @@
+@CHARSET "UTF-8";
+@import url('nobg.css'); 
+input,
+button {
+    vertical-align: middle
+}
+
+select {
+    font-size: 14px;
+    outline: 0;
+    border-radius: 0
+}
+
+.head {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    height: 50px
+}
+
+
+.head_nav {
+    margin: 0 auto;
+    width: 960px
+}
+
+.title_bar {
+    height: 46px;
+    margin-bottom: 15px;
+    line-height: 43px;
+    background: url(../images/breadbg_036ad787.gif) repeat-x
+}
+
+.title_bar .title_bar_content {
+    margin: 0 auto;
+    padding-left: 40px;
+    width: 920px
+}
+
+.title_bar h3 {
+    display: inline;
+    font-size: 16px;
+    font-weight: bold;
+    _padding-right: 5px
+}
+
+.title_bar span {
+    color: #999
+}
+
+.apply_form_box {
+    margin: 0 auto;
+    padding-left: 40px;
+    width: 920px
+}
+
+.step_list {
+    list-style: none
+}
+
+.step_list li {
+    position: relative;
+    float: left;
+    padding: 0 28px;
+    height: 29px;
+    line-height: 29px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #eee;
+    border-left: none
+}
+
+.step_list .first_step {
+    border-left: 1px solid #eee
+}
+
+.form_step1 .apply_agreement {
+    margin-top: 15px
+}
+
+.form_step1 li.agreement_step,
+.form_step2 li.fill_step,
+.form_step3 li.confirm_step {
+    border-color: #cfd9f8;
+    background: #ebf3fe
+}
+
+.step_list .step_arrow {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 11px;
+    height: 29px;
+    background: url(../images/step_arrow_c8ff6713.png) no-repeat;
+    z-index: 10
+}
+
+.form_step1 li.agreement_step .step_arrow,
+.form_step2 li.fill_step .step_arrow,
+.form_step3 li.confirm_step .step_arrow {
+    background-position: 0 -29px
+}
+
+.apply_form .text_field {
+    padding: 0 8px;
+    width: 245px;
+    height: 30px;
+    float: left;
+    border: 1px solid #ccc;
+    border-bottom-color: #ddd;
+    border-right-color: #ddd;
+    outline: 0;
+    line-height: 30px;
+    font-size: 14px;
+    box-shadow: 1px 1px 1px #eee inset
+}
+
+.apply_form textarea {
+    padding: 5px 8px;
+    width: 636px;
+    height: 115px;
+    border: 1px solid #ccc;
+    border-bottom-color: #ddd;
+    border-right-color: #ddd;
+    vertical-align: middle;
+    resize: none;
+    outline: 0;
+    font-size: 14px;
+    line-height: 1.5em;
+    box-shadow: 1px 1px 1px #eee inset
+}
+
+.declaration_box .edit_part {
+    margin-left: 10px
+}
+
+.apply_form .focus {
+    border-color: #387bca;
+    box-shadow: none
+}
+
+.apply_form em,
+.em {
+    padding-right: 5px;
+    font-style: normal;
+    color: #dd1013
+}
+
+.apply_form .desc {
+    padding-left: 5px;
+    font-size: 12px;
+    color: #999
+}
+
+.select_box {
+    float: left;
+    margin-right: 10px;
+    padding: 5px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-bottom-color: #ddd;
+    border-right-color: #ddd;
+    vertical-align: middle;
+    box-shadow: 1px 1px 1px #eee inset
+}
+
+.select_box select {
+    border-radius: 0;
+    border: 0 none;
+    -webkit-appearance: none;
+    vertical-align: top;
+    *float: left;
+    *border: 1px solid white;
+    _margin: -1px
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .select_box select {
+        padding-right: 15px;
+        background: url(../images/select-bg_14a7f93b.gif) right center no-repeat transparent
+    }
+}
+
+.apply_form dt {
+    float: left;
+    clear: left;
+    width: 95px;
+    height: 45px;
+    font-size: 14px;
+    line-height: 45px;
+    text-align: right
+}
+
+.apply_form dd {
+    float: left;
+    padding-left: 15px;
+    width: 800px;
+    height: 45px;
+    line-height: 45px
+}
+
+.apply_form dd.apply_id_row {
+    position: relative;
+    font-size: 14px
+}
+
+.apply_form .declaration_box {
+    padding-top: 7px;
+    height: auto
+}
+
+.apply_form .declaration_bar {
+    position: relative;
+    margin-top: 12px;
+    width: 660px;
+    line-height: 18px
+}
+
+.apply_form .declaration_desc {
+    color: #666
+}
+
+dd.declaration_box {
+    position: relative
+}
+
+dd.declaration_box .feedback {
+    position: absolute;
+    top: 0;
+    left: 685px
+}
+
+.apply_form .declaration_count {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    color: #999
+}
+
+.apply_form dd.agreement_row {
+    padding-top: 20px;
+    height: auto;
+    line-height: normal;
+    margin-left: 10px
+}
+
+.apply_form dd.next_row {
+    height: 34px;
+    line-height: 34px;
+    margin-left: 10px
+}
+
+dd.next_row,
+dd.save_row,
+dd.submit_row {
+    padding-top: 15px
+}
+
+.apply_form button,
+.apply_button {
+    margin-right: 15px;
+    border: 0;
+    width: 132px;
+    height: 34px;
+    line-height: 30px;
+    color: white;
+    background: url(../images/new_apply_button_836a414e.png) no-repeat;
+    cursor: pointer
+}
+
+.apply_button_disabled {
+    background-position: -478px 0!important;
+    color: #999!important
+}
+
+.apply_form button:hover,
+.apply_button:hover {
+    background-position: -158px 0
+}
+
+.apply_form button:active,
+.apply_button:active {
+    background-position: -318px 0
+}
+
+.tiny_button {
+    padding-right: 15px;
+    color: #1c52be;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer
+}
+
+.tiny_button_bar .tiny_button {
+    font-size: 14px
+}
+
+.dialog_inner_wrapper {
+    padding: 28px 20px;
+    font-family: Arial, '宋体', serif;
+    font-size: 14px
+}
+
+.dialog_inner_wrapper .dialog_inner_info {
+    margin-bottom: 20px;
+    text-align: center
+}
+
+.dialog_inner_wrapper .dialog_inner_btn_bar {
+    text-align: center
+}
+
+.dialog_inner_wrapper em {
+    padding: 0 3px;
+    font-style: normal;
+    color: #dd1013
+}
+
+.dialog_inner_wrapper button {
+    margin-right: 15px;
+    padding: 2px 12px
+}
+
+.dialog_inner_info .tiny_button {
+    font-size: 14px
+}
+
+.dialog_inner_info .correct {
+    padding-right: 5px
+}
+
+.feedback {
+    line-height: 1.5;
+    float: left
+}
+
+.feedback .wrong {
+    margin-left: 5px;
+    color: #dd1013
+}
+
+.correct {
+    display: inline-block;
+    margin-left: 15px;
+    width: 23px;
+    height: 20px;
+    vertical-align: middle;
+    background: url(http://tb2.bdstatic.com/tb/static-managerapply/style/apply/correct_e56c5ee7.png) no-repeat
+}
+
+.feedback_none .wrong,
+.feedback_none .correct {
+    display: none
+}
+
+.feedback_correct .wrong {
+    display: none
+}
+
+.feedback_wrong .correct {
+    display: none
+}
+
+.form_step2 .view_part {
+    display: none
+}
+
+.form_step2 .submit_row {
+    display: none
+}
+
+.form_step3 dd {
+    font-size: 14px
+}
+
+.form_step3 .declaration_box {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    line-height: 20px
+}
+
+.form_step3 em {
+    display: none
+}
+
+.form_step3 .edit_part {
+    display: none
+}
+
+.form_step3 .apply_id_row {
+    display: none
+}
+
+.form_step3 .agreement_row {
+    display: none
+}
+
+.form_step3 .next_row {
+    display: none
+}
+
+.im_selector {
+    margin-right: -1px
+}
+
+.edit-btns {
+    overflow: hidden;
+    zoom: 1;
+    float: left;
+    position: relative;
+    display: none
+}
+
+.edit-btns .save-btn,
+.edit-btns .cancel-btn {
+    display: none
+}
+
+dd.editing .save-btn,
+dd.editing .cancel-btn {
+    display: block
+}
+
+dd.editing .modify-btn {
+    display: none
+}
+
+.btn {
+    cursor: pointer;
+    height: 24px;
+    line-height: 24px;
+    color: #555;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 3px 15px;
+    box-shadow: 0 0 1px white inset;
+    float: left;
+    margin-right: 5px
+}
+
+.btn:hover {
+    color: #333;
+    background-color: #fff
+}
+
+.shadow-box {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    background-color: #e8e8e8
+}
+
+.shadow-inner {
+    background-color: #ffffe7;
+    border: 1px solid #d4d4d4;
+    left: -3px;
+    line-height: 14px;
+    padding: 9px;
+    position: relative;
+    text-align: center;
+    top: -3px;
+    font-size: 12px
+}
+
+.apply_agreement iframe {
+    border: 1px solid #ccc
+}
+
+.apply_agreement .button_bar {
+    margin-top: 15px;
+    text-align: center;
+    width: 835px
+}
+
+.manager_banner_wrap {
+    margin: 0 auto;
+    padding-left: 40px;
+    margin-bottom: 15px;
+    width: 920px
+}
+
+.manager_banner {
+    position: relative;
+    margin-top: 15px;
+    width: 763px;
+    height: 43px;
+    background: url(http://tb2.bdstatic.com/tb/static-manager/style/bawu/bz_univ_banner.jpg) no-repeat
+}
+
+.manager_banner .open_tec {
+    position: absolute;
+    left: 555px;
+    top: 11px
+}
+
+.manager_banner .share_tec {
+    position: absolute;
+    left: 660px;
+    top: 11px
+}
+
+.manager_banner .close_manager_banner {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    cursor: pointer
+}
+
+.manager_banner a:link {
+    color: #1e54c0!important;
+    text-decoration: none!important
+}
+
+.apply_form h2 {
+    font-size: 14px;
+    padding-left: 14px;
+    margin: 25px 0 14px
+}
+
+.apply_form .base_info_title {
+    margin-bottom: 4px
+}
+
+.apply_form h2 .greytext {
+    color: #999;
+    font-weight: normal
+}
+
+.phone_wrap {
+    font-size: 14px;
+    margin-left: 24px
+}
+
+.phone_wrap .phone_txt {
+    color: #999;
+    padding-left: 15px
+}
+
+.phone_wrap .view_part_txt {
+    display: none
+}
+
+.phone_wrap .phone_num,
+.phone_wrap .phone_txt {
+    display: none
+}
+
+.phone_wrap .bind_mobile {
+    display: inline-block
+}
+
+.has_phone .phone_num,
+.has_phone .phone_txt {
+    display: inline-block
+}
+
+.has_phone .bind_mobile {
+    display: none
+}
+
+.bind_mobile em {
+    color: #666
+}
+
+.form_step3 .base_info_title {
+    display: none
+}
+
+.form_step3 .bind_phone_title,
+.form_step3 .declaration_title {
+    font-weight: normal;
+    float: left;
+    margin: 0;
+    padding: 0;
+    line-height: 45px;
+    clear: left;
+    width: 95px;
+    height: 45px;
+    text-align: right
+}
+
+.form_step3 .phone_wrap {
+    height: 45px;
+    line-height: 45px;
+    margin: 0;
+    float: left;
+    padding-left: 15px
+}
+
+.form_step3 .phone_txt {
+    display: none
+}
+
+.form_step3 .phone_wrap .view_part_txt {
+    display: inline;
+    font-size: 12px;
+    color: #999;
+    line-height: 40px
+}
+
+.form_step3 .apply_form {
+    margin-top: 15px
+}
+
+.confirm_dlg .dialog_inner_wrapper {
+    padding-top: 20px;
+    padding-bottom: 10px
+}
+
+.dialog_inner_wrapper {
+    text-align: center
+}
+
+.dialog_inner_title {
+    font-weight: bold;
+    margin-bottom: 20px
+}
+
+.dialog_inner_wrapper .bind_succ,
+.dialog_inner_wrapper .bind_fail {
+    text-align: left;
+    padding-left: 25px;
+    height: 18px;
+    width: 140px;
+    margin: 0 auto 20px;
+    background: url(http://tb2.bdstatic.com/tb/static-managerapply/style/apply/dlg_icons_c77f2e8a.png) no-repeat
+}
+
+.dialog_inner_wrapper .bind_fail {
+    background-position: 4px -22px
+}
+
+.dialog_inner_wrapper a.succ,
+.dialog_inner_wrapper a.fail {
+    padding-left: 10px
+}

@@ -1,0 +1,370 @@
+@CHARSET "UTF-8";
+
+.forum_title {
+	margin-top: 30px
+}
+
+.forum_table {
+	margin-top: 15px
+}
+
+.forum_table table {
+	width: 100%;
+	border-collapse: collapse;
+	border: solid #dadfe8;
+	border-width: 0 1px 1px 0
+}
+
+.forum_table table th, .forum_table table td {
+	border-collapse: collapse;
+	border: solid #dadfe8;
+	border-width: 1px 0 0 1px;
+	vertical-align: middle;
+	text-align: center
+}
+
+.forum_tips {
+	margin-top: 20px
+}
+
+.addfav {
+	background-image:
+		url(http://tb2.bdstatic.com/tb/static-member/img/blueplus_b2cd2be5.png);
+	display: block;
+	height: 25px;
+	width: 73px;
+	margin: 0 auto;
+	cursor: pointer
+}
+
+.canfav {
+	background-image:
+		url(../images/cancel_like_727146ea.png);
+	display: block;
+	height: 25px;
+	width: 98px;
+	margin: 0 auto
+}
+
+.canfav_text {
+	color: blue;
+	left: 28px;
+	position: relative;
+	top: 5px;
+	cursor: pointer
+}
+
+.cur_exp {
+	color: #ff6e1b
+}
+
+.s_icon {
+	margin: 4px
+}
+
+.like_badge {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/bg_4a68c005.png?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	height: 25px;
+	line-height: 25px;
+	line-height: 24px\9;
+	_line-height: 24px;
+	margin: 4px auto 0;
+	position: relative;
+	width: 85px;
+	cursor: pointer
+}
+
+.like_badge_title {
+	color: #4c4c4c;
+	font-family: arial, "ËÎÌå";
+	height: 25px;
+	left: 0;
+	line-height: 25px;
+	line-height: 28px\9;
+	_line-height: 28px;
+	position: absolute;
+	text-align: center;
+	width: 60px
+}
+
+.like_badge_lv {
+	color: #b65e00;
+	font-family: arial;
+	font-size: 11px;
+	font-weight: bold;
+	height: 25px;
+	left: 60px;
+	position: absolute;
+	text-align: left;
+	padding-left: 8px;
+	width: 25px
+}
+
+.badge_lv1 .like_badge_lv {
+	background:
+		url(../images/s1_3544a689.gif?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	margin-top: 1px
+}
+
+.badge_lv2 .like_badge_lv {
+	background:
+		url(../images/s2_e3db3eb8.gif?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	padding-top: 1px
+}
+
+.badge_lv2_1 .like_badge_lv {
+	background:
+		url(../images/s3_8ea577bf.gif?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	padding-top: 1px
+}
+
+.badge_lv2_2 .like_badge_lv {
+	background:
+		url(../images/s4_ad27f369.gif?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	padding-top: 1px
+}
+
+.badge_lv3 .like_badge_lv {
+	background:
+		url(../images/s5_1732b3ce.gif?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px
+}
+
+.badge_lv3_1 .like_badge_lv {
+	background:
+		url(../images/s6_f8b701e7.gif?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px
+}
+
+.badge_lv3_2 .like_badge_lv {
+	background:
+		url(../images/s7_b94bc5ae.gif?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px
+}
+
+.badge_lv4 .like_badge_lv {
+	background:
+		url(../images/s8_01e1e32f.gif?v=1.0)
+		no-repeat scroll 0 0 transparent;
+	left: 58px;
+	padding-left: 6px;
+	padding-top: 4px;
+	top: -3px
+}
+
+.pt {
+	cursor: pointer
+}
+
+.forum_main {
+	padding-left: 2px;
+}
+
+.forum_note {
+	background-color: #FEFFDB;
+	border: 1px solid #FFD99C;
+	color: #6C6C6E;
+	padding: 4px 15px;
+	width: 480px;
+}
+
+.forum_title {
+	margin-top: 30px;
+}
+
+.forum_table {
+	margin-top: 15px;
+}
+
+.forum_table table {
+	width: 100%;
+	border-collapse: collapse;
+	border: solid #DADFE8;
+	border-width: 0 1px 1px 0;
+}
+
+.forum_table table th, .forum_table table td {
+	border-collapse: collapse;
+	border: solid #DADFE8;
+	border-width: 1px 0 0 1px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.forum_table table th {
+	font-size: 14px;
+	font-weight: bold;
+	height: 36px;
+}
+
+.forum_table table td {
+	height: 36px;
+}
+
+.forum_tips {
+	margin-top: 20px;
+}
+
+.addfav {
+	background-image:
+		url("http://static.tieba.baidu.com/tb/static-member/img/blueplus.png");
+	display: block;
+	height: 25px;
+	width: 73px;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+.canfav {
+	background-image:
+		url("http://static.tieba.baidu.com/tb/static-member/img/cancel_like.png");
+	display: block;
+	height: 25px;
+	width: 98px;
+	margin: 0 auto;
+}
+
+.canfav_text {
+	color: blue;
+	left: 28px;
+	position: relative;
+	top: 5px;
+	cursor: pointer;
+}
+
+.cur_exp {
+	color: #FF6E1B;
+	cursor: pointer;
+}
+
+.s_icon {
+	margin: 4px;
+}
+
+.like_badge {
+	background:
+		url("../images/bg.png?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	height: 25px;
+	line-height: 25px;
+	line-height: 24px\9;
+	_line-height: 24px;
+	margin: 4px auto 0;
+	position: relative;
+	width: 85px;
+	cursor: pointer;
+	padding: 0px;
+}
+
+.like_badge_title {
+	color: #4C4C4C;
+	font-family: arial, "宋体";
+	height: 25px;
+	left: 0;
+	top: 0;
+	line-height: 25px;
+	line-height: 28px\9;
+	_line-height: 28px;
+	position: absolute;
+	text-align: center;
+	width: 60px;
+	margin-top: 0px;
+	margin-left: 4px;
+}
+
+.like_badge_lv {
+	color: #B65E00;
+	font-family: arial;
+	font-size: 11px;
+	font-weight: bold;
+	height: 25px;
+	left: 60px;
+	position: absolute;
+	text-align: left;
+	padding-left: 8px;
+	width: 25px;
+}
+
+.badge_lv1 .like_badge_lv {
+	background:
+		url("../images/s1.gif?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	margin-top: 1px;
+}
+
+.badge_lv2 .like_badge_lv {
+	background:
+		url("../images/s2.gif?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	padding-top: 1px;
+}
+
+.badge_lv2_1 .like_badge_lv {
+	background:
+		url("../images/s3.gif?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	padding-top: 1px;
+}
+
+.badge_lv2_2 .like_badge_lv {
+	background:
+		url("../images/s4.gif?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	padding-top: 1px;
+}
+
+.badge_lv3 .like_badge_lv {
+	background:
+		url("../images/s5.gif?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px;
+}
+
+.badge_lv3_1 .like_badge_lv {
+	background:
+		url("../images/s6.gif?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px;
+}
+
+.badge_lv3_2 .like_badge_lv {
+	background:
+		url("../images/s7.gif?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px;
+}
+
+.badge_lv4 .like_badge_lv {
+	background:
+		url("../images/s8.gif?v=1.0")
+		no-repeat scroll 0 0 transparent;
+	left: 58px;
+	padding-left: 6px;
+	padding-top: 4px;
+	top: -3px;
+}
+
+.pt {
+	cursor: pointer;
+}

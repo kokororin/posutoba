@@ -1,0 +1,131 @@
+ <div style="z-index: 10005;" id="com_userbar" class="userbar "> 
+   <ul> 
+    <?php if (null == getUid()): ?> 
+    <li class="u_login"><a href="javascript:void(0)" onclick="login()">登录</a></li> 
+    <li class="u_reg"><a href="{:U('User/register',array('u'=>base64_encode('__SELF__')))}">注册</a></li> 
+    <?php else: ?> 
+    <li id="j_u_username" class="u_username"> 
+     <div class="u_menu_item u_menu_username"> 
+      <a href="{:U('Home/main',array('id'=>getUid()))}" title="点击到个人中心" class="u_menu_wrap u_username_wrap"> <img class="u_username_avatar" src="{:U('Home/getAvatar',array('uid'=>getUid()))}" /><span class="u_username_title">
+        <?php echo getUsername()?></span></a> 
+     </div> 
+     <div style="display: none;" class="u_ddl"> 
+      <div class="u_ddl_tit"> 
+      </div> 
+      <div class="u_ddl_con"> 
+       <div class="u_ddl_con_top"> 
+        <ul> 
+         <li class="u_itieba"><a href="{:U('Home/main',array('id'=>getUid()))}">我的贴吧</a></li> 
+         <li class="u_favor"><a href="{:U('Home/storedThread',array('id'=>getUid()))}">我的收藏</a></li> 
+        </ul> 
+       </div> 
+       <div class="d_ddl_con_bottom"> 
+       </div> 
+      </div> 
+     </div> </li> 
+    <li class="u_setting"> 
+     <div class="u_menu_item u_menu_setting"> 
+      <a class="u_menu_wrap u_setting_wrap" href="#" onclick="return false;"></a> 
+     </div> 
+     <div style="display: none;" class="u_ddl"> 
+      <div class="u_ddl_tit"> 
+      </div> 
+      <div class="u_ddl_con"> 
+       <div class="u_ddl_con_top"> 
+        <ul> 
+         <li class="u_tb_profile"><a href="{:U('Home/profile',array('id'=>getUid()))}">贴吧设置</a></li> 
+         <li class="u_logout"><a href="javascript:void(0)" onclick="logout()">退出</a></li> 
+        </ul> 
+       </div> 
+       <div class="d_ddl_con_bottom"> 
+       </div> 
+      </div> 
+     </div> </li> 
+    <li class="u_news"> 
+     <div style="display: none;" class="u_ddl"> 
+      <div class="u_ddl_tit"> 
+      </div> 
+      <div class="u_ddl_con"> 
+       <div class="u_ddl_con_top"> 
+        <div class="u_notity_bd"> 
+         <ul> 
+          <li class="category_item category_item_empty"><a class="j_cleardata" href="{:U('Home/replyMe',array('id'=>getUid()))}" target="_blank" data-type="reply">查看回复 <span class="unread_num clearfix"></span></a></li> 
+          <li class="category_item category_item_empty"><a class="j_cleardata" href="{:U('Home/fansList',array('id'=>getUid()))}" target="_blank" data-type="fans">查看新粉丝 <span class="unread_num clearfix"></span></a></li> 
+         </ul> 
+         <ul class="sys_notify_last"> 
+          <li class="category_item category_item_last j_category_item_last"> <a target="_blank" href="{:U('Home/replyMe',array('id'=>getUid()))}"> 我的通知 </a><span style="display: none;" class="unread_num clearfix">0</span> 
+           <ul class="new_message j_new_message j_category_list"> 
+           </ul> </li> 
+         </ul> 
+        </div> 
+       </div> 
+       <div class="d_ddl_con_bottom"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="u_menu_item u_menu_news"> 
+      <a href="#" class="u_menu_wrap u_news_wrap j_news" onclick="return false;"> <span id="notify-count" style="display: none;"></span></a> 
+     </div> </li> 
+    <?php endif;?> 
+   </ul> 
+  </div> 
+  <?php if (null == getUid()): ?> 
+  <!-- 登录框 --> 
+  <div id="passport-login-pop" class="tang-pass-pop-login-img tang-pass-pop-login-merge tang-pass-pop-login-tpl-tb tang-pass-pop-login-color-blue tang-pass-pop-login" style="display: none;left: 409px; top: 100px; z-index: 60001;"> 
+   <div class="tang-background" id="TANGRAM__PSP_5__" style="position:absolute; top:0px; left:0px;width:100%;height:100%;z-index:-9; -webkit-user-select:none; -moz-user-select:none;" onselectstart="return false"> 
+    <div class="tang-background-inner" style="width:100%;height:100%;" id="TANGRAM__PSP_5__inner"> 
+    </div> 
+    <div style="filter:progid:DXImageTransform.Microsoft.Alpha(opacity:0);position:absolute;z-index:-1;top:0;left:0;width:100%;height:100%;opacity:0;background-color:#FFFFFF"> 
+    </div> 
+   </div> 
+   <div class="tang-foreground" id="TANGRAM__PSP_3__foreground" style="width: 532px;"> 
+    <div class="tang-title tang-title-dragable" id="TANGRAM__PSP_3__title"> 
+     <div class="buttons" id="TANGRAM__PSP_3__titleButtons"> 
+      <a id="TANGRAM__PSP_3__closeBtn" class="close-btn" href="javascript:void(0)"></a> 
+     </div> 
+     <span id="TANGRAM__PSP_3__titleText">登录帐号</span> 
+    </div> 
+    <div class="tang-body" id="TANGRAM__PSP_3__body"> 
+     <div class="tang-content" id="TANGRAM__PSP_3__content"> 
+      <div id="passport-login-pop-dialog"> 
+       <div class="clearfix"> 
+        <div class="pass-login-pop-img"> 
+         <img src="__PUBLIC__/common/images/logindlg_pic1.png" alt="" title="" /> 
+        </div> 
+        <div class="pass-login-pop-content" id=""> 
+         <div class="pass-login-pop-form"> 
+          <div id="passport-login-pop-api" class="tang-pass-login"> 
+           <form action="{:U('User/login')}" id="TANGRAM__PSP_9__form" class="pass-form pass-form-normal" method="POST" autocomplete="off"> 
+            <p id="TANGRAM__PSP_9__errorWrapper" class="pass-generalErrorWrapper"> <span id="TANGRAM__PSP_9__error" class="pass-generalError pass-generalError-error"></span> </p> 
+            <p id="TANGRAM__PSP_9__userNameWrapper" class="pass-form-item pass-form-item-userName" style="display:"> <label for="TANGRAM__PSP_9__userName" id="TANGRAM__PSP_9__userNameLabel" class="pass-label pass-label-userName">用户名</label><input id="TANGRAM__PSP_9__userName" type="text" name="username" class="pass-text-input pass-text-input-userName open" autocomplete="off" placeholder="用户名" /><span id="TANGRAM__PSP_9__userNameTip" class="pass-item-tip pass-item-tip-userName" style="display:none"><span id="TANGRAM__PSP_9__userNameTipText" class="pass-item-tiptext pass-item-tiptext-userName"></span></span> </p> 
+            <span class="pass-item-selectbtn pass-item-selectbtn-userName" style="display: none; visibility: hidden; opacity: 1;"></span> 
+            <p> </p> 
+            <p id="TANGRAM__PSP_9__passwordWrapper" class="pass-form-item pass-form-item-password" style="display:"> <label for="TANGRAM__PSP_9__password" id="TANGRAM__PSP_9__passwordLabel" class="pass-label pass-label-password">密码</label><input id="TANGRAM__PSP_9__password" type="password" name="password" class="pass-text-input pass-text-input-password" placeholder="密码" /><span id="TANGRAM__PSP_9__passwordTip" class="pass-item-tip pass-item-tip-password" style="display:none"><span id="TANGRAM__PSP_9__passwordTipText" class="pass-item-tiptext pass-item-tiptext-password"></span></span> </p> 
+            <p id="TANGRAM__PSP_9__memberPassWrapper" class="pass-form-item pass-form-item-memberPass"></p>
+            <p id="TANGRAM__PSP_9__submitWrapper" class="pass-form-item pass-form-item-submit"> <input id="TANGRAM__PSP_9__submit" type="submit" value="登录" class="pass-button pass-button-submit" alog-alias="login" /><br />  <a class="pass-reglink" href="{:U('User/register',array('u'=>base64_encode('__SELF__')))}" target="_blank">立即注册</a>
+            <a class="pass-fgtpwd" href="{:U('User/forgetPassword')}" target="_blank">忘记密码？</a> </p> 
+           </form> 
+          </div> 
+          <div id="pass-phoenix-login" class="tang-pass-login-phoenix"> 
+           <div class="pass-phoenix-title">
+             可以使用以下方式登录 
+            <span class="pass-phoenix-note"></span> 
+           </div> 
+           <div id="pass-phoenix-list-login" class="pass-phoenix-list clearfix pass-phoenix-list-second"> 
+            <a href="{:U('User/qqAuth')}"><img src="__PUBLIC__/common/images/qq_login.gif" /></a>
+           </div> 
+           <div class="clear"></div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="tang-footer" id="TANGRAM__PSP_3__footer" style="display: none;"> 
+     <div id="TANGRAM__PSP_3__footerContainer"> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <?php endif;?>

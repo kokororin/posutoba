@@ -1,0 +1,173 @@
+@CHARSET "UTF-8";
+
+#follow {
+	background: #fff
+}
+
+#follow a {
+	text-decoration: none
+}
+
+#follow .nav {
+	height: 32px;
+	background: #e1e0fa
+}
+
+#follow .nav ul {
+	list-style-type: none;
+	padding-top: 5px;
+	padding-left: 18px;
+	height: 27px
+}
+
+#follow .nav ul li {
+	list-style-type: none;
+	float: left;
+	height: 27px;
+	line-height: 27px;
+	padding: 0 12px
+}
+
+#follow .nav ul li.focus {
+	background: #fff
+}
+
+#follow .list .send {
+	margin: 20px 0;
+	margin-top: 10px;
+	line-height: 27px
+}
+
+#follow .list .guan_head { 10px 0 0 20px;
+	line-height: 27px;
+	font-size: 14px;
+	padding-top: 10px;
+	border-bottom: #ccc solid 1px
+}
+
+#follow .list .guan_head b {
+	color: #333
+}
+
+#follow .list .guan_head span {
+	color: #e10601
+}
+
+#follow .user {
+	height: 85px;
+	padding-top: 15px;
+	border-bottom: #ccc dashed 1px
+}
+
+#follow .user .left {
+	float: left;
+	width: 65px
+}
+
+#follow .user .mid {
+	float: left;
+	line-height: 23px
+}
+
+#follow .user .right {
+	float: right;
+	width: 75px
+}
+
+#follow .user .split {
+	height: 10px;
+	overflow: hidden
+}
+
+#follow .user .name {
+	margin-right: 15px
+}
+
+#follow .user .name a {
+	font-size: 14px
+}
+
+#follow .back {
+	background: #f1f6ff
+}
+
+#follow .add_eval {
+	padding-left: 21px;
+	margin-left: 15px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-itieba3/img/icon_eval_de04205c.gif)
+		no-repeat
+}
+
+.prefix_eval {
+	border: 0;
+	position: relative;
+	top: 3px
+}
+
+.btn_follow {
+	width: 73px;
+	height: 25px;
+	background:
+		url(../images/btn_guan_a4d8fea4.gif)
+		no-repeat 0 -25px;
+	border: 0;
+	cursor: pointer
+}
+
+.btn_followed {
+	width: 73px;
+	height: 25px;
+	background:
+		url(../images/btn_guan_a4d8fea4.gif)
+		no-repeat 0 0;
+	border: 0
+}
+
+.btn_unfollow {
+	width: 64px;
+	height: 20px;
+	background:
+		url(../images/iHome_c18b20f3.png)
+		no-repeat 0 -180px;
+	border: 0;
+	cursor: pointer
+}
+
+.btn_follow_all {
+	width: 121px;
+	height: 33px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-itieba3/img/follow_all_56436f4a.gif)
+		no-repeat;
+	border: 0;
+	cursor: pointer;
+	display: none
+}
+
+.fans_top {
+	padding-left: 15px;
+	background: url(./fans/top.gif?t=141022170855) no-repeat
+}
+
+.list_bottom {
+	margin-top: 10px
+}
+
+.yao {
+	color: #333
+}
+
+.face_link {
+	background: #FFF;
+	border: 1px solid #d4d4d4;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 50px
+}
+
+.pager {
+	padding: 10px
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <include file="Public:top" />
+  <title>全部贴吧分类_Posutoba贴吧</title>
+  <import type="css" file="theme,common,forum_class" basepath="__PUBLIC__/common/css" />
+  </head>
+  <body>
+  <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <div class="page-container">
+     <div class="search-sec">
+     <include file="Public:head" />
+     </div>
+     <div class="container">
+      <div class="content clearfix">
+       <div class="left-sec">
+        <div class="f_class_title">
+         全部贴吧分类
+        </div>
+        <div class="f_class_left">
+         <div class="f_class_list">
+          <ul class="f_class_menu" id="f_class_menu">        
+           <foreach name="parent_class_list" item="vo">
+           <li data-pid="{$vo.parent_id}" class="f_class_li<?php if($key==0):?> first_li<?php endif;?>">
+           <a href="{:U('Forum/forumPark',array('pid'=>$vo['parent_id'],'cid'=>0))}" title="{$vo.class_name}" class="{$vo.class_icon}<?php if($key==(count($parent_class_list)-1)):?> last_li<?php endif;?>">{$vo.class_name}</a></li> 
+           </foreach> 
+          </ul>
+         </div>
+         <div style="position: absolute; z-index: 1000; width: 666px; height: auto; display: none;" class="d-up-frame">
+   <div class="pop-up-container">
+    <div class="directory-pop-frame">
+     <div class="d-title">
+      <!-- 这里放标题 -->
+     </div>
+     <div class="item-wraper">      
+     <!-- 这里用来放目录 -->    
+     </div>
+     <div class="rec-forum">
+      <div class="rec-icon">
+       推荐吧
+      </div>
+      <div class="rec-forum-cont">
+      <!-- 这里用来放贴吧 -->
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+        </div>
+       </div>
+       <div class="right-sec clearfix" id="right-sec">     
+       
+        
+        <?php for($i=1;$i<=30;$i=$i+2):?>
+        <div class="clearfix">
+         <div class="class-item">
+          <a class="class-item-title" href="{:U('Forum/forumPark',array('pid'=>$class_list[$i][0]['parent_id'],'cid'=>0))}">{$class_list[$i][0]['class_name']}</a>
+          <ul class="item-list-ul clearfix">
+          <foreach name="class_list[$i]" item="vo">
+          <?php if($key>0):?>           
+           <li><a href="{:U('Forum/forumPark',array('pid'=>$vo['parent_id'],'cid'=>$vo['class_id']))}">{$vo.class_name}</a></li>
+           <?php endif;?>     
+            </foreach>
+          </ul>
+         </div> 
+         <div class="class-item">
+          <a class="class-item-title" href="{:U('Forum/forumPark',array('pid'=>$class_list[$i+1][0]['parent_id'],'cid'=>0))}">{$class_list[$i+1][0]['class_name']}</a>
+          <ul class="item-list-ul clearfix">
+           <foreach name="class_list[$i+1]" item="vo">
+           <?php if($key>0):?>           
+           <li><a href="{:U('Forum/forumPark',array('pid'=>$vo['parent_id'],'cid'=>$vo['class_id']))}">{$vo.class_name}</a></li>
+           <?php endif;?> 
+           </foreach>
+          </ul>
+         </div> 
+        </div>
+        <?php endfor;?>
+        
+       </div>
+      </div>
+     <div class="bottom-bg"></div> 
+      <div class="page-footer">
+       <div class="footer" alog-alias="footer"> 
+        <include file="Public:footer" />
+        </div>
+      </div>
+     </div>
+    </div> 
+   </div>
+  </div>
+ <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+ <include file="Public:bottom" />
+ </body>
+</html>

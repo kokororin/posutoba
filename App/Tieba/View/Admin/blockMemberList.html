@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>用户封禁列表_{$forum_info.forum_name}吧</title>
+   <import type="css" file="theme,common,admin_common,admin_member,jquery#ui#datepicker" basepath="__PUBLIC__/common/css"/>
+  </head>
+ <body class="manager_page">
+ <include file="Public:userbar" />
+  <header class="head">
+   <include file="Public:head" />
+  </header>
+  <div class="message_container">
+   <div class="page_message" id="page_message"></div>
+  </div>
+  <!--[if lte IE 7]><div class="ie_height_hacker"></div><![endif]-->
+  <div id="container" class="container clearfix"> 
+   <include file="Admin:left" />
+    </nav>
+   </aside>
+   <div class="main_content"> 
+    <div class="panel">
+     <h3>用户封禁列表</h3>
+     <div class="panel_content"> 
+      <form id="searchForm">
+       <input type="hidden" name="fid" value="{$forum_info.forum_id}" />
+       <span class="form_col user_col"><span class="form_row"> <label style="margin-right: 20px"><input type="radio" name="utype" checked="" value="object" /> 用户名</label> <label><input type="radio" name="utype" value="action" /> 操作人</label></span><span class="form_row"><input type="text" class="ui_textfield j_reset" name="username" value="" placeholder="请输入用户名查询" /></span>
+        </span>
+       <span class="form_col"><span class="form_row"><label><input type="radio" name="date_type" checked="" />操作时间</label></span><span class="form_row"><input type="text" class="ui_textfield ui_datepicker j_reset" id="startTime" name="startTime" value="" /> 至<input type="text" class="ui_textfield ui_datepicker j_reset" id="endTime" name="endTime" value="" />
+       <a href="javascript:void(0)" id="manage_search_btn" class="ui_btn ui_btn_m"><span><em>搜索</em></span></a>
+       <a href="{:U('Admin/blockMemberList',array('id'=>$forum_info['forum_id']))}" class="ui_text_link_sub all_records j_all_records">显示全部记录</a></span></span>
+       <div style="clear:both;"></div>
+      </form>
+     </div>
+    </div>
+    <div class="panel panel_margin"> 
+     <div style="color:gray;">
+      小提示：只显示最近30条记录，请善用搜索。
+     </div>
+     <?php if($block_list!=null):?>
+     <table class="data_table vertical_middle compact" id="dataTable">
+      <colgroup>
+       <col class="checkbox" />
+       <col class="user_avatar" />
+       <col class="forbidden_time" />
+       <col class="operate_time_flat" />
+       <col class="operator" />
+       <col class="operation" />
+      </colgroup>
+      <thead>
+       <tr>
+        <th>&nbsp;</th>
+        <th class="left_cell">头像和用户名</th>
+        <th>封禁时长</th>
+        <th>操作时间</th>
+        <th>操作人</th>
+        <th>操作</th>
+       </tr>
+      </thead>
+      <tbody> 
+      <foreach name="block_list" item="vo">
+       <tr>
+        <td><input type="checkbox" name="s1" data-uid="{$vo.block_userid}" data-fid="{$forum_info.forum_id}" /></td>
+        <td class="left_cell"><a class="avatar_link" target="_blank" href="{:U('Home/main',array('id'=>$vo['block_userid']))}">
+        <img class="portrait" src="{:U('Home/getAvatar',array('uid'=>$vo['block_userid']))}" /> {$vo.block_username}</a></td>
+        <td>{$vo.block_days}天</td>
+        <td>{$vo.block_date|convertDate=###,'without_second'}</td>
+        <td><a href="{:U('Home/main',array('id'=>$vo['action_userid']))}" class="ui_text_normal">{$vo.action_username}</a></td>
+        <td><a href="javascript:void(0)" data-uid="{$vo.block_userid}" data-fid="{$forum_info.forum_id}" class="ui_btn ui_btn_s j_restore_block"><span><em>解除封禁</em></span></a></td>
+       </tr> 
+       </foreach>
+      </tbody>
+      <tfoot>
+       <tr>
+        <td colspan="2"><label><input type="checkbox" name="s2" id="selectAll" />全选</label></td>
+        <td colspan="4" class="right_cell"><a href="#" id="restoreChecked" class="ui_btn ui_btn_s"><span><em>选中项解除封禁</em></span></a></td>
+       </tr>
+      </tfoot>
+     </table> 
+     <?php else:?>
+     <div class="no_data">
+     <img alt="抱歉，暂无数据或未搜索到符合条件的记录" src="__PUBLIC__/common/images/no_data.png"></div>
+     <?php endif;?>
+    <div class="tbui_pagination tbui_pagination_right"> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <div id="tbLcsContainer"></div>
+   <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form,jquery#ui#datepicker#min" basepath="__PUBLIC__/common/js"/>
+ <script>
+     $(function(){
+             setAdminNav();
+         });
+ </script>
+ <script>
+ $(function() {
+   $("#startTime").datepicker({
+         changeMonth: true,
+         onClose: function( selectedDate ) {
+         $('#endTime').datepicker('option', 'minDate',selectedDate);
+       }
+   });
+   $("#endTime").datepicker({
+         changeMonth: true,
+         onClose: function( selectedDate ) {
+         $('#startTime').datepicker('option', 'maxDate',selectedDate);
+       }
+   });
+  });
+ </script>
+ <script>
+     var page_name = '<?php echo ACTION_NAME?>';
+ </script>
+ <include file="Public:bottom" />
+ </body>
+</html>

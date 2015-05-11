@@ -1,0 +1,7 @@
+<script>
+$(function(){
+	var trace_time = '<?php echo G('beginTime','viewEndTime')?>';
+	var trace_sql='<?php echo count($trace['SQL'])?>';
+	$('#trace_time').html(trace_time);$('#trace_sql').html(trace_sql);
+});
+</script>

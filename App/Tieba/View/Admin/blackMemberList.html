@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>黑名单列表_{$forum_info.forum_name}吧</title>
+<import type="css" file="theme,common,admin_common,admin_member" basepath="__PUBLIC__/common/css"/>
+  </head>
+ <body class="manager_page">
+ <include file="Public:userbar" />
+  <header class="head">
+  <include file="Public:head" />
+  </header>
+  <div class="message_container">
+   <div class="page_message" id="page_message"></div>
+  </div>
+  <!--[if lte IE 7]><div class="ie_height_hacker"></div><![endif]-->
+  <div id="container" class="container clearfix"> 
+   <include file="Admin:left" />
+   <div class="main_content"> 
+    <div class="panel first_panel">
+     <h3>黑名单列表</h3>
+     <div class="panel_content"> 
+      <div id="searchForm">
+      <input type="hidden" name="fid" value="{$forum_info.forum_id}" />
+       <span class="form_col user_col"><span class="form_row"><label>用户名</label><br /><input type="text" class="ui_textfield j_reset" id="memberValue" placeholder="用户名" name="username" value="" /></span></span>
+       <span class="form_col"><span class="form_row"><a href="javascript:void(0)" id="member_search_btn" class="ui_btn ui_btn_m"><span><em>搜索</em></span></a></span></span>
+       <div style="clear:both;"></div>
+      </div>
+     </div>
+    </div>
+    <div class="panel panel_margin"> 
+     <div class="breadcrumbs">
+      共
+      <em>{$black_count}</em>条记录
+     </div>
+     <?php if($black_list!=null):?>
+     <table class="data_table vertical_middle compact" id="dataTable">
+      <colgroup>
+       <col class="checkbox" />
+       <col class="user_avatar" />
+       <col class="black_time" />
+       <col class="operator" />
+       <col class="operation" />
+      </colgroup>
+      <thead>
+       <tr>
+        <th>&nbsp;</th>
+        <th class="left_cell">头像和用户名</th>
+        <th>加入黑名单时间</th>
+        <th>操作人</th>
+        <th>操作</th>
+       </tr>
+      </thead>
+      <tbody> 
+       <foreach name="black_list" item="vo">
+       <tr>
+        <td><input type="checkbox" name="s1" data-uid="{$vo.black_userid}" data-fid="{$forum_info.forum_id}" /></td>
+        <td class="left_cell"><a class="avatar_link" target="_blank" href="{:U('Home/main',array('id'=>$vo['black_userid']))}">
+        <img class="portrait" src="{:U('Home/getAvatar',array('uid'=>$vo['black_userid']))}" /> {$vo.black_username}</a></td>
+        <td>{$vo.log_date}</td>
+        <td><a href="{:U('Home/main',array('id'=>$vo['action_userid']))}" class="ui_text_normal">{$vo.action_username}</a></td>
+        <td><a href="javascript:void(0)" data-uid="{$vo.black_userid}" data-fid="{$forum_info.forum_id}" class="ui_btn ui_btn_s j_restore_black"><span><em>移除黑名单</em></span></a></td>
+       </tr> 
+       </foreach>
+      </tbody>
+      <tfoot>
+       <tr>
+        <td colspan="2"><label><input type="checkbox" name="s2" id="selectAll" />全选</label></td>
+        <td colspan="4" class="right_cell"><a href="#" id="restoreChecked" class="ui_btn ui_btn_s"><span><em>选中项移除黑名单</em></span></a></td>
+       </tr>
+      </tfoot>
+     </table> 
+     <?php else:?>
+     <div class="no_data">
+     <img alt="抱歉，暂无数据或未搜索到符合条件的记录" src="__PUBLIC__/common/images/no_data.png"></div>
+     <?php endif;?>
+     <div class="tbui_pagination tbui_pagination_right"> 
+      <ul>
+       {$page}
+      </ul>
+      <?php if($total_page>1):?>
+      <span class="tbui_total_page">共{$total_page}页</span>
+      <input class="ui_textfield pagination_input" id="manage_jump_input" type="text" name="pn" />
+      <a href="javascript:void(0)" class="jump_btn" id="manage_jump_btn"><span><em>跳转</em></span></a>
+      <?php endif;?>
+     </div>
+    </div> 
+   </div>
+  </div>
+  <div id="tbLcsContainer"></div>
+   <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js"/>
+ <script>
+     $(function(){
+             setAdminNav();
+         });
+ </script>
+ <script>
+     var page_name = '<?php echo ACTION_NAME?>';
+ </script>
+ <include file="Public:bottom" />
+ </body>
+</html>

@@ -1,0 +1,108 @@
+<div class="editor_wrap_bright"> 
+         <a name="sub"></a>
+         <!-- 编辑器 -->
+         <div id="tb_rich_poster_container" class="tb_rich_poster_container"> 
+          <div id="rich_ueditor_tpl"> 
+           <div id="tb_rich_poster" class="tb_rich_poster  "> 
+            <div class="j_bubble_container"></div> 
+           
+            <?php if($poster_type=='addthread'):?>
+             <div class="poster_head clearfix"> 
+             <div class="poster_head_text"> 
+              发表新贴
+             </div> 
+
+            </div> 
+            <div class="poster_body editor_wrapper">
+             <div class="poster_component title_container"> 
+              <div class="poster_title">
+               标&nbsp;&nbsp;题:
+              </div> 
+              <div class="j_title_wrap">
+               <form id="{$poster_type}" method="post">
+               <input class="editor_textfield editor_title ui_textfield j_title normal-prefix" name="title" autocomplete="off" placeholder="请填写标题" type="text" /> 
+        
+               <input type="hidden" id="tocontent" name="content" value=""/>
+               <input type="hidden" id="forum_id" name="forum_id" value="{$forum_info.forum_id}" />
+               <input type="hidden" id="forumname" name="forum_name" value="{$forum_info.forum_name}" />
+               </form>
+              </div> 
+              <div class="poster_error j_error"></div> 
+             </div>
+             <?php elseif($poster_type=='addpost'):?>
+              <div class="poster_head clearfix"> 
+             <div class="poster_head_text"> 
+              发表回复
+             </div> 
+
+            </div> 
+            <div class="poster_body editor_wrapper">
+              <form id="{$poster_type}" method="post">        
+               <input type="hidden" id="tocontent" name="content" value=""/>
+               <input id="threadid" type="hidden" name="thread_id" value="{$thread_id}" />
+               <input type="hidden" id="forum_id" name="forum_id" value="{$forum_info.forum_id}" />
+               <input type="hidden" id="replyid" name="replyid" value="0" />
+               </form>
+             <?php endif;?> 
+             <div class="poster_component editor_content_wrapper ueditor_container"> 
+              <div class="poster_reply">
+               内&nbsp;&nbsp;容:
+              </div> 
+              <div class="old_style_wrapper"> 
+               <div style="width: 690px;" class="edui-container"> 
+           <!-- 插入图片移植表单 -->
+           <form method="post" enctype="multipart/form-data" target="upframe" id="uploadform">
+          <div id="upLoadFile" style="display:none">
+          <input type="file" name="img1" id="upimg" accept="image/*" />
+          </div>
+           </form>
+           <iframe id="upframe" name="upframe" style="display:none"></iframe>
+           <!-- 插入图片表单结束 -->
+                <div class="edui-toolbar"> 
+                 <div class="edui-btn-toolbar"> 
+                  <div class="edui-btn edui-btn-bold"> 
+                  </div> 
+                  <div id="up_btn" class="edui-btn edui-btn-image edui-btn-name-list" data-original-title="插入图片"> 
+                   <div class="edui-icon-image edui-icon"></div> 
+                  </div>     
+                  <div id="emo_btn" class="edui-btn edui-btn-emotion edui-btn-name-list edui-last-btn" data-original-title="插入表情"> 
+                   <div class="edui-icon-emotion edui-icon"></div> 
+                  </div> 
+                 </div> 
+                  <div class="edui-dialog-container"></div>
+                </div> 
+                <div class="edui-editor-body"> 
+                 <div class="edui-editor-top"></div> 
+                 <div class="edui-editor-middle"> 
+                  <div id="reply-content"></div>
+                  <textarea id="reply-textarea"></textarea>
+                  <div class="tb_poster_info poster_success" style="display: none;z-index: 50005;margin:0 auto;width:100px;">
+    <div class="poster_success_content ">
+        <div class="post_success_tip">发表成功！</div>
+        <div class="post_success_exp" style="display: block;">
+            <span class="post_success_exp_name">经验</span>
+            <b class="post_success_exp_plus">+1</b>
+        </div>
+    </div>
+     </div>
+                 </div> 
+                 <div class="edui-editor-bottom"></div> 
+                 <div class="edui-editor-msg"></div> 
+                </div> 
+                <div class="edui-attachment-container"></div> 
+               </div> 
+              </div> 
+              <div class="poster_error j_error"></div> 
+             </div> 
+             <div class="poster_component editor_bottom_panel clearfix"> 
+              <div class="j_floating"> 
+               <a href="javascript:void(0)" id="poster_btn" class="ui_btn ui_btn_m j_submit poster_submit" title="Ctrl+Enter快捷发表"><span><em>发 表</em></span></a>
+               <span class="j_posting_status poster_posting_status"></span>
+              </div> 
+             </div> 
+            </div> 
+            <div id="bdInputObjWrapper"></div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 

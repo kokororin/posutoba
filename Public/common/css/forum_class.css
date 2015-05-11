@@ -1,0 +1,393 @@
+@CHARSET "UTF-8";
+
+@import url('nobg.css'); 
+
+a {
+	text-decoration: none
+}
+
+.container {
+	border-top: 1px solid #F0F0F0;
+	margin-top: 2px
+}
+
+.content {
+	width: 1000px;
+	overflow: hidden;
+	margin: 0 auto
+}
+
+ .bottom-bg {
+	width: 1000px;
+	height: 25px;
+	margin: 0 auto;
+	background:
+		url(../images/bottom-bg_f7d848b.png)
+		no-repeat left bottom;
+	*background: 0 0
+} 
+/* 
+.page-container .search_bright {
+	position: static
+} */
+.f_class_left {
+	padding-bottom: 9000px;
+	margin-bottom: -9000px;
+	*padding-bottom: 0;
+	*margin-bottom: 0;
+	background-color: #F5F8FA;
+	border: 1px solid #DCDCDC;
+	border-top: 0;
+	overflow: visible
+}
+
+.left-sec {
+	width: 210px;
+	float: left;
+	margin-top: 10px
+}
+
+.left-sec .f_class_list {
+	font-size: 14px;
+	background-color: #F5F8FA
+}
+
+.f_class_menu .f_class_li {
+	height: 39px;
+	padding-left: 13px
+}
+
+.f_class_menu .first_li {
+	border-top: 1px solid #F5F8FA
+}
+
+.f_class_li a {
+	display: block;
+	padding-left: 25px;
+	font-family: STHeiti, "Microsoft Yahei", "Microsoft YaHei", Arial,
+		sans-serif;
+	line-height: 38px;
+	padding-top: 2px;
+	border-bottom: 1px dotted #B1B4B6;
+	width: 156px;
+	background-image: url(../images/square2_9bf21fb.png);
+	*background-image:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/new_index_yao/square2_e5c21fd.gif);
+	color: #333
+}
+
+.f_class_li .last_li {
+	border: 0
+}
+
+.left-sec .f_class_title {
+	height: 34px;
+	cursor: pointer;
+	background: url(../images/square1_e4fe4f7.png) no-repeat -212px 0;
+	color: #FFF;
+	padding-left: 20px;
+	font: 14px/34px 'Microsoft YaHei', Arial, sans-serif
+}
+
+.literature {
+	background-position: 0 14px
+}
+
+.cartoon {
+	background-position: 0 -22px
+}
+
+.amusement {
+	background-position: 0 -59px
+}
+
+.cutegroup {
+	background-position: 0 -95px
+}
+
+.game {
+	background-position: 0 -128px
+}
+
+.livingexpert {
+	background-position: 0 -164px
+}
+
+.district {
+	background-position: 0 -197px
+}
+
+.tvshows {
+	background-position: 0 -231px
+}
+
+.emotion {
+	background-position: 0 -264px
+}
+
+.academy {
+	background-position: 0 -295px
+}
+
+.sports {
+	background-position: 0 -330px
+}
+
+.club {
+	background-position: 0 -363px
+}
+
+.entertainment {
+	background-position: 0 -394px
+}
+
+.humanity {
+	background-position: 0 -427px
+}
+
+.livingstuff {
+	background-position: 0 -456px
+}
+
+.teleplay {
+	background-position: 4px -625px
+}
+
+.movie {
+	background-position: 4px -652px
+}
+
+.xianqu {
+	background-position: 4px -682px
+}
+
+.xingqing {
+	background-position: 4px -714px
+}
+
+.see_all_class {
+	display: block;
+	width: 188px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	color: #444;
+	font-weight: 700;
+	margin: 0 auto;
+	background: url(../images/square2_9bf21fb.png) no-repeat 0 -500px;
+	*background:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/new_index_yao/square2_e5c21fd.gif)
+		no-repeat 0 -500px;
+	margin-bottom: 10px
+}
+
+.see_all_class:hover {
+	color: #53789B;
+	background-position: 0 -547px
+}
+
+.d-up-frame {
+	background-color: #fcfcfc;
+	border: 1px solid #CCC;
+	border-left: 0;
+	box-shadow: 1px 1px 0 #F3F3F3
+}
+
+.directory-wraper {
+	width: 190px;
+	height: 49px;
+	overflow: hidden
+}
+
+.directory-pop-frame {
+	margin: 0 20px;
+	background: transparent;
+	font-size: 12px
+}
+
+.directory-pop-frame .d-title {
+	padding: 10px 0 8px;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+	border-bottom: 1px dotted #ddd;
+	color: #444
+}
+
+div.d-title a {
+	color: #333
+}
+
+div.d-title a:hover {
+	color: #3F95E5
+}
+
+.directory-pop-frame .s-d-title {
+	margin-top: 5px
+}
+
+.directory-pop-frame .item-wraper {
+	padding-top: 7px
+}
+
+.directory-pop-frame .d-item {
+	color: #666;
+	display: inline-block;
+	margin-top: 4px;
+	padding: 2px 3px;
+	text-decoration: none
+}
+
+.directory-pop-frame .d-item:hover {
+	background: none repeat scroll 0 0 #49AAEF;
+	color: #FFF
+}
+
+.directory-pop-frame .d-gap {
+	border-left: 1px solid #D6D6D6;
+	display: inline-block;
+	height: 12px;
+	margin: 0 6px;
+	vertical-align: -2px;
+	width: 0
+}
+
+.directory-pop-frame .rec-forum {
+	margin-bottom: 30px
+}
+
+.directory-pop-frame .rec-icon {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/css1_00fb106.png)
+		no-repeat;
+	*background:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/css1_7481ade.gif)
+		no-repeat;
+	background-position: -337px -453px;
+	padding-left: 20px;
+	width: 100px;
+	color: #268DCB;
+	margin: 16px 0 0
+}
+
+.directory-rec-img {
+	margin: 0 0 -5px 0;
+	overflow: visible;
+	position: relative;
+	*margin: 0;
+	*overflow: hidden
+}
+
+.directory-rec-img a {
+	display: block;
+	height: 170px
+}
+
+.f-d-item-hover a {
+	border: 0
+}
+
+.f_class_menu .f-d-item-hover {
+	background-color: #FCFCFC;
+	height: 37px;
+	border-bottom: 1px solid #DDD;
+	border-top: 1px solid #DDD;
+	border-right: 0;
+	padding: 0 0 1px 13px;
+	box-shadow: 0 1px 1px #DDD;
+	width: 196px;
+	*width: 195px
+}
+
+.no-border-bottom a {
+	border-bottom: 0
+}
+
+.f_class_menu .no-border-bottom {
+	height: 38px;
+	border-bottom: 0
+}
+
+.directory-pop-frame .rec-d-item {
+	background: none repeat scroll 0 0 #FFF;
+	border: 1px solid #E0E0E0;
+	border-radius: 3px;
+	color: #666;
+	display: inline-block;
+	height: 18px;
+	line-height: 18px;
+	margin-right: 10px;
+	margin-top: 4px;
+	padding: 0 5px;
+	text-decoration: none
+}
+
+.directory-pop-frame .rec-d-item:hover {
+	background: none repeat scroll 0 0 #49AAEF;
+	border: 1px solid #49AAEF;
+	color: #FFF
+}
+
+.right-sec {
+	float: left;
+	margin-left: 0;
+	margin-top: 10px;
+	min-height: 1000px;
+	padding-top: 6px;
+	width: 790px
+}
+
+.class-item {
+	float: left;
+	margin-left: 10px;
+	margin-top: 27px;
+	width: 384px;
+	_width: 380px
+}
+
+.class-item .class-item-title {
+	display: block;
+	font-size: 16px;
+	margin-left: 10px;
+	color: #01417A;
+	font-family: STHeiti, "Microsoft Yahei", "Microsoft YaHei", Arial,
+		sans-serif
+}
+
+.class-item .class-item-title:hover {
+	color: #3F95E5
+}
+
+.item-list-ul {
+	width: 360px;
+	margin-top: 20px
+}
+
+.item-list-ul li {
+	float: left;
+	padding: 0 5px;
+	border-right: 1px solid #E3E3E3;
+	line-height: 12px;
+	*line-height: 15px;
+	margin-bottom: 12px;
+	*margin-bottom: 8px
+}
+
+.item-list-ul .last_tag_li {
+	border-right: 0
+}
+
+.item-list-ul li a {
+	color: #444;
+	padding: 3px 5px;
+	word-break: keep-all;
+	white-space: nowrap
+}
+
+.item-list-ul li a:hover {
+	background-color: #3F95E5;
+	color: #FFF
+}
+
+.item-list-ul .item-last-li {
+	border: 0
+}

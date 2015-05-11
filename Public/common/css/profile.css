@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+.goTop {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/img/gotop_4ca40ba.gif)
+		no-repeat left top;
+	bottom: 93px;
+	display: none;
+	height: 83px;
+	left: 50%;
+	margin-left: 498px;
+	position: fixed;
+	right: 0;
+	width: 23px;
+	z-index: 1
+}
+
+.goTop_1024 {
+	margin-left: 476px
+}
+
+.goTop_ie6 {
+	bottom: auto;
+	position: absolute;
+	top: expression(documentElement.scrollTop + documentElement.clientHeight - 
+		this.offsetHeight-93)
+}
+
+.goTop:hover {
+	background-position: right top
+}
+

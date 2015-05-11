@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>{$thread_title}_{$forum_info.forum_name}吧_Posutoba贴吧</title>
+<import type="css" file="theme,common,post,emotion" basepath="__PUBLIC__/common/css" />
+ </head>
+ <body spellcheck="false" class="skin_normal">
+  <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <include file="Public:head" />
+
+    <div id="container" class="l_container  ">
+     <div class="content clearfix">
+      <div class="card_top_wrap clearfix card_top_theme2 ">
+       <div class="card_top_right"> 
+        <include file="Forum:sign" />
+       </div>
+       <div class="card_top clearfix"> 
+        <div class="card_head">
+         <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}"><img class="card_head_img" src="{:U('Forum/getAvatar',array('fid'=>$forum_info['forum_id']))}" /></a>
+        </div>
+        <div class="card_title "> 
+         <a class="card_title_fname" title="" href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}"> {$forum_info.forum_name}吧</a> 
+         <a href="javascript:void(0)" data-fid="{$forum_info.forum_id}" class="{$concern_btn_css}" id="like_forum_btn" style="margin-top: 2px;"></a> 
+         <span class="card_num "><span class="card_numLabel">关注：</span><span class="card_menNum">{$member_count}</span><span class="card_numLabel">贴子：</span><span class="card_infoNum">{$post_count}</span></span> 
+        </div>
+       </div>
+      </div>
+      <div class="nav_wrap nav_wrap_add_border" id="tb_nav">
+       <ul class="nav_list j_nav_list"> 
+        <li class=" j_tbnav_tab "> 
+         <div class="tbnav_tab_inner"> 
+          <p class="space"> <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}" class="nav_icon icon_tie  j_tbnav_tab_a" id="tab_forumname" stats-data="fr=tb0_forum&amp;amp;st_mod=frs&amp;amp;st_value=tabmain">看贴</a> </p> 
+         </div> </li> 
+        <li class="none_right_border j_tbnav_tab"> 
+         <div class="tbnav_tab_inner"> 
+          <p class="space"> <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id'],'type'=>'good'))}" class="nav_icon icon_jingpin  j_tbnav_tab_a" stats-data="fr=tb0_forum&amp;amp;st_mod=frs&amp;amp;st_value=tabgood">精品</a> </p> 
+         </div> </li> 
+       </ul>
+       <ul style="width:auto;" class="ul_often_forum">
+        <li class="li_often_forum first"><a id="often_forum" href="javascript:" data-extend="focus">我爱逛的贴吧<i></i></a></li>
+       </ul>
+      </div>
+      <div class="p_thread thread_theme_5" id="thread_theme_5">
+       <div class="l_thread_info">
+        <ul class="l_posts_num"> 
+         <li class="l_pager pager_theme_4 pb_list_pager">         
+         {$page}
+         </li> 
+         <li class="l_reply_num" style="margin-left:8px">
+         <span class="red" style="margin-right:3px">{$reply_count}</span>回复贴，共<span class="red">{$total_page}</span>页
+         </li> 
+         <?php if($total_page!=1):?>
+         <li class="l_reply_num">，跳到 <input id="jumpPage4" class="jump_input_bright" type="text" /> 页&nbsp;<button id="pager_go4" type="button" value="确定" class="jump_btn_bright">确定</button>&nbsp;</li> 
+        <?php endif;?>
+        </ul> 
+        <div id="tofrs_up" class="tofrs_up">
+         <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}" title="{$forum_info.forum_name}">&lt;返回{$forum_info.forum_name}吧</a>
+        </div>
+       </div>
+      </div>
+      <div class="pb_content clearfix" id="pb_content">
+       <div class="left_section">
+        <div class="core_title_wrap core_title_wrap_bright" id="j_core_title_wrap">
+         <div class="core_title core_title_theme_bright"> 
+          <h1 class="core_title_txt  " title="{$thread_title}" style="width: 480px">{$thread_title}</h1>
+          <ul class="core_title_btns">
+          <?php if($manage_status==true):?>
+          <li><a id="thread_manage_btn" href="javascript:void(0)" class="l_lzonly"><span id="lzonly" class="d_lzonly_bdaside">帖子管理</span></a></li>
+           <?php endif;?>
+           <?php if($_GET['see_lz']!=1):?>
+           <li><a id="lzonly_cntn" href="{:U('Post/index',array('id'=>$thread_id,'see_lz'=>1))}" class="l_lzonly"><span id="lzonly" class="d_lzonly_bdaside">只看楼主</span></a></li>
+           <?php else:?>
+           <li><a id="lzonly_cntn" href="{:U('Post/index',array('id'=>$thread_id))}" class="l_lzonly_cancel"><span id="lzonly" class="d_lzonly_bdaside">取消只看楼主</span></a></li>
+           <?php endif;?>
+           <li id="j_favthread" class="p_favthread">
+            <div class="p_favthr_tip"></div>
+            <div class="p_favthr_main" id="store_thread_btn" data-tid="{$thread_id}">
+             <p>{$store_status}</p>
+            </div>
+            <div class="p_favthr_listshadow">
+             &nbsp;
+            </div></li> 
+           <li class="quick_reply"><a href="#sub" id="quick_reply" class="j_quick_reply">回复</a></li> 
+           
+          </ul>
+         </div> 
+        </div>
+        <div class="p_postlist" id="j_p_postlist"> 
+        <!-- 帖子开始 -->
+        <foreach name="post_list" item="vo">
+        <a name="{$vo.post_id}"></a>
+         <div class="l_post l_post_bright noborder"> 
+          <div class="user-hide-post-position"></div>
+          <div class="d_author">
+          <?php if($thread_uid==$vo['user_id']):?>
+           <div class="louzhubiaoshi_wrap"> 
+            <div class="louzhubiaoshi j_louzhubiaoshi"> 
+             <a title="点击即可只看楼主哟～" href="{:U('Post/index',array('id'=>$thread_id,'see_lz'=>1))}"></a> 
+            </div> 
+           </div> 
+           <?php endif;?>
+           <ul class="p_author"> 
+            <li class="icon"> 
+             <div class="icon_relative j_user_card" data-uid="{$vo.user_id}"> 
+              <a style="" target="_blank" class="p_author_face " href="{:U('Home/main',array('id'=>$vo['user_id']))}">
+              <img src="{:U('Home/getAvatar',array('uid'=>$vo['user_id']))}" /></a> 
+              
+             </div> </li> 
+            <li class="d_nameplate"> </li> 
+            <li class="d_name"> <a title="" class="p_author_name j_user_card" href="{:U('Home/main',array('id'=>$vo['user_id']))}" data-uid="{$vo.user_id}" target="_blank">{$vo.user_name}</a> </li> 
+            
+            <li class="l_badge" style="display:block;"> 
+             <div class="p_badge"> 
+              <a href="{:U('Forum/levelDetail',array('id'=>$forum_info['forum_id']))}" target="_blank" class="user_badge d_badge_bright d_badge_icon{$vo.level_css}" title="本吧头衔{$vo.level_level}级，经验值{$vo.level_exp}，点击进入等级头衔说明页">
+               <div class="d_badge_title ">
+                {$vo.member_title}
+               </div>
+               <div class="d_badge_lv">
+                {$vo.level_level}
+               </div></a> 
+             </div> </li> 
+           </ul>
+          </div>
+          <div class="d_post_content_main d_post_content_firstfloor"> 
+           <div class="p_content p_content_icon_row1 p_content_nameplate">
+           {$vo.reply_content}
+            <div class="save_face_bg_hidden save_face_bg_0">
+             <a class="save_face_card"></a> 
+            </div> 
+            <div style="word-wrap:break-word;width:100%;"> 
+             <div id="voteFlashPanel"></div> 
+            </div> 
+            <div id="my_friends_vote_detail" style="display:none;"></div>
+            <cc>
+             <div id="post_content_{$vo.post_id}" class="d_post_content j_d_post_content ">                              
+               {$vo.post_content_convert}
+             </div>
+             <br />
+            </cc>
+            <br />
+            <div class="user-hide-post-down" style="display: none;"></div> 
+           </div> 
+           <div class="core_reply j_lzl_wrapper">
+            <div class="core_reply_tail ">
+             <ul class="p_reply">
+              <li><a href="javascript:void(0)" onclick="replyFloor('{$vo.post_id}',{$vo.floor_id})" class="p_reply_first">回复</a></li>
+             </ul>
+             <ul class="p_tail">
+              <li><a title="右键复制链接地址，可供访问者直达此楼" href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}">{$vo.floor_id}楼</a></li>
+              <li><span>{$vo.post_date|convertDate=###,'without_second'}</span></li>
+             </ul>
+             <?php if($manage_status==true):?>
+             <ul class="p_mtail" data-pid="{$vo.post_id}" data-fid="{$forum_info.forum_id}" data-uid="{$vo.user_id}" data-uname="{$vo.user_name}">
+             <li class="j_jb_ele"><a class="jb_in p_post_del_my post_del_href" href="javascript:void(0)">删除</a>&nbsp;|</li>
+             <li><a href="javascript:void(0)" class="p_post_ban">封</a>&nbsp;|</li>
+             </ul>
+             <?php endif;?>
+             <ul class="p_props_tail props_appraise_wrap"></ul>
+            </div>
+            
+           </div> 
+          </div>
+          <div class="clear"></div>
+         </div> 
+         </foreach>  
+         
+         <!-- 帖子结束 -->
+        </div>
+       </div>
+       
+      <!-- <div class="right_section right_bright"> 
+        <?php if(null==getUid()):?>
+        <include file="Post:right" />
+        <?php else:?>
+        <include file="Forum:right" />
+        <?php endif;?>
+        
+        
+       </div> --> 
+      </div>
+      <div class="pb_footer">
+       <div class="p_thread thread_theme_7" id="thread_theme_7">
+       
+        <div class="l_thread_info">
+         <ul class="l_posts_num"> 
+          <li class="l_pager pager_theme_5 pb_list_pager">
+          {$page}
+          </li> 
+          <li class="l_reply_num" style="margin-left:8px"><span class="red" style="margin-right:3px">{$reply_count}</span>回复贴，共<span class="red">{$total_page}</span>页</li> 
+          <?php if($total_page!=1):?>
+          <li class="l_reply_num">，跳到 <input id="jumpPage6" class="jump_input_bright" type="text" /> 页&nbsp;<button id="pager_go6" type="button" value="确定" class="jump_btn_bright">确定</button>&nbsp;</li> 
+         <?php endif;?>
+         </ul> 
+        </div>
+        <div id="tofrs_up" class="tofrs_up">
+         <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}" title="{$forum_info.forum_name}">&lt;返回{$forum_info.forum_name}吧</a>
+        </div>
+       </div>
+       <div style="display: inline;float: right;margin-right: 20px;margin-top: 5px;"></div>
+       <include file="Post:poster" />
+      </div>
+     </div>
+    </div> 
+     <div class="footer"> 
+        <include file="Public:footer" />
+       </div>
+   </div>
+  </div> 
+ 
+
+  <div class="editor_for_container editor_lzl_container" id="j_editor_for_container"></div> 
+  <p class="lzl_panel_error" style="display: none;"></p> 
+  <table class="lzl_panel_wrapper"> 
+   <tbody> 
+    <tr> 
+     <td style="width: 75%;"><p style="color:#666;"></p></td>
+     <td style="width: 25%; position:relative">
+    </td>
+    </tr>
+   </tbody>
+  </table>
+<ul class="tbui_aside_float_bar tbui_afb_compact"> 
+   <li class="tbui_aside_fbar_button tbui_fbar_post"><a href="#sub"></a></li> 
+   <li class="tbui_aside_fbar_button tbui_fbar_refresh"><a href="javascript:void(0)" onclick="window.location.reload()"></a></li> 
+   <li style="display:none;" class="tbui_aside_fbar_button tbui_fbar_top"><a href="javascript:void(0)" onclick="goTop()"></a></li> 
+   </ul>
+   <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+   <import type="js" file="libs,common,jquery#form,emotion,cale" basepath="__PUBLIC__/common/js" />
+   <include file="Public:bottom" />
+   <?php if($manage_status==true):?>
+   <include file="Post:delete" />
+   <include file="Post:block" />
+   <include file="Post:manage" />
+   <?php endif;?>
+
+ </body>
+</html>

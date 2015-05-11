@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" /> 
+  <title>我关注的贴吧_i贴吧</title>
+  <import type="css" file="theme,common,itieba,forum_list" basepath="__PUBLIC__/common/css"/>
+ </head>
+ <body>
+   <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <include file="Public:head" />
+    <div class="main_wrapper" id="main_wrapper"> 
+     <div id="main_back_img"> 
+      <div id="main_back_bottom"> 
+       
+       <div class="ibody clearfix" id="container"> 
+        <div class="w750 fleft">
+         <div id="content"> 
+          <div class="sub_nav clearfix" id="forum_sub_tab"> 
+           <ul> 
+            <li class="current"><a target="_self" href="__SELF__">我关注的贴吧</a></li> 
+           </ul> 
+          </div> 
+          <div class="sub_page" id="like_pagelet">
+           <div class="forum_main">
+            <div class="forum_table">
+             <table>
+              <?php if($forum_list!=null):?>
+              <tbody>
+               <tr>
+                <th style="width:242px">吧名 </th>
+                <th style="width:140px">经验值 </th>
+                <th style="width:193px">等级 </th>
+                <th style="width:155px">取消关注 </th>
+               </tr>               
+               <foreach name="forum_list" item="vo">
+               <tr>
+                <td><?php if($vo['manage_status']==true):?><span><img align="absmiddle" class="manager_icon" title="管理员" src="__PUBLIC__/common/images/manage.png"></span><?php endif;?><a title="{$vo.forum_id}" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}">{$vo.forum_name}</a></td>
+                <td><a href="{:U('Forum/levelDetail',array('id'=>$vo['forum_id']))}" target="_blank" class="cur_exp">{$vo.exp}</a></td>
+                <td><a href="{:U('Forum/levelDetail',array('id'=>$vo['forum_id']))}" target="_blank" title="{$vo.level_level}级会员" class="like_badge badge_lv{$vo.level_css}" style="display:block;">
+                  <div class="like_badge_title">
+                   {$vo.member_title}
+                  </div>
+                  <div class="like_badge_lv">
+                   {$vo.level_level}
+                  </div></a></td>
+                <td><span><img data-fid="{$vo.forum_id}" id="like_forum_btn" src="__PUBLIC__/common/images/close.gif" class="pt" /> </span></td>
+               </tr>
+               </foreach>
+             <?php else:?>
+             <div style="text-align: center;">
+           <img src="__PUBLIC__/common/images/no_data.png"/>
+          </div>     
+               
+               
+              </tbody>
+              <?php endif;?>
+             </table>
+            </div>
+            <div class="pagebar" id="j_pagebar">
+             <div class="pagination">
+              {$page}
+             </div>
+            </div> 
+           </div>
+          </div>
+         </div>
+        </div> 
+        <include file="Home:right" /> 
+       </div> 
+       <div class="footer" id="footer"> 
+        <include file="Public:footer" />
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+ <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+  <include file="Public:bottom" />  
+ </body>
+</html>

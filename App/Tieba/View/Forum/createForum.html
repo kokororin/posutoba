@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+ <head> 
+  <include file="Public:top" />
+  <title>Posutoba贴吧_创建贴吧 </title> 
+  <import type="css" file="theme,common,create_forum,upload,jquery#Jcrop#min,uploadify" basepath="__PUBLIC__/common/css" /> 
+ </head> 
+ <body> 
+   <include file="Public:userbar" />
+   <div class="wrap1">
+   <div class="wrap2">
+  <include file="Public:head" />
+  <div class="layout grid-m0s255" id="container" style="min-width:870px"> 
+   <div class="minwidth" style="_border-left-width:870px"> 
+    <div class="layout_wrap" style="_margin-left:-870px"> 
+     <div class="col-main"> 
+      <div class="main-wrap"> 
+       <div class="page_title">
+        创建贴吧
+       </div> 
+       <div id="page_panel"> 
+        <div class="create_form"> 
+         <dl> 
+          <dt>
+           贴吧名称：
+          </dt> 
+          <dd> 
+           <input type="text" class="ui_textfield" id="_forum_name" size="50" value="{$forum_name}" /> 
+           <div id="tip">
+            <span class="inputTextMsg"> 1. 吧名不超过14个汉字，限汉字、字母、数字和下划线。<br /> 2. 吧名不能与已有贴吧名称重复。<br /> 3. 吧名不能包含“医疗机构、具有药用性产品名、股票期货彩票”等金融信息。</span>
+           </div> 
+          </dd> 
+         </dl> 
+         <dl> 
+          <dt>
+           贴吧目录：
+          </dt> 
+          <dd> 
+          <select class="ui_select select_parent" id="_class_pid">
+   	         <option class="option_parent">----请选择----</option> 
+          </select> 
+          
+          <select class="ui_select select_son" id="_class_cid"> 
+   		     <option class="option_son">----请选择----</option> 
+          </select> 
+   
+
+           <div id="tip">
+            <span class="inputTextMsg"> 请如实选择贴吧目录。</span>
+           </div> 
+          </dd> 
+         </dl>
+         
+         <dl> 
+          <dt>
+           贴吧描述：
+          </dt> 
+          <dd> 
+           <input type="text" class="ui_textfield" id="_forum_desc" size="50" value="" /> 
+           <div id="tip">
+            <span class="inputTextMsg"> 短描述，概括本吧主题，语言明确且有吸引力，最多20字。</span>
+           </div> 
+          </dd> 
+         </dl>
+         
+         <dl> 
+          <dt>
+           贴吧头像：
+          </dt> 
+          <dd>
+           <div class="upload-main">
+<!-- 修改头像 -->
+<form action="{:U('Forum/doCreateForum')}" method="post" id="create_forum_form" class="update-pic cf">
+	<div class="upload-area">
+		<input type="file" id="user-pic">
+		<div class="file-tips">支持JPG,PNG,GIF，图片小于1MB，尺寸不小于100*100,真实高清头像更受欢迎！</div>
+		<div class="preview hidden" id="preview-hidden"></div>
+	</div>
+	<div class="preview-area">
+		<input type="hidden" id="x" name="x" />
+		<input type="hidden" id="y" name="y" />
+		<input type="hidden" id="w" name="w" />
+		<input type="hidden" id="h" name="h" />
+		<input type="hidden" id='img_src' name='src'/>
+		<input type="hidden" id='picName' name='picName'/>
+		<input type="hidden" id="forum_name" name="forum_name" />
+		<input type="hidden" id="class_pid" name="class_pid" />
+		<input type="hidden" id="class_cid" name="class_cid" />
+		<input type="hidden" id="forum_desc" name="forum_desc" />
+	</div>
+	
+</form>
+<!-- /修改头像 -->
+</div>
+           <div id="tip">
+            <span class="inputTextMsg"> 短描述，概括本吧主题，语言明确且有吸引力，最多20字。</span>
+           </div> 
+          </dd> 
+         </dl>
+         
+          
+         <dl> 
+
+          <dd>    
+           <div id="submit_btn"> 
+            <a href="javascript:void(0)" id="create_btn" class="ui_btn ui_btn_m"> 
+            <span><em>创建贴吧</em></span> </a> 
+            <a href="javascript:void(0)" class="ui_btn ui_btn_m reupload-img"> 
+            <span><em>重新上传</em></span> </a> 
+           </div>
+          </dd> 
+         </dl> 
+        </div> 
+       </div> 
+      
+      </div> 
+     </div> 
+     <div class="col-sub"> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="footer" class="footer"> 
+   <include file="Public:footer" />
+  </div>  
+
+</div></div>
+<script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+<import type="js" file="libs,common,jquery#form,jquery#uploadify#min,jquery#Jcrop#min" basepath="__PUBLIC__/common/js" />
+  <script>  
+  $(function(){  
+	  loadClass();
+	  $(".select_parent").change(function() {  
+          loadSon($(this).val());  
+      });  
+      loadSon(1);
+  });
+  </script>
+  <script>
+	$(function(){
+		//上传头像(uploadify插件)
+		$("#user-pic").uploadify({
+			'fileObjName':'forum_avatar',
+			'queueSizeLimit' : 1,
+			'removeTimeout' : 0.5,
+			'preventCaching' : true,
+			'multi'    : false,
+			'swf' 			: '__PUBLIC__/common/images/uploadify.swf',
+			'uploader' 		: '{:U("Forum/uploadAvatar")}',
+			'buttonText' 	: '<i class="userup-icon"></i>上传头像',
+			'width' 		: '200',
+			'height' 		: '200',
+			'fileTypeExts'	: '*.jpg; *.png; *.gif;',
+			'onUploadSuccess' : function(file, data, response){
+				var data = $.parseJSON(data);
+				if(data['status'] == 0){
+					createAlertbox('发生错误',data['info']);
+					return;
+				}
+
+				var preview = $('.upload-area').children('#preview-hidden');
+				preview.show().removeClass('hidden');
+				//两个预览窗口赋值
+				$('.crop').children('img').attr('src',data['url']+'?random='+Math.random());
+				//隐藏表单赋值
+				$('#img_src').val(data['url']);
+				$('#picName').val(data['picName']);			
+				//绑定需要裁剪的图片
+				var img = $('<img />');
+				preview.append(img);
+				preview.children('img').attr('src',data['url']+'?random='+Math.random());
+				var crop_img = preview.children('img');
+				crop_img.attr('id',"cropbox").show();
+				var img = new Image();
+				img.src = data['url']+'?random='+Math.random();
+				//根据图片大小在画布里居中
+				img.onload = function(){
+					var img_height = 0;
+					var img_width = 0;
+					var real_height = img.height;
+					var real_width = img.width;
+					if(real_height > real_width && real_height > 200){
+						var persent = real_height / 200;
+						real_height = 200;
+						real_width = real_width / persent;
+					}else if(real_width > real_height && real_width > 200){
+						var persent = real_width / 200;
+						real_width = 200;
+						real_height = real_height / persent;
+					}
+					if(real_height < 200){
+						img_height = (200 - real_height)/2;	
+					}
+					if(real_width < 200){
+						img_width = (200 - real_width)/2;
+					}
+					preview.css({width:(200-img_width)+'px',height:(200-img_height)+'px'});
+					preview.css({paddingTop:img_height+'px',paddingLeft:img_width+'px'});			
+				}
+				//裁剪插件
+				$('#cropbox').Jcrop({
+		            bgColor:'#333',   //选区背景色
+		            bgFade:true,      //选区背景渐显
+		            fadeTime:1000,    //背景渐显时间
+		            allowSelect:false, //是否可以选区，
+		            allowResize:true, //是否可以调整选区大小
+		            aspectRatio: 1,     //约束比例
+		            minSize : [100,100],//可选最小大小
+		            boxWidth : 200,		//画布宽度
+		            boxHeight : 200,	//画布高度
+		            onChange: showPreview,//改变时重置预览图
+		            onSelect: showPreview,//选择时重置预览图
+		            setSelect:[ 0, 0, 100, 100],//初始化时位置
+		            onSelect: function (c){	//选择时动态赋值，该值是最终传给程序的参数！
+			            $('#x').val(c.x);//需裁剪的左上角X轴坐标
+			            $('#y').val(c.y);//需裁剪的左上角Y轴坐标
+			            $('#w').val(c.w);//需裁剪的宽度
+			            $('#h').val(c.h);//需裁剪的高度
+		          }
+		        });
+				//重新上传,清空裁剪参数
+				var i = 0;
+				$('.reupload-img').click(function(){
+					$('#preview-hidden').find('*').remove();
+					$('#preview-hidden').hide().addClass('hidden').css({'padding-top':0,'padding-left':0});
+				});
+		     }
+		});
+		//预览图
+		function showPreview(coords){
+			var img_width = $('#cropbox').width();
+			var img_height = $('#cropbox').height();
+			  //根据包裹的容器宽高,设置被除数
+			  var rx = 100 / coords.w;
+			  var ry = 100 / coords.h; 
+			  $('#crop-preview-100').css({
+			    width: Math.round(rx * img_width) + 'px',
+			    height: Math.round(ry * img_height) + 'px',
+			    marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+			    marginTop: '-' + Math.round(ry * coords.y) + 'px'
+			  });
+			  rx = 60 / coords.w;
+			  ry = 60 / coords.h;
+			  $('#crop-preview-60').css({
+			    width: Math.round(rx * img_width) + 'px',
+			    height: Math.round(ry * img_height) + 'px',
+			    marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+			    marginTop: '-' + Math.round(ry * coords.y) + 'px'
+			  });
+		}
+		//提交表单
+		$('#create_btn').click(function() {
+			if($('#preview-hidden').html() == ''){
+				createAlertbox('发生错误','请先上传图片！');
+			}else{
+				//由于GD库裁剪gif图片很慢，所以长时间显示弹出框
+				//createAlertbox('操作成功','图片处理中，请稍候……');
+				$('#forum_name').val($('#_forum_name').val());
+				$('#class_pid').val($('#_class_pid').val());
+				$('#class_cid').val($('#_class_cid').val());
+				$('#forum_desc').val($('#_forum_desc').val());				
+				$('#create_forum_form').submit();
+			}
+		});
+	});
+	
+</script>
+  <include file="Public:bottom" />
+ </body>
+</html>

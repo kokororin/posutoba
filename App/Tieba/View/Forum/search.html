@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>Posutoba贴吧_{$word}</title>
+ <import type="css" file="theme,common,search" basepath="__PUBLIC__/common/css"/>
+ </head>
+ <body>
+  <include file="Public:userbar" /> 
+  <div class="wrap1">
+   <div class="wrap2">
+    <div id="f_header">
+     <div class="head_bright">
+      <include file="Public:head" />
+     </div>
+     <div id="j_search_nav_replace" class="j_search_nav_replace"> 
+      <div class="h_nav_content">
+       <?php if(null!=$forum_info):?>
+       <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}">{$forum_info.forum_name}</a>
+       <?php else:?>
+       <a href="__ROOT__">贴吧</a>
+       <?php endif;?>
+       <span class="n_split">&gt;</span>
+       <span>搜索结果</span>
+      </div> 
+     </div>
+     <div class="s_container clearfix">
+      <div style="text-align:left;" id="log"></div>
+      <div id="set_history" style="display:none;"></div>
+      <div class="s_main"> 
+       <?php if(null!=$forum_info):?>
+       <div class="s_inforum s_h_no_result">
+        以下是在
+        <font color="red">{$forum_info.forum_name}</font>吧的搜索结果，如需搜索全贴吧内容
+        <a href="{:U('Forum/search',array('word'=>$word))}">点击这里</a>
+       </div> 
+       <?php endif;?>
+       <div id="search_fengchao_left" class="search_fengchao_left"></div>
+
+       <div class="s_order" data-order="{$Think.get.order}">
+        排序结果： 
+        <a class="bluelink" href="{$order_url.default}">按时间倒序</a>
+        <span class="split_line">|</span>
+        <a class="bluelink" href="{$order_url.date}">按时间顺序</a>
+        <span class="split_line">|</span>
+        <a class="bluelink" href="{$order_url.thread}">只看主题贴</a> 
+       </div>
+       <div class="s_post_list"> 
+       
+       <foreach name="result_list" item="vo"> 
+        <div class="s_post">
+         <span class="p_title"><a class="bluelink" href="{:U('Post/index',array('id'=>$vo['thread_id']))}<?php if($vo['floor_id']!=1):?>#{$vo.post_id}<?php endif;?>" target="_blank">
+         <?php if($vo['floor_id']!=1):?>回复:<?php endif;?>{$vo.thread_title_convert}</a></span>
+         <div class="p_content">
+          {$vo.post_content_convert|mysubstr=0,120}
+         </div> 贴吧：
+         <a class="p_forum" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" target="_blank"><font class="p_violet">{$vo.forum_name}</font></a>作者：
+         <a href="{:U('Home/main',array('id'=>$vo['user_id']))}" target="_blank"><font class="p_violet">{$vo.user_name}</font></a>
+         <font class="p_green p_date">{$vo.post_date|convertDate=###,'without_second'}</font>
+        </div>
+        </foreach>
+        
+       </div> 
+      </div>
+      <div class="s_aside">
+       <div class="history_con clearfix">
+        <div id="history_con" class="for_relation_forum_bg">
+         <div class="s_h_part">
+          <div class="s_h_title ">搜索历史</div>
+          <?php if($history_list!=null):?>
+          <div class="s_h_content">          
+           <foreach name="history_list" item="vo">
+           <div class="s_h_item" title="F12">
+           <?php if(null!=$forum_info):?>
+            <a href="{:U('Forum/search',array('fid'=>$forum_info['forum_id'],'word'=>$vo))}" class="j_a_link">{$vo}</a>
+            <?php else:?>
+            <a href="{:U('Forum/search',array('word'=>$vo))}" class="j_a_link">{$vo}</a>
+            <?php endif;?>
+            <span class="s_h_close"></span>
+           </div>
+           </foreach>                      
+          </div>
+           <div class="s_h_clear">清除</div>
+          <?php else:?>
+          <div class="s_h_noresult">暂无搜索记录</div>
+          <?php endif;?>          
+         
+         </div>
+        </div>
+       </div>
+       <div id="search_fengchao" class="search_fengchao"></div>
+       <div id="search_union_mod" class="search_union_mod "></div>
+      </div>
+     </div>
+     <div class="pager pager-search">
+     {$page}
+      <span class="s_nav_right hasPage">找到相关贴吧贴子{$result_count}篇，用时{$total_time}秒</span>
+     </div>
+     <div id="search_bottomad" class="search_bottomad"></div>
+     <div class="p_rec p_hot" id="j_hotba"></div>
+     <div class="search_record"></div>
+     <div style="clear:both;height:1px;line-height:1px;"></div> 
+     <div id="footer" class="footer"> 
+      <include file="Public:footer" />
+     </div> 
+    </div>
+   </div>
+  </div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js"/>
+ <script>
+  $(function(){
+	   var current_order=$('.s_order').attr('data-order');
+	   var text;
+	   var $order_a=$('.s_order>.bluelink');
+	   if(current_order == '') {
+		   text=$order_a.eq(0).html();
+	       $order_a.eq(0).replaceWith('<b>'+text+'</b>');
+		   }		   
+	   else if(current_order == 'date') {
+		   text=$order_a.eq(1).html();
+	       $order_a.eq(1).replaceWith('<b>'+text+'</b>');
+		   }		  
+	   else if(current_order == 'thread') {
+		   text=$order_a.eq(2).html();
+	       $order_a.eq(2).replaceWith('<b>'+text+'</b>');
+		   } 
+	 });
+  </script>
+  <include file="Public:bottom" />
+ </body>
+</html>

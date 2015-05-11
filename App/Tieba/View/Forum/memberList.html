@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>本吧会员_{$forum_info.forum_name}吧</title>
+  <import type="css" file="theme,common,forum,member_list" basepath="__PUBLIC__/common/css"/>
+  </head>
+ <body>
+  <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <include file="Public:head" />
+    <div id="container" class="container_wrap clearfix forum_info_wrap">
+     <div class="card_top_wrap clearfix card_top_theme ">
+      <div class="card_top_right"> 
+      </div>
+      <div class="card_top clearfix"> 
+       <div class="card_head">
+        <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}"><img class="card_head_img" src="{:U('Forum/getAvatar',array('fid'=>$forum_info['forum_id']))}"" /></a>
+       </div>
+       <div class="card_title "> 
+        <a class="card_title_fname" title="" href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}">{$forum_info.forum_name}吧</a> 
+        <a href="javascript:void(0)" data-fid="{$forum_info.forum_id}" class="{$concern_btn_css}" id="like_forum_btn" style="margin-top:2px;"></a> 
+        <span class="card_num "><span class="card_numLabel">关注：</span><span class="card_menNum">{$member_count}</span><span class="card_numLabel">贴子：</span><span class="card_infoNum">{$post_count}</span></span> 
+       </div> 
+       <p class="card_slogan"></p>
+       <div class="card_info">
+        <ul class="forum_dir_info bottom_list clearfix">
+         <li> </li>
+         <li><span class="dir_text">目录：</span></li>
+         <li> <a target="_blank" href="{:U('Forum/forumClass',array('pid'=>$forum_class['parent_id'],'cid'=>$forum_class['class_id']))}">{$forum_class.class_name}</a> </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     
+     <div class="forum_info_section member_wrap clearfix">
+      <h1 class="forum_info_title clearfix"><span class="cut_line"></span><span class="text"> {$member_name} （{$member_count}人） </span></h1> 
+      <foreach name="member_list" item="vo">
+      <span class="member <?php if ($key<=9):?>first_row<?php endif;?>"><a href="{:U('Home/main',array('id'=>$vo['fans_id']))}" class="avatar"><img src="{:U('Home/getAvatar',array('uid'=>$vo['fans_id']))}" alt="头像" /></a>
+       <div class="name_wrap">
+        <a href="{:U('Home/main',array('id'=>$vo['fans_id']))}" class="user_name" title="{$vo.user_name}">{$vo.user_name}</a>
+       </div></span> 
+      </foreach>
+     </div>
+     <div class="tbui_pagination tbui_pagination_left"> 
+      <ul> 
+       {$page}
+      </ul>
+      <?php if($total_page>1):?>
+      <span class="tbui_total_page">共{$total_page}页</span>
+      <input class="ui_textfield pagination_input" id="manage_jump_input" type="text" name="pn" />
+      <a href="javascript:void(0)" class="jump_btn" id="manage_jump_btn"><span><em>跳转</em></span></a>
+      <?php endif;?>
+      </div>
+    </div> 
+    <div id="footer" class="footer"> 
+     <include file="Public:footer" />
+    </div> 
+   </div>
+  </div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js"/>
+ <include file="Public:bottom" />
+  </body>
+</html>

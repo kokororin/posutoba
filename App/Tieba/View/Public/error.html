@@ -1,0 +1,33 @@
+<?php
+    if(C('LAYOUT_ON')) {
+        echo '{__NOLAYOUT__}';
+    }
+?>
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>贴吧404</title>
+  <import type="css" file="theme,common,error" basepath="__PUBLIC__/common/css" />
+ </head>
+ <body class="page404">
+  <include file="Public:userbar" />
+ <div class="wrap1">
+   <div class="wrap2">
+   <include file="Public:head" />
+  <div class="main-wraper" id="main-wraper">
+   <div class="message-info">
+    <p><img width="285" src="__PUBLIC__/common/images/404_bg1_ae522be.png" class="doodle-404" /></p>
+    <div id="errorText">
+     <h1 class="main-title"><?php echo($error); ?></h1>
+    </div>
+    <p class="normal-info-content"><a href="__ROOT__/" class="tbsy-tag">返回首页</a></p>
+   </div>
+   <!-- <p class="footer404"></p> -->
+
+</div></div>
+</div>
+<script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js"/>
+ </body>
+</html>

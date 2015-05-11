@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>吧概况_{$forum_info.forum_name}吧</title>
+ <import type="css" file="theme,common,admin_common,admin_index" basepath="__PUBLIC__/common/css"/>
+ </head>
+ <body class="manager_page">
+ <include file="Public:userbar" />
+  <header class="head">
+   <include file="Public:head" />
+  </header>
+  <div class="message_container">
+   <div class="page_message" id="page_message"></div>
+  </div>
+  <!--[if lte IE 7]><div class="ie_height_hacker"></div><![endif]-->
+  <div id="container" class="container clearfix">       
+    <include file="Admin:left" />
+   <div class="main_content"> 
+    <div class="main-container" id="main-container">
+     <div class="bar-info-wraper clear-float"> 
+      <div class="float-left">
+       <div class="float-left forum-img-wraper">
+        <div>
+         <img src="{:U('Forum/getAvatar',array('fid'=>$forum_info['forum_id']))}" />
+         <a href="#" class="edit-bg"></a>
+         <a href="javascript:void(0);" class="edit-text" title="">编辑</a>
+        </div>
+       </div>
+       <div class="float-left forum-info">
+        <div class="forum-name">
+         {$forum_info.forum_name}
+        </div>
+        <div class="num-wraper">
+         <a class="mem-num">{$member_count}</a>
+         <a class="post-num">{$post_count}</a>
+        </div>
+        <div class="forum-column">
+         <span class="forum-breif">{$forum_info.forum_desc}</span>
+         <a href="javascript:void(0);" class="forum-breif-edit" title="">[编辑]</a> 
+        </div>
+        <div class="set_catalog">
+         <div class="has-set-directory" id="">
+          目录：
+          <span class="directory-name">{$class_name}</span>
+          <a href="javascript:void(0)" class="change-directory">修改</a>
+         </div>
+        </div>
+       </div>
+      </div>      
+      
+      <div class="today-data-title clearfix"></div> 
+      <div class="cur-data">
+       <div class="cur-title clearfix">
+        <span class="title">近日数据</span>
+       </div>
+       
+       <div class="recent_data_table_wrap">
+        <table class="j_data_table">
+         <tbody>
+          <tr>
+           <th class="bold width2 height1"></th>
+           <th class="bold width1 height1">主题数</th>
+           <th class="bold width1 height1">回复数</th>
+           <th class="bold width1 height1">签到数</th>
+           <th class="bold width1 height1">签到率</th>
+           <th class="bold width1 height1">总会员数</th>
+          </tr>
+          <foreach name="census_data[2]" item="vo">
+          <tr>
+           <td class="width2 height2">{$vo.date}</td>
+           <td class="width1 height2">{$vo.thread_count}</td>
+           <td class="width1 height2">{$vo.post_count}</td>
+           <td class="width1 height2">{$vo.sign_count}</td>
+           <td class="width1 height2">{$vo.sign_ratio}%</td>
+           <td class="width1 height2">{$member_count}</td>
+          </tr>
+          </foreach>
+          <tr>
+           <td class="width2 height2">7天平均</td>
+           <td class="width1 height2">{$census_data.7.thread_count}</td>
+           <td class="width1 height2">{$census_data.7.post_count}</td>
+           <td class="width1 height2">{$census_data.7.sign_count}</td>
+           <td class="width1 height2">{$census_data.7.sign_ratio}%</td>
+           <td class="width1 height2">{$member_count}</td>
+          </tr>
+          <tr>
+           <td class="width2 height2">30天平均</td>
+           <td class="width1 height2">{$census_data.30.thread_count}</td>
+           <td class="width1 height2">{$census_data.30.post_count}</td>
+           <td class="width1 height2">{$census_data.30.sign_count}</td>
+           <td class="width1 height2">{$census_data.30.sign_ratio}%</td>
+           <td class="width1 height2">{$member_count}</td>
+          </tr>
+         </tbody>
+        </table>
+        
+       </div>
+      </div>
+      <div class="cur-data no-border">
+       <div class="cur-title has-bottom-border">
+        <span class="title">吧务评估</span>
+       </div>
+       <div class="bawu_check_hard">
+        <img src="__PUBLIC__/common/images/bawu_check.jpg" width="30px" height="30px" />
+        <span class="title check">吧务勤劳度：</span>
+        <span class="word">近期吧务工作勤勉，再接再厉，吧内氛围靠大家！！</span>
+        <img src="__PUBLIC__/common/images/bawu_check.jpg" style="margin-left:75px;" width="30px" height="30px" />
+        <span class="title hard" style="margin:0;margin-left:5px;">吧务处理合理度：</span>
+        <span class="word">近期吧友非常理解吧务的处理，吧内氛围其乐融融。么么哒~</span>
+       </div>
+       <table style="width:800px;margin:0 25px 65px;">
+        <tbody>
+         <tr>
+          <th class="bold width2 height1"></th>
+          <foreach name="census_data['days_7']" item="vo">
+          <th class="bold width1 height1">{$vo}</th>
+          </foreach>
+          
+         </tr>
+         <tr>
+          <td class="width2 height1">吧务勤劳度</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+         </tr>
+         <tr>
+          <td class="width2 height1">吧务处理合理度</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+          <td class="width1 height1">100%</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      </div> 
+    </div>
+   </div>
+   <div id="tbLcsContainer"></div>
+  </div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js"/>
+ <include file="Public:bottom" />
+ </body>
+</html>

@@ -1,0 +1,803 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	font: 'ËÎÌå' 12px/14px
+}
+
+.d_panel {
+	width: 100%;
+	height: 776px;
+	background:
+		url(../images/furank_bg_d159af32.png?v=1.0);
+	overflow: hidden
+}
+
+.d_main {
+	margin: 0 auto;
+	width: 1010px
+}
+
+.d_panel_rank {
+	float: left;
+	width: 575px;
+	height: 776px;
+	background:
+		url(../images/furank_rbg_4192dc21.png?v=1.0)
+		no-repeat;
+	position: relative;
+	z-index: 192
+}
+
+.d_rank_list {
+	position: absolute;
+	right: 0;
+	top: 23px;
+	height: 730px;
+	width: 440px;
+	border: 1px solid #eee;
+	background-color: #fff
+}
+
+.d_rank_list ul {
+	clear: both
+}
+
+.d_rank_list li {
+	float: left
+}
+
+.drl_head {
+	height: 31px;
+	line-height: 31px;
+	background:
+		url(../images/furank_ltbg_2db6dbf7.png?v=1.0)
+}
+
+.drl_head_title {
+	font-size: 14px;
+	font-weight: bold;
+	width: 335px;
+	color: #000;
+	padding-left: 10px
+}
+
+.drl_head_time {
+	color: #999;
+	text-align: right;
+	margin-align: 10px
+}
+
+.drl_main {
+	margin: 1px 1px 0 1px;
+	height: 640px
+}
+
+.drl_info {
+	border-bottom: 1px solid #ededed;
+	height: 35px;
+	line-height: 35px;
+	background-color: #fbfbfb
+}
+
+.drl_info li {
+	font-size: 12px
+}
+
+.drl_info li b {
+	color: #333;
+	padding-left: 15px
+}
+
+.drl_info_txt_orange {
+	color: #ff6000;
+	font-family: "Arail"
+}
+
+.drl_info_txt_gray {
+	color: #808080;
+	font-family: "Arail"
+}
+
+.drl_info_txt_tip {
+	color: #000;
+	padding-left: 20px
+}
+
+.p_drl_myindex {
+	color: #0449be;
+	font-family: "Arail"
+}
+
+.drl_info_txt_tip a {
+	color: #245fb3;
+	text-decoration: none
+}
+
+.drl_status {
+	width: 9px;
+	height: 9px;
+	margin-top: 12px;
+	*margin-top: 3px;
+	_margin-top: 13px;
+	margin-right: 2px
+}
+
+.drl_num_0 {
+	color: #999;
+	font-family: "Arail"
+}
+
+.drl_num_1 {
+	color: #ff6000;
+	font-family: "Arail"
+}
+
+.drl_num_2 {
+	color: #999;
+	font-family: "Arail"
+}
+
+.drl_no_list {
+	color: #666;
+	margin: auto 0;
+	width: 420px;
+	text-align: center;
+	padding-top: 60px
+}
+
+.drl_list {
+	margin: 0 auto;
+	width: 420px
+}
+
+.drl_list td {
+	white-space: nowrap
+}
+
+.drl_list_title {
+	height: 38px;
+	color: #666;
+	text-align: left
+}
+
+.drl_row_index {
+	width: 76px;
+	padding-left: 10px;
+	font-weight: bold;
+	border-bottom: 1px solid #f7f7f7;
+	text-align: left
+}
+
+.drl_row_name {
+	width: 120px;
+	font-weight: bold;
+	border-bottom: 1px solid #f7f7f7;
+	text-align: left
+}
+
+.drl_row_title {
+	width: 35px;
+	font-weight: bold;
+	border-bottom: 1px solid #f7f7f7;
+	text-align: left
+}
+
+.drl_row_exp {
+	width: 84px;
+	font-weight: bold;
+	border-bottom: 1px solid #f7f7f7;
+	padding-left: 26px;
+	text-align: left
+}
+
+.drl_row_status {
+	font-weight: bold;
+	border-bottom: 1px solid #f7f7f7;
+	text-align: left
+}
+
+.drl_list_item {
+	height: 28px;
+	line-height: 28px;
+	color: #666;
+	text-align: left
+}
+
+.drl_list_item_self {
+	height: 28px;
+	line-height: 28px
+}
+
+.drl_list_item_self .drl_item_index {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_selfbg_l_74d5930d.png?v=1.0)
+		no-repeat
+}
+
+.drl_list_item_self .drl_item_name {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_selfbg_m_e68ae249.png?v=1.0)
+		repeat-x;
+	font-weight: bold
+}
+
+.drl_list_item_self .drl_item_title {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_selfbg_m_e68ae249.png?v=1.0)
+		repeat-x
+}
+
+.drl_list_item_self .drl_item_exp {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_selfbg_m_e68ae249.png?v=1.0)
+		repeat-x;
+	padding-left: 26px
+}
+
+.drl_list_item_self .drl_item_status {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_selfbg_r_b2e2ff0c.png?v=1.1)
+		no-repeat
+}
+
+.drl_item_index {
+	padding-left: 10px;
+	font-family: "Arail"
+}
+
+.drl_item_index_1 {
+	color: #fff;
+	background:
+		url(../images/furank_index_1st_b7dd9762.png?v=1.0)
+		no-repeat;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	display: block;
+	text-align: center
+}
+
+.drl_item_index_2 {
+	color: #fff;
+	background:
+		url(../images/furank_index_2nd_dec74cfc.png?v=1.0)
+		no-repeat;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	text-align: center
+}
+
+.drl_item_index_3 {
+	color: #fff;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_index_3rd_a5563dee.png?v=1.0)
+		no-repeat;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	display: block;
+	text-align: center
+}
+
+.drl_item_index_nor {
+	color: #999;
+	text-align: left;
+	width: 15px;
+	text-align: center;
+	white-space: nowrap
+}
+
+.drl_item_card {
+	position: relative;
+	display: inline-block;
+	z-index: 1000
+}
+
+.drl_item_vip {
+	padding-left: 22px;
+	margin-left: -22px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_vipicons_094ddc02.png)
+		no-repeat 0 0
+}
+
+.drl_item_vip_1 {
+	background-position: 0 -30px
+}
+
+.drl_item_card_sp.drl_item_vip_1 {
+	background-position: 0 -24px
+}
+
+.drl_item_card_sp.drl_item_vip_2 {
+	background-position: 0 8px
+}
+
+.drl_item_vip .drl_item_name_top, .drl_item_vip .drl_item_name_nor {
+	color: red
+}
+
+.drl_item_name_top {
+	font-size: 14px;
+	font-weight: bold;
+	color: #245fb3;
+	text-decoration: none;
+	height: 30px;
+	line-height: 30px
+}
+
+.drl_item_name_nor {
+	color: #245fb3;
+	text-decoration: none
+}
+
+.drl_item_title {
+	font-family: "Arail"
+}
+
+.drl_item_exp {
+	color: #999;
+	font-family: "Arail";
+	padding-left: 26px
+}
+
+.drl_item_status {
+	color: #999;
+	font-family: "Arail"
+}
+
+.drl_item_status span {
+	margin-left: -2px
+}
+
+.d_rank_pager {
+	height: 55px;
+	line-height: 55px;
+	margin: 0 auto;
+	width: 345px
+}
+
+.p_drp_btns {
+	width: 215px;
+	font-family: "Arail";
+	vertical-align: middle
+}
+
+.drp_btn_cur {
+	background-color: #245fb3;
+	text-decoration: none;
+	padding: 1px 3px 0 3px;
+	margin-left: 8px;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap
+}
+
+.p_drp_btns>a {
+	color: #245fb3;
+	text-decoration: none;
+	padding: 0 3px 0 3px;
+	margin-left: 8px;
+	text-align: center;
+	white-space: nowrap
+}
+
+.drp_input {
+	width: 50px
+}
+
+.p_drp_input {
+	width: 40px;
+	border: 1px solid #b3b3b3;
+	margin: 16px 0 0 0;
+	font-family: "Arail";
+	font-size: 12px
+}
+
+.drp_txt {
+	color: #b3b3b3;
+	padding: 0 6px 0 6px
+}
+
+.drp_btn_goto {
+	width: 45px
+}
+
+.p_drp_btn {
+	margin-top: 16px
+}
+
+.d_panel_ladder {
+	float: left;
+	width: 435px;
+	background-color: #eee;
+	height: 776px;
+	background:
+		url(../images/furank_lbg_e70e33b8.png?v=1.0)
+		no-repeat;
+	position: relative;
+	z-index: 190
+}
+
+.p_ladder_guy {
+	position: absolute;
+	background:
+		url(../images/furank_guy24_d21531e4.png?v=1.0)
+		no-repeat;
+	*background:
+		url(../images/furank_guy24_d21531e4.png?v=1.0)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_guy8_f4f76a03.png?v=1.0)
+		no-repeat;
+	height: 130px;
+	width: 90px;
+	left: 25px;
+	bottom: 37px;
+	z-index: 120
+}
+
+.p_ladder_pop {
+	position: absolute;
+	background:
+		url(../images/furank_pop24_e99395b6.png?v=1.0)
+		no-repeat;
+	*background:
+		url(../images/furank_pop24_e99395b6.png?v=1.0)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_pop8_8a084114.png?v=1.0)
+		no-repeat;
+	height: 121px;
+	width: 278px;
+	left: 116px;
+	bottom: 95px;
+	z-index: 140
+}
+
+.p_sharebar {
+	position: absolute;
+	left: 220px;
+	bottom: 80px;
+	z-index: 150;
+	display: none
+}
+
+.d_sharebar_txt {
+	float: left;
+	font-size: 12px;
+	padding-top: 5px
+}
+
+.d_pop_main {
+	position: relative;
+	font-family: "ËÎÌå"
+}
+
+.d_pop_head {
+	position: absolute;
+	left: 12px;
+	top: 12px;
+	border: 1px solid #d4d4d4;
+	width: 82px;
+	height: 82px;
+	overflow: hidden
+}
+
+.d_pop_head img {
+	width: 80px;
+	height: auto;
+	margin: 1px 0 0 1px
+}
+
+.d_pop_uname {
+	position: absolute;
+	left: 106px;
+	top: 4px;
+	height: 24px;
+	line-height: 24px
+}
+
+.d_pop_uname a {
+	color: #000;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none
+}
+
+.d_pop_texture {
+	position: absolute;
+	left: 106px;
+	top: 24px;
+	color: #666;
+	width: 170px
+}
+
+.p_pop_notlogin, .p_pop_notmember {
+	cursor: pointer
+}
+
+.p_pop_notlogin li, .p_pop_notmember li {
+	height: 26px;
+	line-height: 25px
+}
+
+.p_pop_notlogin .d_pop_login {
+	text-decoration: none;
+	color: #245fb3
+}
+
+.p_pop_notmember img {
+	vertical-align: middle;
+	margin-left: 4px
+}
+
+.p_pop_member {
+	cursor: default
+}
+
+.p_pop_member li {
+	line-height: 20px
+}
+
+.d_pop_num {
+	color: #ff6000
+}
+
+.p_ladder_flag_lv1 {
+	position: absolute;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lv1_4794ae5e.png?v=1.0)
+		no-repeat;
+	*background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lv1_4794ae5e.png?v=1.0)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag8_lv1_20ce74d4.png?v=1.0)
+		no-repeat;
+	height: 36px;
+	width: 49px;
+	left: 96px;
+	bottom: 36px;
+	z-index: 119;
+	display: none
+}
+
+.p_ladder_flag_lv2 {
+	position: absolute;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lv2_8925e24e.png?v=1.0)
+		no-repeat;
+	*background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lv2_8925e24e.png?v=1.0)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag8_lv2_a3659961.png?v=1.0)
+		no-repeat;
+	height: 36px;
+	width: 78px;
+	left: 96px;
+	bottom: 36px;
+	z-index: 118;
+	display: none
+}
+
+.p_ladder_flag_lv3 {
+	position: absolute;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lv3_3abe9422.png?v=1.0)
+		no-repeat;
+	*background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lv3_3abe9422.png?v=1.0)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag8_lv3_6934a657.png?v=1.0)
+		no-repeat;
+	height: 36px;
+	width: 107px;
+	left: 96px;
+	bottom: 36px;
+	z-index: 117;
+	display: none
+}
+
+.p_ladder_flag_lv6 {
+	position: absolute;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lv6_d4645b21.png?v=1.0)
+		no-repeat;
+	*background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lv6_d4645b21.png?v=1.0)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag8_lv6_facfa186.png?v=1.0)
+		no-repeat;
+	height: 36px;
+	width: 49px;
+	left: 96px;
+	bottom: 36px;
+	z-index: 111;
+	display: none
+}
+
+.p_ladder_flag_lvs {
+	position: absolute;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lvs_7702ef86.png?v=1.0)
+		no-repeat;
+	*background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag24_lvs_7702ef86.png?v=1.0)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_flag8_lvs_2a2bc1f4.png?v=1.0)
+		no-repeat;
+	height: 36px;
+	width: 49px;
+	left: 96px;
+	bottom: 664px;
+	z-index: 110
+}
+
+.p_goinfo {
+	position: absolute;
+	background:
+		url(../images/furank_goinfo24_f3677f0b.png?v=1.1)
+		no-repeat;
+	*background:
+		url(../images/furank_goinfo24_f3677f0b.png?v=1.1)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-member/img/furank_goinfo8_d1f946ad.png?v=1.1)
+		no-repeat;
+	height: 60px;
+	width: 134px;
+	left: 134px;
+	top: 0;
+	z-index: 150;
+	cursor: pointer
+}
+
+#memTipPanel {
+	background: #fff;
+	border: 2px solid #b0bade;
+	left: -5px !important;
+	position: relative;
+	top: -5px !important;
+	z-index: 1001
+}
+
+.badge {
+	width: 25px;
+	height: 25px;
+	line-height: 22px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #b65e00;
+	margin: 0 auto;
+	overflow: hidden;
+	font-family: arial;
+	padding-left: 8px;
+	text-align: left;
+	letter-spacing: -1px
+}
+
+.bg_lv1, .bg_lv2, .bg_lv3, .bg_lv4, .bg_lv5, .bg_lv6, .bg_lv7, .bg_lv8,
+	.bg_lv9, .bg_lv10, .bg_lv11, .bg_lv12, .bg_lv13, .bg_lv14, .bg_lv15,
+	.bg_lv16, .bg_lv17, .bg_lv18 {
+	height: 18px;
+	margin-left: 3px;
+	width: 20px;
+	vertical-align: middle
+}
+
+.bg_lv1 {
+	background:
+		url(../images/1_a885b5d5.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv2 {
+	background:
+		url(../images/2_6c923884.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv3 {
+	background:
+		url(../images/3_a432934c.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv4 {
+	background:
+		url(h../images/4_c0cd8c8d.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv5 {
+	background:
+		url(../images/5_02f342e9.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv6 {
+	background:
+		url(../images/6_09cc627e.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv7 {
+	background:
+		url(../images/7_be4da68d.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv8 {
+	background:
+		url(../images/8_1de0ecba.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv9 {
+	background:
+		url(../images/9_792e510e.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv10 {
+	background:
+		url(../images/10_da4bd6b0.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv11 {
+	background:
+		url(../images/11_4dba2ef3.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv12 {
+	background:
+		url(../images/12_1c7fd94c.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv13 {
+	background:
+		url(../images/13_9631e2ca.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv14 {
+	background:
+		url(../images/14_fe00827e.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv15 {
+	background:
+		url(../images/15_2ffce560.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv16 {
+	background:
+		url(../images/16_e3ef6943.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv17 {
+	background:
+		url(../images/17_dc4e4711.png?v=1.0)
+		no-repeat
+}
+
+.bg_lv18 {
+	background:
+		url(../images/18_3c0fe553.png?v=1.0)
+		no-repeat
+}
+

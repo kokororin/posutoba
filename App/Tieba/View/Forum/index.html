@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>{$forum_info.forum_name}吧<?php if ($_GET['type'] == 'good'): ?>的精品帖<?php endif;?>_Posutoba贴吧</title>
+ <import type="css" file="theme,common,forum,emotion,upload,jquery#Jcrop#min,uploadify,jquery#fancybox" basepath="__PUBLIC__/common/css"/>
+ </head>
+  <body spellcheck="false" class="skin_normal">
+  <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <div class="wrap_clear"></div>
+    <div class="wrap_bright">
+     <div class="head_bright">
+      <include file="Public:head" />
+     </div>
+     <div class="top_iframe"></div>
+     <div id="container" class="container_bright">
+      <div class="content_top"></div>
+      <div class="content">
+       <div class="forum_header">
+        <div class="card_banner">
+         <!-- <img src="__PUBLIC__/common/images/forum_default_head.jpg" alt="" />  -->
+        </div>
+        <div class="card_top_wrap clearfix card_top_theme1">
+         <div class="card_top_right">
+          <include file="Forum:sign" />
+         </div>
+         <div class="card_top clearfix">
+          <div class="card_head">
+           <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}"><img class="card_head_img" src="{:U('Forum/getAvatar',array('fid'=>$forum_info['forum_id']))}" /></a>
+          </div>
+          <div class="card_title ">
+           <a class="card_title_fname" title="" href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}"> {$forum_info.forum_name}吧</a>
+           <a href="javascript:void(0)" data-fid="{$forum_info.forum_id}" class="{$concern_btn_css}" id="like_forum_btn" style="margin-top: 2px;"></a>
+           <span class="card_num "><span class="card_numLabel">关注：</span><span class="card_menNum">{$member_count}</span><span class="card_numLabel">贴子：</span><span class="card_infoNum">{$post_count}</span></span>
+          </div>
+          <p class="card_slogan">{$forum_info.forum_desc}</p>
+          <div class="card_info">
+           <ul class="forum_dir_info bottom_list clearfix">
+            <li></li>
+            <li><span class="dir_text">目录：</span></li>
+            <li><a target="_blank" href="{:U('Forum/forumPark',array('pid'=>$forum_class['parent_id'],'cid'=>$forum_class['class_id']))}">{$forum_class.class_name}</a> </li>
+           </ul>
+          </div>
+         </div>
+        </div>
+        <div class="game_frs_in_head">
+         <!-- ie空div高度消除 -->
+        </div>
+        <div class="nav_wrap " id="tb_nav">
+         <ul class="nav_list j_nav_list">
+          <li class=" focus j_tbnav_tab ">
+           <div class="tbnav_tab_inner">
+            <p class="space"> <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id']))}" class="nav_icon icon_tie  j_tbnav_tab_a" id="tab_forumname">看贴</a> </p>
+           </div> </li>
+          <li class="none_right_border j_tbnav_tab ">
+           <div class="tbnav_tab_inner">
+            <p class="space"> <a href="{:U('Forum/index',array('id'=>$forum_info['forum_id'],'type'=>'good'))}" class="nav_icon icon_jingpin  j_tbnav_tab_a">精品</a> </p>
+           </div> </li>
+
+         </ul>
+         <div class="search_internal_wrap j_search_internal">
+          <form class="j_search_internal_form">
+           <input class="search_internal_input j_search_internal_input" type="text" placeholder="吧内搜索"/>
+           <input class="search_internal_btn" type="button" />
+          </form>
+         </div>
+        </div>
+       </div>
+       <div class="forum_content clearfix">
+        <div class="main" id="contet_wrap">
+         <div id="content_leftList" class="content_leftList clearfix">
+          <ul id="thread_list" class="threadlist_bright">
+           <!-- 帖子开始 -->
+           <foreach name="thread_list" item="vo">
+           <li class="j_thread_list clearfix thread_image <?php if ($key == 0): ?>thread_1st<?php endif;?>">
+            <div class="t_con cleafix">
+             <div class="threadlist_li_left j_threadlist_li_left">
+              <div class="threadlist_rep_num" title="直达尾页">
+               {$vo.reply_count}
+              </div>
+             </div>
+             <div class="threadlist_li_right j_threadlist_li_right">
+              <div class="threadlist_lz clearfix">
+               <div class="threadlist_text threadlist_title j_th_tit  ">
+                <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}" title="{$vo.thread_title}" target="_blank" class="j_th_tit">{$vo.thread_title}</a>
+                <span>
+                <?php if (strpos($vo['thread_type'], 'good') !== false): ?>
+                <img src="__PUBLIC__/common/images/thread_good.gif" alt="精品" />
+                <?php endif;?>
+                <?php if (strpos($vo['thread_type'], 'top') !== false): ?>
+                <img src="__PUBLIC__/common/images/thread_top.gif" alt="置顶" />
+                <?php endif;?>
+                </span>
+               </div>
+               <div class="threadlist_author">
+                <span class="tb_icon_author " title="主题作者: {$vo.user_name}">
+                <a class="j_user_card" data-uid="{$vo.user_id}" href="{:U('Home/main',array('id'=>$vo['user_id']))}" target="_blank">{$vo.user_name}</a>
+                 <div class="icon_wrap  icon_wrap_theme1 frs_bright_icons "></div></span>
+               </div>
+              </div>
+              <?php if (strpos($vo['thread_type'], 'top') === false): ?>
+              <div class="threadlist_detail clearfix">
+               <div class="threadlist_text">
+                <div class="threadlist_abs threadlist_abs_onlyline">
+                  {$vo.post_content_convert}
+                </div>
+               {$vo.thread_image}
+               </div>
+               <div class="threadlist_author">
+                <span class="tb_icon_author_rely j_replyer" title="最后回复人：{$vo.last_username}">
+                <a class="j_user_card" data-uid="{$vo.last_userid}" href="{:U('Home/main',array('id'=>$vo['last_userid']))}" target="_blank">{$vo.last_username}</a></span>
+                <span class="threadlist_reply_date j_reply_data" title="最后回复时间"> {$vo.last_date|convertDate=###,'intel'}</span>
+               </div>
+              </div>
+              <?php endif;?>
+             </div>
+             <div class="clear"></div>
+            </div>
+            <?php if (strpos($vo['thread_type'], 'top') === false): ?>
+            <!-- 大图start -->
+     <div class="media_box j_remove j_media_box" style="display:none;">
+   <div class="media_disp">
+    <div class="media_pic_control">
+     <a class="tb_icon_retract j_retract" href="javascript:void(0)">收起</a>
+     <span class="line">|</span>
+     <a target="_blank" class="tb_icon_ypic j_ypic" href="">查看大图</a>
+    </div>
+    <div class="media_bigpic j_media_bigPic">
+     <div class="media_bigpic_wrap">
+      <img class="j_retract" src="javascript:void(0)" style="margin-top: 25px; margin-bottom: 25px;" />
+     </div>
+     <div class="media_bigpic_display_pre j_display_pre" style="display: none;"></div>
+     <div class="media_bigpic_display_next j_display_next" style="display:none;"></div>
+    </div>
+   </div>
+   <div class="j_enter_pb_wrapper enter_pb_wrapper">
+    <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}" class="ui_btn ui_btn_m_special j_enter_pb enter_pb" target="_blank"><span><em>进入贴子</em> </span></a>
+   </div>
+  </div>
+  <!-- 大图end -->
+  <?php endif;?>
+           </li>
+            </foreach>
+            <!-- 帖子结束 -->
+
+          </ul>
+          <div class="thread_list_bottom clearfix">
+           <div id="frs_list_pager" class="pager clearfix">
+            {$page}
+           </div>
+          </div>
+         </div>
+
+        </div>
+        <div id="aside" class="side">
+         <?php if (null != getUid()): ?>
+         <include file="Forum:right" />
+         <?php endif;?>
+         <div id="forumInfoPanel" class="region_bright forum_info_bright" data-region="">
+          <div class="region_header">
+           <div class="region_title region_icon j_title">
+           本吧信息
+           </div>
+          </div>
+          <div class="region_cnt">
+           <div class="manager_list">
+            <span id="tbManagerApply"> </span>
+            <h4> <a href="#" class="manager_btn" onclick="return false;">吧主</a>： </h4>
+            <ul class="clearfix">
+             <li class="user_avt_card">
+              <div class="manager_pic">
+               <a href="{:U('Home/main',array('id'=>$forum_info['user_id']))}" target="_blank" title="{$forum_info.user_name}"><img src="{:U('Home/getAvatar',array('uid'=>$forum_info['user_id']))}" alt="" /></a>
+              </div>
+              <div class="manager_name">
+               <a href="{:U('Home/main',array('id'=>$forum_info['user_id']))}" target="_blank">{$forum_info.user_name}</a>
+              </div> </li>
+             <li id="tbManagerCandidatesNum" style="display: none"> </li>
+            </ul>
+           </div>
+           <h4>会员：</h4>
+           <ul>
+            <li><a id="member_name_link" href="{:U('Forum/memberList',array('id'=>$forum_info['forum_id']))}" target="_blank">{$member_name}</a><span class="member_num_o">共<span class="member_num">{$member_count}</span>人 </span></li>
+           </ul>
+           <h4 class="forum_dir_info">目录：</h4>
+           <ul class="forum_dir_info">
+            <li><a href="{:U('Forum/forumPark',array('pid'=>$forum_class['parent_id'],'cid'=>$forum_class['class_id']))}" target="_blank">{$forum_class.class_name}</a></li>
+           </ul>
+           <div class="bottom_list">
+            <span><a href="" target="_blank">申请吧主</a></span> | <span><a href="" target="_blank">申请小吧主</a></span>
+           </div>
+          </div>
+          <div class="region_footer"></div>
+         </div>
+           <?php if ($manage_status == true): ?>
+           <div class="region_bright adminModePanel_bright" id="adminModePanel">
+   <div class="amPanel_top"></div>
+   <div class="amPanel_content clearfix">
+    <div id="tbAdminTip" class="admin_tip" style="display: block;"></div>
+    <a class="tbAdminManage ltbtn" href="javascript:void(0)" onclick="showForumCard()"><span>设置本吧名片</span></a>
+    <a class="titleManageIndex rtbtn" target="_blank" href="{:U('Admin/index',array('id'=>$forum_info['forum_id']))}"><span>吧务后台</span></a>
+   </div>
+   <div class="amPanel_bottom"></div>
+  </div>
+  <?php endif;?>
+    <?php if($related_forum_list!=null):?>
+         <div id="zyq" class="zyq_bright">
+          <div class="mod j_editable" id="zyq_mod_friend" data-mod_type="friend">
+           <div class="tl">
+            <div class="mod_edit_wrap"></div>
+            <span class="zyq_mod_title">友情贴吧</span>
+           </div>
+           <div class="cnt">
+            <ul class="zyq_mod_friend_items clearfix">
+             <foreach name="related_forum_list" item="vo">
+             <li class="zyq_mod_friend_item">
+              <div class="zyq_friend_item_avt">
+               <a href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" target="_blank" title="{$vo.forum_name}"><img src="{:U('Forum/getAvatar',array('fid'=>$vo['forum_id']))}" alt="" /></a>
+              </div>
+              <div class="zyq_friend_item_name">
+               <a href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" target="_blank" class="j_mod_item" title="{$vo.forum_name}">{$vo.forum_name}</a>
+              </div></li>
+            </foreach>
+            </ul>
+           </div>
+          </div>
+         </div>
+       <?php endif;?>
+        </div>
+       </div>
+       <div class="forum_foot">
+        <div class="th_footer_2 clearfix">
+         <div class="th_footer_bright">
+          <div class="th_footer_l">
+            共有<?php if ($_GET['type'] == 'good'): ?>精品<?php else: ?>主题<?php endif;?>数
+           <span class="red">{$thread_count}</span>个<?php if ($_GET['type'] != 'good'): ?>，贴子数
+           <span class="red">{$post_count}</span>篇，
+           <a class="fans_name" href="{:U('Forum/memberList',array('id'=>$forum_info['forum_id']))}" target="_blank">{$member_name}</a>数
+           <span class="red">{$member_count}</span>
+           <?php endif;?>
+          </div>
+         </div>
+        </div>
+        <div style="" id="global_notice_wrap" class="global_notice_wrap"></div>
+        <include file="Post:poster" />
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="footer">
+          <include file="Public:footer" />
+        </div>
+   </div>
+  </div>
+  <ul class="tbui_aside_float_bar tbui_afb_compact">
+   <li class="tbui_aside_fbar_button tbui_fbar_post"><a href="#sub"></a></li>
+   <li class="tbui_aside_fbar_button tbui_fbar_refresh"><a href="javascript:void(0)" onclick="window.location.reload()"></a></li>
+   <li style="display:none;" class="tbui_aside_fbar_button tbui_fbar_top"><a href="javascript:void(0)" onclick="goTop()"></a></li>
+   </ul>
+ <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form,emotion,cale,jquery#uploadify#min,jquery#Jcrop#min,jquery#fancybox" basepath="__PUBLIC__/common/js"/>
+ <include file="Public:bottom" />
+ <script>
+   $(function(){
+	   $('.j_ypic').fancybox();
+	 });
+ </script>
+ <include file="Admin:forumCard" />
+ </body>
+</html>

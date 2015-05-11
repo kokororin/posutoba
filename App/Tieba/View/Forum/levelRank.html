@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <include file="Public:top" />
+  <title>本吧牛人排行榜_{$forum_info.forum_name}吧_Posutoba贴吧 </title>
+  <import type="css" file="theme,common,level_rank" basepath="__PUBLIC__/common/css" />
+ </head>
+ <body>
+  <include file="Public:userbar" />
+  <div class="wrap1">
+  <div class="wrap2">
+  <include file="Public:head" />
+ 
+  <div class="d_panel">
+   <div class="d_main">
+    <div class="d_panel_rank">
+     <div class="d_rank_list">
+      <div>
+       <a name="p" id="p"></a>
+      </div>
+      <ul class="drl_head">
+       <li class="drl_head_title">本吧牛人排行榜</li>
+       <li class="drl_head_time">实时更新</li>
+      </ul>
+      <div class="drl_main">
+       <ul class="drl_info">
+        <li><b>本吧会员数：</b><span class="drl_info_txt_gray">{$rank_order.count}</span></li>
+        <?php if(getUid()!=null):?>
+        <li><b>我的排名：</b><span class="drl_info_txt_gray">{$rank_order.order}</a></li>
+        <?php endif;?>
+       </ul>
+       <table class="drl_list" cellspacing="0" cellpadding="0">
+        <tbody>
+         <tr class="drl_list_title">
+          <th class="drl_row_index"><span>排名</span></th>
+          <th class="drl_row_name"><span>吧友</span></th>
+          <th class="drl_row_title"><span>等级</span></th>
+          <th class="drl_row_exp"><span>经验值</span></th>
+         </tr>  
+         
+         <volist name="rank_list" id="vo" offset="0" length="20">
+         <tr class="drl_list_item">
+          <td class="drl_item_index"><p class="drl_item_index_<?php if($key<3):?>{$key+1}<?php else:?>nor<?php endif;?>">{$key+1}</p></td>
+          <td class="drl_item_name">
+           <div class="drl_item_card drl_item_card_sp">
+            <a href="{:U('Home/main',array('id'=>$vo['fans_id']))}" target="_blank" class="drl_item_name_nor">{$vo.user_name}</a>
+           </div></td>
+          <td class="drl_item_title">
+           <div class="bg_lv{$vo.level.0}">
+            <span>&nbsp;</span>
+           </div></td>
+          <td class="drl_item_exp"><span>{$vo.exp}</span></td>
+         </tr>
+         </volist>
+         
+        
+        </tbody>
+       </table>
+      </div>
+      <div class="d_rank_pager">
+        <div class="d_rank_pager"><ul class="p_rank_pager">
+        <li class="p_drp_btns">
+        </li></ul></div>
+       </div>
+     </div>
+    </div>
+    <div class="d_panel_ladder">
+     <div class="p_ladder">
+   <div class="p_ladder_guy" style="bottom: 535px;"></div>
+   <div class="p_ladder_pop" style="bottom: 593px;">
+    <?php if(getUid()==null):?>
+     <div class="d_pop_main">
+   <div class="d_pop_head">
+    <a href="javascript:void(0)" target="_blank"><img src="__PUBLIC__/common/images/user_avatar_default.jpg" /></a>
+   </div>
+   <div class="d_pop_uname">
+    <a href="javascript:void(0)" target="_blank"></a>
+   </div>
+   <div class="d_pop_texture">
+    <p class="p_pop_texture"></p>
+    <ul class="p_pop_notlogin">
+     <li>快来<a class="d_pop_login" href="javascript:void(0)" onclick="login()">登录</a>，</li>
+     <li>看看你身后有多少人！</li>
+    </ul>
+    <p></p>
+   </div>
+  </div>
+  <?php else:?>
+    <div class="d_pop_main">
+     <div class="d_pop_head">
+      <a target="_blank" href="{:U('Home/main',array('id'=>getUid()))}"><img src="{:U('Home/getAvatar',array('uid'=>getUid()))}" /></a>
+     </div>
+     <div class="d_pop_uname">
+      <a target="_blank" href="{:U('Home/main',array('id'=>getUid()))}"><?php echo getUsername()?></a>
+     </div>
+     <div class="d_pop_texture">
+      <p class="p_pop_texture"></p>
+      <ul class="p_pop_member">
+       <li>前方<span class="d_pop_num">{$rank_order.infront}</span>人，后方<span class="d_pop_num">{$rank_order.behind}</span>人</li>
+       <li><p>{$rank_order.content}</p></li>
+       
+      </ul>
+      <p></p>
+     </div>
+    </div>
+    <?php endif;?>
+   </div>  
+   <div class="p_goinfo"></div>
+  </div>
+    </div>
+   </div>
+  </div>
+  <div id="footer" class="footer"> 
+   <include file="Public:footer" />
+  </div> 
+</div>
+</div>
+ <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+ <include file="Public:bottom" /> 
+ </body>
+</html>

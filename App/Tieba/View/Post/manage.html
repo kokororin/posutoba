@@ -1,0 +1,34 @@
+  <div class="manage_dialog dialogJ dialogJfix dialogJshadow ui-draggable" style="z-index: 50001; width: 556px; display:none;">
+   <div class="uiDialogWrapper">
+    <div class="dialogJtitle" style="cursor: move;">
+     <span class="dialogJtxt">帖子管理</span>
+     <a title="关闭本窗口" class="dialogJclose" href="javascript:void(0)">&nbsp;</a>
+    </div>
+    <div class="dialogJcontent">
+     <div id="dialogJbody" class="dialogJbody">
+      <div class="block_user_wrapper"> 
+       <ul class="b_u_items"> 
+        <li class="b_u_items_outer"> <label>帖子标题</label>
+         <div class="b_username">
+          {$thread_title}
+         </div> </li> 
+        <li class="b_u_items_outer"> <label>操作内容:</label> 
+         <div class="b_block_time"> 
+          <select class="b_select_time" style="display: block;" data-tid="{$vo.thread_id}"> 
+          <option data-action="set-good">设为精华贴</option> 
+          <option data-action="cancel-good">取消精华贴</option>
+          <option data-action="set-top">置顶主题</option> 
+          <option data-action="cancel-top">取消置顶</option>           
+          </select> 
+         </div> </li> 
+       </ul> 
+       <div class="block_btns"> 
+        <div class="b_id_btn" id="manage_submit">
+         确认
+        </div> 
+       </div> 
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>

@@ -1,0 +1,34 @@
+<div class="forumclass_dialog dialogJ dialogJfix dialogJshadow ui-draggable" style="z-index: 50001; width: 660px;display:none;">
+   <div class="uiDialogWrapper">
+    <div class="dialogJtitle" style="-moz-user-select: none; cursor: move;">
+     <span class="dialogJtxt">提交目录</span>
+     <a title="关闭本窗口" class="dialogJclose" href="javascript:void(0)">&nbsp;</a>
+    </div>
+    <div class="dialogJcontent">
+     <div id="dialogJbody" class="dialogJbody">
+      <div class="catalog_dialog"> 
+       <strong>{$forum_info.forum_name}吧</strong> 
+       <span>当前所属目录：{$forum_class.parent_name}-{$forum_class.class_name}</span> 
+       <div class="ui_text_stress">
+        请选择相应分类提交，每个贴吧只能属于一个分类。恶意提交将被取消吧主权限！
+       </div> 
+       <div class="ui_text_desc">
+        请选择目录:
+       </div> 
+       <div class="j_catalog_container catalog_container">
+        <select class="ui_select select_parent" id="_class_pid">
+   	         <option class="option_parent">----请选择----</option> 
+          </select> 
+          <select class="ui_select select_son" id="_class_cid"> 
+   		     <option class="option_son">----请选择----</option> 
+          </select> 
+       </div> 
+       <div class="j_message ui_text_emphasize"></div> 
+       <div class="button_bar"> 
+        <a data-fid="{$forum_info.forum_id}" id="manage_forum_class_btn" class="ui_btn ui_btn_m j_submit" href="javascript:void(0)"> <span><em>提交</em></span> </a> 
+       </div> 
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>

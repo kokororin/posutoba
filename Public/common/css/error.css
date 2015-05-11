@@ -1,0 +1,111 @@
+@CHARSET "UTF-8";
+
+.page404 {
+	background: #fafafa !important;
+}
+
+.main-wraper {
+	width: 1000px;
+	text-align: center;
+	margin: 17px auto;
+	font-family: 'Microsoft YaHei';
+	color: #666;
+}
+
+.search-input {
+	width: 552px;
+	font-size: 14px;
+	color: #666;
+	border-radius: 2px;
+	border: 1px solid #949494;
+	border-bottom: 1px solid #b6b6b6;
+	border-right: 1px solid #b6b6b6;
+	height: 16px;
+	padding: 7px 4px;
+	vertical-align: middle;
+	-webkit-box-shadow: inset 3px 4px 5px -5px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: inset 3px 4px 5px -5px rgba(0, 0, 0, 0.45);
+	box-shadow: inset 3px 4px 5px -5px rgba(0, 0, 0, 0.45);
+	-webkit-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+	-moz-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+	-o-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+	transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+	/* linear */
+}
+
+.search-input:focus, .search-input:hover {
+	border: 1px solid #3e7eda;
+}
+
+.search-button {
+	vertical-align: middle;
+	width: 95px;
+	height: 32px;
+	margin-left: 6px;
+	border: none;
+	border-radius: 2px;
+	color: #fff;
+	background: #528ce9;
+	outline: none;
+	-webkit-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+	-moz-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+	-o-transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+	transition: all 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+	/* linear */
+}
+
+.search-button:hover {
+	background: #3e7eda;
+}
+
+.main-title {
+	font-weight: normal;
+	line-height: 30px;
+	padding-bottom: 12px;
+	color: #444;
+}
+
+.info-content {
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.normal-info-content {
+	font-size: 14px;
+	line-height: 22px;
+	color: #999;
+}
+
+.tb-logo {
+	vertical-align: middle;
+	margin-right: 10px;
+	position: relative;
+	cursor: pointer;
+	top: -3px;
+}
+
+.message-info a {
+	text-decoration: none;
+}
+
+.footer404 {
+	padding-top: 45px;
+	background: transition;
+}
+
+.footer404, .footer404 a {
+	color: #999;
+	text-decoration: none;
+}
+
+.footer404 span {
+	margin: 0 2px;
+}
+
+.doodle-404 {
+	width: 285px;
+}
+
+.message-info a:hover {
+	text-decoration: underline;
+}

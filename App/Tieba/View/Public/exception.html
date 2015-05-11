@@ -1,0 +1,37 @@
+<?php
+    if(C('LAYOUT_ON')) {
+        echo '{__NOLAYOUT__}';
+    }
+?>
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <title>贴吧404</title>
+  <link rel="stylesheet" type="text/css" href="<?php echo __ROOT__?>/Public/common/css/theme.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo __ROOT__?>/Public/common/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo __ROOT__?>/Public/common/css/error.css" />
+ </head>
+ <body class="page404">
+  <div class="main-wraper" id="main-wraper">
+   <div class="message-info">
+    <p><img width="285" src="<?php echo __ROOT__?>/Public/common/images/404_bg1_ae522be.png" class="doodle-404" /></p>
+    <div id="errorText">
+     <h1 class="main-title"><?php echo strip_tags($e['message']);?></h1>
+     <?php if(isset($e['file'])) {?>
+     <p class="info-content">错误位置</p>
+     <p class="normal-info-content">FILE: <?php echo $e['file'] ;?> &#12288;LINE: <?php echo $e['line'];?></p>
+     <?php }?>
+     <?php if(isset($e['trace'])) {?>
+      <p class="info-content">TRACE</p>
+      <p class="normal-info-content"><?php echo nl2br($e['trace']);?></p>
+     <?php }?>
+    </div>
+    <p class="normal-info-content"><a href="<?php echo __ROOT__?>/" class="tbsy-tag">返回首页</a></p>
+   </div>
+   <!-- <p class="footer404"></p> -->
+
+</div>
+ </body>
+</html>

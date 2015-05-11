@@ -1,0 +1,112 @@
+@CHARSET "UTF-8";
+
+.post_wrapper {
+	
+}
+
+.post_wrapper .post_content {
+	padding-right: 150px
+}
+
+.post_wrapper h1 {
+	font-size: 12px;
+	font-weight: 400
+}
+
+.post_wrapper h1 a:link, .post_wrapper h1 a:visited {
+	color: #4882CB;
+	text-decoration: none
+}
+
+.post_wrapper h1 a:hover {
+	text-decoration: underline
+}
+
+.post_wrapper .post_meta {
+	float: right;
+	width: 150px;
+	text-align: right
+}
+
+.post_meta .post_author a {
+	padding-left: 18px;
+	line-height: 14px;
+	background:
+		url(../images/data_table_icon_22d3f4b.png)
+		no-repeat
+}
+
+.post_meta a:link, .post_meta a:visited {
+	color: #4981CB;
+	text-decoration: none
+}
+
+.post_meta a:hover {
+	text-decoration: underline
+}
+
+.media_list a {
+	display: inline-block;
+	margin-top: 5px;
+	padding-left: 28px;
+	height: 20px;
+	line-height: 20px;
+	color: #4882CB;
+	overflow: hidden
+}
+
+.media_list .video {
+	background:
+		url(../images/data_table_icon_22d3f4b.png)
+		0 -30px no-repeat
+}
+
+.media_list .music {
+	background:
+		url(../images/data_table_icon_22d3f4b.png)
+		0 -60px no-repeat
+}
+
+.pic_list li {
+	padding: 0;
+	float: left;
+	display: inline;
+	margin-right: 10px;
+	height: 75px;
+	overflow-y: hidden
+}
+
+.form_row {
+	display: block;
+	margin-top: 10px
+}
+
+.form_row label input {
+	vertical-align: text-top;
+	*vertical-align: middle
+}
+
+.form_col {
+	display: block;
+	float: left;
+	margin-right: 40px;
+	zoom: 1
+}
+
+.user_col .ui_textfield {
+	width: 81%;
+	*width: 130px
+}
+
+.all_records {
+	margin-left: 10px
+}
+
+.check_uname {
+	color: red;
+	margin: 10px 0 0
+}
+
+.main_content .panel:first-child {
+	border-bottom: 0
+}

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <include file="Public:top" />
+  <title>吧内头衔说明_Posutoba贴吧</title> 
+  <import type="css" file="theme,common,level_detail" basepath="__PUBLIC__/common/css"/>
+   </head> 
+ <body>
+ <include file="Public:userbar" />
+  <div class="wrap1"> 
+   <div class="wrap2"> 
+   <include file="Public:head" />
+    <div class="balv_info_top" id="balv_info_top"> 
+     <div class="balv_header"> 
+      <div class="balv_header_nav"> 
+       <ul> 
+        <li class="lv_nav_which_focus" id="lv_nav_which"></li> 
+        <li class="lv_nav_intro" id="lv_nav_intro"></li> 
+        <li class="lv_nav_who" id="lv_nav_who"></li> 
+       </ul> 
+       <div class="head_wrapper"> 
+        <h1>{$forum_info.forum_name}吧</h1> 
+        <a id="like_forum_btn" data-fid="{$forum_info.forum_id}" class="{$concern_btn_css}" href="javascript:void(0)"></a> 
+        <?php if($is_like_forum==1):?>
+        <div class="user_infos"> 
+         <div class="honor_title">
+           我的头衔: 
+         </div> 
+         <div class="userlike_badge badge_lv{$level_css}"> 
+          <div id="liked_member_title" class="userlike_member_title">
+            {$member_title} 
+          </div> 
+          <div class="userlike_member_lv">
+            {$level}
+          </div> 
+         </div> 
+         <div class="exp_title">
+           经验: 
+         </div> 
+         <div class="userlike_info_expbar" id="userlike_expbar"> 
+          <div style="width: {$ratio}%;" class="userlike_info_expbar_current"> 
+           <div id="userlike_expnum" class="userlike_info_expnum"> 
+            <span id="userlike_expnum_cur">{$exp}</span>/ 
+            <span id="userlike_expnum_max">{$max_exp}</span> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <?php else:?>
+        <p class="like_intro">关注后成为该吧会员，获得等级头衔，可累积经验获得更高头衔。</p>
+        <?php endif;?>
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div id="balv_main"> 
+     <div style="display: block;" class="tab_content" id="lv_nav_which_content"> 
+      <p class="lv_which_info">等级和头衔的提升有助于我们在贴吧结交更多志同道合的朋友，享受更贴心、更强大的功能服务。</p> 
+      <div class="lv_which_sf"></div> 
+      <h2 class="lv_table_title">等级与特权一览表</h2> 
+      <table cellspacing="0" cellpadding="0" border="0" class="lv_table"> 
+       <tbody> 
+        <tr> 
+         <th class="no_borderL lv">特权</th> 
+         <th class="lv0" style="background-color: rgb(254, 153, 159);">未关注</th> 
+         <th class="lv1"></th> 
+         <th class="lv2"></th> 
+         <th class="lv3"></th> 
+         <th class="lv4"></th> 
+         <th class="lv5"></th> 
+         <th class="lv6"></th> 
+         <th class="lv7"></th> 
+         <th class="lv8"></th> 
+         <th class="lv9"></th> 
+         <th class="lv10"></th> 
+         <th class="lv11"></th> 
+         <th class="lv12"></th> 
+         <th class="lv13"></th> 
+         <th class="lv14"></th> 
+         <th class="lv15"></th> 
+         <th class="lv16"></th> 
+         <th class="lv17"></th> 
+         <th class="no_borderR lv18"></th> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL bg_gray">等级头衔</td> 
+         <td class="bg_gray enable_text_highlight">x</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="no_borderR bg_gray able_text">√</td> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL ">免验证码</td> 
+         <td class="enable_text_highlight">x</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class="no_borderR  able_text">√</td> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL bg_gray">投诉优先处理</td> 
+         <td class="bg_gray enable_text_highlight">x</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="no_borderR bg_gray able_text">√</td> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL ">插入音乐</td> 
+         <td class="enable_text_highlight">x</td> 
+         <td class=" enable_text">x</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class="no_borderR  able_text">√</td> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL bg_gray">插入视频</td> 
+         <td class="bg_gray enable_text_highlight">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="no_borderR bg_gray able_text">√</td> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL ">语音贴</td> 
+         <td class="enable_text_highlight">x</td> 
+         <td class=" enable_text">x</td> 
+         <td class=" enable_text">x</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class="no_borderR  able_text">√</td> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL bg_gray">发起投票</td> 
+         <td class="bg_gray enable_text_highlight">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="no_borderR bg_gray able_text">√</td> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL ">高级表情</td> 
+         <td class="enable_text_highlight">x</td> 
+         <td class=" enable_text">x</td> 
+         <td class=" enable_text">x</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class=" able_text">√</td> 
+         <td class="no_borderR  able_text">√</td> 
+        </tr> 
+        <tr> 
+         <td class="no_borderL bg_gray">涂鸦</td> 
+         <td class="bg_gray enable_text_highlight">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray enable_text">x</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="bg_gray able_text">√</td> 
+         <td class="no_borderR bg_gray able_text">√</td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> 
+     <div style="display: none;" class="tab_content" id="lv_nav_intro_content"> 
+      <div class="lv_intro_tip"></div> 
+      <h2 style="font-weight: normal;">会员头衔&amp;经验值对照表</h2> 
+      <div class="lv_intro_table"> 
+       <table id="level_intro_table"> 
+        <tbody> 
+         <tr class="level_table_tr"> 
+          <th style="width:60px;height:35px;">级别</th> 
+          <th style="width:152px;">头衔</th> 
+          <th style="width:150px;">所需经验值</th> 
+          <th style="width:60px;height:35px;" class="lastCol">级别</th> 
+          <th style="width:152px;">头衔</th> 
+          <th style="width:150px;">所需经验值</th> 
+         </tr> 
+         <tr class="sl"> 
+          <td>1</td> 
+          <td> 
+           <div class="like_badge badge_lv1"> 
+            <div class="like_badge_title">
+              {$title.1}
+            </div> 
+            <div class="like_badge_lv">
+              1 
+            </div> 
+           </div></td> 
+          <td>1</td> 
+          <td class="lastCol">10</td> 
+          <td> 
+           <div class="like_badge badge_lv3"> 
+            <div class="like_badge_title">
+              {$title.10} 
+            </div> 
+            <div class="like_badge_lv">
+              10 
+            </div> 
+           </div></td> 
+          <td>2000</td> 
+         </tr> 
+         <tr class="dl"> 
+          <td>2</td> 
+          <td> 
+           <div class="like_badge badge_lv1"> 
+            <div class="like_badge_title">
+              {$title.2}
+            </div> 
+            <div class="like_badge_lv">
+              2 
+            </div> 
+           </div></td> 
+          <td>5</td> 
+          <td class="lastCol">11</td> 
+          <td> 
+           <div class="like_badge badge_lv3"> 
+            <div class="like_badge_title">
+              {$title.11} 
+            </div> 
+            <div class="like_badge_lv">
+              11 
+            </div> 
+           </div></td> 
+          <td>3000</td> 
+         </tr> 
+         <tr class="sl"> 
+          <td>3</td> 
+          <td> 
+           <div class="like_badge badge_lv1"> 
+            <div class="like_badge_title">
+              {$title.3}
+            </div> 
+            <div class="like_badge_lv">
+              3 
+            </div> 
+           </div></td> 
+          <td>15</td> 
+          <td class="lastCol">12</td> 
+          <td> 
+           <div class="like_badge badge_lv3_1"> 
+            <div class="like_badge_title">
+              {$title.12} 
+            </div> 
+            <div class="like_badge_lv">
+              12 
+            </div> 
+           </div></td> 
+          <td>6000</td> 
+         </tr> 
+         <tr class="dl"> 
+          <td>4</td> 
+          <td> 
+           <div class="like_badge badge_lv2"> 
+            <div class="like_badge_title">
+              {$title.4} 
+            </div> 
+            <div class="like_badge_lv">
+              4 
+            </div> 
+           </div></td> 
+          <td>30</td> 
+          <td class="lastCol">13</td> 
+          <td> 
+           <div class="like_badge badge_lv3_1"> 
+            <div class="like_badge_title">
+              {$title.13} 
+            </div> 
+            <div class="like_badge_lv">
+              13 
+            </div> 
+           </div></td> 
+          <td>10000</td> 
+         </tr> 
+         <tr class="sl"> 
+          <td>5</td> 
+          <td> 
+           <div class="like_badge badge_lv2"> 
+            <div class="like_badge_title">
+              {$title.5} 
+            </div> 
+            <div class="like_badge_lv">
+              5 
+            </div> 
+           </div></td> 
+          <td>50</td> 
+          <td class="lastCol">14</td> 
+          <td> 
+           <div class="like_badge badge_lv3_2"> 
+            <div class="like_badge_title">
+              {$title.14} 
+            </div> 
+            <div class="like_badge_lv">
+              14 
+            </div> 
+           </div></td> 
+          <td>18000</td> 
+         </tr> 
+         <tr class="dl"> 
+          <td>6</td> 
+          <td> 
+           <div class="like_badge badge_lv2_1"> 
+            <div class="like_badge_title">
+              {$title.6} 
+            </div> 
+            <div class="like_badge_lv">
+              6 
+            </div> 
+           </div></td> 
+          <td>100</td> 
+          <td class="lastCol">15</td> 
+          <td> 
+           <div class="like_badge badge_lv3_2"> 
+            <div class="like_badge_title">
+              {$title.15} 
+            </div> 
+            <div class="like_badge_lv">
+              15 
+            </div> 
+           </div></td> 
+          <td>30000</td> 
+         </tr> 
+         <tr class="sl"> 
+          <td>7</td> 
+          <td> 
+           <div class="like_badge badge_lv2_1"> 
+            <div class="like_badge_title">
+              {$title.7} 
+            </div> 
+            <div class="like_badge_lv">
+              7 
+            </div> 
+           </div></td> 
+          <td>200</td> 
+          <td class="lastCol">16</td> 
+          <td> 
+           <div class="like_badge badge_lv4"> 
+            <div class="like_badge_title">
+              {$title.16} 
+            </div> 
+            <div class="like_badge_lv">
+              16 
+            </div> 
+           </div></td> 
+          <td>60000</td> 
+         </tr> 
+         <tr class="dl"> 
+          <td>8</td> 
+          <td> 
+           <div class="like_badge badge_lv2_2"> 
+            <div class="like_badge_title">
+              {$title.8} 
+            </div> 
+            <div class="like_badge_lv">
+              8 
+            </div> 
+           </div></td> 
+          <td>500</td> 
+          <td class="lastCol">17</td> 
+          <td> 
+           <div class="like_badge badge_lv4"> 
+            <div class="like_badge_title">
+              {$title.17} 
+            </div> 
+            <div class="like_badge_lv">
+              17 
+            </div> 
+           </div></td> 
+          <td>100000</td> 
+         </tr> 
+         <tr class="sl"> 
+          <td>9</td> 
+          <td> 
+           <div class="like_badge badge_lv2_2"> 
+            <div class="like_badge_title">
+              {$title.9} 
+            </div> 
+            <div class="like_badge_lv">
+              9 
+            </div> 
+           </div></td> 
+          <td>1000</td> 
+          <td class="lastCol">18</td> 
+          <td> 
+           <div class="like_badge badge_lv4"> 
+            <div class="like_badge_title">
+              {$title.18} 
+            </div> 
+            <div class="like_badge_lv">
+              18 
+            </div> 
+           </div></td> 
+          <td>300000</td> 
+         </tr> 
+        </tbody> 
+       </table> 
+      </div> 
+     </div> 
+     <div style="display: none;" class="tab_content" id="lv_nav_who_content"> 
+      <p class="lv_who_info">您在贴吧头衔的提升取决于经验值的多少，随着经验值的增加，等级与本吧头衔都会随之提升。<br />经验值是根据您在贴吧中的行为获得的，以下方式可以帮助您获取经验值：</p> 
+      <h2>签到说明</h2> 
+      <div class="sign_tip"></div> 
+      <h2>积分说明</h2> 
+      <div class="score_tip"></div> 
+      <h2>优质贴子</h2> 
+      <div class="good_post_tip"></div> 
+      <p class="score_notice"> * 注：以上各项的加分会有一定时间的延迟，通过手机发贴会有更多加分！</p> 
+      <h2>经验值是否会减少？</h2> 
+      <div class="lv_who_less"> 
+       <p>通常情况下，经验值不会下降。<br />如果贴子被删除，或被识别为水贴（主要指骗回复、刷贴刷楼等），则该贴之前所产生的加分会被收回，但不会额外扣分。<br />为保证公平公正，大家可以互相监督，发现作弊，可以向“等级监督团”举报，一经查实，一定从严惩处并公示。</p> 
+      </div> 
+     </div> 
+     <div style="" id="lv_footer"> 
+      <p id="lv_nav_who_footer"><span>温馨提示：</span><br /> 刷贴无用，顺其自然。大家有任何疑问和意见，欢迎访问“<a target="_blank" href="javascript:void(0)">贴吧等级吧</a>”进行交流。</p> 
+     </div> 
+    </div> 
+    <div class="footer" id="footer"> 
+     <include file="Public:footer" />
+    </div> 
+   </div> 
+  </div> 
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+  <include file="Public:bottom" />  
+ </body>
+</html>

@@ -1,0 +1,566 @@
+@CHARSET "UTF-8";
+
+.float-left {
+	float: left
+}
+
+.float-right {
+	float: right
+}
+
+.clear-float {
+	*zoom: 1
+}
+
+.clear-float:after {
+	content: '.';
+	height: 0;
+	display: block;
+	font-size: 0;
+	clear: both
+}
+
+.main-container {
+	position: relative;
+	background: #fff;
+	border-width: 2px 1px;
+	border-color: #ebebeb;
+	border-style: solid
+}
+
+.main-container .help {
+	cursor: pointer;
+	width: 20px;
+	height: 18px;
+	background:
+		url(../images/new-index1_8ce0090.png)
+		no-repeat -16px -264px;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-bawu/img/new-index_6f66bf8.png)
+		no-repeat -16px -264px
+}
+
+.title-line {
+	padding: 20px;
+	font-size: 20px;
+	font-weight: 700;
+	font-family: 'Microsoft YaHei'
+}
+
+.bar-info-wraper {
+	background: #fafafa;
+	border-bottom: 1px solid #f0f0f0;
+	padding: 25px
+}
+
+.forum-img-wraper {
+	position: relative;
+	height: 64px;
+	border: 1px solid #EdEdEc;
+	padding: 2px;
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: 0 0 2px #ededed
+}
+
+.forum-img-wraper img {
+	width: 62px;
+	height: 62px;
+	border: 0
+}
+
+.forum-img-wraper a {
+	color: #fff
+}
+
+.forum-img-wraper .edit-bg {
+	position: absolute;
+	left: 2px;
+	bottom: 2px;
+	background: #000;
+	opacity: .5;
+	filter: alpha(opacity = 50);
+	width: 62px;
+	height: 18px
+}
+
+.forum-img-wraper .edit-text {
+	position: absolute;
+	left: 4px;
+	bottom: 2px;
+	padding-left: 25px;
+	background:
+		url(../images/new-index1_8ce0090.png)
+		no-repeat -8px -2px;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-bawu/img/new-index_6f66bf8.png)
+		no-repeat -8px -2px
+}
+
+.forum-img-wraper .notedit-text {
+	position: absolute;
+	left: 2px;
+	bottom: 2px;
+	padding-left: 25px;
+	background:
+		url(../images/new-index1_8ce0090.png)
+		no-repeat -8px -2px;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-bawu/img/new-index_6f66bf8.png)
+		no-repeat -8px -2px;
+	opacity: .5;
+	filter: alpha(opacity = 50)
+}
+
+.forum-img-wraper .unedit-text {
+	position: absolute;
+	left: 2px;
+	bottom: 2px;
+	padding-left: 10px;
+	opacity: .5;
+	filter: alpha(opacity = 50)
+}
+
+.forum-info {
+	margin-top: 8px;
+	margin-left: 15px
+}
+
+.forum-name {
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+	margin-bottom: 12px;
+	float: left
+}
+
+.set-directory {
+	width: 220px;
+	height: 23px;
+	color: #999;
+	cursor: pointer;
+	_width: 80px
+}
+
+.set-directory-button {
+	color: #4b83ce
+}
+
+.set-directory-txt {
+	cursor: default
+}
+
+.forum-column {
+	clear: both
+}
+
+.has-set-directory {
+	width: 220px;
+	height: 23px;
+	color: #999;
+	text-align: left
+}
+
+.directory-name {
+	color: #444
+}
+
+.change-directory {
+	color: #4e82cd;
+	margin-left: 10px
+}
+
+.num-wraper {
+	margin-left: 35px;
+	margin-bottom: 2px;
+	float: left
+}
+
+.mem-num {
+	display: inline-block;
+	color: #FE9A6B;
+	padding-left: 20px;
+	background:
+		url(../images/new-index1_8ce0090.png)
+		no-repeat -14px -99px;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-bawu/img/new-index_6f66bf8.png)
+		no-repeat -14px -99px
+}
+
+.post-num {
+	display: inline-block;
+	margin-left: 10px;
+	color: #FE9A6B;
+	padding-left: 20px;
+	background:
+		url(../images/new-index1_8ce0090.png)
+		no-repeat -12px -122px;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-bawu/img/new-index_6f66bf8.png)
+		no-repeat -12px -122px
+}
+
+.forum-breif {
+	color: #999
+}
+
+.forum-breif-edit {
+	margin-left: 5px;
+	color: #4b83ce
+}
+
+.unforum-breif-edit {
+	margin-left: 5px;
+	color: #999
+}
+
+.cur-priv {
+	width: 320px
+}
+
+.color1 {
+	color: #999
+}
+
+.cur-step {
+	float: left;
+	margin-right: 100px
+}
+
+.cur-step-name {
+	color: #FE9A6B
+}
+
+.unfreeze-step-name {
+	color: red
+}
+
+.has-priv a {
+	display: block;
+	margin-bottom: 9px;
+	color: #676767
+}
+
+.curr-privilege-items .has-priv a {
+	display: inline-block;
+	margin-right: 20px
+}
+
+.curr-privilege-items {
+	float: left
+}
+
+.added-clum {
+	margin-left: 29px
+}
+
+.notify-info {
+	padding: 15px 25px;
+	border-bottom: 1px solid #ECECEC
+}
+
+.how-to-grow, .grow-rule {
+	color: #0449be;
+	margin-left: 15px
+}
+
+.how-to-grow {
+	float: right;
+	margin: 35px 0 0
+}
+
+.notice-content {
+	clear: both;
+	position: relative;
+	padding: 7px 0;
+	_padding: 0
+}
+
+.right-icon {
+	background-position: 25px -328px
+}
+
+.notify-triangle {
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	left: 118px;
+	bottom: -14px;
+	_bottom: -26px
+}
+
+.attention {
+	color: #646464;
+	margin-bottom: 4px
+}
+
+.alarm {
+	color: #999
+}
+
+.notify-triangle .triangle-border {
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: -1px;
+	border-width: 8px 7px 0;
+	border-color: #fff transparent transparent;
+	border-style: solid dashed none
+}
+
+.notify-triangle .triangle-body {
+	width: 0;
+	height: 0;
+	top: 0;
+	left: 0;
+	border-width: 8px 7px 0;
+	border-color: #ececec transparent transparent;
+	border-style: solid dashed none
+}
+
+.process .bar {
+	background: #fafafa;
+	width: 226px;
+	height: 12px;
+	border: 1px solid #ececec;
+	border-radius: 2px;
+	position: relative;
+	_margin-left: 5px;
+	_height: 14px
+}
+
+.process .inner-bar {
+	background: #FFAC7F;
+	width: 100px;
+	height: 12px;
+	top: -1px;
+	left: -1px;
+	position: absolute;
+	border: 1px solid #FD8140;
+	border-radius: 2px
+}
+
+.process .grow-inner-bar {
+	width: 100px;
+	height: 12px;
+	top: -1px;
+	left: -1px;
+	position: absolute;
+	background: #BAD7FF;
+	border: 1px solid #9DC1F5;
+	border-radius: 2px
+}
+
+.process .date {
+	color: #9A9A9A;
+	_margin-left: 5px
+}
+
+.process .calendar {
+	cursor: pointer;
+	width: 20px;
+	height: 18px;
+	background:
+		url(../images/new-index1_8ce0090.png)
+		no-repeat -79px -262px;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-bawu/img/new-index_6f66bf8.png)
+		no-repeat -79px -262px;
+	_margin-left: 5px
+}
+
+table, tr, td {
+	border-collapse: collapse;
+	border: 1px solid #ececec
+}
+
+.cur-data {
+	padding: 17px 0 0;
+	border-top: 1px solid #ececec
+}
+
+.cur-data table {
+	width: 100%
+}
+
+.cur-data th {
+	background-color: #FBFBFB;
+	border: 1px solid #ECECEC
+}
+
+.cur-data td {
+	text-align: center;
+	color: #474747
+}
+
+.cur-data .bold {
+	font-size: 13px;
+	font-weight: 700;
+	color: #656565
+}
+
+.cur-data .width1 {
+	width: 94px
+}
+
+.cur-data .width2 {
+	width: 136px
+}
+
+.cur-data .height1 {
+	height: 36px
+}
+
+.cur-data .height2 {
+	height: 61px
+}
+
+.cur-title {
+	margin: 0 25px 10px
+}
+
+.cur-title span {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px
+}
+
+.cur-title a {
+	color: #4c82cc;
+	margin-left: 5px;
+	vertical-align: middle
+}
+
+.cur-data .title {
+	font-size: 13px;
+	font-weight: 700;
+	margin-left: 10px;
+	_margin-left: 30px
+}
+
+.pop-up-title {
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+	margin: 15px 0
+}
+
+.pop-up-content {
+	font-size: 14px;
+	margin-bottom: 0;
+	line-height: 26px;
+	text-align: left
+}
+
+.pop-up-btn-w {
+	margin: 20px 0 10px;
+	text-align: center
+}
+
+.pop-up-btn {
+	background: #317CEF;
+	border: 1px solid #2B74DD;
+	color: #fff;
+	padding: 2px 10px
+}
+
+.dialogJ .dialogJanswers .dialogJbtn {
+	background: #317CEF;
+	border: 1px solid #2B74DD;
+	color: #fff;
+	padding: 2px 10px
+}
+
+.no-border {
+	border: 0
+}
+
+.bawu_check_hard {
+	width: 900px;
+	margin: 0 25px;
+	padding: 15px 0 20px 10px;
+	position: relative
+}
+
+.bawu_check_hard .word {
+	color: #999
+}
+
+.bawu_check_hard .title {
+	position: absolute;
+	top: 10px
+}
+
+.bawu_check_hard .check {
+	left: 41px
+}
+
+.bawu_check_hard .word {
+	margin-left: 5px
+}
+
+.has-bottom-border {
+	border-bottom: 1px dashed #ececec;
+	padding-bottom: 20px
+}
+
+.today-data-title {
+	margin: 20px 25px 15px 35px;
+	position: relative
+}
+
+.today-data-title .title, .today-data-title .help {
+	display: inline-block;
+	_display: inline;
+	*display: inline;
+	zoom: 1;
+	vertical-align: middle;
+	margin-right: 5px;
+	font-weight: 700
+}
+
+.today-data-title .download-grow-data {
+	float: right;
+	color: #4c82cc;
+	_position: relative;
+	*position: relative;
+	top: -15px
+}
+
+.spurt-dialog {
+	font-size: 13px;
+	line-height: 20px;
+	margin: 10px;
+	text-align: center
+}
+
+.spurt-dialog button {
+	text-align: center;
+	margin: 10px auto 15px
+}
+
+.recent_data_table_wrap {
+	margin: 20px 25px 0
+}
+
+.disable_not {
+	color: #999;
+	display: block;
+	left: 0;
+	position: absolute;
+	bottom: 5px;
+	text-align: center;
+	width: 100%
+}
+
+.disable_text_note {
+	color: #999
+}
+
+.set_catalog {
+	margin-top: 5px
+}
+
+.clear-both {
+	clear: both
+}

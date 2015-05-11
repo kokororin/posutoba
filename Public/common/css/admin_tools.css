@@ -1,0 +1,2930 @@
+@CHARSET "UTF-8";
+
+.prefix_cnt .prefix_notice {
+	border: 1px solid #DAC495;
+	background: #FEFFDB;
+	color: #464643;
+	line-height: 18px;
+	padding: 10px
+}
+
+.prefix_cnt .prefix_tab {
+	margin: 10px 0;
+	font-weight: 700
+}
+
+.prefix_cnt .prefix_tab em {
+	color: #2DAEBF;
+	font-style: nomal;
+	font-weight: 500
+}
+
+.prefix_cnt .prefix_tab span {
+	color: grey;
+	font-weight: 500
+}
+
+.prefix_cnt .prefix_tab input, .prefix_cnt .prefix_tab label {
+	vertical-align: middle
+}
+
+.prefix_cnt .prefix_tab label {
+	margin-left: 5px;
+	margin-right: 10px
+}
+
+.prefix_cnt .prefix_simple_input, .prefix_cnt .prefix_simple_desc {
+	margin: 10px 0
+}
+
+.prefix_cnt #submit {
+	margin-top: 10px
+}
+
+.prfix_rich_label {
+	line-height: 28px
+}
+
+.prefix_rich_step {
+	font-weight: 700;
+	line-height: 28px
+}
+
+#prefix_rich_type, #prefix_rich_final {
+	width: 220px
+}
+
+#edit_parent {
+	margin-bottom: 30px
+}
+
+#editor .edit_title_field {
+	width: 627px;
+	height: 30px;
+	padding: 0 3px;
+	line-height: 28px;
+	font-size: 14px;
+	background-color: #FFF;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #9a9a9a;
+	border-left: 1px solid #9a9a9a;
+	border-bottom: 1px solid #ccc;
+	color: #333;
+	margin-bottom: 10px;
+	*margin-bottom: 9px
+}
+
+#editor .edit_field_focus {
+	border: 1px solid #5c9dff
+}
+
+#editor tr {
+	padding-left: 10px
+}
+
+#editor td {
+	color: #333
+}
+
+#editor .pt_uname {
+	padding-top: 7px;
+	*padding-top: 14px
+}
+
+#editor .pt_valid {
+	padding-top: 10px
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#editor .pt_valid {
+		padding-top: 9px
+	}
+}
+
+#editor .pt_valid_code {
+	padding-top: 11px;
+	*padding-top: 10px;
+	_margin-bottom: -1px
+}
+
+.captcha_input_normal {
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #9a9a9a;
+	border-left: 1px solid #9a9a9a;
+	border-bottom: 1px solid #ccc;
+	height: 18px;
+	margin: 0 2px 4px;
+	vertical-align: middle
+}
+
+#editor .pt_valid_code .edit_field_focus {
+	border: 1px solid #5c9dff
+}
+
+#editor .pt_valid_code img {
+	margin-top: 4px;
+	_margin-top: 3px;
+	margin-bottom: -3px;
+	*margin-bottom: 2px;
+	_margin-bottom: 3px;
+	margin-bottom: -4px\0
+
+}
+
+#editor .pt_submit {
+	padding: 11px 0 0 1px
+}
+
+#editor .subTip {
+	color: #999;
+	float: left;
+	margin: 5px
+}
+
+.editor_users {
+	padding-top: 6px;
+	*padding-top: 14px;
+	_padding-top: 16px;
+	padding-top: 7px\0
+
+}
+
+:root .editor_users {
+	padding-top: 6px\9
+
+}
+
+.editor_users input {
+	margin-top: -1px;
+	*margin-top: -5px;
+	margin-top: -4px\0;
+	vertical-align: text-top
+}
+
+#signNameWrapper {
+	margin: 10px 0 1px;
+	_margin: 12px 0 1px
+}
+
+#useSignName {
+	margin-top: -1px;
+	margin-top: -4px\9;
+	vertical-align: text-top
+}
+
+:root #useSignName {
+	margin-top: -3px\9
+
+}
+
+#editor .subbtn_hidden {
+	background: transparent;
+	border: 0;
+	width: 70px;
+	height: 28px;
+	cursor: pointer;
+	padding: 0
+}
+
+#editor .subbtn_bg, #editor .subbtn_bg_hover, #editor .subbtn_bg_active
+	{
+	font: 14px bold;
+	color: #fff;
+	float: left;
+	cursor: pointer;
+	padding: 0;
+	border: 0;
+	width: 70px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	overflow: hidden;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/btn_submit_post_9ba5bae.gif)
+		no-repeat
+}
+
+#editor .subbtn_bg {
+	background-position: 0 0
+}
+
+#editor .subbtn_bg_hover {
+	background-position: 0 -28px
+}
+
+#editor .subbtn_bg_active {
+	background-position: 0 -56px
+}
+
+#editor .subbtn_bg_banned {
+	float: left;
+	width: 70px;
+	height: 28px;
+	cursor: default
+}
+
+#editor .notPostbg {
+	background: #fff;
+	border: 1px solid #ccc
+}
+
+#editor .postErrorVCode {
+	color: red;
+	font-size: 12px;
+	display: none;
+	margin: 3px 0 -6px;
+	padding-left: 2px;
+	margin-top: 4px\9;
+	_margin-top: 3px;
+	*margin-bottom: -5px
+}
+
+:root #editor .postErrorVCode {
+	margin-bottom: -5px\9
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#editor .postErrorVCode {
+		margin-bottom: -5px
+	}
+}
+
+.postErrorContent {
+	color: red;
+	margin: 0 0 -3px;
+	_margin: 8px 0 -4px
+}
+
+.postErrorTitle {
+	color: red;
+	margin: -3px 0 6px;
+	margin: -2px 0 5px\9
+
+}
+
+#editor_banned_tip {
+	position: absolute;
+	top: 30px;
+	left: 35px;
+	padding: 6px;
+	z-index: 1000;
+	width: 600px
+}
+
+.editor_banned_tip_info {
+	border: 1px solid #D4D4D4;
+	box-shadow: 3px 3px #E5E5E5;
+	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3,
+		Color=#E5E5E5, Positive=true);
+	zoom: 1;
+	background: #FFFCD2;
+	padding: 8px 20px 5px;
+	float: left;
+	color: #000
+}
+
+#captcha {
+	ime-mode: disabled
+}
+
+.editor-overlay-holder {
+	background-color: #fff;
+	border: solid 1px #C1C6CC;
+	position: absolute;
+	left: -8px;
+	top: 32px;
+	z-index: 100
+}
+
+.editor-overlay-holder .hidder {
+	width: 88px;
+	position: absolute;
+	left: 7px;
+	top: -1px;
+	background-color: #fff;
+	height: 1px;
+	overflow: hidden
+}
+
+.editor-overlay-holder .close {
+	width: 16px;
+	height: 16px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/overlay_close_bg_c1d6b10.gif)
+		left top no-repeat;
+	position: absolute;
+	right: 6px;
+	top: 6px;
+	cursor: pointer
+}
+
+#editor_overlay_shadow {
+	position: absolute;
+	filter: alpha(opacity = 20);
+	opacity: .2;
+	left: 3px;
+	top: 4px;
+	background-color: #000;
+	z-index: 99
+}
+
+#edit_shield {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	_height: 300px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	filter: alpha(opacity = 50);
+	opacity: .5
+}
+
+#quote_wrapper .quote {
+	margin: 5px;
+	width: 555px;
+	border: 1px solid #EBEBEB;
+	font-size: 12px;
+	line-height: 18px;
+	background-color: #F8F8F8;
+	padding: 6px 11px;
+	word-wrap: break-word;
+	position: relative
+}
+
+#quote_wrapper .quote .close {
+	font-weight: 700;
+	color: #989898;
+	position: absolute;
+	right: 8px;
+	top: 6px;
+	text-decoration: none;
+	font-size: 15px;
+	line-height: 15px;
+	font-weight: 700;
+	font-family: Microsoft YaHei
+}
+
+#quote_wrapper .quote .close:hover {
+	color: red
+}
+
+#quote_wrapper .quote_title {
+	color: #989898;
+	height: 22px
+}
+
+#quote_wrapper .quote_title a {
+	color: #989898
+}
+
+#quote_wrapper .quote p {
+	margin: 0
+}
+
+.sug-holder {
+	border: 1px solid #C1C6CC;
+	padding: 4px 0;
+	position: absolute;
+	display: none;
+	font-size: 12px;
+	line-height: 16px;
+	background-color: #fff;
+	white-space: nowrap
+}
+
+.sug-holder ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden
+}
+
+.sug-holder .title {
+	padding-left: 7px;
+	padding-right: 10px;
+	color: #676767;
+	cursor: default
+}
+
+.sug-holder li {
+	padding: 0 7px;
+	cursor: default;
+	display: block;
+	margin: 0
+}
+
+.sug-holder li.focus, .sug-holder li:hover {
+	background-color: #C9DBF2
+}
+
+.sug-holder ul.ul_empty, .sug-holder ul.ul_empty li {
+	line-height: 0
+}
+
+.at_tip_holder {
+	position: absolute;
+	right: 1px;
+	top: -3px;
+	border: 1px solid #FAB967;
+	width: 190px;
+	background-color: #FFFAC0;
+	height: 28px;
+	line-height: 28px;
+	font-size: 12px;
+	padding-left: 9px
+}
+
+.at_tip_holder span {
+	position: absolute;
+	right: 7px;
+	top: 9px;
+	width: 12px;
+	height: 11px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/spirits_2990ba9.gif)
+		0 -289px no-repeat;
+	cursor: pointer
+}
+
+.at_tip_holder label {
+	position: absolute;
+	left: 12px;
+	bottom: -6px;
+	width: 9px;
+	height: 6px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/spirits_2990ba9.gif)
+		0 -274px no-repeat;
+	overflow: hidden;
+	line-height: 0
+}
+
+input, textarea {
+	outline: 0
+}
+
+.tb-editor-editarea {
+	cursor: text;
+	outline: 0;
+	overflow: auto;
+	word-break: break-all;
+	padding: 1px 6px 1px 8px;
+	font-family: SimSun, Verdana, sans-serif;
+	font-size: 14px;
+	line-height: 24px
+}
+
+#editor .tb-editor-editarea {
+	background-color: #fff;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #9a9a9a;
+	border-left: 1px solid #9a9a9a;
+	border-bottom: 1px solid #ccc
+}
+
+#editor .tb-editor-editarea-wrapper {
+	padding: 10px 15px 15px;
+	position: relative
+}
+
+#editor .edit_field_focus {
+	border: 1px solid #5c9dff
+}
+
+.tb-editor-editarea img {
+	border: 0
+}
+
+.tb-editor-editarea .BDE_Flash {
+	margin: 4px 1px
+}
+
+.tb-editor-editarea .BDE_Music {
+	margin: 1px
+}
+
+.tb-editor-editarea .BDE_Image {
+	margin: 4px 1px
+}
+
+#edit_parent .tb-editor-editarea a {
+	color: #000;
+	text-decoration: none
+}
+
+.tb-simpleeditor-wrapper {
+	position: relative;
+	border: #d6d6d6 1px solid
+}
+
+.tb-editor-wrapper {
+	border: 1px solid #dfdfdf;
+	position: relative;
+	background-color: #FAFAFA;
+	width: 603px;
+	margin-bottom: 7px
+}
+
+.tb-editor-wrapper-disabled .tb-editor-toolbar {
+	visibility: hidden
+}
+
+.tb-editor-toolbar {
+	height: 34px
+}
+
+.tb-editor-toolbar span {
+	float: left;
+	width: 49px;
+	height: 24px;
+	line-height: 24px;
+	color: #3163b6;
+	padding-left: 27px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/editor_ae2bf56.gif?t=201112161501)
+		no-repeat;
+	font-size: 12px;
+	margin-top: 10px;
+	cursor: pointer
+}
+
+.tb-editor-toolbar label {
+	float: left;
+	width: 1px;
+	height: 11px;
+	line-height: 11px;
+	margin-top: 17px;
+	border-left: 1px solid #dcdcdc
+}
+
+.tb-editor-toolbar .smiley {
+	background-position: 12px 1px;
+	margin-left: 5px;
+	width: 50px
+}
+
+.tb-editor-toolbar .image {
+	background-position: 12px -38px;
+	margin-left: 1px
+}
+
+.tb-editor-toolbar .image_disabled {
+	background-position: 12px -508px;
+	margin-left: 1px
+}
+
+.tb-editor-toolbar .music {
+	background-position: 12px -76px;
+	margin-left: 5px;
+	width: 50px
+}
+
+.tb-editor-toolbar .flash {
+	background-position: 12px -116px;
+	margin-left: 5px;
+	width: 50px
+}
+
+.tb-editor-toolbar .picasso {
+	background-position: 12px -250px;
+	margin-left: 5px
+}
+
+.tb-editor-toolbar .cut_screen {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/toolbar_cut_screen_399474f.gif?t=201210090958)
+		12px 6px no-repeat;
+	margin-left: 5px
+}
+
+.tb-editor-toolbar .unabled_cut {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/toolbar_cut_screen_399474f.gif?t=201210090958)
+		12px -26px no-repeat;
+	margin-left: 5px
+}
+
+span.edit_font_color {
+	color: #E10602
+}
+
+span.edit_font_normal {
+	color: #333
+}
+
+.tb-editor-toolbar .font_strong {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/font_style_bc12306.png)
+		0 0 no-repeat;
+	width: 22px;
+	_width: 21px;
+	height: 20px;
+	margin-top: 12px;
+	padding-left: 0
+}
+
+.tb-editor-toolbar .font_color {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/font_style_bc12306.png)
+		0 -20px no-repeat;
+	width: 22px;
+	_width: 21px;
+	height: 20px;
+	margin-left: 3px;
+	margin-top: 12px;
+	padding-left: 0
+}
+
+.tb-editor-toolbar .font_color_disable {
+	background-position: 0 -40px
+}
+
+.tb-editor-toolbar .idisk {
+	background-position: 12px -337px
+}
+
+.tb-editor-toolbar .idisk_disabled {
+	background-position: 12px -381px
+}
+
+.tb-editor-overlay {
+	border: 3px solid #D7DBE4;
+	position: absolute;
+	top: 8px;
+	background-color: #fff;
+	z-index: 11
+}
+
+.tb-editor-overlay .overlay-content {
+	width: 100%;
+	height: 100%
+}
+
+.tb-editor-overlay .close {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	right: 6px;
+	top: 6px;
+	cursor: pointer;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/editor_ae2bf56.gif?t=201112161501)
+		no-repeat 0 -215px
+}
+
+.tb-editor-overlay .arrow {
+	position: absolute;
+	width: 15px;
+	height: 8px;
+	top: -8px;
+	left: 20px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/editor_ae2bf56.gif?t=201112161501)
+		no-repeat 0 -192px
+}
+
+.box-holder {
+	border: 1px solid #C1C6CC;
+	padding: 4px 0;
+	position: absolute;
+	font-size: 12px;
+	line-height: 16px;
+	background-color: #fff;
+	white-space: nowrap
+}
+
+.box-holder .box-title {
+	padding-left: 7px;
+	padding-right: 10px;
+	color: #676767;
+	cursor: default
+}
+
+.box-holder li {
+	padding: 0 7px;
+	cursor: default;
+	display: block;
+	margin: 0;
+	white-space: nowrap
+}
+
+.box-holder li:hover, .box-holder li.focus {
+	background-color: #C9DBF2
+}
+
+.box-holder ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden
+}
+
+.box-holder .box-ul-empty {
+	line-height: 0
+}
+
+.sug-holder {
+	border: 1px solid #C1C6CC;
+	padding: 4px 0;
+	position: absolute;
+	display: none;
+	font-size: 12px;
+	line-height: 16px;
+	background-color: #fff
+}
+
+.tb-editor-editarea-disabled {
+	color: #999;
+	cursor: default
+}
+
+#editor .tb-editor-editarea-disabled {
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc
+}
+
+.tb-editor-toolbar-disalbed span {
+	cursor: default
+}
+
+.insertsmiley_holder {
+	width: 33px;
+	height: 22px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/insertsmiley_icon_1700546.png)
+		no-repeat;
+	cursor: pointer
+}
+
+.wordlimit-holder {
+	position: absolute;
+	right: -2px;
+	top: -25px;
+	height: 22px;
+	background-color: #C6DFFA;
+	color: #6184AA;
+	font-size: 12px;
+	font-family: SimSun;
+	padding: 0 8px 3px
+}
+
+.editor-quote .quote {
+	margin: 5px;
+	width: 525px;
+	border: 1px solid #EBEBEB;
+	font-size: 12px;
+	line-height: 18px;
+	background-color: #F8F8F8;
+	padding: 6px 11px;
+	word-wrap: break-word;
+	position: relative
+}
+
+#edit_parent .editor-quote .quote .close {
+	font-weight: 700;
+	color: #989898;
+	position: absolute;
+	right: 8px;
+	top: 6px;
+	text-decoration: none;
+	font-size: 15px;
+	line-height: 15px;
+	font-weight: 700;
+	font-family: 'Microsoft YaHei'
+}
+
+.editor-quote .quote .close:hover {
+	color: red
+}
+
+.editor-quote .quote_title {
+	color: #989898;
+	height: 22px
+}
+
+.editor-quote .quote_title a {
+	color: #989898
+}
+
+.editor-quote .quote p {
+	margin: 0
+}
+
+.editor-quote .quote_change {
+	margin: 5px;
+	width: 566px;
+	position: relative
+}
+
+.editor-quote .quote_change fieldset {
+	border: 1px solid #DEDEDE;
+	color: #999;
+	font-size: 12px;
+	line-height: 18px;
+	padding: 2px 0 8px;
+	width: 566px;
+	word-wrap: break-word
+}
+
+.editor-quote .quote_change legend {
+	color: #999;
+	margin-left: 5px;
+	padding: 0 4px
+}
+
+.editor-quote .quote_change .close:hover {
+	color: red
+}
+
+.editor-quote .quote_simple {
+	margin: 5px 0;
+	width: 566px
+}
+
+.picasso_tip_holder {
+	position: absolute;
+	right: 10px;
+	top: 7px;
+	border: 1px solid #FAB967;
+	width: 175px;
+	background-color: #FFFAC0;
+	height: 35px;
+	line-height: 16px;
+	font-size: 12px;
+	padding-left: 9px
+}
+
+.picasso_tip_holder span {
+	position: absolute;
+	right: -27px;
+	top: -6px;
+	width: 12px;
+	height: 11px;
+	background:
+		url(http://tb2.bdstatic.com/tb/editor/v2/spirits.gif?t=1418290363265)
+		0 -289px no-repeat;
+	cursor: pointer
+}
+
+.smiley_tip {
+	position: absolute;
+	width: 430px;
+	top: 27px;
+	left: 172px;
+	z-index: 5
+}
+
+.tip_panel {
+	position: absolute;
+	width: 415px;
+	height: 35px;
+	border-left: 2px solid #F4E499;
+	border-bottom: 1px solid #F4E499;
+	border-top: 1px solid #F4E499;
+	border-right: 1px solid #F4E499;
+	background-color: #FFFFB3;
+	top: 7px
+}
+
+.tip_arrows {
+	position: absolute;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/arrows_a7db028.gif)
+		no-repeat;
+	top: 0;
+	width: 11px;
+	height: 11px;
+	left: 83px
+}
+
+.tip_closed {
+	position: absolute;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/tip_close_544652e.gif)
+		no-repeat;
+	top: 4px;
+	right: 5px;
+	width: 11px;
+	height: 13px;
+	cursor: pointer
+}
+
+.storageTip {
+	position: absolute;
+	right: 2px;
+	bottom: -24px;
+	color: #999;
+	padding: 1px 2px
+}
+
+.idisk_holder {
+	position: absolute;
+	left: 140px;
+	top: 43px;
+	width: 470px;
+	height: 110px;
+	text-align: center;
+	font-size: 12px
+}
+
+.idisk_holder .arrow {
+	left: 370px
+}
+
+.idisk_holder .idisk_btn_container {
+	margin: 25px 0 10px;
+	height: 20px;
+	line-height: 20px
+}
+
+.idisk_holder em {
+	color: #ff7f3e
+}
+
+.file_uploader_holder {
+	border-top: 1px solid #D6D6D6;
+	background-color: #F5F5F5;
+	padding-right: 2px
+}
+
+.file_item_ui {
+	width: 100%;
+	height: 30px;
+	color: gray;
+	position: relative;
+	line-height: 30px;
+	font-size: 12px;
+	border: 1px solid #EBEBEB;
+	border-top: 0;
+	background: #FFF
+}
+
+.file_item_ui .indicator {
+	width: 0;
+	height: 30px;
+	background-color: #F5F5F5;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0
+}
+
+.file_item_ui .error_status {
+	background: #fef4e5
+}
+
+.file_item_ui span {
+	float: left;
+	padding-left: 15px;
+	z-index: 1;
+	position: relative;
+	cursor: default;
+	overflow: hidden;
+	white-space: nowrap
+}
+
+.file_item_ui .name {
+	width: 250px
+}
+
+.file_item_ui .size {
+	width: 90px;
+	color: #999
+}
+
+.file_item_ui .info {
+	padding-left: 0;
+	width: 150px;
+	position: relative
+}
+
+.file_item_ui .info img {
+	width: 14px;
+	height: 15px;
+	top: 8px;
+	left: 100px;
+	position: absolute
+}
+
+.file_item_ui span.remove {
+	float: right;
+	cursor: pointer;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/editor_ae2bf56.gif?v=20111221)
+		0 -472px no-repeat;
+	width: 1px;
+	height: 30px
+}
+
+.file_item_ui .success {
+	padding-left: 15px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/editor_ae2bf56.gif?v=20111221)
+		0 -414px no-repeat
+}
+
+.file_item_ui .error {
+	color: #ff7f3e
+}
+
+.postor_success {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/postor_success_058b2e8.png?v=20120627)
+		no-repeat;
+	width: 21px;
+	height: 20px;
+	display: inline-block;
+	float: left
+}
+
+.editor_tip_show {
+	left: 35px;
+	padding: 6px;
+	position: absolute;
+	top: 60px;
+	width: 600px;
+	z-index: 1000
+}
+
+.postPicGuide {
+	width: 211px;
+	top: 89px;
+	left: 620px;
+	height: 170px;
+	position: absolute;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/pic_guide_45a39e0.png);
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/pic_guide_cf5e922.gif)
+}
+
+.postPicGuide .enter_pic_guide {
+	display: inline-block;
+	width: 100px;
+	height: 20px;
+	margin: 54px 0 0 62px
+}
+
+.postPicGuide .close_app_tip {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin: 12px 0 0 175px;
+	cursor: pointer
+}
+
+.textarea_ipad {
+	font-size: 16px
+}
+
+.thread_topic .qp_wrap {
+	position: relative
+}
+
+.thread_topic .qp_error, .thread_topic .c_captcha_error {
+	color: red
+}
+
+.thread_topic .qp_footer {
+	padding-top: 10px
+}
+
+.thread_topic .qp_captcha_wrap {
+	float: left;
+	width: 450px;
+	display: none
+}
+
+.thread_topic .qp_captcha_text {
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	padding-right: 4px;
+	color: #666
+}
+
+.thread_topic .qp_captcha {
+	position: relative;
+	float: left;
+	width: 400px
+}
+
+.thread_topic .qp_captcha div {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: middle
+}
+
+.thread_topic .c_captcha_tip {
+	color: #B5B5B5;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 6px
+}
+
+.thread_topic .c_captcha_a_audio {
+	display: none
+}
+
+.thread_topic .c_captcha_sub_wrap {
+	margin-top: 0
+}
+
+.qp_wrap .c_captcha_img img {
+	margin-top: 0
+}
+
+.thread_topic .qp_btn {
+	float: right;
+	width: 132px;
+	position: relative
+}
+
+.thread_topic div.insertsmiley_holder {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/insertsmiley_icon_interval_ac88d52.png)
+		no-repeat scroll 0 0 transparent;
+	cursor: pointer;
+	height: 22px;
+	width: 33px;
+	display: block
+}
+
+.thread_topic .qp_submit {
+	cursor: pointer;
+	float: right;
+	width: 51px;
+	height: 24px;
+	line-height: 22px;
+	color: #fff;
+	text-align: center;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/topic_submit_btn_6dc2e86.png)
+		no-repeat left top
+}
+
+.thread_topic .qp_submit_hover {
+	background-position: left center
+}
+
+.thread_topic .qp_submit_active {
+	background-position: left bottom
+}
+
+.thread_topic .qp_submit_disabled {
+	cursor: default;
+	float: right;
+	width: 51px;
+	height: 24px;
+	line-height: 22px;
+	color: #fff;
+	text-align: center;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/lzl_editor_btn_b47655a.gif)
+		no-repeat -40px -24px
+}
+
+.thread_topic .qp_smile {
+	cursor: pointer;
+	float: right;
+	width: 40px;
+	height: 24px;
+	margin-right: 6px
+}
+
+.tt_text_cnt .qp_guide_text {
+	color: #999;
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	font-size: 14px
+}
+
+.lp_text_area .qp_guide_text {
+	color: #999;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	font-size: 14px
+}
+
+.tt_text_cnt .tb-simpleeditor-wrapper, .lp_text_area .tb-simpleeditor-wrapper
+	{
+	border: 0;
+	position: relative
+}
+
+.tt_text_cnt .tb-editor-editarea {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #999 #CCC #CCC #999;
+	background-color: #FFF
+}
+
+.lp_text_area .tb-editor-editarea {
+	border: 2px solid #3A83F1;
+	background-color: #FFF
+}
+
+.thread_topic .c_captcha_input_normal {
+	width: 75px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 14px;
+	border-color: #CCC
+}
+
+.thread_topic .qp_bannedTip {
+	position: absolute;
+	top: 10px;
+	left: 10px
+}
+
+.thread_topic .qp_footer {
+	position: relative
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.tb-editor-editarea {
+		cursor: auto
+	}
+}
+
+#editor.frs_rich_editor_bright .edit_title_field {
+	border-color: #bdbdbd #dedede #dedede #bdbdbd;
+	border-style: solid;
+	border-width: 1px;
+	color: #333;
+	font-size: 12px;
+	height: 28px;
+	line-height: 28px;
+	margin-bottom: 10px;
+	padding: 0 10px;
+	width: 613px
+}
+
+.frs_rich_editor_bright .tb-editor-wrapper {
+	border-color: #bdbdbd #dedede #dedede #bdbdbd;
+	border-style: solid;
+	border-width: 1px;
+	background: #fff
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar {
+	height: 40px;
+	background: #fafafa;
+	border-bottom: solid 1px #f5f5f5;
+	padding-left: 10px
+}
+
+#editor.frs_rich_editor_bright .tb-editor-editarea-wrapper {
+	padding: 0
+}
+
+#editor.frs_rich_editor_bright .tb-editor-editarea {
+	font-size: 12px;
+	color: #333;
+	padding: 10px;
+	border: 0;
+	border: 0;
+	min-height: 160px;
+	height: 100%;
+	_height: 160px
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar span, .frs_rich_editor_bright .tb-editor-toolbar .cut_screen
+	{
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/editor_toolbaricon_bright_e6625bc.png)
+		no-repeat;
+	width: 64px;
+	margin: 12px 0 0;
+	padding: 0
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar .image,
+	.frs_rich_editor_bright .tb-editor-toolbar .flash,
+	.frs_rich_editor_bright .tb-editor-toolbar .music,
+	.frs_rich_editor_bright .tb-editor-toolbar .smiley,
+	.frs_rich_editor_bright .tb-editor-toolbar .picasso,
+	.frs_rich_editor_bright .tb-editor-toolbar .cut_screen {
+	margin: 12px 0 0;
+	width: 64px
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar .image {
+	background-position: 0 0;
+	margin-top: 13px
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar .flash {
+	background-position: 0 -55px;
+	margin-top: 15px
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar .music {
+	background-position: 0 -110px
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar .smiley {
+	background-position: 0 -170px
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar .picasso {
+	background-position: 0 -235px
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar .cut_screen {
+	background-position: 0 -290px
+}
+
+.frs_rich_editor_bright .tb-editor-toolbar label {
+	display: none
+}
+
+#editor.frs_rich_editor_bright .pt_submit {
+	padding: 10px 0 0
+}
+
+.frs_rich_editor_bright #edit_parent {
+	padding-bottom: 0;
+	overflow: hidden;
+	margin: 0
+}
+
+.frs_rich_editor_bright #edit_parent table {
+	margin-left: -48px
+}
+
+.thread_topic_bright .qp_captcha_wrap {
+	float: left;
+	width: 450px;
+	display: none
+}
+
+.thread_topic_bright .qp_submit {
+	cursor: pointer
+}
+
+.thread_topic_bright .qp_wrap {
+	position: relative
+}
+
+.thread_topic_bright .qp_btn {
+	float: right;
+	width: 132px;
+	position: relative
+}
+
+.thread_topic_bright .qp_smile {
+	cursor: pointer;
+	float: right;
+	width: 40px;
+	height: 24px;
+	margin-right: 6px
+}
+
+.tb_layer_wrapper {
+	border: 0;
+	position: absolute;
+	background-color: #fff;
+	z-index: 11;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/biankuang_97762d7.png)
+		repeat;
+	padding: 2px
+}
+
+.tb_layer_wrapper .layer_content {
+	border: 1px solid #bfbfbf;
+	background-color: #fff
+}
+
+.tb_layer_wrapper .close {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	right: 6px;
+	top: 6px;
+	cursor: pointer;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/editor.gif?t=201112161501&t=1418290359537)
+		no-repeat 0 -215px
+}
+
+.tb_layer_wrapper .arrow {
+	position: absolute
+}
+
+.tb_layer_wrapper .down {
+	width: 19px;
+	height: 10px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/arrow_701d3f7.png)
+		no-repeat 0 0;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/yinyuejiantou_5105df8.png)
+		no-repeat 0 0
+}
+
+.tb_layer_wrapper .white_down {
+	width: 21px;
+	height: 11px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/white_arrow_4e77cd1.png)
+		no-repeat 0 0
+}
+
+.tb_layer_wrapper .arrow_up {
+	width: 21px;
+	height: 11px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/arrow_up_8832d6b.png)
+		no-repeat 0 0
+}
+
+.tb_layer_wrapper .arrow_right {
+	width: 11px;
+	height: 21px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/arrow_right_0172e55.png)
+		no-repeat 0 0
+}
+
+.v_layer_input {
+	width: 333px;
+	color: #ccc;
+	float: left;
+	height: 26px;
+	line-height: 26px
+}
+
+.v_local_btn {
+	width: 204px;
+	height: 42px;
+	position: relative
+}
+
+.v_layer_content a.v_local_bg {
+	width: 150px;
+	height: 42px;
+	background-position: 0 -42px;
+	margin: 0 auto
+}
+
+.v_layer_content a.v_local_bg:hover {
+	background-position: -1px -127px
+}
+
+.v_layer_content a.v_url_container {
+	width: 150px;
+	height: 42px;
+	left: 27px;
+	position: absolute;
+	top: 0;
+	background-position: 0 -42px
+}
+
+.v_layer_content a.v_url_container:hover {
+	background-position: -1px -127px
+}
+
+.v_ul {
+	cursor: pointer
+}
+
+.v_btn_tip {
+	color: #999
+}
+
+.v_ul li {
+	float: left
+}
+
+.v_btn_title {
+	color: #666;
+	font-size: 14px;
+	font-weight: 700
+}
+
+.v_layer_content {
+	padding-top: 25px
+}
+
+.v_layer_content a {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/video_icon_772dbc7.png)
+		no-repeat;
+	display: block
+}
+
+.v_url_btn {
+	width: 204px;
+	height: 42px;
+	border-right: 1px dashed #cacaca
+}
+
+.v_layer_content a.v_url_bg {
+	width: 150px;
+	height: 42px;
+	background-position: 0 0;
+	margin: 0 auto
+}
+
+.v_layer_content a.v_url_bg:hover {
+	background-position: 1px -84px
+}
+
+.v_uploader_pro {
+	width: 434px;
+	height: 15px;
+	background-color: #ebebeb;
+	margin-top: 20px;
+	position: relative
+}
+
+.v_uploader_pro b {
+	height: 15px;
+	background-color: #3781f1;
+	display: block;
+	width: 0
+}
+
+.v_upload_title {
+	font-size: 14px;
+	font-weight: 700;
+	color: #4E4E4E
+}
+
+.v_upload_info {
+	margin: 10px 0 0;
+	color: #9c9c9c
+}
+
+.v_percent {
+	position: absolute;
+	left: 220px;
+	top: 0;
+	color: #777
+}
+
+.v_control {
+	position: absolute;
+	left: 445px;
+	top: 0;
+	width: 30px
+}
+
+.v_upload_wrapper {
+	padding: 10px 0 0 20px
+}
+
+.v_upload_info li {
+	float: left
+}
+
+.v_speed, .v_finished, .v_time {
+	color: #FF5804
+}
+
+.s_yxj .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/yxj.png?t=20140602&t=1418290360611)
+		no-repeat scroll left top;
+	width: 30px;
+	height: 30px
+}
+
+.s_lt .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/cRabbit.png?t=20131101&t=1418290360611)
+		no-repeat scroll left top;
+	width: 42px;
+	height: 42px
+}
+
+.s_tyears .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/10th.png?t=1418290360611)
+		no-repeat scroll left top;
+	width: 42px;
+	height: 42px
+}
+
+.s_tsj .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/tFace.gif?t=1418290360612)
+		no-repeat scroll left top;
+	width: 35px;
+	height: 35px
+}
+
+.s_baodong .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/bDong.png?t=20120126&t=1418290360612)
+		no-repeat scroll left top;
+	width: 35px;
+	height: 35px
+}
+
+.s_baodong_d .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/baodong_d.gif?t=201201114&t=1418290360612)
+		no-repeat scroll left top;
+	width: 35px;
+	height: 35px
+}
+
+.s_bobo .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/bFace.gif?t=1418290360612)
+		no-repeat scroll left top;
+	width: 35px;
+	height: 35px
+}
+
+.s_qpx .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/qpx.gif?t=1418290360612)
+		no-repeat scroll left top;
+	width: 35px;
+	height: 35px
+}
+
+.s_shadow .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/yingzi.gif?t=1&t=1418290360612)
+		no-repeat scroll left top;
+	width: 42px;
+	height: 42px
+}
+
+.s_ali .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/ali.gif?t=1418290360612)
+		no-repeat scroll left top;
+	width: 42px;
+	height: 42px
+}
+
+.s_face .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/fFace.png?t=20140529&t=1418290360612)
+		no-repeat scroll left top;
+	width: 30px;
+	height: 30px
+}
+
+.s_zxh .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/pczxh.png?v=1&t=1418290360612)
+		no-repeat scroll left top;
+	width: 42px;
+	height: 42px
+}
+
+.s_luoluobu .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/luoluobu.png?v=1&t=1418290360612)
+		no-repeat scroll left top;
+	width: 42px;
+	height: 42px
+}
+
+.s_ldw .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/wFace.png?v=1&t=1418290360612)
+		no-repeat scroll left top;
+	width: 40px;
+	height: 40px
+}
+
+.s_lxs .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/lxs.png?t=1418290360612)
+		no-repeat scroll left top;
+	width: 42px;
+	height: 42px
+}
+
+.s_xyj .img {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/editor/images/default/xyj.png?t=1418290360612)
+		no-repeat scroll left top;
+	width: 42px;
+	height: 42px
+}
+
+ul.s_tab_content li.s_tab_btn {
+	cursor: pointer;
+	float: left;
+	height: 21px;
+	line-height: 21px;
+	margin-right: 4px;
+	border-top: 0;
+	margin-top: 0;
+	padding: 0
+}
+
+.s_tab_btnbg {
+	padding: 0 10px;
+	display: block
+}
+
+table.s_layer_table td {
+	vertical-align: middle;
+	border-color: #e3e3e3
+}
+
+table.s_layer_table {
+	border: 0
+}
+
+.s_tab_content .selected .s_tab_btnbg {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/selected_right_bbb3e48.png)
+		no-repeat right top
+}
+
+.s_hover .s_tab_btnbg {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/hover_right_4fbe2fe.png)
+		no-repeat right top
+}
+
+.s_layer_content {
+	padding: 5px 3px 0 5px;
+	height: 276px
+}
+
+.s_layer_tab {
+	height: 31px;
+	border-top: 1px solid #e3e3e3;
+	background-color: #f7f7f7;
+	color: #666;
+	position: relative
+}
+
+.s_layer_tab .s_prev {
+	position: absolute;
+	left: 10px;
+	width: 7px;
+	height: 11px;
+	top: 10px;
+	cursor: pointer;
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/prev_bcb96bf.gif)
+		no-repeat scroll left top
+}
+
+.s_layer_tab .s_next {
+	position: absolute;
+	right: 10px;
+	width: 7px;
+	height: 11px;
+	top: 10px;
+	cursor: pointer;
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/next_24425be.gif)
+		no-repeat scroll left top
+}
+
+.s_tab_con_wrapper {
+	position: absolute;
+	width: 502px;
+	height: 29px;
+	overflow: hidden;
+	left: 24px;
+	top: 0
+}
+
+.s_tab_content {
+	width: 1000px;
+	padding-top: 5px;
+	position: relative
+}
+
+.s_hover {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/hover_left_696489e.png)
+		no-repeat scroll left top
+}
+
+.s_tab_content .selected {
+	background: transparent
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/layer/selected_left_47e5a2b.png)
+		no-repeat scroll left top;
+	color: #fff
+}
+
+.s_ySmile {
+	font-family: arial
+}
+
+#tabIconReview {
+	position: absolute;
+	left: 480px;
+	right: 200px;
+	top: 3px;
+	bottom: 200px;
+	z-index: 65533;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #000;
+	overflow: hidden;
+	background: #FFF;
+	display: none
+}
+
+#tabIconReview.show {
+	left: 12px;
+	display: block
+}
+
+img.review {
+	position: absolute;
+	background: #FFF;
+	vertical-align: middle
+}
+
+#l_smiley_table {
+	border-color: #e3e3e3
+}
+
+.tb-editor-wrapper {
+	z-index: 2
+}
+
+.s_image {
+	width: 88px;
+	height: 42px;
+	float: left;
+	cursor: pointer;
+	margin: 0 10px 10px 0;
+	_margin: 0 8px 10px 0
+}
+
+#editor .s_image {
+	margin: 0 6px 6px 0;
+	_margin: 0 4px 6px 0
+}
+
+.e_inter_wrapper {
+	float: left;
+	width: 294px;
+	height: 256px
+}
+
+.e_inter_title {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/qwsmiley/quickReply_d2c5f00.png)
+		no-repeat scroll 0 15px transparent;
+	height: 16px;
+	padding: 15px 0 13px 25px;
+	color: #3163B6
+}
+
+.qw_cancel {
+	color: #999;
+	cursor: pointer;
+	float: right;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_img/qwsmiley/close_5dd280b.png)
+		no-repeat scroll 0 0 transparent;
+	height: 13px;
+	width: 14px;
+	margin-top: 6px
+}
+
+a.qw_cancel:hover {
+	text-decoration: none
+}
+
+.t_smile_bg {
+	background-color: #edeef0
+}
+
+.s_image_text {
+	position: absolute;
+	color: #fff;
+	display: none;
+	text-align: center;
+	word-wrap: break-word
+}
+
+.s_text_input {
+	float: left;
+	margin-right: 10px;
+	width: 260px;
+	height: 26px;
+	border-left: 1px solid #b3b3b3;
+	border-top: 1px solid #b3b3b3;
+	border-right: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	line-height: 26px;
+	padding-left: 3px;
+	color: #999
+}
+
+.s_loading_wrap {
+	display: none;
+	text-align: center
+}
+
+.s_progress_w {
+	width: 140px;
+	height: 10px;
+	padding: 1px;
+	border: 1px solid #bfbfbf;
+	margin: 0 auto;
+	text-align: left
+}
+
+.s_progress_bar {
+	height: 10px;
+	background-color: #bfbfbf;
+	width: 0;
+	display: block
+}
+
+.s_loading_tip {
+	padding-top: 5px;
+	color: #bfbfbf
+}
+
+.m_dialog .dialogJcontent {
+	padding: 0
+}
+
+.m_dialog .dialogJbody {
+	overflow: hidden
+}
+
+.m_search_panel {
+	padding: 20px;
+	overflow: hidden
+}
+
+.m_search_input {
+	width: 490px;
+	height: 25px;
+	line-height: 22px;
+	position: relative
+}
+
+.m_search_input.placeholder {
+	color: #ccc
+}
+
+.m_sug-list {
+	background-color: #fff;
+	border: solid 1px #e5e5e5;
+	border-top: 0;
+	maring-top: -1px
+}
+
+.m_sug-list .m_sug-item {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	cursor: pointer
+}
+
+.m_sug-list .m_sug-item .m_sug-item-title {
+	font-size: 13px
+}
+
+.m_sug-list .m_sug-item .m_divide, .m_sug-list .m_sug-item .m_sug-item-artist
+	{
+	font-size: 13px;
+	color: #999
+}
+
+.m_sug-list .m_sug-item .m_divide {
+	margin: 0 6px
+}
+
+.m_sug-list .m_sug-hover {
+	background-color: #f3f3f3
+}
+
+.m_sug-list .m_sug-pager {
+	height: 30px;
+	line-height: 30px;
+	background-color: #f3f3f3
+}
+
+.m_sug-list .m_sug-pager span {
+	float: right;
+	margin: 0 10px 0 0
+}
+
+.m_sug-list .m_sug-pager span.j_m_sug_next {
+	margin-right: 20px;
+	cursor: pointer
+}
+
+.m_sug-list .m_sug-pager span.j_m_sug_prev {
+	cursor: pointer
+}
+
+.m_sug-list .m_sug-pager span.disabled {
+	color: #ccc;
+	cursor: auto
+}
+
+.m_sug-list .m_sug-pager .m_search_total {
+	color: #999;
+	float: left;
+	margin-left: 10px
+}
+
+.m_selected_list {
+	float: left;
+	display: inline-block;
+	margin: 0 20px 20px;
+	_margin-left: 10px;
+	background-color: #f8f8f8
+}
+
+.m_selected_list_inner {
+	width: 240px
+}
+
+.m_selected_list strong {
+	font-size: 14px;
+	color: #666;
+	display: block;
+	height: 30px;
+	padding-left: 10px;
+	line-height: 30px;
+	*height: 28px;
+	*line-height: 28px
+}
+
+.m_selected_list ul {
+	width: 240px;
+	height: 315px;
+	overflow: hidden
+}
+
+.m_selected_list ul li {
+	display: block;
+	height: 30px;
+	padding: 0 10px;
+	line-height: 30px;
+	text-align: right;
+	background-color: transparent;
+	*height: 28px;
+	*line-height: 28px
+}
+
+.m_selected_list ul li.hovered {
+	background-color: #e6e6e6
+}
+
+.m_selected_list ul li span {
+	display: block;
+	float: left;
+	font-size: 14px
+}
+
+.m_selected_list ul li span.m_remove {
+	float: right;
+	width: 30px;
+	color: #4a82f0;
+	cursor: pointer;
+	display: none
+}
+
+.m_selected_list ul li.hovered span.m_remove {
+	display: block
+}
+
+.m_selected_list ul li .m_try {
+	width: 20px;
+	height: 30px;
+	*height: 28px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_music/m_try_icon_5ed463b.png)
+		0 7px no-repeat;
+	*background-position: 0 5px;
+	cursor: pointer
+}
+
+.m_selected_list ul li .j_m_pause {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_music/m_pause_icon_ae9d728.png)
+		0 7px no-repeat;
+	*background-position: 0 5px
+}
+
+.m_selected_list ul li .m_divide {
+	margin: 0 4px;
+	color: #999
+}
+
+.m_selected_list ul li .m_artist {
+	color: #999
+}
+
+.m_button_panel {
+	clear: both;
+	border-top: solid 1px #e6e6e6;
+	background-color: #f8f8f8;
+	height: 80px
+}
+
+.m_button_panel .ui_btn {
+	float: right;
+	margin: 10px 10px auto auto
+}
+
+.m_button_panel .m_btn_cancel {
+	margin-right: 20px
+}
+
+.m_button_panel .m_count_tips {
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px
+}
+
+.m_button_panel .j_m_count_no {
+	color: #ff7f3e;
+	margin: 0 5px
+}
+
+.m_yun_tabs {
+	margin: 0 20px 0 280px;
+	width: 240px;
+	overflow: hidden
+}
+
+.m_yun_tabs .tbui_tabs_nav {
+	background: #fff;
+	height: 28px;
+	padding: 0;
+	border-bottom: 0
+}
+
+.m_yun_tabs .tbui_tabs_nav li {
+	width: 50%;
+	margin-right: -1px
+}
+
+.m_yun_tabs .tbui_tabs_nav li a {
+	text-align: center
+}
+
+.m_yun_tabs .tbui_tabs_panel {
+	padding-top: 10px
+}
+
+.m_yun_tabs .j_m_song {
+	height: 28px;
+	padding: 0 10px 0 0;
+	line-height: 28px;
+	background-color: transparent
+}
+
+.m_yun_tabs .j_m_song span {
+	display: block;
+	float: left;
+	font-size: 14px
+}
+
+.m_yun_tabs .j_m_song .m_try {
+	width: 20px;
+	height: 28px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_music/m_try_icon_5ed463b.png)
+		0 7px no-repeat;
+	cursor: pointer
+}
+
+.m_yun_tabs .j_m_song .j_m_pause {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_music/m_pause_icon_ae9d728.png)
+		-1px 6px no-repeat
+}
+
+.m_yun_tabs .j_m_song .m_divide {
+	margin: 0 4px;
+	color: #999
+}
+
+.m_yun_tabs .j_m_song .m_artist {
+	color: #999
+}
+
+.m_yun_tabs .m_pager {
+	height: 25px;
+	margin: 10px 0 0;
+	_margin: 0
+}
+
+.m_yun_tabs .m_pager li {
+	font-size: 13px;
+	_font-size: 12px;
+	cursor: pointer;
+	float: left;
+	margin-right: 5px;
+	color: #1d53bf
+}
+
+.m_yun_tabs .m_pager li.m_pager_cur {
+	color: #000;
+	cursor: auto
+}
+
+.m_yun_tabs .m_checkbox {
+	width: 20px;
+	height: 28px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_music/m_checkbox_9c7cffb.png)
+		0 9px no-repeat
+}
+
+.m_yun_tabs .m_selected .m_checkbox {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-common/editor_music/m_checkbox_checked_5eaa93e.png)
+		0 9px no-repeat
+}
+
+.m_no_collection {
+	text-align: center;
+	height: 300px;
+	line-height: 300px;
+	list-style: none;
+	font-size: 14px;
+	color: #999
+}
+
+.catalog_dialog .ui_text_emphasize {
+	height: 12px;
+	margin-bottom: 15px
+}
+
+.catalog_dialog .ui_text_desc {
+	margin: 5px 0
+}
+
+.catalog_dialog .button_bar {
+	text-align: center
+}
+
+.catalog_container {
+	margin-top: 5px
+}
+
+.catalog_container label {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	width: 150px
+}
+
+#adminModePanel .btn_visit_card {
+	overflow: visible
+}
+
+.btn_visit_card span {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-frs/img/ba_visit_card.gif?t=1423981624753)
+		no-repeat 6px 5px
+}
+
+.visit_card_bubble_wrap {
+	position: absolute;
+	bottom: 0
+}
+
+.visit_card_bubble_wrap .ui_bubble_content {
+	padding-right: 10px
+}
+
+#btn_visit_card_grey, #btn_visit_card_grey:hover {
+	color: #999;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-frs/img/ba_visit_card_grey_background.gif?t=1423981624754)
+		0 0 no-repeat
+}
+
+#btn_visit_card_grey span {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-frs/img/ba_visit_card_grey.gif?t=1423981624754)
+		no-repeat 6px 5px
+}
+
+.visit_card h2 {
+	color: #666;
+	font-weight: 700;
+	font-size: 13px
+}
+
+.visit_card ol {
+	list-style-type: decimal
+}
+
+.visit_card li {
+	font-weight: 400;
+	list-style-position: inside
+}
+
+.visit_card .ui_text_summary {
+	font-weight: 400
+}
+
+.visit_card .ui_textfield {
+	width: 290px;
+	float: left;
+	margin: 15px 0 0
+}
+
+.visit_card .rule_intro, .visit_card .photo_post, .visit_card .text_post
+	{
+	margin: 0 20px;
+	padding: 19px 0
+}
+
+.visit_card .rule_intro {
+	color: #666;
+	border-bottom: 1px solid #E6E6E6
+}
+
+.visit_card .rule_intro .tip_title {
+	float: left
+}
+
+.visit_card .rule_intro p {
+	margin-left: 36px
+}
+
+.visit_card .photo_post {
+	padding: 13px 0;
+	border-bottom: 1px dashed #E6E6E6;
+	height: 389px
+}
+
+.visit_card .ui_btn {
+	zoom: 1;
+	margin-left: 26px;
+	margin-top: 5px;
+	margin-bottom: 21px
+}
+
+.visit_card ::-webkit-input-placeholder {
+	color: #aaa
+}
+
+.visit_card .hidden {
+	display: none;
+	visibility: hidden
+}
+
+#visit_card_upload_flash {
+	position: absolute
+}
+
+.text_post p, .text_post ol, .text_post h3 {
+	padding: 20px 0 0 320px
+}
+
+.text_post h3 {
+	font-weight: 400
+}
+
+.text_post textarea {
+	height: 140px;
+	line-height: 16px;
+	padding: 8px
+}
+
+.text_post ol {
+	padding-top: 10px
+}
+
+.visit_card_dlg {
+	overflow: visible;
+	_-webkit-filter: none;
+	_ filter: none
+}
+
+.insert_smiley_btn {
+	width: 15px;
+	height: 15px;
+	margin-left: 172px;
+	_margin-left: 72px;
+	padding-top: 8px;
+	clear: both;
+	float: left;
+	zoom: 1
+}
+
+.fcard_smiley_tip_wrapper {
+	position: relative;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	clear: both
+}
+
+.fcard_smiley_tip {
+	position: absolute;
+	font-size: 12px;
+	color: red;
+	display: none;
+	width: 131px;
+	top: 10px
+}
+
+#containerforeditor {
+	float: left
+}
+
+.op-pic {
+	overflow: hidden;
+	zoom: 1;
+	width: 640px;
+	margin: 0 auto
+}
+
+.op-pic .l-pic {
+	width: 258px;
+	float: left
+}
+
+.op-pic .r-pic {
+	margin-left: 55px;
+	width: 300px;
+	float: left
+}
+
+.op-pic h4 {
+	height: 28px;
+	line-height: 28px;
+	border-bottom: 1px #cdd7d9 solid;
+	font-size: 12px;
+	font-weight: 700;
+	color: #666;
+	padding-bottom: 5px
+}
+
+.op-pic .current-pic {
+	width: 118px;
+	height: 118px;
+	padding: 5px;
+	background:
+		url(http://img.baidu.com/passport/center/picbg.jpg?t=1423981624754)
+		no-repeat
+}
+
+.op-pic .current-pic .inner {
+	width: 111px;
+	height: 111px;
+	overflow: hidden;
+	border: #ccc 1px solid
+}
+
+.op-pic .notice {
+	color: #898989;
+	padding-left: 3px
+}
+
+.op-pic .l-pic .notice {
+	padding: 3px 0 0 12px
+}
+
+.op-pic .button {
+	margin: 6px 0 16px 3px
+}
+
+.op-pic .big-pic {
+	margin-left: 3px;
+	border: 1px #e7e7e7 solid;
+	padding: 2px;
+	margin-bottom: 12px
+}
+
+.tb-op {
+	width: 640px;
+	margin: 5px auto;
+	display: none
+}
+
+.fltip {
+	font-family: "ËÎÌå";
+	width: 276px;
+	font-size: 12px;
+	padding: 10px;
+	line-height: 20px;
+	background-color: #FDFDFD;
+	margin-bottom: 20px;
+	border: #CCC 1px solid
+}
+
+.notice {
+	font-size: 12px;
+	color: #8c8b8b;
+	display: block;
+	padding-top: 3px
+}
+
+.no_title .dialogJtitle {
+	display: none
+}
+
+.form_table {
+	width: 100%
+}
+
+.form_table td, .form_table th {
+	padding: 3px 2px
+}
+
+.form_table th {
+	width: 80px
+}
+
+.form_table td {
+	text-align: left
+}
+
+.form_table textarea {
+	width: 350px;
+	height: 150px
+}
+
+.button_bar {
+	text-align: center
+}
+
+.form_table .word_limit_container {
+	position: relative
+}
+
+.word_limit_container .w_limit_wrapper {
+	position: static
+}
+
+#header {
+	font-size: 12px;
+	margin: 26px 0 8px 8px;
+	width: 760px
+}
+
+.member_main {
+	margin-left: 19px
+}
+
+.member_title_set {
+	margin-top: 14px
+}
+
+.titleset_item {
+	float: left;
+	margin-right: 20px
+}
+
+.last_titleset_item {
+	margin-right: 0
+}
+
+.titleset_item input {
+	float: left
+}
+
+.titleset_item label {
+	cursor: pointer
+}
+
+.titleset_select {
+	margin: 0;
+	height: 18px;
+	margin-right: 2px
+}
+
+.titleset_item div {
+	float: left;
+	margin-top: 1px
+}
+
+.cl {
+	clear: both
+}
+
+.like_badge_input {
+	display: none
+}
+
+.like_badge_input input {
+	width: 85px
+}
+
+.operation {
+	height: 24px;
+	margin: 10px 0;
+	display: none;
+	_margin-top: 0;
+	line-height: 24px
+}
+
+.operation_button {
+	float: left;
+	margin-right: 5px;
+	text-align: center
+}
+
+.operation_msg {
+	color: #555;
+	float: left
+}
+
+#already_inuse {
+	display: none;
+	font-weight: 700
+}
+
+#member_set {
+	cursor: pointer
+}
+
+#member_edit {
+	cursor: pointer
+}
+
+.pop_msg {
+	text-align: center;
+	font-size: 14px;
+	line-height: 22px
+}
+
+#level_l_table {
+	border-collapse: collapse;
+	margin-top: 7px;
+	width: 354px
+}
+
+.num_msg {
+	color: red
+}
+
+.err_msg {
+	line-height: 16px;
+	color: red
+}
+
+.member_b {
+	font-weight: 700
+}
+
+#level_l_table {
+	border-collapse: collapse;
+	margin-top: 10px;
+	width: 711px
+}
+
+#level_l_table th, #level_l_table td {
+	border: 1px solid #ECECEC;
+	text-align: center
+}
+
+#level_l_table td {
+	height: 38px
+}
+
+#level_l_table td.b {
+	font-weight: 700
+}
+
+#level_l_table th {
+	color: #666;
+	font-weight: 700;
+	width: 80px
+}
+
+.level_lvbg_tr {
+	background: none repeat scroll 0 0 #F9F9F9;
+	font-weight: 700
+}
+
+.like_badge {
+	background:
+		url(../images/bg_b54a1ef.png)
+		no-repeat scroll 0 0 transparent;
+	height: 25px;
+	line-height: 25px;
+	_line_height: 24px;
+	margin: 4px auto 0;
+	position: relative;
+	width: 85px
+}
+
+.like_badge_title {
+	color: #4C4C4C;
+	font-family: arial, "ËÎÌå";
+	height: 25px;
+	left: 0;
+	line-height: 25px;
+	_line-height: 28px;
+	position: absolute;
+	text-align: center;
+	width: 60px
+}
+
+.like_badge_lv {
+	color: #B65E00;
+	font-family: arial;
+	font-size: 11px;
+	font-weight: 700;
+	height: 25px;
+	left: 60px;
+	position: absolute;
+	text-align: left;
+	padding-left: 8px;
+	width: 25px
+}
+
+.badge_lv1 .like_badge_lv {
+	background: url(../images/s1_cfca9f7.gif) no-repeat scroll 0 0
+		transparent;
+	margin-top: 1px
+}
+
+.badge_lv2 .like_badge_lv {
+	background: url(../images/s2_1d1b36a.gif) no-repeat scroll 0 0
+		transparent;
+	padding-top: 1px
+}
+
+.badge_lv2_1 .like_badge_lv {
+	background:
+		url(../images/s3_ad6bdc8.gif)
+		no-repeat scroll 0 0 transparent;
+	padding-top: 1px
+}
+
+.badge_lv2_2 .like_badge_lv {
+	background:
+		url(../images/s4_27f75de.gif)
+		no-repeat scroll 0 0 transparent;
+	padding-top: 1px
+}
+
+.badge_lv3 .like_badge_lv {
+	background:
+		url(../images/s5_04ee53b.gif)
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px
+}
+
+.badge_lv3_1 .like_badge_lv {
+	background:
+		url(../images/s6_f21bdf5.gif)
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px
+}
+
+.badge_lv3_2 .like_badge_lv {
+	background:
+		url(../images/s7_ffd927c.gif)
+		no-repeat scroll 0 0 transparent;
+	padding-left: 4px;
+	line-height: 20px;
+	top: 1px
+}
+
+.badge_lv4 .like_badge_lv {
+	background:
+		url(../images/s8_ab1dc3e.gif)
+		no-repeat scroll 0 0 transparent;
+	left: 58px;
+	padding-left: 6px;
+	padding-top: 4px;
+	top: -3px
+}
+
+.bawu_check_pop {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 12px
+}
+
+.bawu_check_pop .pop-feedback-link {
+	display: block;
+	width: 12px;
+	border: 1px solid #d6d6d6;
+	color: #666;
+	background-color: #f7f7f7;
+	border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	font: 12px/14px arial, \5b8b\4f53, sans-serif, "Microsoft YaHei", tahoma;
+	font-size: 12px;
+	text-decoration: none;
+	padding: 10px 6px;
+	transition: .3s;
+	-moz-transition: .3s;
+	-o-transition: .3s;
+	-webkit-transition: .3s;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	position: absolute;
+	top: 150px;
+	left: -27px
+}
+
+.settings_panel {
+	min-height: 552px
+}
+
+.app_list li {
+	float: left;
+	margin-right: 20px;
+	width: 98px;
+	height: 98px;
+	background: #3F7AC6;
+	border: 1px solid #D4D4D4;
+	border-radius: 5px;
+	position: relative
+}
+
+.app_list li a:link, .app_list li a:visited {
+	display: block;
+	padding-top: 80px;
+	width: 98px;
+	height: 18px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	line-height: 12px;
+	background: url(../images/settings_icon_c0897b1.png) 0 0 no-repeat;
+	_background:
+		url(../../static/img/bawu/settings_icon_png8.png?t=1423981705849) 0 0
+		no-repeat
+}
+
+.friend-forum-item {
+	display: inline-block;
+	vertical-align: middle
+}
+
+.friend-forum-delete {
+	cursor: pointer;
+	margin-left: 5px;
+	vertical-align: -4px
+}
+
+.app_list li.forum_card a:link, .app_list li.forum_card a:visited {
+	background-position: 9px 10px
+}
+
+.app_list li.title_format a:link, .app_list li.title_format a:visited {
+	background-position: 9px -90px
+}
+
+.app_list li.forum_catalog a:link, .app_list li.forum_catalog a:visited
+	{
+	background-position: 9px -190px
+}
+
+.app_list li.the_selected_category a:link, .app_list li.the_selected_category a:visited
+	{
+	background-position: 9px -290px
+}
+
+.app_list li.links a:link, .app_list li.links a:visited {
+	background-position: 9px -390px
+}
+
+.app_list li.forum_user_title a:link, .app_list li.forum_user_title a:visited
+	{
+	background-position: 9px -490px
+}
+
+.app_list li.resign a:link, .app_list li.resign a:visited {
+	background-position: 9px -590px
+}
+
+.disable_text_note_setting {
+	color: #999;
+	display: block;
+	left: 0;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	width: 100%
+}

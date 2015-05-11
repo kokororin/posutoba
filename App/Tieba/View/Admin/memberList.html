@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>会员列表_{$forum_info.forum_name}吧</title>
+  <import type="css" file="theme,common,admin_common,admin_member" basepath="__PUBLIC__/common/css"/>
+   </head>
+ <body class="manager_page">
+ <include file="Public:userbar" />
+  <header class="head">
+   <include file="Public:head" />
+  </header>
+  <div class="message_container">
+   <div class="page_message" id="page_message"></div>
+  </div>
+  <!--[if lte IE 7]><div class="ie_height_hacker"></div><![endif]-->
+  <div id="container" class="container clearfix"> 
+   <include file="Admin:left" />
+   <div class="main_content"> 
+    <div class="panel first_panel">
+     <h3>会员列表</h3>
+     <div class="panel_content"> 
+      <div id="searchForm">
+      <input type="hidden" name="fid" value="{$forum_info.forum_id}" />
+       <span class="form_col user_col"><span class="form_row"><label>用户名</label><br /><input type="text" class="ui_textfield j_reset" id="memberValue" placeholder="用户名" name="username" value="" /></span></span>
+       <span class="form_col"><span class="form_row">
+       <a href="javascript:void(0)" id="member_search_btn" class="ui_btn ui_btn_m"><span><em>搜索</em></span></a></span></span>
+       <div style="clear:both;"></div>
+      </div>
+     </div>
+    </div>
+    <div class="panel panel_margin"> 
+     <div class="breadcrumbs">
+      共
+      <em>{$member_count}</em>条记录
+     </div>
+     <?php if($member_list!=null):?> 
+     <table class="data_table vertical_middle compact member_list_table" id="dataTable">
+      <colgroup>
+       <col class="portrait" />
+       <col class="user_name" />
+       <col class="cur_score" />
+       <col class="level_id" />
+       <col class="post_num" />
+       <col class="good_num" />
+       <col class="in_time" />
+       <col class="opration" />
+      </colgroup>
+      <thead>
+       <tr>
+        <th class="left_cell">头像和用户名</th>
+        <th>经验值</th>
+        <th>等级</th>
+        <th>本吧发贴数</th>
+        <th>精品贴</th>
+        <th class="help_wrap clearfix"><span class="text">操作</span><span class="help member_list_help"></span></th>
+       </tr>
+      </thead>
+      <tbody> 
+      <foreach name="member_list" item="vo">
+       <tr>
+        <td class="left_cell"><a class="avatar_link" target="_blank" href="{:U('Home/main',array('id'=>$vo['fans_id']))}">
+        <img class="portrait" src="{:U('Home/getAvatar',array('uid'=>$vo['fans_id']))}" /> {$vo.user_name}</a></td>
+        <td>{$vo.exp}</td>
+        <td>
+         <div class="badge bg_lv{$vo.level.1}">
+          <span>{$vo.level.0}</span>
+         </div></td>
+        <td>{$vo.post_count}</td>
+        <td>{$vo.good_count}</td>
+        <td data-uid="{$vo.fans_id}" data-fid="{$vo.forum_id}" data-uname="{$vo.user_name}" class="btn_group"><a href="javascript:void(0)" class="ui_btn ui_btn_s user_ban_btn j_user_ban_btn"><span><em>封禁</em></span></a><br />
+        <a href="javascript:void(0)" class="ui_btn ui_btn_s user_black_btn j_user_black_btn"><span><em>加入黑名单</em></span></a></td>
+       </tr> 
+       </foreach>
+      </tbody>
+     </table>
+     <?php else:?>
+     <div class="no_data">
+     <img alt="抱歉，暂无数据或未搜索到符合条件的记录" src="__PUBLIC__/common/images/no_data.png"></div>
+     <?php endif;?>
+        <div class="tbui_pagination tbui_pagination_right"> 
+      <ul>
+       {$page}
+      </ul>
+      <?php if($total_page>1):?>
+      <span class="tbui_total_page">共{$total_page}页</span>
+      <input class="ui_textfield pagination_input" id="manage_jump_input" type="text" name="pn" />
+      <a href="javascript:void(0)" class="jump_btn" id="manage_jump_btn"><span><em>跳转</em></span></a>
+      <?php endif;?>
+     </div>
+    </div> 
+   </div>
+  </div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js"/>
+ <script>
+     $(function(){
+             setAdminNav();
+         });
+ </script>
+ <script>
+     var page_name = '<?php echo ACTION_NAME?>';
+ </script>
+ <include file="Public:bottom" />
+ <include file="Post:block" />
+  </body>
+</html>

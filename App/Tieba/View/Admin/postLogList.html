@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>贴子管理日志_{$forum_info.forum_name}吧</title>
+  <import type="css" file="theme,common,admin_common,admin_post,jquery#ui#datepicker" basepath="__PUBLIC__/common/css"/>
+  </head>
+ <body class="manager_page">
+  <include file="Public:userbar" />
+  <header class="head">
+   <include file="Public:head" />
+  </header>
+  <div class="message_container">
+   <div class="page_message" id="page_message"></div>
+  </div>
+  <!--[if lte IE 7]><div class="ie_height_hacker"></div><![endif]-->
+  <div id="container" class="container clearfix">
+   <include file="Admin:left" />
+   <div class="main_content">
+    <div class="panel">
+     <h3>贴子管理日志</h3>
+     <div class="panel_content">
+      <form id="searchForm">
+       <input type="hidden" name="fid" value="{$forum_info.forum_id}" />
+       <input type="hidden" name="action" value="{$action_name}" />
+       <span class="form_col user_col"><span class="form_row">
+       <label style="margin-right: 20px"><input type="radio" name="utype" checked="" value="post" /> 发贴人</label>
+       <label><input type="radio" name="utype" value="action" /> 操作人</label></span>
+       <span class="form_row"><input type="text" class="ui_textfield j_reset" name="username" value="" placeholder="请输入用户名查询" /></span>
+       </span>
+       <span class="form_col">
+       <span class="form_row"><label><input type="radio" name="date_type" checked="" />操作时间</label></span>
+       <span class="form_row"><input type="text" class="ui_textfield ui_datepicker j_reset" id="startTime" name="startTime" value="" /> 至<input type="text" class="ui_textfield ui_datepicker j_reset" id="endTime" name="endTime" value="" />
+       <a href="javascript:void(0)" id="manage_search_btn" class="ui_btn ui_btn_m"><span><em>搜索</em></span></a>
+       <a href="{:U('Admin/postLogList',array('id'=>$forum_info['forum_id']))}" class="ui_text_link_sub all_records j_all_records">显示全部记录</a></span></span>
+       <div style="clear:both;"></div>
+      </form>
+     </div>
+    </div>
+    <div class="panel panel_margin">
+     <div class="breadcrumbs">
+      共
+      <em>{$log_count}</em>条记录
+     </div>
+     <?php if($log_list!=null):?>
+     <table class="data_table">
+      <colgroup>
+       <col class="post_content" />
+       <col class="operation" />
+       <col class="operator" />
+       <col class="operate_time" />
+      </colgroup>
+      <thead>
+       <tr>
+        <th class="left_cell">贴子内容</th>
+        <td class="widget_cell">
+         <div class="relative_ctn">
+          <div class="table_menu" id="operation_menu" data-fid="{$forum_info.forum_id}">
+           <div class="menu_select j_select">
+            <strong>{$action_name}</strong>
+           </div>
+           <div class="menu_options_list">
+            <div class="options_up_btn j_up disabled">
+             <a href="#"></a>
+            </div>
+            <ul id="manage_action_select">
+             <li><a data-action="all" href="javascript:void(0)" class="">全部操作</a></li>
+             <li><a data-action="del-post" href="javascript:void(0)" class="">删贴</a></li>
+             <li><a data-action="restore-post" href="javascript:void(0)" class="">恢复</a></li>
+             <li><a data-action="set-good" href="javascript:void(0)" class="">加精</a></li>
+             <li><a data-action="cancel-good" href="javascript:void(0)" class="">取消加精</a></li>
+             <li><a data-action="set-top" href="javascript:void(0)" class="">置顶</a></li>
+             <li><a data-action="cancel-top" href="javascript:void(0)" class="">取消置顶</a></li>
+            </ul>
+            <div class="options_down_btn j_down">
+             <a href="#"></a>
+            </div>
+           </div>
+          </div>
+         </div></td>
+        <th>操作人</th>
+        <th>操作时间</th>
+       </tr>
+      </thead>
+      <tbody>
+      <foreach name="log_list" item="vo">
+       <tr>
+        <td class="left_cell">
+         <article class="post_wrapper clearfix">
+          <div class="post_meta">
+           <div class="post_author">
+            <a target="_blank" href="{:U('Home/main',array('id'=>$vo['user_id']))}">{$vo.user_name}</a>
+           </div>
+           <time class="ui_text_desc">{$vo.post_date|convertDate=###,'cn'}</time>
+          </div>
+          <div class="post_content">
+           <h1><a target="_blank" href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}" title="<?php if ( $vo['floor_id']!=1 ):?>回复：<?php endif;?>{$vo.thread_title}"><?php if ( $vo['floor_id']!=1 ):?>回复：<?php endif;?>{$vo.thread_title}</a></h1>
+           <div class="post_text">
+             {$vo.post_content_convert|mysubstr=0,80}
+           </div>
+           <div class="post_media">
+           </div>
+          </div>
+         </article></td>
+        <td><span class="{$vo.log_action.css}">{$vo.log_action.name}</span></td>
+        <td><a href="{:U('Home/main',array('id'=>$vo['action_userid']))}" class="ui_text_normal">{$vo.action_username}</a></td>
+        <td>{$vo.log_date|convertDate=###,'with_enter'}</td>
+       </tr>
+       </foreach>
+
+      </tbody>
+     </table>
+     <?php else:?>
+     <div class="no_data">
+     <img alt="抱歉，暂无数据或未搜索到符合条件的记录" src="__PUBLIC__/common/images/no_data.png"></div>
+     <?php endif;?>
+     <div class="tbui_pagination tbui_pagination_right"> 
+      <ul>
+       {$page}
+      </ul>
+      <?php if($total_page>1):?>
+      <span class="tbui_total_page">共{$total_page}页</span>
+      <input class="ui_textfield pagination_input" id="manage_jump_input" type="text" name="pn" />
+      <a href="javascript:void(0)" class="jump_btn" id="manage_jump_btn"><span><em>跳转</em></span></a>
+      <?php endif;?>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div id="tbLcsContainer"></div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form,jquery#ui#datepicker#min" basepath="__PUBLIC__/common/js"/>
+ <script>
+     $(function(){
+             setAdminNav();
+      });
+ </script>
+ <script>
+ $(function() {
+   $("#startTime").datepicker({
+         changeMonth: true,
+         onClose: function( selectedDate ) {
+         $('#endTime').datepicker('option', 'minDate',selectedDate);
+       }
+   });
+   $("#endTime").datepicker({
+         changeMonth: true,
+         onClose: function( selectedDate ) {
+         $('#startTime').datepicker('option', 'maxDate',selectedDate);
+       }
+   });
+  });
+ </script>
+ <script>
+     var page_name = '<?php echo ACTION_NAME?>';
+     <?php if(isset($_GET['username'])):?>
+     var page_username = '{$Think.get.username}';
+     var page_utype = '{$Think.get.utype}';
+     <?php endif;?>
+     <?php if(isset($_GET['startTime'],$_GET['endTime'])):?>
+     var page_startTime = '{$Think.get.startTime}';
+     var page_endTime = '{$Think.get.endTime}';
+     <?php endif;?>
+ </script>
+ <include file="Public:bottom" />
+  </body>
+</html>

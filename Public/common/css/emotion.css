@@ -1,0 +1,170 @@
+@CHARSET "UTF-8";
+
+
+.emotion_container ul.s_tab_content li.s_tab_btn {
+	cursor: pointer;
+	float: left;
+	height: 21px;
+	line-height: 21px;
+	margin-right: 4px;
+	border-top: 0;
+	margin-top: 0;
+	padding: 0
+}
+
+.emotion_container .s_tab_btnbg {
+	padding: 0 10px;
+	display: block
+}
+
+.emotion_container table.s_layer_table td {
+	vertical-align: middle;
+	border-color: #e3e3e3
+}
+
+.emotion_container table.s_layer_table {
+	border: 0
+}
+
+
+.emotion_container .s_layer_content {
+	padding: 5px 3px 0 5px;
+	height: 276px
+}
+
+.emotion_container .s_layer_tab {
+	height: 6px;
+	border-top: 1px solid #e3e3e3;
+	background-color: #f7f7f7;
+	color: #666;
+	position: relative
+}
+
+.emotion_container .s_layer_tab .s_prev {
+	position: absolute;
+	left: 10px;
+	width: 7px;
+	height: 11px;
+	top: 10px;
+	cursor: pointer;
+}
+
+.emotion_container .s_layer_tab .s_next {
+	position: absolute;
+	right: 10px;
+	width: 7px;
+	height: 11px;
+	top: 10px;
+	cursor: pointer;
+}
+
+.emotion_container .s_tab_con_wrapper {
+	position: absolute;
+	width: 502px;
+	height: 29px;
+	overflow: hidden;
+	left: 24px;
+	top: 0
+}
+
+.emotion_container .s_tab_content {
+	width: 1500px;
+	padding-top: 5px;
+	position: relative
+}
+
+.emotion_container .s_ySmile {
+	font-family: arial
+}
+
+.emotion_container .emotion_preview {
+	position: absolute;
+	left: 478px;
+	top: 3px;
+	bottom: 200px;
+	z-index: 65533;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #000;
+	overflow: hidden;
+	background: #FFF;
+	display: none
+}
+
+.emotion_container .emotion_preview_show {
+	left: 3px;
+	display: block
+}
+
+img.review {
+	position: absolute;
+	background: #FFF;
+	vertical-align: middle
+}
+
+#l_smiley_table {
+	border-color: #e3e3e3
+}
+
+.tb-editor-wrapper {
+	z-index: 2
+}
+
+.emotion_container {
+	width: 550px
+}
+
+.ue_emotion_table {
+	border-collapse: collapse;
+	border: 1px solid #e3e3e3
+}
+
+.ue_emotion_table td {
+	padding: 1px;
+	width: 53px;
+	height: 54px;
+	border: 1px solid #e3e3e3;
+	border-collapse: collapse;
+	text-align: center;
+	vertical-align: middle
+}
+
+.ue_emotion_table td.emotion_cell:hover {
+	background: #e8e8fd
+}
+
+.ue_emotion_table a {
+	position: relative;
+	display: block
+}
+
+.ue_emotion_table .emotion_hole {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	text-align: center
+}
+
+.ue_emotion_table .emotion_delete {
+	position: absolute;
+	right: -2px;
+	top: -3px;
+	visibility: hidden;
+	overflow: hidden;
+	cursor: pointer;
+	width: 17px;
+	height: 17px
+}
+
+.ue_emotion_table a:hover .emotion_delete {
+	visibility: visible
+}
+
+.ue_emotion_table img {
+	vertical-align: middle
+}
+
+.s_face:hover {
+	background-color :rgb(232,232,253);
+}
+

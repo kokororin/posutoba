@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>注册Posutoba帐号</title> 
+ <import type="css" file="common,register" basepath="__PUBLIC__/common/css" />
+ </head> 
+ <body> 
+  <div id="wrapper" class=""> 
+   <div id="head"> 
+    <div class="mod-header"> 
+     <a href="__ROOT__" style="display: block;"><img src="__PUBLIC__/common/images/search_logo_modify.png" alt="logo" /></a>
+    </div> 
+   </div> 
+   <div id="nav"> 
+    <div class="nav-2"> 
+     <div class="mod-nav clearfix"> 
+      <h1 class="page-type-notab"></h1> 
+     </div>
+    </div> 
+   </div> 
+   <div id="content"> 
+    <div class="mod-reg clearfix mod-reg-"> 
+     <div class="reg-content tang-pass-reg" id="reg_content">
+      <form autocomplete="off" id="TANGRAM__PSP_4__formreg" method="POST" action="{:U('User/doRegister')}">
+       <p id="TANGRAM__PSP_4__errorWrapper" class="pass-generalErrorWrapper"><span id="TANGRAM__PSP_4__error" class="pass-generalError"></span></p>
+       <p id="TANGRAM__PSP_4__accountWrapper" class="pass-form-item pass-form-item-account" style="display:"><label for="TANGRAM__PSP_4__account" id="TANGRAM__PSP_4__accountLabel" class="pass-label pass-label-account">账号</label><input id="TANGRAM__PSP_4__account" type="text" name="username" class="pass-text-input pass-text-input-account" autocomplete="off" placeholder="账号" value="{$qq.qq_username}"/><span id="TANGRAM__PSP_4__account_clearbtn" class="pass-clearbtn pass-clearbtn-account" style="display: none; visibility: hidden;"></span><span id="TANGRAM__PSP_4__accountError" class="pass-item-error pass-item-error-account" style="display: block;"></span></p>
+       <p id="TANGRAM__PSP_4__passwordWrapper" class="pass-form-item pass-form-item-password" style="display:"><label for="TANGRAM__PSP_4__password" id="TANGRAM__PSP_4__passwordLabel" class="pass-label pass-label-password">密码</label><input id="TANGRAM__PSP_4__password" type="password" name="password" class="pass-text-input pass-text-input-password" autocomplete="off" placeholder="密码" /><span id="TANGRAM__PSP_4__password_clearbtn" class="pass-clearbtn pass-clearbtn-password" style="display: none; visibility: hidden;"></span><span id="TANGRAM__PSP_4__passwordError" class="pass-item-error pass-item-error-password" style="display: block;"></span><span id="TANGRAM__PSP_4__passwordSucc" class="pass-item-succ pass-item-succ-password" style="display:none;"></span><span id="TANGRAM__PSP_4__passwordTip" class="pass-item-tip pass-item-tip-password" style="display: none;"><span id="TANGRAM__PSP_4__passwordTipText" class="pass-item-tiptext pass-item-tiptext-password"></span></span></p>
+       
+       <p>
+       <input type="hidden" name="u" id="return_url" value="{$Think.get.u}"/>
+       <input type="hidden" name="openid" value="{$qq.qq_openid}" />
+       </p>
+       <p id="TANGRAM__PSP_4__verifyCodeImgWrapper" class="pass-form-item pass-form-item-verifyCode" style="display: block;"><label for="TANGRAM__PSP_4__verifyCode" id="TANGRAM__PSP_4__verifyCodeLabel" class="pass-label pass-label-verifyCode">验证码</label><input id="TANGRAM__PSP_4__verifyCode" type="text" name="verifyCode" class="pass-text-input pass-text-input-verifyCode" autocomplete="off" placeholder="验证码" /><span id="TANGRAM__PSP_4__verifyCode_clearbtn" class="pass-clearbtn pass-clearbtn-verifyCode" style="display: none; visibility: hidden;"></span><span><img id="TANGRAM__PSP_4__verifyCodeImg" title="验证码图片" alt="验证码图片" class="pass-verifyCode" src="{:U('User/verifyCode')}" /></span><a id="TANGRAM__PSP_4__verifyCodeChange" href="javascript:void(0)" class="pass-change-verifyCode">换一张</a><span id="TANGRAM__PSP_4__verifyCodeError" class="pass-item-error pass-item-error-verifyCode" style="display: block;"></span></p>
+       <p id="TANGRAM__PSP_4__submitWrapper" class="pass-form-item pass-form-item-submit"><input id="TANGRAM__PSP_4__submit" type="submit" value="注册" name="submit" class="pass-button pass-button-submit" /><span id="TANGRAM__PSP_4__isAgreeError" class="pass-item-error pass-item-error-isAgree"></span></p>
+       <div id="TANGRAM__PSP_4__tip" class="pass-pop-tip" style="left: 420px; top: 164px; display: none;">
+        <div class="pass-pop-tip-header"></div>
+        <div class="pass-pop-tip-container">
+         <div class="pass-pop-tip-body">
+          <div class="pass-pop-tip-content" id="TANGRAM__PSP_4__tipContainer"></div>
+         </div>
+        </div>
+       </div>
+      </form>
+     </div> 
+     <div class="reg-sms"> 
+      <h3 class="reg-sms-title">手机快速注册</h3> 
+      <div class="reg-sms-content"> 
+       <p class="reg-sms-p reg-sms-p-text">请使用中国大陆手机号，编辑短信：</p> 
+       <p class="reg-sms-p reg-sms-p-warn">6-14位字符（支持数字/字母/符号）</p> 
+       <p class="reg-sms-p reg-sms-p-text">作为登录密码，发送至：</p> 
+       <p class="reg-sms-p reg-sms-p-warn">1069 80000 36590</p> 
+       <p class="reg-sms-p reg-sms-p-last">即可注册成功，手机号即为登录帐号。</p> 
+      </div> 
+     </div> 
+     <!-- <div class="login-link" id="login_link"> 
+      <span>我已注册，现在就</span> 
+      <button class="login-btn" id="login_btn">登录</button> 
+     </div> -->
+    </div> 
+   </div> 
+   <div id="foot"> 
+    <div class="mod-footer"> 
+     <div class="copy-box">
+      2015&nbsp;&copy;Posutoba
+     </div>
+    </div> 
+   </div> 
+  </div> 
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,jquery#form,common" basepath="__PUBLIC__/common/js" />
+  <include file="Public:bottom" />
+ </body>
+</html>

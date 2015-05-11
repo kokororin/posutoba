@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>我的精品_i贴吧</title>
+  <import type="css" file="theme,common,itieba,thread_list" basepath="__PUBLIC__/common/css" /> 
+  </head>
+ <body>
+ <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <include file="Public:head" />
+    <div id="main_wrapper" class="main_wrapper"> 
+     <div id="main_back_img"> 
+      <div id="main_back_bottom"> 
+       <div id="container" class="ibody clearfix"> 
+        <div class="w750 fleft">
+         <div id="content">
+          <div id="tiezi_sub_tab" class="sub_nav clearfix"> 
+           <ul> 
+            <li class=""><a href="{:U('Home/threadList',array('id'=>$user_info['user_id']))}" target="_self">我的贴子</a></li> 
+            <li class=""><a href="{:U('Home/replyList',array('id'=>$user_info['user_id']))}" target="_self">我回复的</a></li> 
+            <li class="current"><a href="{:U('Home/goodList',array('id'=>$user_info['user_id']))}" target="_self">我的精品</a></li> 
+           </ul> 
+          </div> 
+          <table id="featureList" cellspacing="0" cellpadding="0"> 
+            <?php if($good_list!=null):?>
+           <thead> 
+            <tr> 
+             <td class="listSpace">&nbsp;</td> 
+             <td class="listTitle">标题</td> 
+             <td class="listBar">所在吧</td> 
+            </tr> 
+           </thead> 
+           <tbody>             
+           <foreach name="good_list" item="vo">
+            <tr class="<?php if($key%2==0):?>one<?php else:?>two<?php endif;?>Row"> 
+             <td class="listSpace"></td> 
+             <td> 
+              <div class="feature_title"> 
+               <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}" class="thread_title" target="_blank">{$vo.thread_title}</a> 
+              </div> 
+              <div class="feature_title_ext">
+                {$vo.log_date|convertDate=###,'without_year'}　被吧主 
+               <a href="{:U('Home/main',array('id'=>$vo['user_id']))}" target="_blank"> {$vo.user_name} </a> 加为精品 
+              </div> </td> 
+             <td class="listBar"> <a style="" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" target="_blank">{$vo.forum_name}吧</a> </td> 
+            </tr>
+          </foreach>
+        <?php else:?>
+        <div style="text-align: center;">
+           <img src="__PUBLIC__/common/images/no_data.png"/>
+          </div>            
+           </tbody> 
+           <?php endif;?>
+          </table> 
+          <div class="j_pager pager pager-center">
+          {$page}
+          </div>
+         </div>
+        </div> 
+        <include file="Home:right" />
+       </div> 
+       <div id="footer" class="footer"> 
+       <include file="Public:footer" />
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+ <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+   <include file="Public:bottom" />
+  </body>
+</html>

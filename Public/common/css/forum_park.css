@@ -1,0 +1,776 @@
+@CHARSET "UTF-8";
+
+@import url('nobg.css'); 
+
+.left-sec .f_class_title {
+	height: 34px;
+	background:
+		url(../images/square1_e4fe4f7.png)
+		no-repeat 0 0;
+	color: #FFF;
+	cursor: pointer;
+	padding-left: 20px;
+	font: 14px/34px 'Microsoft YaHei', Arial, sans-serif
+}
+
+.show_all .f_class_title {
+	background-position: -212px 0
+}
+
+.left-sec .f_class_title_hover {
+	background-position: 0 0
+}
+
+.class_title {
+	padding: 8px 0 0 10px
+}
+
+.class_title a {
+	color: #758CB1;
+	font: 16px 'Microsoft YaHei', Arial, sans-serif
+}
+
+.class_list {
+	width: 190px;
+	margin: 3px 0 12px
+}
+
+.class_list li {
+	padding: 0 6px;
+	float: left;
+	line-height: 12px;
+	*line-height: 15px;
+	border-right: 1px solid #CACACA;
+	margin: 10px 0 5px;
+	*margin: 10px 0 3px
+}
+
+.class_list .last_tag {
+	border-right: 0
+}
+
+.class_list li a {
+	color: #666;
+	padding: 3px 5px;
+	word-break: keep-all;
+	white-space: nowrap
+}
+
+.f_class_li .last_li {
+	border: 0
+}
+
+.class_list .cur_class, .class_list a:hover {
+	color: #FFF;
+	background-color: #3F95E5;
+	border-color: #378DDB
+}
+
+.show_all .f_class_title {
+	display: block
+}
+
+.show_all .f_class_list {
+	height: 680px
+}
+
+.show_all .class_info {
+	display: none
+}
+
+.class_info {
+	padding-bottom: 9000px;
+	margin-bottom: -9000px;
+	*padding-bottom: 0;
+	*margin-bottom: 0;
+	background-color: #F5F8FA;
+	border: 1px solid #DCDCDC;
+	border-top: 0
+}
+
+.left-sec {
+	width: 210px;
+	float: left;
+	margin-top: 10px
+}
+
+.left-sec .f_class_list {
+	font-size: 14px;
+	background-color: #F5F8FA
+}
+
+.right-sec {
+	width: 770px;
+	float: left;
+	margin-top: 10px;
+	margin-left: 20px;
+	min-height: 1000px
+}
+
+.f_class_menu .f_class_li {
+	height: 39px;
+	padding-left: 13px
+}
+
+.f_class_menu .first_li {
+	border-top: 1px solid #F5F8FA
+}
+
+.f_class_li a {
+	display: block;
+	padding-left: 25px;
+	font-family: STHeiti, "Microsoft Yahei", "Microsoft YaHei", Arial,
+		sans-serif;
+	line-height: 40px;
+	border-bottom: 1px dotted #B1B4B6;
+	width: 156px;
+	background-image:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/new_index_yao/square2_9bf21fb.png);
+	*background-image:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/new_index_yao/square2_e5c21fd.gif);
+	color: #333
+}
+
+.f_class_li .last_li {
+	border: 0
+}
+
+.literature {
+	background-position: 0 14px
+}
+
+.cartoon {
+	background-position: 0 -22px
+}
+
+.amusement {
+	background-position: 0 -59px
+}
+
+.cutegroup {
+	background-position: 0 -95px
+}
+
+.game {
+	background-position: 0 -128px
+}
+
+.livingexpert {
+	background-position: 0 -164px
+}
+
+.district {
+	background-position: 0 -197px
+}
+
+.tvshows {
+	background-position: 0 -231px
+}
+
+.emotion {
+	background-position: 0 -264px
+}
+
+.academy {
+	background-position: 0 -295px
+}
+
+.sports {
+	background-position: 0 -330px
+}
+
+.club {
+	background-position: 0 -363px
+}
+
+.entertainment {
+	background-position: 0 -394px
+}
+
+.humanity {
+	background-position: 0 -427px
+}
+
+.livingstuff {
+	background-position: 0 -456px
+}
+
+.teleplay {
+	background-position: 4px -625px
+}
+
+.movie {
+	background-position: 4px -652px
+}
+
+.xianqu {
+	background-position: 4px -682px
+}
+
+.xingqing {
+	background-position: 4px -714px
+}
+
+.see_all_class {
+	display: block;
+	width: 188px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	color: #444;
+	font-weight: 700;
+	margin: 0 auto;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/new_index_yao/square2_9bf21fb.png)
+		no-repeat 0 -500px;
+	margin-bottom: 10px
+}
+
+.see_all_class:hover {
+	color: #53789B;
+	background-position: 0 -547px
+}
+
+.d-up-frame {
+	background-color: #fcfcfc;
+	border: 1px solid #CCC;
+	border-left: 0;
+	box-shadow: 1px 1px 0 #F3F3F3
+}
+
+.directory-wraper {
+	width: 190px;
+	height: 49px;
+	overflow: hidden
+}
+
+.f-d-w a {
+	display: inline-block;
+	padding: 4px 4px 2px 2px;
+	color: #999
+}
+
+.f-d-w .all-wraper {
+	margin: 5px 0 25px;
+	padding-left: 10px
+}
+
+.f-d-w span {
+	margin-top: 2px
+}
+
+.f-d-w .all {
+	width: 182px;
+	display: inline-block;
+	height: 30px;
+	background:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/css1_00fb106.png)
+		no-repeat -16px -256px
+}
+
+.f-d-w .literature {
+	background-position: -13px -119px
+}
+
+.f-d-w .cartoon {
+	background-position: -44px -119px
+}
+
+.f-d-w .amusement {
+	background-position: -76px -119px
+}
+
+.f-d-w .cutegroup {
+	background-position: -101px -118px
+}
+
+.f-d-w .game {
+	background-position: -126px -116px
+}
+
+.f-d-w .livingexpert {
+	background-position: -156px -119px
+}
+
+.f-d-w .district {
+	background-position: -179px -119px
+}
+
+.f-d-w .tvshows {
+	background-position: -205px -119px
+}
+
+.f-d-w .emotion {
+	background-position: -237px -117px
+}
+
+.f-d-w .academy {
+	background-position: -267px -119px
+}
+
+.f-d-w .sports {
+	background-position: -293px -117px
+}
+
+.f-d-w .club {
+	background-position: -314px -118px
+}
+
+.f-d-w .entertainment {
+	background-position: -341px -118px
+}
+
+.f-d-w .humanity {
+	background-position: -364px -119px
+}
+
+.f-d-w .livingstuff {
+	background-position: -397px -119px
+}
+
+.directory-pop-frame {
+	margin: 0 20px;
+	background: transparent;
+	font-size: 12px
+}
+
+.directory-pop-frame .d-title {
+	padding: 10px 0 8px;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei';
+	border-bottom: 1px dotted #ddd;
+	color: #444
+}
+
+div.d-title a {
+	color: #333
+}
+
+div.d-title a:hover {
+	color: #3F95E5
+}
+
+.directory-pop-frame .s-d-title {
+	margin-top: 5px
+}
+
+.directory-pop-frame .item-wraper {
+	padding-top: 7px
+}
+
+.directory-pop-frame .d-item {
+	color: #666;
+	display: inline-block;
+	margin-top: 4px;
+	padding: 2px 3px;
+	text-decoration: none
+}
+
+.directory-pop-frame .d-item:hover {
+	background: none repeat scroll 0 0 #49AAEF;
+	color: #FFF
+}
+
+.directory-pop-frame .d-gap {
+	border-left: 1px solid #D6D6D6;
+	display: inline-block;
+	height: 12px;
+	margin: 0 6px;
+	vertical-align: -2px;
+	width: 0
+}
+
+.directory-pop-frame .rec-forum {
+	margin-bottom: 30px
+}
+
+.directory-pop-frame .rec-icon {
+	background:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/css1_00fb106.png)
+		no-repeat;
+	_background:
+		url(http://tb2.bdstatic.com/tb/static-spage/img/css_de393d0.png)
+		no-repeat;
+	background-position: -337px -453px;
+	padding-left: 20px;
+	width: 100px;
+	color: #268DCB;
+	margin: 16px 0 0
+}
+
+.directory-rec-img {
+	margin: 0 0 -5px 0;
+	overflow: visible;
+	position: relative;
+	_margin: 0;
+	_overflow: hidden
+}
+
+.directory-rec-img a {
+	display: block;
+	height: 170px
+}
+
+.f-d-item-hover a {
+	border: 0
+}
+
+.f_class_menu .f-d-item-hover {
+	background-color: #FCFCFC;
+	height: 37px;
+	border-bottom: 1px solid #DDD;
+	border-top: 1px solid #DDD;
+	border-right: 0;
+	padding: 0 0 1px 13px;
+	box-shadow: 0 1px 1px #DDD;
+	width: 196px;
+	*width: 195px
+}
+
+.no-border-bottom a {
+	border-bottom: 0
+}
+
+.f_class_menu .no-border-bottom {
+	height: 38px;
+	border-bottom: 0
+}
+
+.f_class_list_wrap {
+	display: none;
+	padding-bottom: 9000px;
+	margin-bottom: -9000px;
+	*padding-bottom: 0;
+	*margin-bottom: 0;
+	background-color: #F5F8FA;
+	border: 1px solid #DCDCDC;
+	border-top: 0;
+	overflow: visible
+}
+
+.show_all .f_class_list_wrap {
+	display: block
+}
+
+.directory-pop-frame .rec-d-item {
+	background: none repeat scroll 0 0 #FFF;
+	border: 1px solid #E0E0E0;
+	border-radius: 3px;
+	color: #666;
+	display: inline-block;
+	height: 18px;
+	line-height: 18px;
+	margin-right: 10px;
+	margin-top: 4px;
+	padding: 0 5px;
+	text-decoration: none
+}
+
+.directory-pop-frame .rec-d-item:hover {
+	background: none repeat scroll 0 0 #49AAEF;
+	border: 1px solid #49AAEF;
+	color: #FFF
+}
+
+.square_nav a {
+	display: block;
+	width: 65px;
+	height: 28px;
+	line-height: 27px;
+	float: left;
+	font-family: STHeiti, "Microsoft Yahei", "Microsoft YaHei", Arial,
+		sans-serif;
+	padding-left: 28px;
+	font-size: 14px;
+	background-image:
+		url(../images/square1_e4fe4f7.png)
+}
+
+.square_nav .renqi {
+	background-position: 0 -261px;
+	color: #F96E02;
+	cursor: default
+}
+
+.square_nav .recent {
+	background-position: -93px -261px;
+	color: #888;
+	cursor: pointer
+}
+
+.square_nav .recent:hover {
+	background-position: -93px -389px;
+	color: #197FCC
+}
+
+.cur_nav .recent {
+	color: #197FCC;
+	cursor: default;
+	background-position: -93px -303px
+}
+
+.cur_nav .renqi {
+	color: #888;
+	cursor: pointer;
+	background-position: 0 -303px
+}
+
+.cur_nav .renqi:hover {
+	background-position: 0 -346px;
+	color: #F96E02
+}
+
+.cur_nav .recent:hover {
+	background-position: -93px -303px
+}
+
+.ba_info {
+	float: left;
+	border: 1px solid #E7E7E7;
+	border-radius: 2px;
+	width: 376px;
+	margin-top: 15px;
+	position: relative;
+	box-shadow: 0 2px 0 #F3F3F3
+}
+
+.ba_info:hover {
+	border-color: #A2CEF2
+}
+
+.ba_info2 {
+	margin-left: 14px
+}
+
+.ba_info .ba_href {
+	display: block;
+	margin: 9px
+}
+
+.ba_info .ba_pic {
+	float: left;
+	display: block;
+	padding: 1px;
+	background-color: #EFEFEF
+}
+
+.ba_info .ba_content {
+	width: 226px;
+	float: left;
+	margin-left: 15px
+}
+
+.ba_info .ba_name {
+	color: #444;
+	font: 16px/20px STHeiti, "Microsoft Yahei", "Microsoft YaHei", Arial,
+		sans-serif
+}
+
+.ba_info .ba_num {
+	color: #F96E02
+}
+
+.ba_info .ba_num span {
+	padding-left: 16px;
+	display: block;
+	float: left;
+	background-image:
+		url(../images/square1_e4fe4f7.png);
+	font: 12px/22px Tahoma, "Microsoft YaHei", Arial, sans-serif
+}
+
+.ba_num .ba_m_num {
+	background-position: 0 -123px;
+	margin-right: 30px
+}
+
+.ba_num .ba_p_num {
+	background-position: 0 -98px
+}
+
+.ba_info .ba_desc {
+	color: #999;
+	height: 40px;
+	width: 218px
+}
+
+.ba_info .ba_tag {
+	color: #999;
+	position: absolute;
+	top: 94px;
+	right: 27px;
+	width: 218px
+}
+
+.ba_info .ba_tag a {
+	color: #4da65f;
+	margin-right: 3px
+}
+
+.ba_info .ba_tag a:hover {
+	text-decoration: underline
+}
+
+.ba_info .ba_post {
+	height: 48px;
+	border-top: 1px solid #E7E7E7;
+	line-height: 22px;
+	padding-top: 5px;
+	color: #999;
+	overflow: hidden;
+	background:
+		url(../images/square1_e4fe4f7.png)
+		no-repeat 0 -187px
+}
+
+.ba_info .ba_no_post {
+	background: 0 0;
+	background-color: #FCFCFC
+}
+
+.ba_info .ba_post a {
+	margin-left: 80px;
+	display: block;
+	width: 290px;
+	overflow: hidden;
+	color: #999
+}
+
+.ba_info .ba_post a:hover {
+	text-decoration: underline
+}
+
+.ba_info .ba_like {
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	cursor: pointer;
+	background:
+		url(../images/square1_e4fe4f7.png)
+		no-repeat -63px -162px
+}
+
+.ba_info .is_like {
+	background-position: -14px -162px
+}
+
+.ba_info .ba_like:hover {
+	background-position: -114px -162px
+}
+
+.ba_class_title {
+	border-bottom: 2px solid #3F95E5;
+	color: #197FCD;
+	font-family: "Microsoft YaHei", Arial, sans-serif;
+	font-size: 20px;
+	margin: 3px 0 20px;
+	padding-bottom: 11px
+}
+
+.square_pager {
+	margin: 20px 0 0
+}
+
+.square_pager a {
+	background: none repeat scroll 0 0 #FFF;
+	border: 1px solid #E7ECF0;
+	color: #0000CD;
+	height: 22px;
+	line-height: 22px;
+	padding: 2px 8px;
+	margin-right: 5px;
+	overflow: hidden;
+	text-align: center;
+	text-decoration: none;
+	width: auto;
+	font-family: Arial
+}
+
+.square_pager a:hover {
+	background: none repeat scroll 0 0 #E9F1F7
+}
+
+.square_pager span.current {
+	background: none repeat scroll 0 0 transparent;
+	border: 1px solid #FFF;
+	color: #000;
+	padding: 2px 6px
+}
+
+.square_pager .pagination {
+	clear: both
+}
+
+.square_pager .pagination {
+	margin: 20px 0 0
+}
+
+.bft_rcmd_forum {
+	width: 768px;
+	height: 93px;
+	margin: -20px 0 20px 0;
+	border: 1px solid #DCDCDC;
+	border-top: 0;
+	background-color: #FCFCFC
+}
+
+.bft_rcmd_label {
+	display: block;
+	height: 100%;
+	width: 33px;
+	background:
+		url(../images/square1_e4fe4f7.png)
+		no-repeat right -328px;
+	float: left
+}
+
+.bft_forum_item {
+	float: left;
+	width: 166px;
+	_width: 166px;
+	padding-left: 16px;
+	margin: 10px 0;
+	border-left: 1px solid #E8E8E8
+}
+
+.bft_forum_item:first-child {
+	padding-left: 13px;
+	border-left: 0
+}
+
+.bft_forum_pic {
+	width: 65px;
+	height: 65px;
+	margin-right: 10px;
+	padding: 2px;
+	border: 1px solid #E8E8E8;
+	border-radius: 8px;
+	overflow: hidden;
+	float: left
+}
+
+.bft_forum_meta {
+	margin-left: 81px
+}
+
+.bft_forum_name {
+	font: 14px/24px 'Microsoft YaHei', Arial, SimHei, sans-serif;
+	color: #444
+}
+
+.bft_forum_p_num, .bft_forum_m_num {
+	margin-top: 3px;
+	padding-left: 16px;
+	color: #FF7F3E;
+	font: 12px/18px Tahoma, "Microsoft YaHei", Arial, sans-serif;
+	vertical-align: bottom;
+	background:
+		url(../images/square1_e4fe4f7.png)
+		no-repeat 0 -100px
+}
+
+.bft_forum_p_num {
+	background-position: 0 -125px
+}

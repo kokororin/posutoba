@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>申请吧主</title>
+  <import type="css" file="theme,common,apply_manager" basepath="__PUBLIC__/common/css" />
+ </head>
+ <body>
+  <include file="Public:userbar" />
+  <div class="wrap1">
+    <div class="wrap2">
+  <include file="Public:head" />
+  <div id="container">
+   <div class="title_bar">
+    <div class="title_bar_content">
+     <h3>吧主申请</h3>
+     <span>所填信息真实、完整将作为贴吧管理员审核任命吧主的重要依据。相关资料百度会严格保密，请您放心、认真填写。</span>
+    </div>
+   </div>
+   <form action="{:U('Forum/applyManager')}" method="post" id="apply_form" class="apply_form_box form_step1">
+    <ul class="step_list clearfix">
+     <li class="first_step agreement_step">第一步：阅读并同意吧主协议
+      <div class="step_arrow"></div></li>
+     <li class="fill_step">第二步：基本信息填写
+      <div class="step_arrow"></div></li>
+     <li class="last_step confirm_step">第三步：确认提交申请</li>
+    </ul>
+    <div>
+     <div id="agreementForm" class="apply_agreement">
+      <iframe id="agreementFrame" width="835" height="468" src="{:U('Forum/applyAgreement')}"></iframe>
+      <div class="button_bar">
+       <button type="button" id="agreeBtn" class="apply_button j_no_disable">同意协议</button>
+       <span id="rejectBtn" class="tiny_button">取消</span>
+      </div>
+     </div>
+     <dl class="apply_form clearfix" style="display: none;">
+      <h2 class="base_info_title">基本信息</h2>
+      <div class="base_info_wrap clearfix">
+       <dt class="apply_id_row">
+        申请ID
+       </dt>
+       <dd class="apply_id_row">
+        <?php if (null != getUid()): ?>
+         <?php echo getUsername()?>
+       <?php else: ?>
+        <div id="login_tip" class="shadow-box" style="display: block;">
+         <div class="shadow-inner">
+          您尚未登录，无法申请吧主。请先
+          <a onclick="login()" href="javascript:void(0)">登录</a>
+         </div>
+        </div>
+      <?php endif;?>
+       </dd>
+       <dt>
+        <em>*</em>
+        <label for="realName">真实姓名</label>
+       </dt>
+       <dd>
+        <div class="edit_part">
+         <input type="text" value="" name="realName" id="realName" class="text_field" />
+         <span class="feedback feedback_none"> <span class="wrong">请正确填写中文姓名</span> <span class="correct"></span> </span>
+        </div>
+        <div class="view_part" data-field="realName"></div>
+       </dd>
+       <dt>
+        <em>*</em>
+        <label for="IDCard">身份证号</label>
+       </dt>
+       <dd>
+        <div class="edit_part">
+         <input type="text" value="" name="IDCard" id="IDCard" class="text_field j_secret-field" maxlength="18" />
+         <span class="edit-btns"> <a class="btn btn-default modify-btn j_modify">修改</a> <a class="btn btn-default save-btn j_save">保存</a> <a class="btn btn-default cancel-btn j_cancel">取消</a> </span>
+         <span class="feedback feedback_none"> <span class="wrong">请正确填写身份证号</span> <span class="correct"></span> </span>
+        </div>
+        <div class="view_part" data-field="IDCard"></div>
+       </dd>
+       <dt>
+        <em>*</em>
+        <label for="site">联系地址</label>
+       </dt>
+       <dd>
+        <div class="edit_part">
+         <span class="select_box">
+          <select class="passport_residence_province" name="province" id="PassResidencePro">
+                  <option value="请选择省份">请选择省份</option>
+                  <option value="北京">北京</option>
+                  <option value="广东">广东</option>
+                  <option value="上海">上海</option>
+                  <option value="天津">天津</option>
+                  <option value="重庆">重庆</option>
+                  <option value="辽宁">辽宁</option>
+                  <option value="江苏">江苏</option>
+                  <option value="湖北">湖北</option>
+                  <option value="四川">四川</option>
+                  <option value="陕西">陕西</option>
+                  <option value="河北">河北</option>
+                  <option value="山西">山西</option>
+                  <option value="河南">河南</option>
+                  <option value="吉林">吉林</option>
+                  <option value="黑龙江">黑龙江</option>
+                  <option value="内蒙古">内蒙古</option>
+                  <option value="山东">山东</option>
+                  <option value="安徽">安徽</option>
+                  <option value="浙江">浙江</option>
+                  <option value="福建">福建</option>
+                  <option value="湖南">湖南</option>
+                  <option value="广西">广西</option>
+                  <option value="江西">江西</option>
+                  <option value="贵州">贵州</option>
+                  <option value="云南">云南</option>
+                  <option value="西藏">西藏</option>
+                  <option value="海南">海南</option>
+                  <option value="甘肃">甘肃</option>
+                  <option value="宁夏">宁夏</option>
+                  <option value="青海">青海</option>
+                  <option value="新疆">新疆</option>
+                  <option value="香港">香港</option>
+                  <option value="澳门">澳门</option>
+                  <option value="台湾">台湾</option>
+                  <option value="海外">海外</option>
+                  <option value="其他">其他</option>
+                </select> </span>
+         <span class="select_box">
+          <select class="passport_residence_city" name="city">
+            <option value="请选择城市">请选择城市</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+            <option value="东城区">东城区</option>
+            <option value="西城区">西城区</option>
+            <option value="崇文区">崇文区</option>
+            <option value="宣武区">宣武区</option>
+            <option value="朝阳区">朝阳区</option>
+            <option value="海淀区">海淀区</option>
+            <option value="丰台区">丰台区</option>
+            <option value="石景山区">石景山区</option>
+            <option value="房山区">房山区</option>
+            <option value="通州区">通州区</option>
+            <option value="顺义区">顺义区</option>
+            <option value="昌平区">昌平区</option>
+            <option value="大兴区">大兴区</option>
+            <option value="怀柔区">怀柔区</option>
+            <option value="平谷区">平谷区</option>
+            <option value="门头沟区">门头沟区</option>
+            <option value="密云县">密云县</option>
+            <option value="延庆县">延庆县</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+            <option value="珠海">珠海</option>
+            <option value="汕头">汕头</option>
+            <option value="韶关">韶关</option>
+            <option value="佛山">佛山</option>
+            <option value="江门">江门</option>
+            <option value="湛江">湛江</option>
+            <option value="茂名">茂名</option>
+            <option value="肇庆">肇庆</option>
+            <option value="惠州">惠州</option>
+            <option value="梅州">梅州</option>
+            <option value="汕尾">汕尾</option>
+            <option value="河源">河源</option>
+            <option value="阳江">阳江</option>
+            <option value="清远">清远</option>
+            <option value="东莞">东莞</option>
+            <option value="中山">中山</option>
+            <option value="潮州">潮州</option>
+            <option value="揭阳">揭阳</option>
+            <option value="云浮">云浮</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="黄浦区">黄浦区</option>
+            <option value="卢湾区">卢湾区</option>
+            <option value="徐汇区">徐汇区</option>
+            <option value="长宁区">长宁区</option>
+            <option value="静安区">静安区</option>
+            <option value="普陀区">普陀区</option>
+            <option value="闸北区">闸北区</option>
+            <option value="虹口区">虹口区</option>
+            <option value="杨浦区">杨浦区</option>
+            <option value="宝山区">宝山区</option>
+            <option value="闵行区">闵行区</option>
+            <option value="嘉定区">嘉定区</option>
+            <option value="松江区">松江区</option>
+            <option value="金山区">金山区</option>
+            <option value="青浦区">青浦区</option>
+            <option value="南汇区">南汇区</option>
+            <option value="奉贤区">奉贤区</option>
+            <option value="浦东新区">浦东新区</option>
+            <option value="崇明县">崇明县</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="和平区">和平区</option>
+            <option value="河东区">河东区</option>
+            <option value="河西区">河西区</option>
+            <option value="南开区">南开区</option>
+            <option value="河北区">河北区</option>
+            <option value="红桥区">红桥区</option>
+            <option value="塘沽区">塘沽区</option>
+            <option value="汉沽区">汉沽区</option>
+            <option value="大港区">大港区</option>
+            <option value="东丽区">东丽区</option>
+            <option value="西青区">西青区</option>
+            <option value="北辰区">北辰区</option>
+            <option value="津南区">津南区</option>
+            <option value="武清区">武清区</option>
+            <option value="宝坻区">宝坻区</option>
+            <option value="静海县">静海县</option>
+            <option value="宁河县">宁河县</option>
+            <option value="蓟县">蓟县</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="渝中区">渝中区</option>
+            <option value="大渡口区">大渡口区</option>
+            <option value="江北区">江北区</option>
+            <option value="南岸区">南岸区</option>
+            <option value="北碚区">北碚区</option>
+            <option value="渝北区">渝北区</option>
+            <option value="巴南区">巴南区</option>
+            <option value="长寿区">长寿区</option>
+            <option value="双桥区">双桥区</option>
+            <option value="沙坪坝区">沙坪坝区</option>
+            <option value="万盛区">万盛区</option>
+            <option value="万州区">万州区</option>
+            <option value="涪陵区">涪陵区</option>
+            <option value="黔江区">黔江区</option>
+            <option value="永川区">永川区</option>
+            <option value="合川区">合川区</option>
+            <option value="江津区">江津区</option>
+            <option value="九龙坡区">九龙坡区</option>
+            <option value="南川区">南川区</option>
+            <option value="綦江县">綦江县</option>
+            <option value="潼南县">潼南县</option>
+            <option value="荣昌县">荣昌县</option>
+            <option value="璧山县">璧山县</option>
+            <option value="大足县">大足县</option>
+            <option value="铜梁县">铜梁县</option>
+            <option value="梁平县">梁平县</option>
+            <option value="开县">开县</option>
+            <option value="忠县">忠县</option>
+            <option value="城口县">城口县</option>
+            <option value="垫江县">垫江县</option>
+            <option value="武隆县">武隆县</option>
+            <option value="丰都县">丰都县</option>
+            <option value="奉节县">奉节县</option>
+            <option value="云阳县">云阳县</option>
+            <option value="巫溪县">巫溪县</option>
+            <option value="巫山县">巫山县</option>
+            <option value="石柱土家族自治县">石柱土家族自治县</option>
+            <option value="秀山土家族苗族自治县">秀山土家族苗族自治县</option>
+            <option value="酉阳土家族苗族自治县">酉阳土家族苗族自治县</option>
+            <option value="彭水苗族土家族自治县">彭水苗族土家族自治县</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="沈阳">沈阳</option>
+            <option value="大连">大连</option>
+            <option value="鞍山">鞍山</option>
+            <option value="抚顺">抚顺</option>
+            <option value="本溪">本溪</option>
+            <option value="丹东">丹东</option>
+            <option value="锦州">锦州</option>
+            <option value="营口">营口</option>
+            <option value="阜新">阜新</option>
+            <option value="辽阳">辽阳</option>
+            <option value="盘锦">盘锦</option>
+            <option value="铁岭">铁岭</option>
+            <option value="朝阳">朝阳</option>
+            <option value="葫芦岛">葫芦岛</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="南京">南京</option>
+            <option value="苏州">苏州</option>
+            <option value="无锡">无锡</option>
+            <option value="常州">常州</option>
+            <option value="镇江">镇江</option>
+            <option value="南通">南通</option>
+            <option value="泰州">泰州</option>
+            <option value="扬州">扬州</option>
+            <option value="盐城">盐城</option>
+            <option value="连云港">连云港</option>
+            <option value="徐州">徐州</option>
+            <option value="淮安">淮安</option>
+            <option value="宿迁">宿迁</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="武汉">武汉</option>
+            <option value="黄石">黄石</option>
+            <option value="十堰">十堰</option>
+            <option value="荆州">荆州</option>
+            <option value="宜昌">宜昌</option>
+            <option value="襄樊">襄樊</option>
+            <option value="鄂州">鄂州</option>
+            <option value="荆门">荆门</option>
+            <option value="孝感">孝感</option>
+            <option value="黄冈">黄冈</option>
+            <option value="咸宁">咸宁</option>
+            <option value="随州">随州</option>
+            <option value="恩施土家族苗族自治州">恩施土家族苗族自治州</option>
+            <option value="仙桃">仙桃</option>
+            <option value="天门">天门</option>
+            <option value="潜江">潜江</option>
+            <option value="神农架林区">神农架林区</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="成都">成都</option>
+            <option value="自贡">自贡</option>
+            <option value="攀枝花">攀枝花</option>
+            <option value="泸州">泸州</option>
+            <option value="德阳">德阳</option>
+            <option value="绵阳">绵阳</option>
+            <option value="广元">广元</option>
+            <option value="遂宁">遂宁</option>
+            <option value="内江">内江</option>
+            <option value="乐山">乐山</option>
+            <option value="南充">南充</option>
+            <option value="眉山">眉山</option>
+            <option value="宜宾">宜宾</option>
+            <option value="广安">广安</option>
+            <option value="达州">达州</option>
+            <option value="雅安">雅安</option>
+            <option value="巴中">巴中</option>
+            <option value="资阳">资阳</option>
+            <option value="阿坝藏族羌族自治州">阿坝藏族羌族自治州</option>
+            <option value="甘孜藏族自治州">甘孜藏族自治州</option>
+            <option value="凉山彝族自治州">凉山彝族自治州</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="西安">西安</option>
+            <option value="铜川">铜川</option>
+            <option value="宝鸡">宝鸡</option>
+            <option value="咸阳">咸阳</option>
+            <option value="渭南">渭南</option>
+            <option value="延安">延安</option>
+            <option value="汉中">汉中</option>
+            <option value="榆林">榆林</option>
+            <option value="安康">安康</option>
+            <option value="商洛">商洛</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="石家庄">石家庄</option>
+            <option value="唐山">唐山</option>
+            <option value="秦皇岛">秦皇岛</option>
+            <option value="邯郸">邯郸</option>
+            <option value="邢台">邢台</option>
+            <option value="保定">保定</option>
+            <option value="张家口">张家口</option>
+            <option value="承德">承德</option>
+            <option value="沧州">沧州</option>
+            <option value="廊坊">廊坊</option>
+            <option value="衡水">衡水</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="太原">太原</option>
+            <option value="大同">大同</option>
+            <option value="阳泉">阳泉</option>
+            <option value="长治">长治</option>
+            <option value="晋城">晋城</option>
+            <option value="朔州">朔州</option>
+            <option value="晋中">晋中</option>
+            <option value="运城">运城</option>
+            <option value="忻州">忻州</option>
+            <option value="临汾">临汾</option>
+            <option value="吕梁">吕梁</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="郑州">郑州</option>
+            <option value="开封">开封</option>
+            <option value="洛阳">洛阳</option>
+            <option value="平顶山">平顶山</option>
+            <option value="安阳">安阳</option>
+            <option value="鹤壁">鹤壁</option>
+            <option value="新乡">新乡</option>
+            <option value="焦作">焦作</option>
+            <option value="濮阳">濮阳</option>
+            <option value="许昌">许昌</option>
+            <option value="漯河">漯河</option>
+            <option value="三门峡">三门峡</option>
+            <option value="南阳">南阳</option>
+            <option value="商丘">商丘</option>
+            <option value="信阳">信阳</option>
+            <option value="周口">周口</option>
+            <option value="驻马店">驻马店</option>
+            <option value="焦作">焦作</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="长春">长春</option>
+            <option value="吉林">吉林</option>
+            <option value="四平">四平</option>
+            <option value="辽源">辽源</option>
+            <option value="通化">通化</option>
+            <option value="白山">白山</option>
+            <option value="松原">松原</option>
+            <option value="白城">白城</option>
+            <option value="延边朝鲜族自治州">延边朝鲜族自治州</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="哈尔滨">哈尔滨</option>
+            <option value="齐齐哈尔">齐齐哈尔</option>
+            <option value="鹤岗">鹤岗</option>
+            <option value="双鸭山">双鸭山</option>
+            <option value="鸡西">鸡西</option>
+            <option value="大庆">大庆</option>
+            <option value="伊春">伊春</option>
+            <option value="牡丹江">牡丹江</option>
+            <option value="佳木斯">佳木斯</option>
+            <option value="七台河">七台河</option>
+            <option value="黑河">黑河</option>
+            <option value="绥化">绥化</option>
+            <option value="大兴安岭地区">大兴安岭地区</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="呼和浩特">呼和浩特</option>
+            <option value="包头">包头</option>
+            <option value="乌海">乌海</option>
+            <option value="赤峰">赤峰</option>
+            <option value="通辽">通辽</option>
+            <option value="鄂尔多斯">鄂尔多斯</option>
+            <option value="呼伦贝尔">呼伦贝尔</option>
+            <option value="巴彦淖尔">巴彦淖尔</option>
+            <option value="乌兰察布">乌兰察布</option>
+            <option value="锡林郭勒盟">锡林郭勒盟</option>
+            <option value="兴安盟">兴安盟</option>
+            <option value="阿拉善盟">阿拉善盟</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="济南">济南</option>
+            <option value="青岛">青岛</option>
+            <option value="淄博">淄博</option>
+            <option value="枣庄">枣庄</option>
+            <option value="东营">东营</option>
+            <option value="烟台">烟台</option>
+            <option value="潍坊">潍坊</option>
+            <option value="济宁">济宁</option>
+            <option value="泰安">泰安</option>
+            <option value="威海">威海</option>
+            <option value="日照">日照</option>
+            <option value="莱芜">莱芜</option>
+            <option value="临沂">临沂</option>
+            <option value="德州">德州</option>
+            <option value="聊城">聊城</option>
+            <option value="滨州">滨州</option>
+            <option value="菏泽">菏泽</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="合肥">合肥</option>
+            <option value="芜湖">芜湖</option>
+            <option value="蚌埠">蚌埠</option>
+            <option value="淮南">淮南</option>
+            <option value="马鞍山">马鞍山</option>
+            <option value="淮北">淮北</option>
+            <option value="铜陵">铜陵</option>
+            <option value="安庆">安庆</option>
+            <option value="黄山">黄山</option>
+            <option value="滁州">滁州</option>
+            <option value="阜阳">阜阳</option>
+            <option value="宿州">宿州</option>
+            <option value="巢湖">巢湖</option>
+            <option value="六安">六安</option>
+            <option value="亳州">亳州</option>
+            <option value="池州">池州</option>
+            <option value="宣城">宣城</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="杭州">杭州</option>
+            <option value="宁波">宁波</option>
+            <option value="温州">温州</option>
+            <option value="嘉兴">嘉兴</option>
+            <option value="湖州">湖州</option>
+            <option value="绍兴">绍兴</option>
+            <option value="金华">金华</option>
+            <option value="衢州">衢州</option>
+            <option value="舟山">舟山</option>
+            <option value="台州">台州</option>
+            <option value="丽水">丽水</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="福州">福州</option>
+            <option value="厦门">厦门</option>
+            <option value="莆田">莆田</option>
+            <option value="三明">三明</option>
+            <option value="泉州">泉州</option>
+            <option value="漳州">漳州</option>
+            <option value="南平">南平</option>
+            <option value="龙岩">龙岩</option>
+            <option value="宁德">宁德</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="长沙">长沙</option>
+            <option value="株洲">株洲</option>
+            <option value="湘潭">湘潭</option>
+            <option value="衡阳">衡阳</option>
+            <option value="邵阳">邵阳</option>
+            <option value="岳阳">岳阳</option>
+            <option value="常德">常德</option>
+            <option value="张家界">张家界</option>
+            <option value="益阳">益阳</option>
+            <option value="郴州">郴州</option>
+            <option value="永州">永州</option>
+            <option value="怀化">怀化</option>
+            <option value="娄底">娄底</option>
+            <option value="湘西土家族苗族自治州">湘西土家族苗族自治州</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="南宁">南宁</option>
+            <option value="柳州">柳州</option>
+            <option value="桂林">桂林</option>
+            <option value="梧州">梧州</option>
+            <option value="北海">北海</option>
+            <option value="防城港">防城港</option>
+            <option value="钦州">钦州</option>
+            <option value="贵港">贵港</option>
+            <option value="玉林">玉林</option>
+            <option value="百色">百色</option>
+            <option value="贺州">贺州</option>
+            <option value="河池">河池</option>
+            <option value="来宾">来宾</option>
+            <option value="崇左">崇左</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="南昌">南昌</option>
+            <option value="景德镇">景德镇</option>
+            <option value="萍乡">萍乡</option>
+            <option value="九江">九江</option>
+            <option value="新余">新余</option>
+            <option value="鹰潭">鹰潭</option>
+            <option value="赣州">赣州</option>
+            <option value="吉安">吉安</option>
+            <option value="宜春">宜春</option>
+            <option value="抚州">抚州</option>
+            <option value="上饶">上饶</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="贵阳">贵阳</option>
+            <option value="六盘水">六盘水</option>
+            <option value="遵义">遵义</option>
+            <option value="安顺">安顺</option>
+            <option value="铜仁地区">铜仁地区</option>
+            <option value="毕节地区">毕节地区</option>
+            <option value="黔西南布依族苗族自治州">黔西南布依族苗族自治州</option>
+            <option value="黔东南苗族侗族自治州">黔东南苗族侗族自治州</option>
+            <option value="黔南布依族苗族自治州">黔南布依族苗族自治州</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="昆明">昆明</option>
+            <option value="曲靖">曲靖</option>
+            <option value="玉溪">玉溪</option>
+            <option value="保山">保山</option>
+            <option value="昭通">昭通</option>
+            <option value="丽江">丽江</option>
+            <option value="普洱">普洱</option>
+            <option value="临沧">临沧</option>
+            <option value="德宏傣族景颇族自治州">德宏傣族景颇族自治州</option>
+            <option value="怒江傈僳族自治州">怒江傈僳族自治州</option>
+            <option value="迪庆藏族自治州">迪庆藏族自治州</option>
+            <option value="大理白族自治州">大理白族自治州</option>
+            <option value="楚雄彝族自治州">楚雄彝族自治州</option>
+            <option value="红河哈尼族彝族自治州">红河哈尼族彝族自治州</option>
+            <option value="文山壮族苗族自治州">文山壮族苗族自治州</option>
+            <option value="西双版纳傣族自治州">西双版纳傣族自治州</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="拉萨">拉萨</option>
+            <option value="那曲地区">那曲地区</option>
+            <option value="昌都地区">昌都地区</option>
+            <option value="林芝地区">林芝地区</option>
+            <option value="山南地区">山南地区</option>
+            <option value="日喀则地区">日喀则地区</option>
+            <option value="阿里地区">阿里地区</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="海口">海口</option>
+            <option value="三亚">三亚</option>
+            <option value="五指山">五指山</option>
+            <option value="琼海">琼海</option>
+            <option value="儋州">儋州</option>
+            <option value="文昌">文昌</option>
+            <option value="万宁">万宁</option>
+            <option value="东方">东方</option>
+            <option value="澄迈县">澄迈县</option>
+            <option value="定安县">定安县</option>
+            <option value="屯昌县">屯昌县</option>
+            <option value="临高县">临高县</option>
+            <option value="白沙黎族自治县">白沙黎族自治县</option>
+            <option value="昌江黎族自治县">昌江黎族自治县</option>
+            <option value="乐东黎族自治县">乐东黎族自治县</option>
+            <option value="陵水黎族自治县">陵水黎族自治县</option>
+            <option value="保亭黎族苗族自治县">保亭黎族苗族自治县</option>
+            <option value="琼中黎族苗族自治县">琼中黎族苗族自治县</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="兰州">兰州</option>
+            <option value="嘉峪关">嘉峪关</option>
+            <option value="金昌">金昌</option>
+            <option value="白银">白银</option>
+            <option value="天水">天水</option>
+            <option value="武威">武威</option>
+            <option value="酒泉">酒泉</option>
+            <option value="张掖">张掖</option>
+            <option value="庆阳">庆阳</option>
+            <option value="平凉">平凉</option>
+            <option value="定西">定西</option>
+            <option value="陇南">陇南</option>
+            <option value="临夏回族自治州">临夏回族自治州</option>
+            <option value="甘南藏族自治州">甘南藏族自治州</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="银川">银川</option>
+            <option value="石嘴山">石嘴山</option>
+            <option value="吴忠">吴忠</option>
+            <option value="固原">固原</option>
+            <option value="中卫">中卫</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="西宁">西宁</option>
+            <option value="海东地区">海东地区</option>
+            <option value="海北藏族自治州">海北藏族自治州</option>
+            <option value="海南藏族自治州">海南藏族自治州</option>
+            <option value="黄南藏族自治州">黄南藏族自治州</option>
+            <option value="果洛藏族自治州">果洛藏族自治州</option>
+            <option value="玉树藏族自治州">玉树藏族自治州</option>
+            <option value="海西蒙古族藏族自治州">海西蒙古族藏族自治州</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="乌鲁木齐">乌鲁木齐</option>
+            <option value="克拉玛依">克拉玛依</option>
+            <option value="吐鲁番地区">吐鲁番地区</option>
+
+            <option value="哈密地区">哈密地区</option>
+            <option value="和田地区">和田地区</option>
+            <option value="阿克苏地区">阿克苏地区</option>
+            <option value="喀什地区">喀什地区</option>
+            <option value="克孜勒苏柯尔克孜自治州">克孜勒苏柯尔克孜自治州</option>
+            <option value="巴音郭楞蒙古自治州">巴音郭楞蒙古自治州</option>
+            <option value="昌吉回族自治州">昌吉回族自治州</option>
+            <option value="博尔塔拉蒙古自治州">博尔塔拉蒙古自治州</option>
+            <option value="石河子">石河子</option>
+            <option value="阿拉尔">阿拉尔</option>
+            <option value="图木舒克">图木舒克</option>
+            <option value="五家渠">五家渠</option>
+            <option value="伊犁哈萨克自治州">伊犁哈萨克自治州</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="中西区">中西区</option>
+            <option value="湾仔区">湾仔区</option>
+            <option value="东区">东区</option>
+            <option value="南区">南区</option>
+            <option value="深水埗区">深水埗区</option>
+            <option value="油尖旺区">油尖旺区</option>
+            <option value="九龙城区">九龙城区</option>
+            <option value="黄大仙区">黄大仙区</option>
+            <option value="观塘区">观塘区</option>
+            <option value="北区">北区</option>
+            <option value="大埔区">大埔区</option>
+            <option value="沙田区">沙田区</option>
+            <option value="西贡区">西贡区</option>
+            <option value="元朗区">元朗区</option>
+            <option value="屯门区">屯门区</option>
+            <option value="荃湾区">荃湾区</option>
+            <option value="葵青区">葵青区</option>
+            <option value="离岛区">离岛区</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="花地玛堂区">花地玛堂区</option>
+            <option value="圣安多尼堂区">圣安多尼堂区</option>
+            <option value="大堂区">大堂区</option>
+            <option value="望德堂区">望德堂区</option>
+            <option value="风顺堂区">风顺堂区</option>
+            <option value="嘉模堂区">嘉模堂区</option>
+            <option value="圣方济各堂区">圣方济各堂区</option>
+            <option value="路凼">路凼</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="台北市">台北市</option>
+            <option value="高雄市">高雄市</option>
+            <option value="台北县">台北县</option>
+            <option value="桃园县">桃园县</option>
+            <option value="新竹县">新竹县</option>
+            <option value="苗栗县">苗栗县</option>
+            <option value="台中县">台中县</option>
+            <option value="彰化县">彰化县</option>
+            <option value="南投县">南投县</option>
+            <option value="云林县">云林县</option>
+            <option value="嘉义县">嘉义县</option>
+            <option value="台南县">台南县</option>
+            <option value="高雄县">高雄县</option>
+            <option value="屏东县">屏东县</option>
+            <option value="宜兰县">宜兰县</option>
+            <option value="花莲县">花莲县</option>
+            <option value="台东县">台东县</option>
+            <option value="澎湖县">澎湖县</option>
+            <option value="基隆市">基隆市</option>
+            <option value="新竹市">新竹市</option>
+            <option value="台中市">台中市</option>
+            <option value="嘉义市">嘉义市</option>
+            <option value="台南市">台南市</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+
+            <option value="其他">其他</option>
+          </select>
+          <select class="passport_residence_city" name="city">
+            <option value="其他">其他</option>
+          </select>
+
+
+           </span>
+         <input type="text" value="" name="site" id="site" class="text_field" style="width: 200px;" />
+         <span class="feedback feedback_none"> <span class="wrong">请正确填写联系地址</span> <span class="correct"></span> </span>
+        </div>
+        <div class="view_part" data-field="site"></div>
+       </dd>
+       <dt>
+        <span class="edit_part"> <em>*</em><label for="im">HI/QQ/MSN</label> </span>
+       </dt>
+       <dd>
+        <div class="edit_part clearfix">
+         <span class="select_box im_selector"> <select name="im_type"> <option value="QQ">QQ</option> <option value="hi">HI</option> <option value="MSN">MSN</option> </select> </span>
+         <input type="text" value="" name="im" id="im" class="text_field j_secret-field" />
+         <span class="edit-btns"> <a class="btn btn-default modify-btn j_modify">修改</a> <a class="btn btn-default save-btn j_save">保存</a> <a class="btn btn-default cancel-btn j_cancel">取消</a> </span>
+         <span class="feedback feedback_none"> <span class="wrong">请正确填写</span> <span class="correct"></span> </span>
+        </div>
+        <div class="view_part" data-field="im"></div>
+       </dd>
+      </div>
+      <h2 class="declaration_title">申请感言</h2>
+      <dd class="declaration_box">
+       <div class="edit_part">
+        <textarea name="declaration" id="declaration" cols="80" rows="8"></textarea>
+        <span class="feedback feedback_none"> <span class="wrong">请填写申请感言</span> </span>
+        <div class="declaration_bar">
+         <span class="declaration_desc">可以说说对本吧的认识或个人优势等，您的感言将展示给吧友并由贴吧管理组参考审批。</span>
+         <span class="declaration_count">您还可以输入<span class="em" id="declaration_count">200</span>个字</span>
+        </div>
+       </div>
+       <div class="view_part" data-field="declaration"></div>
+      </dd>
+      <dd class="agreement_row">
+       <label> <input type="checkbox" name="agreement" value="true" checked="checked" id="ck" /> 我已经阅读并接受<a href="http://static.tieba.baidu.com/tb/zt/bzxy/index.html" target="_blank">吧主协议</a> </label>
+       <span class="feedback feedback_none"> <span class="wrong">申请前请阅读并接受百度吧主协议</span> </span>
+      </dd>
+      <dd class="next_row">
+       <button type="button" id="j_save_btn">确认，下一步</button>
+      </dd>
+      <dd class="submit_row" style="display:none;">
+       <button type="button" class="j_submit_btn">提交申请</button>
+       <span class="tiny_button j_modify_btn">返回修改</span>
+      </dd>
+     </dl>
+    </div>
+    <input type="hidden" name="forum_id" value="2887786" />
+    <input type="hidden" name="tbs" value="aada6ce082c89b421428296910" />
+   </form>
+  </div>
+
+
+  <div id="apply_success1_dialog" style="display:none;">
+<div class="dialog_inner_wrapper">
+<div class="dialog_inner_info">
+<span class="correct"></span>
+您的申请已提交成功，将首先由现任吧主处理。<br/>
+您可以<a class="tiny_button" href="/bawu2/platform/listCandidateInfo?word=%D7%AA%BD%C7%D7%B2%B5%BD%B3%B5">点击查看您的申请信息&gt;&gt;</a>
+</div>
+<div class="dialog_inner_btn_bar">
+<button type="button" onclick="$.tb.location.setHref(this.getAttribute('url'));" url="/f?kw=转角撞到车">确定</button>
+</div>
+</div>
+</div>
+  <div id="apply_success2_dialog" style="display:none;">
+<div class="dialog_inner_wrapper">
+<div class="dialog_inner_info">
+<span class="correct"></span>
+您的申请已提交成功，贴吧管理员将尽快处理您的申请。<br/>
+您可以<a class="tiny_button" href="/bawu2/platform/listCandidateInfo?word=%D7%AA%BD%C7%D7%B2%B5%BD%B3%B5">点击查看您的申请信息&gt;&gt;</a>
+</div>
+<div class="dialog_inner_btn_bar">
+<button type="button" onclick="$.tb.location.setHref(this.getAttribute('url'));" url="/f?kw=转角撞到车">确定</button>
+</div>
+</div>
+</div>
+  <div id="apply_success3_dialog" style="display:none;">
+<div class="dialog_inner_wrapper">
+<div class="dialog_inner_info">
+<span class="correct"></span>
+您的吧主申请已提交，贴吧管理员会尽快处理您的申请，并通知您审核结果。
+</div>
+<div class="dialog_inner_btn_bar">
+<button type="button" onclick="$.tb.location.setHref('http://tieba.baidu.com/');">确定</button>
+</div>
+</div>
+</div>
+  <div id="apply_result_info" style="display:none;">
+<div class="dialog_inner_wrapper">
+<div class="dialog_inner_info"></div>
+<div class="dialog_inner_btn_bar">
+<button type="button" onclick="$.dialog.close();">确定</button>
+</div>
+</div>
+</div>
+</div>
+ <div class="footer">
+   <include file="Public:footer" />
+  </div>
+</div>
+
+<script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+<import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+<script>
+$(function() {
+        var currentShowCity = 0;
+   $("#PassResidencePro").change(function(){
+     $("#PassResidencePro option").each(function(i,o){
+       if($(this).attr("selected"))
+       {
+         $(".passport_residence_city").hide();
+         $(".passport_residence_city").eq(i).show();
+         currentShowCity = i;
+       }
+     });
+   });
+   $("#PassResidencePro").change();
+     var counter = $('#declaration').val().length;
+    $('#declaration_count').text(200 - counter);
+    $('#declaration').keyup(function() {
+      var text = $('#declaration').val();
+      var counter = text.length;
+      $('#declaration_count').text(200 - counter);
+      if(counter >= 200){
+        limit_text = text.substr(0,199);
+        $('#declaration').val(limit_text);
+      }
+    });
+});
+</script>
+<include file="Public:bottom" />
+ </body>
+</html>

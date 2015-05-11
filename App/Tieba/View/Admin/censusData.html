@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>本吧数据_{$forum_info.forum_name}吧</title>
+  <import type="css" file="theme,common,admin_common,admin_census" basepath="__PUBLIC__/common/css"/>
+  </head>
+ <body class="manager_page">
+ <include file="Public:userbar" />
+  <header class="head">
+   <include file="Public:head" />
+  </header>
+  <div class="message_container">
+   <div class="page_message" id="page_message"></div>
+  </div>
+  <!--[if lte IE 7]><div class="ie_height_hacker"></div><![endif]-->
+  <div id="container" class="container clearfix">
+   <include file="Admin:left" />
+   <div class="main_content">
+    <div class="panel">
+     <h3 style="border-bottom:none;">本吧数据</h3>
+     <div>
+      <div class="data_table_wrapper" id="data_table_wrapper">
+       <div class="data_table_title clearfix">
+        <span class="h6">近日数据</span>
+       </div>
+
+       <div class="data_table_pc_wrap">
+        <table class="data_table  j_data_table_pc">
+         <tbody>
+          <tr>
+           <th></th>
+           <th>主题数</th>
+           <th>回复数</th>
+           <th>签到数</th>
+           <th>签到率</th>
+           <th>总会员数</th>
+          </tr>
+         <foreach name="census_data[2]" item="vo">
+          <tr>
+           <td class="width2 height2">{$vo.date}</td>
+           <td class="width1 height2">{$vo.thread_count}</td>
+           <td class="width1 height2">{$vo.post_count}</td>
+           <td class="width1 height2">{$vo.sign_count}</td>
+           <td class="width1 height2">{$vo.sign_ratio}%</td>
+           <td class="width1 height2">{$member_count}</td>
+          </tr>
+          </foreach>
+
+          <tr>
+           <td>7天平均</td>
+           <td class="width1 height2">{$census_data.7.thread_count}</td>
+           <td class="width1 height2">{$census_data.7.post_count}</td>
+           <td class="width1 height2">{$census_data.7.sign_count}</td>
+           <td class="width1 height2">{$census_data.7.sign_ratio}%</td>
+           <td class="width1 height2">{$member_count}</td>
+          </tr>
+          <tr>
+           <td>30天平均</td>
+           <td class="width1 height2">{$census_data.30.thread_count}</td>
+           <td class="width1 height2">{$census_data.30.post_count}</td>
+           <td class="width1 height2">{$census_data.30.sign_count}</td>
+           <td class="width1 height2">{$census_data.30.sign_ratio}%</td>
+           <td class="width1 height2">{$member_count}</td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+
+       <div class="data_graph_wrapper tabs">
+   <span class="h6">数据趋势</span>
+   <ul class="data_graph_nav tabs_nav clearfix">
+    <li><a href="{:U('Admin/censusData',array('id'=>$forum_info['forum_id']))}" class="j_graph_tab <?php if ($_GET['type'] != 1): ?>active<?php endif;?>">7天数据</a></li>
+    <li><a href="{:U('Admin/censusData',array('id'=>$forum_info['forum_id'],'type'=>1))}" class="j_graph_tab <?php if ($_GET['type'] == 1): ?>active<?php endif;?>">30天数据</a></li>
+   </ul>
+   <div class="data_graph_container tabs_panel">
+
+    <div id="data_graph_container">
+
+    </div>
+
+   </div>
+  </div>
+
+     </div>
+    </div>
+   </div>
+  </div>
+  <div id="tbLcsContainer"></div>
+
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form,highcharts,exporting" basepath="__PUBLIC__/common/js"/>
+<script type="text/javascript">
+$(function () {
+    $('#data_graph_container').highcharts({
+        title: {
+            text: '数据图表',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '来源: 吧务后台',
+            x: -20
+        },
+        xAxis: {
+            categories: <?php if ($_GET['type'] != 1): ?>{$census_data.json.days_7}<?php else: ?>{$census_data.json.days_30}<?php endif;?>
+        },
+        yAxis: {
+            title: {
+                text: '数量（个）'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '个'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '主题数',
+            data: <?php if ($_GET['type'] != 1): ?>{$census_data.json.days_7_thread_count}<?php else: ?>{$census_data.json.days_30_thread_count}<?php endif;?>
+        }, {
+            name: '回复数',
+            data: <?php if ($_GET['type'] != 1): ?>{$census_data.json.days_7_post_count}<?php else: ?>{$census_data.json.days_30_post_count}<?php endif;?>
+        }, {
+            name: '签到数',
+            data: <?php if ($_GET['type'] != 1): ?>{$census_data.json.days_7_sign_count}<?php else: ?>{$census_data.json.days_30_sign_count}<?php endif;?>
+        }, {
+            name: '签到率',
+            data: <?php if ($_GET['type'] != 1): ?>{$census_data.json.days_7_sign_ratio}<?php else: ?>{$census_data.json.days_30_sign_ratio}<?php endif;?>
+        }]
+    });
+});
+    </script>
+ <script>
+     $(function(){
+             setAdminNav();
+         });
+ </script>
+  <include file="Public:bottom" />
+ </body>
+</html>

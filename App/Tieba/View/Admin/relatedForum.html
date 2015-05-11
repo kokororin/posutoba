@@ -1,0 +1,27 @@
+<div class="relatedforum_dialog dialogJ dialogJfix dialogJshadow ui-draggable" style="z-index: 50003; width: 400px; display:none;"> 
+   <div class="uiDialogWrapper">
+    <div class="dialogJtitle" style="-moz-user-select: none; cursor: move;">
+     <span class="dialogJtxt">设置友情贴吧</span>
+     <a title="关闭本窗口" class="dialogJclose" href="javascript:void(0)">&nbsp;</a>
+    </div>
+    <div class="dialogJcontent">
+     <div id="dialogJbody" class="dialogJbody">
+      <div>
+       <input type="text" data-fid="{$forum_info.forum_id}" id="add_related_forum_name" style="height: 18px;" />
+       <button id="add_related_forum_btn" style="margin-left:5px;padding:0 5px;">添加</button>
+      </div>
+      <div>
+       最多可以添加5个友情贴吧
+      </div>
+      <div id="related-forum-list">
+      <foreach name="related_forum_list" item="vo">
+       <div>
+        <a target="_blank" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" class="friend-forum-item">{$vo.forum_name}</a>
+        <img src="__PUBLIC__/common/images/friendly_del.gif" class="friend-forum-delete" data-fid="{$vo.forum_id}" />
+       </div>
+       </foreach>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>

@@ -1,0 +1,75 @@
+<aside class="page_aside" id="page_aside"> 
+  <div class="user_info">
+     <a class="avatar_link" href="{:U('Home/main',array('id'=>$user_info['user_id']))}" target="_blank">
+     <img src="{:U('Home/getAvatar',array('uid'=>$user_info['user_id']))}" class="user_avatar" /></a>
+     <p class="info_mesaage">{$user_info.user_name}</p>
+     <div class="forum_list">
+      <p class="forum_list_position">吧主</p>
+      <div class="forum_list_name">
+       所在吧：
+       <a href="{:U('Admin/index',array('id'=>$forum_info['forum_id']))}">{$forum_info.forum_name}</a>
+       <a class="j_forum_swich forum_swich" href="javascript:void(0)"><i class="up_dowun_array">&nbsp;</i></a>
+       <ul class="forum_list_drag j_forum_list_drag"> 
+        <foreach name="forum_list" item="vo">
+        <li><a href="{:U('Admin/index',array('id'=>$vo['forum_id']))}">{$vo.forum_name}</a></li> 
+        </foreach>
+       </ul>
+      </div> 
+     </div>
+    </div>
+
+    <nav class="nav" data-action="<?php echo ACTION_NAME?>">
+     <dl class="nav_section">
+      <dt class="post">
+       <i class="nav_icon">&nbsp;</i>贴子管理
+      </dt> 
+      <dd class="" id="postDelList">
+       <a href="{:U('Admin/postDelList',array('id'=>$forum_info['forum_id']))}">删贴日志</a>
+      </dd> 
+      <dd class="" id="postLogList">
+       <a href="{:U('Admin/postLogList',array('id'=>$forum_info['forum_id']))}">贴子管理日志</a>
+      </dd> 
+     </dl>
+     <dl class="nav_section">
+      <dt class="user">
+       <i class="nav_icon">&nbsp;</i>用户管理
+      </dt> 
+      <dd class="" id="memberList">
+       <a href="{:U('Admin/memberList',array('id'=>$forum_info['forum_id']))}">会员列表</a>
+      </dd>
+      <dd class="" id="blockMemberList">
+       <a href="{:U('Admin/blockMemberList',array('id'=>$forum_info['forum_id']))}">用户封禁列表</a>
+      </dd>
+      <dd class="" id="blackMemberList">
+       <a href="{:U('Admin/blackMemberList',array('id'=>$forum_info['forum_id']))}">黑名单列表</a>
+      </dd>
+      <dd class="" id="memberLogList">
+       <a href="{:U('Admin/memberLogList',array('id'=>$forum_info['forum_id']))}">用户管理日志</a>
+      </dd>
+     </dl> 
+     <dl class="nav_section"> 
+      <dt class="data">
+       <i class="nav_icon">&nbsp;</i>数据统计
+      </dt>
+      <dd class="" id="censusData">
+       <a href="{:U('Admin/censusData',array('id'=>$forum_info['forum_id']))}">本吧数据</a>
+      </dd> 
+     </dl> 
+     <dl class="nav_section"> 
+      <dt class="hr">
+       <i class="nav_icon">&nbsp;</i>吧务团队
+      </dt>
+      <dd class="" id="censusData">
+       <a href="{:U('Admin/censusData',array('id'=>$forum_info['forum_id']))}">吧务审批</a>
+      </dd> 
+     </dl> 
+     <dl class="nav_section">
+      <dt class="settings">
+       <i class="nav_icon">&nbsp;</i>工具及设置
+      </dt>
+      <dd class="" id="adminTools">
+       <a href="{:U('Admin/adminTools',array('id'=>$forum_info['forum_id']))}">本吧设置</a>
+      </dd>
+     </dl> 
+    </nav>
+  </aside>

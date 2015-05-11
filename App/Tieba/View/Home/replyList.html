@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>我回复的_i贴吧</title>
+  <import type="css" file="theme,common,itieba,thread_list" basepath="__PUBLIC__/common/css" />   
+  </head>
+ <body>
+  <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <include file="Public:head" />
+    <div id="main_wrapper" class="main_wrapper"> 
+     <div id="main_back_img"> 
+      <div id="main_back_bottom"> 
+       <div id="container" class="ibody clearfix"> 
+        <div class="w750 fleft">
+         <div id="content">
+          <div id="tiezi_sub_tab" class="sub_nav clearfix"> 
+           <ul> 
+            <li class=""><a href="{:U('Home/threadList',array('id'=>$user_info['user_id']))}" target="_self">我的贴子</a></li> 
+            <li class="current"><a href="{:U('Home/replyList',array('id'=>$user_info['user_id']))}" target="_self">我回复的</a></li> 
+            <li class=""><a href="{:U('Home/goodList',array('id'=>$user_info['user_id']))}" target="_self">我的精品</a></li> 
+           </ul> 
+          </div> 
+          <div class="simple_block_container"> 
+            <?php if($reply_list!=null):?>
+           <ul> 
+           <foreach name="reply_list" item="vo">
+            <div class="block t_forward clearfix "> 
+             <div class="b_left_up"> 
+              <span><img src="__PUBLIC__/common/images/reply.gif" /></span> 
+             </div> 
+             <div class="b_right_up"> 
+              <h4> <cite>{$vo.post_date|convertDate=###,'intel'}</cite> <a href="{:U('Home/main',array('id'=>getUid()))}" target="_blank"> <?php echo getUsername()?> </a> 回复 </h4> 
+              <span class="for_reply"> <img src="__PUBLIC__/common/images/yh_0.png" /> <a class="for_reply_context" style="text-decoration:none;" href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}" target="_blank">{$vo.post_content_convert|mysubstr=0,120}</a> 
+              <img src="__PUBLIC__/common/images/yh_1.png" /> </span> 
+              <nobr> 
+               <span class="b_reply_txt"> <a class="b_reply" href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}" target="_blank">回复</a> </span> 
+              </nobr> 
+              <div class="common_source_top"></div> 
+              <div class="common_source_main"> 
+               <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}" class="thread_title" target="_blank">{$vo.thread_title}</a>
+               <a class="b_reply" href="{:U('Post/index',array('id'=>$vo['thread_id']))}" target="_blank">回复</a>({$vo.reply_count}) -&nbsp;来自
+               <a style="" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" target="_blank">{$vo.forum_name}吧</a> 
+              </div> 
+              <div class="common_source_bottom"></div> 
+             </div> 
+            </div> 
+            </foreach>
+           </ul> 
+         <?php else:?>
+         <div style="text-align: center;">
+           <img src="__PUBLIC__/common/images/no_data.png"/>
+          </div>            
+        <?php endif;?>
+          </div> 
+          <div class="j_pager pager pager-center">
+          {$page}
+          </div>
+         </div>
+        </div> 
+        <include file="Home:right" />
+       </div> 
+       <div id="footer" class="footer"> 
+       <include file="Public:footer" />
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+<script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+   <include file="Public:bottom" />
+ </body>
+</html>

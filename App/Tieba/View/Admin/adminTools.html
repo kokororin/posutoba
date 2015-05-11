@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>本吧设置_{$forum_info.forum_name}吧</title>
+ <import type="css" file="theme,common,admin_common,admin_tools,upload,jquery#Jcrop#min,uploadify" basepath="__PUBLIC__/common/css"/>
+  </head>
+ <body class="manager_page">
+ <include file="Public:userbar" />
+  <header class="head">
+   <include file="Public:head" />
+  </header>
+  <div class="message_container">
+   <div class="page_message" id="page_message"></div>
+  </div>
+  <!--[if lte IE 7]><div class="ie_height_hacker"></div><![endif]-->
+  <div id="container" class="container clearfix"> 
+   <include file="Admin:left" />
+   <div class="main_content"> 
+    <div class="panel">
+     <h3>本吧设置</h3>
+     <div class="panel_margin settings_panel">
+      <ul class="app_list clearfix">
+       <li class="forum_card"><a id="forumCardApp" href="javascript:void(0)" onclick="showForumCard()">设置本吧名片</a> </li> 
+       <li class="forum_catalog"><a id="forumClassApp" href="javascript:void(0)">修改目录</a></li>
+       <li class="links"><a id="relatedForumApp" href="javascript:void(0)">添加友情吧</a></li>
+       <li class="forum_user_title"><a id="memberTitleApp" href="javascript:void(0)">设置吧头衔</a></li>
+      </ul>
+     </div>
+    </div> 
+   </div>
+  </div>
+  <div id="tbLcsContainer"></div>
+    <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+ <import type="js" file="libs,common,jquery#form,jquery#uploadify#min,jquery#Jcrop#min" basepath="__PUBLIC__/common/js" />
+ <script>
+     $(function(){
+             setAdminNav();
+         });
+ </script>
+ <script>  
+  $(function(){  
+	  loadClass();
+	  $(".select_parent").change(function() {  
+          loadSon($(this).val());  
+      });  
+      loadSon(1);
+  });
+  </script>
+  <include file="Public:bottom" />
+  <include file="Admin:memberTitle" />
+  <include file="Admin:relatedForum" />
+  <include file="Admin:forumClass" />
+  <include file="Admin:forumCard" />
+ </body>
+</html>

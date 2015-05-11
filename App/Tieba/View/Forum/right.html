@@ -1,0 +1,74 @@
+<?php if($is_like_forum ==1):?>
+<div id="balv_mod" class="region_bright balv_mod balv_mod_bright" data-region="">
+         <div class="region_header">
+          <div class="region_op j_op">
+           <a class="p_balv_btnmanager" href="javascript:void(0)" target="_blank">[管理]</a> 
+          </div>
+          <div class="region_title region_icon j_title">
+           我在贴吧
+          </div>
+         </div>
+         <div class="region_cnt"> 
+         <div class="userliked_ban_content">
+         <?php if(strpos($user_status,'block')!==false):?>
+              <div class="userlike_prisoned"></div>
+         <?php elseif(strpos($user_status,'black')!==false):?>
+              <div class="userlike_blacked"></div>
+         <?php endif;?>
+         </div>
+          <div class="user_profile clearfix " id="user_info">
+           <div class="profile_left user_head">
+            <a href="{:U('Home/main',array('id'=>getUid()))}" target="_blank"><img class="head_img" src="{:U('Home/getAvatar',array('uid'=>getUid()))}" /></a>
+           </div>
+           <div class="profile_right user_name"> 
+            <div class="pre_icon_wrap pre_icon_wrap_theme2 ">
+            </div>
+            <a class="" title="" href="{:U('Home/main',array('id'=>getUid()))}" target="_blank"><?php echo getUsername()?></a>
+           </div>
+           <div class="profile_bottom"> 
+            <div id="j_profile_pop" class="profile_pop"></div>
+           </div>
+          </div> 
+         </div>
+         <div class="region_footer"></div>
+        </div>
+  <?php endif;?>
+  <div class="region_bright balv_mod balv_mod_user_currforum balv_mod_bright">
+   <div class="region_header">
+    <div class="region_op j_op"> 
+    </div>
+    <div class="region_title region_icon j_title">
+     我在本吧
+    </div>
+   </div>
+   <div class="region_cnt">
+    <div class="user_level clearfix">
+     <div class="rank"> 
+      <a target="_blank" title="点击查看本吧牛人排行榜" href="{:U('Forum/levelRank',array('id'=>$forum_info['forum_id']))}">排名：</a>
+      <span class="rank_index">{$rank_order}</span> 
+     </div>
+     <div class="badge badge_lv{$level_css}" title="本吧头衔{$level}级，经验值{$exp}，点击进入本吧头衔说明页">
+      <div class="badge_name">
+       {$member_title}
+      </div>
+      <div class="badge_index">
+       {$level}
+      </div>
+     </div>
+     <div class="userlike_info_tip" id="userlike_info_tip"></div>
+     <div class="exp">
+      <div class="exp_lable">
+       经验：
+      </div>
+      <div class="exp_bar ">
+       <div style="width:{$ratio}%;" class="exp_bar_current "></div>
+       <div class="exp_num">
+        <span class="exp_current_num">{$exp}</span>
+        <span>/{$max_exp}</span>
+       </div>
+      </div>
+     </div>
+    </div> 
+   </div>
+   <div class="region_footer"></div>
+  </div>  

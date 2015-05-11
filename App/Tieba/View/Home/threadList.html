@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>我的贴子_i贴吧</title>
+  <import type="css" file="theme,common,itieba,thread_list" basepath="__PUBLIC__/common/css" /> 
+  </head>
+ <body>
+ <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <include file="Public:head" />
+    
+    <div id="main_wrapper" class="main_wrapper"> 
+     <div id="main_back_img"> 
+      <div id="main_back_bottom"> 
+       
+       <div id="container" class="ibody clearfix"> 
+        <div class="w750 fleft">
+         <div id="content">
+          
+          <div id="tiezi_sub_tab" class="sub_nav clearfix"> 
+           <ul> 
+            <li class="current"><a href="{:U('Home/threadList',array('id'=>$user_info['user_id']))}" target="_self">我的贴子</a></li> 
+            <li class=""><a href="{:U('Home/replyList',array('id'=>$user_info['user_id']))}" target="_self">我回复的</a></li> 
+            <li class=""><a href="{:U('Home/goodList',array('id'=>$user_info['user_id']))}" target="_self">我的精品</a></li> 
+           </ul> 
+          </div> 
+          <div class="simple_block_container"> 
+            <?php if($thread_list!=null):?>
+           <ul> 
+           <foreach name="thread_list" item="vo">
+            <li> <cite>{$vo.thread_date|convertDate=###,'intel'}</cite> 
+             <div class="wrap_container"> 
+              <table> 
+               <tbody>
+                <tr> 
+                 <td class="nowrap"> 在 <a style="" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" target="_blank">{$vo.forum_name}吧</a> 发贴 </td> 
+                 <td class="wrap"> <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}" class="thread_title" target="_blank">{$vo.thread_title}</a> 
+                  <nobr> 
+                   <span class="b_reply_txt"> <a class="b_reply" href="{:U('Post/index',array('id'=>$vo['thread_id']))}" target="_blank">回复</a>(5) </span> 
+                  </nobr> </td> 
+                </tr> 
+               </tbody>
+              </table> 
+             </div> 
+             <div class="clear"></div> </li> 
+         </foreach>
+           </ul> 
+         <?php else:?>
+         <div style="text-align: center;">
+           <img src="__PUBLIC__/common/images/no_data.png"/>
+          </div>            
+        <?php endif;?>
+          </div> 
+          <div class="j_pager pager pager-center">
+           {$page}
+          </div>
+         </div>
+        </div> 
+        <include file="Home:right" />
+       </div> 
+       <div id="footer" class="footer"> 
+        <include file="Public:footer" />
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+  </div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+   <include file="Public:bottom" />
+  </body>
+</html>

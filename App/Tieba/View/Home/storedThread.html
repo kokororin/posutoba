@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <include file="Public:top" />
+  <title>我的贴子收藏_i贴吧</title> 
+  <import type="css" file="theme,common,itieba,notify" basepath="__PUBLIC__/common/css" /> 
+ </head>
+ <body>
+ <include file="Public:userbar" />
+ <div class="wrap1">
+ <div class="wrap2">
+ <include file="Public:head" />
+  <div id="main_wrapper" class="main_wrapper"> 
+   <div id="main_back_img"> 
+    <div id="main_back_bottom"> 
+     <div id="container" class="ibody clearfix"> 
+      <div class="w750 fleft">
+       <div id="content">
+        <ul id="tab" class="tab_content"> 
+         <li class="tab "><a href="{:U('Home/replyMe',array('id'=>$user_info['user_id']))}" target="_self">回复我的</a></li> 
+         <li class="tab tab_cur"><a href="{:U('Home/storedThread',array('id'=>$user_info['user_id']))}" target="_self">收藏的贴子</a></li> 
+        </ul> 
+        <div id="feed" class="feed"> 
+         <div class="feed_head">
+          <div class="favth_thead"> 
+           <div class="favth_col1">
+            标题
+           </div> 
+           <div class="favth_col2">
+            作者
+           </div> 
+           
+           <div class="favth_col4">
+            最后更新时间
+           </div> 
+          </div>
+         </div> 
+         <?php if($thread_list!=null):?>
+         <ul> 
+         <foreach name="thread_list" item="vo">
+          <li class="feed_item clearfix feed_favts j_feed_favts"> 
+           <div class="favth_col1"> 
+            <span class="favth_item_title"><a class="itb_thread" href="{:U('Post/index',array('id'=>$vo['thread_id']))}" title="{$vo.thread_title}" target="_blank">{$vo.thread_title}</a></span> 
+            <span class="favth_item_sp">&gt;</span> 
+            <span class="favth_item_forum"><a class="itb_kw" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" title="{$vo.forum_name}" target="_blank">{$vo.forum_name}吧</a></span> 
+           </div> 
+           <div class="favth_col2">
+            <span class="favth_item_author"><a class="itb_user" href="{:U('Home/main',array('id'=>$vo['user_id']))}" target="_blank">{$vo.user_name}</a></span>
+           </div> 
+           <div class="favth_col4">
+            <span class="favth_item_time">{$vo.stored_date|convertDate=###,'without_second'}</span>
+           </div> 
+           <div class="p_favth_tri"></div> 
+           <div class="p_favth_menu"></div> </li> 
+          </foreach>
+         </ul>
+         <?php else:?>
+         <div style="text-align: center;">
+           <img src="__PUBLIC__/common/images/no_data.png"/>
+          </div>
+         <?php endif;?> 
+         <div class="feed_foot">
+          <!---->
+         </div> 
+        </div> 
+        <div id="pager" class="itb_pager"> 
+         {$page}
+        </div> 
+       </div>
+      </div> 
+      <include file="Home:right" />
+     </div> 
+     <div id="footer" class="footer"> 
+     <include file="Public:footer" />
+     </div> 
+    </div> 
+   </div> 
+  </div>  
+  </div>
+  </div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+  <include file="Public:bottom" />  
+ </body>
+</html>

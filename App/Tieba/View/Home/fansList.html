@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <include file="Public:top" />
+  <title>{$user_info.user_name}的粉丝_i贴吧</title> 
+  <import type="css" file="theme,common,itieba,fans" basepath="__PUBLIC__/common/css" /> 
+ </head> 
+ <body> 
+   <include file="Public:userbar" />
+ <div class="wrap1">
+   <div class="wrap2">
+    <include file="Public:head" />
+  <div class="ihead"> 
+   <div class="isearch"> 
+
+   </div> 
+  </div> 
+  <div id="main_wrapper"> 
+   <div id="main_back_img"> 
+    <div id="main_back_bottom"> 
+     <div class="ibody w978 clearfix"> 
+      <div class="w750 fleft"> 
+       <div id="content"> 
+        <div class="sub_nav clearfix">
+         <ul></ul>
+        </div>
+        <div id="follow"> 
+         <div class="list" id="search_list"> 
+          <?php if($fans_list!=null):?>
+           <foreach name="fans_list" item="vo">
+          <div class="user"> 
+           <div class="left">
+            <p class="face_link">
+            <a href="{:U('Home/main',array('id'=>$vo['fans_id']))}" target="_blank"><img class="uFace_link" src="{:U('Home/getAvatar',array('uid'=>$vo['fans_id']))}" style="max-width:50px;max-height:50px" /></a></p>
+           </div> 
+           <div class="mid"> 
+            <span class="name"> <a href="{:U('Home/main',array('id'=>$vo['fans_id']))}" target="_blank">{$vo.user_name}</a> </span>&nbsp;&nbsp;粉丝：
+            <span>{$vo.fans_count}</span>&nbsp;&nbsp;&nbsp;关注：{$vo.concern_count}
+            <br /> 
+           </div> 
+           <div class="right"> 
+            <div> 
+            <?php if($vo['fans_id']!=getUid()):?>
+             <input id="like_user_btn" class="{$vo.btn_css}" type="button" data-uid="{$vo.fans_id}"/>
+             <?php endif;?>
+            </div> 
+           </div> 
+          </div> 
+          </foreach>
+        <?php else:?>
+        <div style="text-align: center;">
+           <img src="__PUBLIC__/common/images/no_data.png"/>
+          </div>
+        <?php endif;?>
+          <div id="pagerPanel"> 
+           <div class="pager pager-center">
+            {$page} 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <include file="Home:right" />
+     </div> 
+     <div class="footer" id="footer"> 
+      <include file="Public:footer" />
+     </div> 
+    </div> 
+   </div> 
+  </div>  
+  </div>
+  </div>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form" basepath="__PUBLIC__/common/js" />
+   <include file="Public:bottom" />
+  </body>
+</html>

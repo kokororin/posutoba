@@ -1,0 +1,35 @@
+<div id="main_aside" class="inav w228 fright"> 
+       <div id="aside_person_info"> 
+        <div class="aside_p_info_head"> 
+         <span class="right_set"><a href="{:U('Home/profile',array('id'=>$user_info['user_id']))}" target="_blank">[设置]</a></span> 
+         <span class="a_p_title">个人信息 </span> 
+        </div> 
+        <div class="aside_person_info_wraper"> 
+         <div class="aside_userface_wraper"> 
+          <p class="aside_userface_border"><a href="{:U('Home/profile',array('id'=>$user_info['user_id']))}" target="_blank">
+          <img id="img_aside_head" src="{:U('Home/getAvatar',array('uid'=>$user_info['user_id']))}" style="max-width:64px;max-height:64px" /></a></p> 
+         </div> 
+         <div class="aside_user_profile"> 
+          <p class="aside_user_name"> {$user_info.user_name}</p> 
+          <p class="aside_user_info"><span>{$user_info.user_sex_cn}</span><br /></p>
+          <p class="aside_user_fans"> 粉丝：<a class="aside_interact_num number_font" href="{:U('Home/fansList',array('id'=>$user_info['user_id']))}" target="_blank">{$user_info.fans_count}</a> </p> 
+          <p class="aside_user_concern"> 关注：<a class="aside_interact_num number_font" href="{:U('Home/concernList',array('id'=>$user_info['user_id']))}" target="_blank">{$user_info.concern_count}</a> </p> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="aside_menu" id="aside_menu"> 
+        <ul>
+        <?php if(getUid()==$user_info['user_id']):?>
+        <li class="aside_home_li"> <a href="{:U('Home/main',array('id'=>$user_info['user_id']))}">首页</a> </li> 
+         <li class="aside_mytie_li"> <a href="{:U('Home/threadList',array('id'=>$user_info['user_id']))}">我的贴子</a> </li> 
+         <li class="aside_forum_li"> <a href="{:U('Home/forumList',array('id'=>$user_info['user_id']))}">我的贴吧</a> </li> 
+         <li class="aside_notice_li"> <a href="{:U('Home/replyMe',array('id'=>$user_info['user_id']))}">我的提醒</a> <span id="new_reply_num_tip" class="new_reply_num_tip"></span></li> 
+         <li class="aside_storethread_li"> <a href="{:U('Home/storedThread',array('id'=>$user_info['user_id']))}">我的收藏</a></li>
+        <?php else:?>
+         <li class="aside_home_li"> <a href="{:U('Home/main',array('id'=>$user_info['user_id']))}">首页</a> </li> 
+         <li class="aside_mytie_li"> <a href="{:U('Home/fansList',array('id'=>$user_info['user_id']))}">{$user_info.user_sex_pron}的贴子</a> </li> 
+         <li class="aside_forum_li"> <a href="{:U('Home/replyme',array('id'=>$user_info['user_id']))}">{$user_info.user_sex_pron}的贴吧</a> </li> 
+         <?php endif;?>
+        </ul>
+       </div> 
+      </div> 

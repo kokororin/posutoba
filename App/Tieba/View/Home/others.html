@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <include file="Public:top" />
+  <title>{$user_info.user_name}的贴吧</title>
+   <import type="css" file="theme,common,home_main,jquery#fancybox" basepath="__PUBLIC__/common/css" />
+ </head>
+ <body class="skin_1001">
+  <include file="Public:userbar" />
+  <div class="wrap1">
+   <div class="wrap2">
+    <include file="Public:head" />
+    <div id="headinfo_wrap" class="headinfo_wrap"> 
+    </div>
+    <div id="userinfo_wrap" class="userinfo_wrap clearfix">
+     <div class="userinfo_left ">
+      <div class="userinfo_left_head" id="j_userhead" title="点击查看高清头像">
+       <a href="javascript:;" style="" class="userinfo_head"><img src="{:U('Home/getAvatar',array('uid'=>$user_info['user_id']))}" /></a>
+      </div>
+     </div>
+     <div class="userinfo_middle">
+      <div class="userinfo_relation">
+       <div class="btn_grounps"> 
+        <div class="interaction_wrap interaction_wrap_theme1"> 
+         <a id="like_user_btn" class="{$concern_btn_css}" href="javascript:void(0)" data-uid="{$user_info.user_id}"></a> 
+         <a class="btn_sendmsg" target="_blank" href="" style="display:none;"></a> 
+        </div>
+       </div> 
+      </div>
+      <div class="userinfo_title"> 
+       <span class="userinfo_username">{$user_info.user_name}</span>
+      </div>
+      <div class="userinfo_num">
+       <div class="userinfo_userdata">
+        <span class="userinfo_sex userinfo_sex_{$user_info.user_sex}"></span>
+        <span>吧龄:{$user_info.user_age}年</span>
+        <span class="userinfo_split"></span>
+        <span>发贴:{$user_info.post_count}</span>
+       </div>
+      </div>
+      <div class="userinfo_honor"> 
+       <div class="icon_wrap  icon_wrap_theme2  "></div> 
+      </div>
+     </div>
+     <div class="userinfo_right"> 
+     </div>
+    </div>
+    <div id="container" class="container_wrap clearfix ihome_body">
+     <div class="left_aside ihome_left_aside">
+      <div class="content_wrap"> 
+       <div id="ihome_nav_wrap" class="ihome_nav_wrap">
+        <ul class="ihome_nav_list"> 
+         <li class="focus"> 
+          <div class="tbnav_tab_inner"> 
+           <p class=""> <a class="nav_icon nav_main" href="{:U('Home/main',array('id'=>$user_info['user_id']))}">{$user_info.user_sex_pron}的主页</a></p> 
+          </div></li> 
+        </ul>
+       </div>
+       <div class="ihome_forum_group ihome_section clearfix"> 
+        <h1 class="ihome_title"><span class="cut_line">|</span>关注的吧</h1>
+        <div class="clearfix u-f-wrap" id="forum_group_wrap">
+         <volist name="forum_list" id="vo" offset="0" length="8">
+         <a target="_blank" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" class="u-f-item unsign">
+         <span>{$vo.forum_name}</span>
+         <span class="forum_level lv{$vo.level_level}"></span></a>
+          </volist>
+        </div>
+       </div> 
+       <div class="ihome_section">
+        <h1 class="threadList_title"><span class="cut_line">|</span>贴子</h1>
+        <ul class="new_list clearfix" pagesize="10"> 
+        
+        <foreach name="post_list" item="vo">
+        <?php if($vo['floor_id']!=1):?>
+         <div class="n_right <?php if($key==0):?>n_right_first<?php endif;?> clearfix">
+          <div class="n_post_time">
+           {$vo.post_date|convertDate=###,'intel'}
+          </div>
+          <div class="n_type type_huifu"></div>
+          <div class="n_contain">
+           <div>
+            <div class="thread_name">
+             <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}" class="reply_content" target="_blank">{$vo.post_content_convert}</a>
+            </div>
+           </div>
+           <div class="n_txt_huifu">
+            <div class="n_triangle"></div>
+            <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}" target="_blank" class="titletxt" title="回复：{$vo.thread_title}">回复：{$vo.thread_title}</a>
+            <span class="userinfo_split"></span>
+            <a href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" target="_blank" class="n_name" title="{$vo.forum_name}">{$vo.forum_name}吧</a>
+           </div>
+          </div>
+         </div>
+         <?php else:?>
+         
+         <div class="n_right clearfix thread_image">
+          <div class="n_post_time">
+           {$vo.post_date|convertDate=###,'intel'}
+          </div>
+          <div class="n_type type_zhuti"></div>
+          <div class="n_contain">
+           <div>
+            <div class="thread_name">
+             <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}" target="_blank" class="title" title="{$vo.thread_title}">{$vo.thread_title}</a>
+             <span class="userinfo_split"></span>
+             <a href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" target="_blank" class="n_name" title="{$vo.forum_name}">{$vo.forum_name}</a>
+            </div>
+           </div>
+           <div class="n_txt">
+            {$vo.thread_content_convert|mysubstr=0,50}
+           </div>
+             {$vo.thread_image}
+         <!-- 大图start -->
+         <div class="media_box" style="display:none;">
+   <div class="p_tools">
+    <a class="p_putup" href="javascript:void(0)" >收起</a>
+    <span class="line">|</span>
+    <a class="tb_icon_ypic j_ypic" href="#" target="_blank">查看大图</a>
+   </div>
+   <div class="media_bigpic_wrap">
+    <img class="j_large_pic" src="#" style="max-height: 250px;max-width:400px;"/>
+   </div>
+   <div class="bigpic_display_pre bigpic_turn j_display_pre" style="display: none;"></div>
+   <div class="bigpic_display_next bigpic_turn j_display_next" style="display: block;"></div>
+  </div>
+  <!-- 大图end -->
+          </div>
+         </div>
+         <?php endif;?>
+         
+         </foreach>
+        </ul>
+        
+       </div>
+      </div>
+     </div>
+     <div class="right_aside">
+      <?php if($visitor_list!=null):?>
+      <div class="ihome_aside_section ihome_visitor ">
+       <h1 class="ihome_aside_title">最近来访</h1>
+       <div class="card_wrap">
+        <ul id="visitor_card_wrap"> 
+        <volist name="visitor_list" id="vo" offset="0" length="12">
+         <li class="visitor_card">
+         <a href="{:U('Home/main',array('id'=>$vo['visitor_id']))}" target="_blank" class="j_user_card" data-uid="{$vo.visitor_id}">
+         <img src="{:U('Home/getAvatar',array('uid'=>$vo['visitor_id']))}" alt="头像" /></a> </li> 
+         </volist>
+        </ul>
+       </div>
+      </div>
+      <?php endif;?>
+      <?php if(null!=$concern_list):?>
+      <div class="ihome_aside_section">
+       <h1 class="ihome_aside_title">{$user_info.user_sex_pron}关注的人<span class="concern_num">(<a href="{:U('Home/concernList',array('id'=>$user_info['user_id']))}" target="_blank">{$user_info.concern_count}</a>)</span></h1>
+       <ul class="concern_wrap"> 
+              <volist name="concern_list" id="vo" offset="0" length="8">
+        <li class="concern_item">
+        <a class="j_user_card" data-uid="{$vo.user_id}" target="_blank" href="{:U('Home/main',array('id'=>$vo['user_id']))}">
+        <img src="{:U('Home/getAvatar',array('uid'=>$vo['user_id']))}" /></a></li> 
+       </volist>
+       </ul>
+      </div>
+      <?php endif;?>
+      <?php if(null!=$fans_list):?>
+      <div class="ihome_aside_section ">
+       <h1 class="ihome_aside_title">关注{$user_info.user_sex_pron}的人<span class="concern_num">(<a href="{:U('Home/fansList',array('id'=>$user_info['user_id']))}" target="_blank">{$user_info.fans_count}</a>)</span></h1>
+       <ul class="concern_wrap"> 
+        <volist name="fans_list" id="vo" offset="0" length="8">
+        <li class="concern_item">
+        <a class="j_user_card" data-uid="{$vo.fans_id}" target="_blank" href="{:U('Home/main',array('id'=>$vo['fans_id']))}">
+        <img src="{:U('Home/getAvatar',array('uid'=>$vo['fans_id']))}" /></a></li> 
+       </volist>        
+        </ul>
+      </div>
+      <?php endif;?>
+     </div>
+    </div> 
+    <div id="footer" class="footer"> 
+     <include file="Public:footer" />
+    </div> 
+   </div>
+  </div> 
+  <ul class="tbui_aside_float_bar">
+   <li style="display:none;" class="tbui_aside_fbar_button tbui_fbar_top">
+   <a href="javascript:void(0)" onclick="goTop()"></a></li>
+  </ul>
+  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
+  <import type="js" file="libs,common,jquery#form,jquery#showmore,jquery#fancybox" basepath="__PUBLIC__/common/js" />
+    <script>
+    $(function(){
+    	$.showMore(".new_list",2);
+      });        
+    </script>
+    <script>
+   $(function(){
+	   $('.j_ypic').fancybox();
+	 });
+ </script>
+    <include file="Public:bottom" />
+    <include file="Home:hdAvatar" />
+ </body>
+</html>
