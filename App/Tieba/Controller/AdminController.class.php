@@ -52,10 +52,13 @@ class AdminController extends BaseController
             $this->error('未登录！');
             return;
         }
-        if (A('Forum')->getManageStatus($fid) == '-1') {
+        $manage_status = A('Forum')->getManageStatus($fid);
+        $this->assign('manage_status', $manage_status);
+        if ($manage_status == -1) {
             $this->error('权限验证失败！');
             return;
         }
+
     }
 
     /**
@@ -83,7 +86,9 @@ class AdminController extends BaseController
      */
     private function getForumList($uid)
     {
-        $info = M('forum')->field('forum_id,forum_name')->where(array('owner_id' => $uid))->select();
+        $fm   = getTableName('forum_manager');
+        $f    = getTableName('forum');
+        $info = M('forum_manager')->field("{$f}.forum_name,{$fm}.forum_id")->join("{$f} ON {$fm}.forum_id = {$f}.forum_id")->where(array("{$fm}.user_id" => $uid))->select();
         return $info;
     }
 
@@ -367,7 +372,7 @@ class AdminController extends BaseController
         $uid        = $this->uid;
         $forum_info = A('Post')->getForumInfoByTid($tid);
         $fid        = $forum_info['forum_id'];
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -480,7 +485,7 @@ class AdminController extends BaseController
         $forum_info = A('Post')->getForumInfoByPid($pid);
         $fid        = $forum_info['forum_id'];
         $tid        = A('Post')->getThreadId($pid);
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) == -1) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -519,7 +524,7 @@ class AdminController extends BaseController
     {
         $forum_info = A('Post')->getForumInfoByPid($pid);
         $fid        = $forum_info['forum_id'];
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -567,7 +572,7 @@ class AdminController extends BaseController
             $this->ajaxReturn('need-login');
             return;
         }
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -637,7 +642,7 @@ class AdminController extends BaseController
             $this->ajaxReturn('need-login');
             return;
         }
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -669,7 +674,7 @@ class AdminController extends BaseController
             $this->ajaxReturn('need-login');
             return;
         }
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -702,7 +707,7 @@ class AdminController extends BaseController
             $this->ajaxReturn('need-login');
             return;
         }
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -1024,7 +1029,8 @@ class AdminController extends BaseController
         return $array;
     }
 
-    public function managerPendList($id){
+    public function managerPendList($id)
+    {
         $this->getPublic();
         $this->display();
     }
@@ -1101,7 +1107,7 @@ class AdminController extends BaseController
             return;
         }
         $uid = $this->uid;
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -1144,7 +1150,7 @@ class AdminController extends BaseController
             return;
         }
         $uid = $this->uid;
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }
@@ -1170,7 +1176,7 @@ class AdminController extends BaseController
             return;
         }
         $uid = $this->uid;
-        if (A('Forum')->getManageStatus($fid) == false) {
+        if (A('Forum')->getManageStatus($fid) != 0) {
             $this->ajaxReturn('invalid-authority');
             return;
         }

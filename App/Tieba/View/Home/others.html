@@ -3,7 +3,7 @@
  <head> 
   <include file="Public:top" />
   <title>{$user_info.user_name}的贴吧</title>
-   <import type="css" file="theme,common,home_main,jquery#fancybox" basepath="__PUBLIC__/common/css" />
+   <import type="css" file="theme,common,home_main" basepath="__PUBLIC__/common/css" />
  </head>
  <body class="skin_1001">
   <include file="Public:userbar" />
@@ -185,17 +185,12 @@
    <a href="javascript:void(0)" onclick="goTop()"></a></li>
   </ul>
   <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
-  <import type="js" file="libs,common,jquery#form,jquery#showmore,jquery#fancybox" basepath="__PUBLIC__/common/js" />
+  <import type="js" file="libs,common,jquery#form,jquery#showmore" basepath="__PUBLIC__/common/js" />
     <script>
     $(function(){
     	$.showMore(".new_list",2);
       });        
     </script>
-    <script>
-   $(function(){
-	   $('.j_ypic').fancybox();
-	 });
- </script>
     <include file="Public:bottom" />
     <include file="Home:hdAvatar" />
  </body>

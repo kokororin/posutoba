@@ -1228,7 +1228,6 @@ $(function() {
                     createAlertbox('管理帖子', '置顶或精品不能删除！');
                 }
                 $('.delete_dialog.dialogJ').hide();
-                location.href = removeHash();
             }
         });
     });

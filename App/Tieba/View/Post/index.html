@@ -67,7 +67,7 @@
          <div class="core_title core_title_theme_bright"> 
           <h1 class="core_title_txt  " title="{$thread_title}" style="width: 480px">{$thread_title}</h1>
           <ul class="core_title_btns">
-          <?php if($manage_status==true):?>
+          <?php if($manage_status == 0):?>
           <li><a id="thread_manage_btn" href="javascript:void(0)" class="l_lzonly"><span id="lzonly" class="d_lzonly_bdaside">帖子管理</span></a></li>
            <?php endif;?>
            <?php if($_GET['see_lz']!=1):?>
@@ -152,7 +152,7 @@
               <li><a title="右键复制链接地址，可供访问者直达此楼" href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}">{$vo.floor_id}楼</a></li>
               <li><span>{$vo.post_date|convertDate=###,'without_second'}</span></li>
              </ul>
-             <?php if($manage_status==true):?>
+             <?php if($manage_status == 0 || $manage_status == 1):?>
              <ul class="p_mtail" data-pid="{$vo.post_id}" data-fid="{$forum_info.forum_id}" data-uid="{$vo.user_id}" data-uname="{$vo.user_name}">
              <li class="j_jb_ele"><a class="jb_in p_post_del_my post_del_href" href="javascript:void(0)">删除</a>&nbsp;|</li>
              <li><a href="javascript:void(0)" class="p_post_ban">封</a>&nbsp;|</li>
@@ -230,10 +230,12 @@
    <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
    <import type="js" file="libs,common,jquery#form,emotion,cale" basepath="__PUBLIC__/common/js" />
    <include file="Public:bottom" />
-   <?php if($manage_status==true):?>
+   <?php if($manage_status == 0 || $manage_status == 1):?>
    <include file="Post:delete" />
+   <?php if($manage_status == 0):?>
    <include file="Post:block" />
    <include file="Post:manage" />
+   <?php endif;?>
    <?php endif;?>
 
  </body>

@@ -3,7 +3,7 @@
  <head>
   <include file="Public:top" />
   <title>{$forum_info.forum_name}吧<?php if ($_GET['type'] == 'good'): ?>的精品帖<?php endif;?>_Posutoba贴吧</title>
- <import type="css" file="theme,common,forum,emotion,upload,jquery#Jcrop#min,uploadify,jquery#fancybox" basepath="__PUBLIC__/common/css"/>
+ <import type="css" file="theme,common,forum,emotion,upload,jquery#Jcrop#min,uploadify" basepath="__PUBLIC__/common/css"/>
  </head>
   <body spellcheck="false" class="skin_normal">
   <include file="Public:userbar" />
@@ -198,12 +198,12 @@
           </div>
           <div class="region_footer"></div>
          </div>
-           <?php if ($manage_status != '-1'): ?>
+           <?php if ($manage_status != -1): ?>
            <div class="region_bright adminModePanel_bright" id="adminModePanel">
    <div class="amPanel_top"></div>
    <div class="amPanel_content clearfix">
     <div id="tbAdminTip" class="admin_tip" style="display: block;"></div>
-    <?php if($manage_status == '0'):?>
+    <?php if($manage_status == 0):?>
     <a class="tbAdminManage ltbtn" href="javascript:void(0)" onclick="showForumCard()"><span>设置本吧名片</span></a>
     <?php endif;?>
     <a class="titleManageIndex rtbtn" target="_blank" href="{:U('Admin/index',array('id'=>$forum_info['forum_id']))}"><span>吧务后台</span></a>
@@ -266,14 +266,9 @@
    <li style="display:none;" class="tbui_aside_fbar_button tbui_fbar_top"><a href="javascript:void(0)" onclick="goTop()"></a></li>
    </ul>
  <script>var PUBLIC="__PUBLIC__";var MODULE="__MODULE__";</script>
- <import type="js" file="libs,common,jquery#form,emotion,cale,jquery#uploadify#min,jquery#Jcrop#min,jquery#fancybox" basepath="__PUBLIC__/common/js"/>
+ <import type="js" file="libs,common,jquery#form,emotion,cale,jquery#uploadify#min,jquery#Jcrop#min" basepath="__PUBLIC__/common/js"/>
  <include file="Public:bottom" />
- <script>
-   $(function(){
-	   $('.j_ypic').fancybox();
-	 });
- </script>
- <?php if($manage_status == '0'):?>
+ <?php if($manage_status == 0):?>
  <include file="Admin:forumCard" />
  <?php endif;?>
  <include file="Forum:managerGroup" />
