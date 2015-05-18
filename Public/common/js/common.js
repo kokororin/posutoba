@@ -521,10 +521,14 @@ $(function() {
                 if (data == 'invalid-password') {
                     $('#TANGRAM__PSP_4__passwordError').html('密码必须为6-30位');
                 }
+                if (data == 'invalid-email') {
+                    $('#TANGRAM__PSP_4__emailError').html('邮箱地址不正确');
+                }
                 if (data == 'error-code') {
                     $('#TANGRAM__PSP_4__verifyCodeError').html('验证码不正确');
                 }
                 if (data == 'register-success') {
+                    createAlertbox('成功', '注册成功，正在跳转');
                     location.href = MODULE + '/User/registerSuccess/u/' + $('#return_url').val();
                 }
             }
@@ -615,6 +619,8 @@ $(function() {
                     login();
                 } else if (data == 'block-status') {
                     createAlertbox('回帖失败', '封禁状态无法回帖！');
+                } else if (data == 'must-like') {
+                    createAlertbox('回帖失败', '您必须关注后才能回帖！');
                 } else if (data == "post-success") {
                     $('.j_posting_status.poster_posting_status').addClass('poster_posting_status_loading');
                     postSuccess();
@@ -662,6 +668,8 @@ $(function() {
                     login();
                 } else if (data == 'block-status') {
                     createAlertbox('发帖失败', '封禁状态无法发帖！');
+                } else if (data == 'must-like') {
+                    createAlertbox('回帖失败', '您必须关注后才能回帖！');
                 } else if (data == 'thread-success') {
                     postSuccess();
                 } else if (data == 'title-empty') {
@@ -755,6 +763,36 @@ $(function() {
                     location.href = removeHash();
                 } else if (data == "need-login") {
                     login();
+                }
+            }
+        });
+    });
+
+    //申请小吧
+    $('#apply_small_manager').click(function() {
+        center('.applysmallmanager_dialog.dialogJ');
+        $('.dialogJ').draggable();
+    });
+
+    $('#small_manager_submit').click(function() {
+        var fid = $('#forum_id').val();
+        var content = $('#small_manager_content').val();
+        $.ajax({
+            type: 'post',
+            url: MODULE + '/Forum/doApplySmallManager',
+            data: {
+                fid: fid,
+                content: content
+            },
+            success: function(data) {
+                if (data == "need-login") {
+                    login();
+                } else if (data == "already-apply") {
+                    createAlertbox('申请小吧主', '已经是吧主或者有申请正在处理');
+                } else if (data == "apply-success") {
+                    createAlertbox('申请小吧主', '申请成功');
+                } else {
+                    createAlertbox('申请小吧主', '未知错误');
                 }
             }
         });
@@ -1149,11 +1187,15 @@ $(function() {
     $('#apply_form').submit(function() {
         $(this).ajaxSubmit({
             success: function(data) {
-                if (data == "empty-field") {
+                if (data == 'invalid-authority') {
+                    createAlertbox('错误', '权限验证失败');
+                } else if (data == "empty-field") {
                     createAlertbox('错误', '请填写所有的空格！');
                 } else if (data == "not-agree") {
                     createAlertbox('错误', '请勾选同意协议！');
-                } else {
+                } else if (data == 'apply-failure') {
+                    createAlertbox('错误', '未知错误！');
+                } else if (data == 'apply-success') {
                     $('.apply_form').hide();
                     $('.fill_step').removeClass('agreement_step');
                     $('.last_step').addClass('agreement_step');
@@ -1455,6 +1497,53 @@ $(function() {
         });
     });
 
+    //审批吧主
+    $('#j_pend_success').click(function() {
+        var data_id = $(this).attr('data-id');
+        $.ajax({
+            type: 'get',
+            url: MODULE + '/Admin/pendManager',
+            data: {
+                id: data_id,
+                success: 1
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data == 'has-passed') {
+                    createAlertbox('审批吧主', '已经审批过');
+                } else if (data == 'manager-too-many') {
+                    createAlertbox('审批吧主', '吧主超过上限');
+                } else if (data == 'pend-success') {
+                    createAlertbox('审批吧主', '审批成功');
+                } else {
+                    createAlertbox('审批吧主', '未知错误');
+                }
+            }
+        });
+    });
+
+    $('#j_pend_fail').click(function() {
+        var data_id = $(this).attr('data-id');
+        $.ajax({
+            type: 'get',
+            url: MODULE + '/Admin/pendManager',
+            data: {
+                id: data_id,
+                success: 0
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data == 'has-passed') {
+                    createAlertbox('审批吧主', '已经审批过');
+                } else if (data == 'pend-success') {
+                    createAlertbox('审批吧主', '审批成功');
+                } else {
+                    createAlertbox('审批吧主', '未知错误');
+                }
+            }
+        });
+    });
+
     //吧头衔
     $('#memberTitleApp').click(function() {
         center('.membertitle_dialog.dialogJ');
@@ -1578,6 +1667,26 @@ $(function() {
         return false;
     });
 
+    //辞职
+    $('#managerResignApp').click(function() {
+        var fid = $('#add_related_forum_name').attr('data-fid');
+        $.ajax({
+            type: 'get',
+            url: MODULE + '/Admin/managerResign',
+            data: {
+                fid: fid
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data == 'must-one') {
+                    createAlertbox('吧主辞职', '必须有1位吧主存在');
+                } else if (data == 'resign-success') {
+                    createAlertbox('吧主辞职', '辞职成功');
+                }
+            }
+        });
+    });
+
     //profile表单
     $('#profile_form').submit(function() {
         $(this).ajaxSubmit({
@@ -1588,7 +1697,7 @@ $(function() {
                 } else if (data == 'empty-sex') {
                     createAlertbox("修改信息", "请选择性别");
                 } else {
-                    createAlertbox("修改信息", "位置错误");
+                    createAlertbox("修改信息", "未知错误");
                 }
             }
         });

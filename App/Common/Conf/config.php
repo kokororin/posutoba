@@ -3,6 +3,7 @@ return array(
     //'配置项'=>'配置值'
     'MULTI_MODULE'         => false,
     'DEFAULT_MODULE'       => 'Tieba',
+    'URL_CASE_INSENSITIVE' =>true,
     //数据库配置信息
     'DB_TYPE'              => 'mysqli', // 数据库类型
     'DB_HOST'              => 'localhost', // 服务器地址

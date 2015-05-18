@@ -1029,10 +1029,103 @@ class AdminController extends BaseController
         return $array;
     }
 
-    public function managerPendList($id)
+    /**
+     * 审批吧主列表
+     * @access public
+     * @param string $id 贴吧id
+     * @param string $is_pass 是否通过
+     */
+    public function managerPendList($id, $is_pass = 0)
     {
         $this->getPublic();
+        $manager_pend_list_array = $this->getManagerPendList($id, $is_pass);
+        $manager_pend_list       = $manager_pend_list_array[0];
+        $page                    = $manager_pend_list_array[1];
+        $pend_count              = $manager_pend_list_array[2];
+        $this->assign('manager_pend_list', $manager_pend_list);
+        $this->assign('page', $page);
+        $this->assign('pend_count', $pend_count);
         $this->display();
+    }
+
+    /**
+     * 获取审批吧主列表
+     * @access private
+     * @param string $fid 贴吧id
+     * @param string $is_pass 是否通过
+     * @return array
+     */
+    private function getManagerPendList($fid, $is_pass)
+    {
+        $u   = getTableName('users');
+        $fma = getTableName('forum_manager_apply');
+        if ($is_pass == 0) {
+            $condition["{$fma}.is_pass"] = 0;
+        } elseif ($is_pass == 1) {
+            $condition["{$fma}.is_pass"] = array('neq', 0);
+        }
+        $condition["{$fma}.forum_id"] = $fid;
+        $count                        = M('forum_manager_apply')->where($condition)->count();
+        $Pager                        = new \Tieba\Library\Pager($count, 20, 'active', true);
+        $show                         = $Pager->show();
+        $info                         = M('forum_manager_apply')->field("{$u}.user_name,{$fma}.data_id,{$fma}.user_id,{$fma}.apply_date,{$fma}.apply_type,{$fma}.apply_content")->join("{$u} ON {$fma}.user_id = {$u}.user_id")->where($condition)->limit($Pager->firstRow . ',' . $Pager->listRows)->select();
+        foreach ($info as $key => $value) {
+            $info[$key]['user_age']      = A('Home')->getAge($info[$key]['user_id']);
+            $info[$key]['post_count']    = A('Home')->getPostCount($info[$key]['user_id']);
+            $info[$key]['apply_type_cn'] = ($info[$key]['apply_type'] == 0) ? '吧主' : '小吧主';
+            $info[$key]['user_level']    = A('Home')->getLevel($info[$key]['user_id'], $fid);
+        }
+        $array[0] = $info;
+        $array[1] = $show;
+        $array[2] = $count;
+        $array[3] = $Pager->totalPages;
+        return $array;
+    }
+
+    /**
+     * 审批吧主
+     * @access public
+     * @param string $id data_id
+     * @param int $success 是否通过
+     */
+    public function pendManager($id, $success)
+    {
+        if ($this->uid == null) {
+            $this->ajaxReturn('need-login');
+            return;
+        }
+        $info = M('forum_manager_apply')->where(array('data_id' => $id))->find();
+        $fid  = $info['forum_id'];
+        if (A('Forum')->getManageStatus($fid) != 0) {
+            $this->ajaxReturn('invalid-authority');
+            return;
+        }
+        if ($info['is_pass'] != 0) {
+            $this->ajaxReturn('has-passed');
+        }
+        if ($success == 1) {
+            if ($info['apply_type'] == 0) {
+                $manager_count = M('forum_manager')->where(array('forum_id' => $fid, 'manager_type' => 0))->count();
+                if ($manager_count >= 3) {
+                    $this->ajaxReturn('manager-too-many');
+                }
+            }
+
+            $re                   = M('forum_manager_apply')->where(array('data_id' => $id))->setField('is_pass', 1);
+            $data['data_id']      = getMikuInt();
+            $data['forum_id']     = $fid;
+            $data['user_id']      = $info['user_id'];
+            $data['manager_type'] = $info['apply_type'];
+            $re_2                 = M('forum_manager')->data($data)->add();
+        } else {
+            $re = M('forum_manager_apply')->where(array('data_id' => $id))->setField('is_pass', 2);
+        }
+        if ($re) {
+            $this->ajaxReturn('pend-success');
+        } else {
+            $this->ajaxReturn('pend-falure');
+        }
+
     }
 
     /**
@@ -1187,6 +1280,31 @@ class AdminController extends BaseController
             $this->ajaxReturn('set-success');
         } else {
             $this->ajaxReturn('set-failure');
+        }
+    }
+
+    /**
+     * 吧主辞职
+     * @access public
+     * @param string $fid 贴吧id
+     */
+    public function managerResign($fid)
+    {
+        if ($this->uid == null) {
+            $this->ajaxReturn('need-login');
+            return;
+        }
+        $uid = $this->uid;
+        if (A('Forum')->getManageStatus($fid) != 0) {
+            $this->ajaxReturn('invalid-authority');
+            return;
+        }
+        $manager_count = M('forum_manager')->where(array('forum_id' => $fid, 'manager_type' => 0))->count();
+        if ($manager_count == 1) {
+            $this->ajaxReturn('must-one');
+        } else {
+            $re = M('forum_manager')->where(array('forum_id' => $fid, 'user_id' => $uid, 'manager_type' => 0))->delete();
+            $this->ajaxReturn('resign-success');
         }
     }
 

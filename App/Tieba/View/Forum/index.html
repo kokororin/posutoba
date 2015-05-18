@@ -193,7 +193,9 @@
             <li><a href="{:U('Forum/forumPark',array('pid'=>$forum_class['parent_id'],'cid'=>$forum_class['class_id']))}" target="_blank">{$forum_class.class_name}</a></li>
            </ul>
            <div class="bottom_list">
-            <span><a href="{:U('Forum/applyManager',array('id'=>$forum_info['forum_id']))}" target="_blank">申请吧主</a></span> | <span><a href="" target="_blank">申请小吧主</a></span>
+            <?php if($is_apply_manager == false):?>
+            <span><a href="{:U('Forum/applyManager',array('id'=>$forum_info['forum_id']))}" target="_blank">申请吧主</a></span> | <span><a id="apply_small_manager" href="javascript:void(0)">申请小吧主</a></span>
+          <?php endif;?>
            </div>
           </div>
           <div class="region_footer"></div>
@@ -272,5 +274,6 @@
  <include file="Admin:forumCard" />
  <?php endif;?>
  <include file="Forum:managerGroup" />
+ <include file="Forum:applySmallManager" />
  </body>
 </html>

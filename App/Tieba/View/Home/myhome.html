@@ -80,9 +80,9 @@
          <volist name="forum_list" id="vo" offset="0" length="7">
          <a target="_blank" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" class="u-f-item {$vo.sign_status}">
          <span>{$vo.forum_name}</span>
-         <?php if($vo['manage_status']==true):?>
+         <?php if($vo['manage_status'] == 0):?>
          <span class="cut_line">|</span>
-         <span class="honor">吧主</span>
+         <span class="honor"> <?php if($vo['manage_status'] == 1):?>小<?php endif;?>吧主</span>
          <?php endif;?>
          <span class="forum_level lv{$vo.level_level}"></span></a>
          </volist>

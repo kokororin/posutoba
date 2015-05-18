@@ -77,6 +77,7 @@ class UserController extends BaseController
         $param    = I('post.');
         $username = $param['username'];
         $password = $param['password'];
+        $email    = $param['email'];
         $code     = $param['verifyCode'];
         if ($username == '') {
             $this->ajaxReturn('empty-username');
@@ -84,7 +85,7 @@ class UserController extends BaseController
         if ((preg_match("/[ '.,:;*?~`!@#$%^&+=)(<>{}]|\]|\[|\/|\\\|\"|\|/", $username))) {
             $this->ajaxReturn('invalid-username');
         }
-        if (A('Base')->getUtf8Strlen($username) > 12) {
+        if (getUtf8Strlen($username) > 12) {
             $this->ajaxReturn('too-long-username');
         }
         $info = M('users')->where(array('user_name' => $username))->find();
@@ -94,15 +95,19 @@ class UserController extends BaseController
         if (strlen($password) < 6 || strlen($password) > 30) {
             $this->ajaxReturn('invalid-password');
         }
+        if (!preg_match('/^[A-Za-z0-9-_.+%]+@[A-Za-z0-9-.]+\.[A-Za-z]{2,4}$/', $email)) {
+            $this->ajaxReturn('invalid-email');
+        }
         if ($this->checkVerifyCode($code) == false) {
             $this->ajaxReturn('error-code');
         }
         $data['user_name']    = $username;
         $data['user_pass']    = md5($password);
-        $data['user_id']      = A('Base')->getMikuInt();
+        $data['user_id']      = getMikuInt();
         $data['user_sex']     = 1;
         $data['user_avatar']  = 0;
-        $data['user_regdate'] = A('Base')->getDate();
+        $data['user_regdate'] = getNowDate();
+        $data['user_email']   = $param['email'];
         $data['user_openid']  = $param['openid'];
         $re                   = M('users')->data($data)->add();
         if ($re) {
@@ -177,7 +182,7 @@ class UserController extends BaseController
             $key                  = base64_encode(json_encode($array));
             $this->redirect(U('User/register', array('key' => $key)));
         } else {
-            cookie('posutoba', $this->encryptCookie($info['user_id'], $this->encrypt_key), 60 * 60 * 24 * 365);
+            cookie('posutoba', authCode($info['user_id'], 'ENCODE'), 60 * 60 * 24 * 365);
             redirect(__ROOT__ . '/');
         }
     }

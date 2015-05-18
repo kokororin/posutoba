@@ -19,33 +19,16 @@
    <div class="main_content"> 
     <div class="panel" style="border-bottom:0">
      <h3>吧务审批</h3>
-     <div class="panel_content" style="padding-bottom:50px;">
-      <div class="exam-w clearfix" id="bawu-exam">
-       <div class="exam-condition">
-        <span class="icon"></span>本吧申请吧主的基本条件：发言数不得少于
-        <span class="blue post-num"> 1 </span>贴，成为会员天数不得少于
-        <span class="blue">0</span>天，会员等级不得低于
-        <span class="blue member-time">3级</span>。
-       </div>
-       <div class="exam-btn set_manager_btn" id="exam-btn">
-        设置吧主申请条件
-       </div>
-      </div>
-      <div class="exam-w clearfix">
-       <div title="小吧主需要与大吧主一起担负着建设好本吧的使命，需要小吧主有强烈责任感和成就感。需要长期参与本吧的内容建设和治安维护，及时删除而已灌水贴、商业广告、与主题不相关以及百度官方禁止的贴子。" class="exam-condition assist-condition">
-        <span class="icon"></span>本吧申请小吧主的条件(会员等级需高于3级)：小吧主需要与大吧主一起担负着建设好本吧的使命，需要小吧主有强烈责任感和成就感。需要长期参与本吧的内容建设和治安维护，及时删除而已灌水贴、商业广告、与主题不相关以及百度官方禁止的贴子。
-       </div>
-       <div class="exam-btn set_manager_btn" id="assist-exam-btn">
-        设置小吧主申请条件
-       </div>
-      </div>
+     <div class="panel_content" style="padding-bottom:50px;">    
+
      </div>
     </div>
     <div class="panel panel_margin pos-rel">
      <div class="bawu-tab-w">
-      <a class="tab cur-tab" href="#">待审批吧务</a>
-      <a class="tab left-t" href="/bawu2/platform/auditFinish?type=0&amp;word=%B4%F3%D1%DB%ED%F8">已审批吧务</a>
+      <a class="tab cur-tab" href="{:U('Admin/managerPendList',array('id'=>$forum_info['forum_id']))}">待审批吧务</a>
+      <a class="tab left-t" href="{:U('Admin/managerPendList',array('id'=>$forum_info['forum_id'],'is_pass'=>1))}">已审批吧务</a>
      </div> 
+     <?php if($manager_pend_list != null):?>
      <table class="data_table">
       <thead>
        <tr>
@@ -54,36 +37,49 @@
         <th style="width:99px;">申请时间</th>
         <th style="width:246px;">申请人资料</th>
         <th style="width:159px;">申请感言</th>
+        <?php if($_GET['is_pass']==0):?>
         <th style="width:149px;">操作</th>
+      <?php endif;?>
        </tr>
       </thead>
       <tbody> 
+        <foreach name="manager_pend_list" item="vo">
        <tr>
-        <td class="left_cell"><span class="user-name-icon">摸摸受受</span></td>
-        <td>小吧主</td>
-        <td>2015-05-07 09:29</td>
+        <td class="left_cell"><span class="user-name-icon">{$vo.user_name}</span></td>
+        <td>{$vo.apply_type_cn}</td>
+        <td>{$vo.apply_date|convertDate=###,'without_second'}</td>
         <td class="left_cell">
          <div>
-          注册天数：1521
+          吧龄：{$vo.user_age}年
          </div>
          <div>
-          加入本吧会员时长：1
+          发言数：{$vo.post_count}
          </div>
          <div>
-          本吧发言：3
+          会员等级：{$vo.user_level.0}级
          </div>
-         <div>
-          会员等级：5级
-         </div>
-         <div>
-          现任吧主：夏天是个萌妹纸吧&nbsp;&nbsp;
-         </div></td>
-        <td class="left_cell">1123121</td>
-        <td><button style="margin-top:30px;" class="success" manager-type="2" apply-id="2757005">批准</button><button style="margin-top:30px;" class="fail" manager-type="2" apply-id="2757005">拒绝</button></td>
+        </td>
+        <td class="left_cell">{$vo.apply_content}</td>
+        <?php if($_GET['is_pass']==0):?>
+        <td><button id="j_pend_success" style="margin-top:30px;" class="success" data-id="{$vo.data_id}">批准</button><button id="j_pend_fail" style="margin-top:30px;" class="fail" data-id="{$vo.data_id}">拒绝</button></td>
+      <?php endif;?>
        </tr> 
+     </foreach>
       </tbody>
-     </table> 
-     <div class="tbui_pagination tbui_pagination_right"> 
+     </table>
+   <?php else:?>
+   <div class="no_data">
+     <img alt="抱歉，暂无数据或未搜索到符合条件的记录" src="__PUBLIC__/common/images/no_data.png"></div>
+     <?php endif;?>
+     <div class="tbui_pagination tbui_pagination_right">
+      <ul>
+       {$page}
+      </ul>
+      <?php if($total_page>1):?>
+      <span class="tbui_total_page">共{$total_page}页</span>
+      <input class="ui_textfield pagination_input" id="manage_jump_input" type="text" name="pn" />
+      <a href="javascript:void(0)" class="jump_btn" id="manage_jump_btn"><span><em>跳转</em></span></a>
+      <?php endif;?>
      </div>
     </div> 
    </div>

@@ -62,6 +62,10 @@
          <volist name="forum_list" id="vo" offset="0" length="8">
          <a target="_blank" href="{:U('Forum/index',array('id'=>$vo['forum_id']))}" class="u-f-item unsign">
          <span>{$vo.forum_name}</span>
+         <?php if($vo['manage_status'] == 0):?>
+         <span class="cut_line">|</span>
+         <span class="honor"> <?php if($vo['manage_status'] == 1):?>小<?php endif;?>吧主</span>
+         <?php endif;?>
          <span class="forum_level lv{$vo.level_level}"></span></a>
           </volist>
         </div>
@@ -80,7 +84,7 @@
           <div class="n_contain">
            <div>
             <div class="thread_name">
-             <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}" class="reply_content" target="_blank">{$vo.post_content_convert}</a>
+             <a href="{:U('Post/index',array('id'=>$vo['thread_id']))}#{$vo.post_id}" class="reply_content" target="_blank">{$vo.post_content_convert|mysubstr=0,50}</a>
             </div>
            </div>
            <div class="n_txt_huifu">

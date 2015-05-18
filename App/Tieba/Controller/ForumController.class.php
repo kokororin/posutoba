@@ -39,17 +39,19 @@ class ForumController extends BaseController
         $page              = $thread_list_array[1];
         $thread_count      = $thread_list_array[2];
         $this->getPublic($forum_info['forum_id']);
-        $forum_class        = $this->getForumClass($id);
-        $member_name        = $this->getMemberName($id);
-        $related_forum_list = $this->getRelatedForumList($id);
-        $manager_list       = $this->getManagerList($id, 0);
-        $small_manager_list = $this->getManagerList($id, 1);
+        $forum_class         = $this->getForumClass($id);
+        $member_name         = $this->getMemberName($id);
+        $related_forum_list  = $this->getRelatedForumList($id);
+        $manager_list        = $this->getManagerList($id, 0);
+        $small_manager_list  = $this->getManagerList($id, 1);
         $small_manager_count = count($small_manager_list);
         if ($this->uid != null) {
             $uid         = $this->uid;
             $user_status = $this->getUserStatus($uid, $id);
             $this->assign('user_status', $user_status);
         }
+        $is_apply_manager = $this->isApplyManager($id);
+        $this->assign('is_apply_manager', $is_apply_manager);
         //区分是主题页还是回复页
         $this->assign('poster_type', 'addthread');
         $this->assign('forum_info', $forum_info);
@@ -59,9 +61,9 @@ class ForumController extends BaseController
         $this->assign('forum_class', $forum_class);
         $this->assign('member_name', $member_name);
         $this->assign('related_forum_list', $related_forum_list);
-        $this->assign('manager_list',$manager_list);
-        $this->assign('small_manager_list',$small_manager_list);
-        $this->assign('small_manager_count',$small_manager_count);
+        $this->assign('manager_list', $manager_list);
+        $this->assign('small_manager_list', $small_manager_list);
+        $this->assign('small_manager_count', $small_manager_count);
         $this->display();
     }
 
@@ -104,6 +106,10 @@ class ForumController extends BaseController
             return;
         }
         $uid = $this->uid;
+        $fid = I('post.forum_id');
+        if ($this->isLikeForum($fid, $uid) == false) {
+            $this->ajaxReturn('must-like');
+        }
         if ($this->isPostable($uid, I('post.forum_id')) == false) {
             $this->ajaxReturn('block-status');
         }
@@ -1219,7 +1225,6 @@ class ForumController extends BaseController
             $this->ajaxReturn($array);
         }
         $data['forum_name'] = $params['forum_name'];
-        $data['owner_id']   = $uid;
 
         //头像目录地址
         $path     = './Public/uploads/forum_avatar/';
@@ -1232,12 +1237,17 @@ class ForumController extends BaseController
         //裁剪原图
         $Think_img->open($pic_path)->crop($params['w'], $params['h'], $params['x'], $params['y'])->thumb(150, 150)->save($real_path);
 
-        $data['forum_avatar'] = $pic_name;
-        $data['forum_desc']   = $params['forum_desc'];
-        $data['class_id']     = $params['class_cid'];
-        $data['parent_id']    = $params['class_pid'];
-        $re                   = M('forum')->data($data)->add();
-        if ($re) {
+        $data['forum_avatar']   = $pic_name;
+        $data['forum_desc']     = $params['forum_desc'];
+        $data['class_id']       = $params['class_cid'];
+        $data['parent_id']      = $params['class_pid'];
+        $re                     = M('forum')->data($data)->add();
+        $data_2['data_id']      = getMikuInt();
+        $data_2['forum_id']     = $data['forum_id'];
+        $data_2['user_id']      = $uid;
+        $data_2['manager_type'] = 0;
+        $re_2                   = M('forum_manager')->data($data_2)->add();
+        if ($re && $re_2) {
             $array['msg'] = 'create-success';
             $array['fid'] = $data['forum_id'];
         } else {
@@ -1253,8 +1263,45 @@ class ForumController extends BaseController
      */
     public function applyManager($id)
     {
+        if ($this->uid == null) {
+            $this->error('请先登录！');
+        }
+        $uid  = $this->uid;
+        $info = M('forum_manager_apply')->where(array('user_id' => $uid, 'forum_id' => $id, 'is_pass' => 0))->find();
+        if (!empty($info)) {
+            $this->error('您已经是该吧吧主或申请正在处理中！');
+            return;
+        }
+        $manager_count = M('forum_manager')->where(array('forum_id' => $id, 'manager_type' => 0))->count();
+        if ($manager_count >= 3) {
+            $this->error('吧主已超过限额，请尝试申请小吧主！');
+            return;
+        }
         $this->assign('forum_id', $id);
         $this->display();
+    }
+
+    /**
+     * 获取当前用户是否有吧主申请
+     * @access private
+     * @param string $fid 贴吧id
+     * @return boolen
+     */
+    private function isApplyManager($fid)
+    {
+        if ($this->uid == null) {
+            return false;
+        }
+        $uid  = $this->uid;
+        $info = M('forum_manager_apply')->where(array('user_id' => $uid, 'forum_id' => $fid, 'is_pass' => 0))->find();
+        if (!empty($info)) {
+            return true;
+        }
+        $info_2 = M('forum_manager')->where(array('user_id' => $uid, 'forum_id' => $fid))->find();
+        if (!empty($info_2)) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -1271,11 +1318,65 @@ class ForumController extends BaseController
         $content   = $param['content'];
         $agreement = $param['agreement'];
         $forum_id  = $param['forum_id'];
+        if ($this->uid == null) {
+            $this->ajaxReturn('invalid-authority');
+        }
+        $uid = $this->uid;
         if ($realname == '' || $idcard == '' || $address == '' || $qq == '' || $content == '') {
             $this->ajaxReturn('empty-field');
         }
         if ($agreement != 'true') {
             $this->ajaxReturn('not-agree');
+        }
+        $data['data_id']       = getMikuInt();
+        $data['user_id']       = $uid;
+        $data['forum_id']      = $forum_id;
+        $data['apply_date']    = getNowDate();
+        $data['apply_type']    = 0;
+        $data['apply_content'] = $content;
+        $data['is_pass']       = 0;
+        $re                    = M('forum_manager_apply')->data($data)->add();
+        if ($re) {
+            $this->ajaxReturn('apply-success');
+        } else {
+            $this->ajaxReturn('apply-failure');
+        }
+
+    }
+
+    /**
+     * 申请小吧主表单
+     * @access public
+     */
+    public function doApplySmallManager()
+    {
+        $param   = I('post.');
+        $fid     = $param['fid'];
+        $content = $param['content'];
+        if ($this->uid == null) {
+            $this->ajaxReturn('need-login');
+        }
+        $uid  = $this->uid;
+        $info = M('forum_manager_apply')->where(array('forum_id' => $fid, 'user_id' => $uid, 'is_pass' => 0))->find();
+        if (!empty($info)) {
+            $this->ajaxReturn('already-apply');
+        }
+        $info_2 = M('forum_manager')->where(array('forum_id' => $fid, 'user_id' => $uid))->find();
+        if (!empty($info_2)) {
+            $this->ajaxReturn('already-apply');
+        }
+        $data['data_id']       = getMikuInt();
+        $data['user_id']       = $uid;
+        $data['forum_id']      = $fid;
+        $data['apply_date']    = getNowDate();
+        $data['apply_type']    = 1;
+        $data['apply_content'] = $content;
+        $data['is_pass']       = 0;
+        $re                    = M('forum_manager_apply')->data($data)->add();
+        if ($re) {
+            $this->ajaxReturn('apply-success');
+        } else {
+            $this->ajaxReturn('apply-failure');
         }
 
     }

@@ -79,6 +79,9 @@ class PostController extends BaseController
         $uid        = $this->uid;
         $forum_info = $this->getForumInfoByTid(I('post.thread_id'));
         $fid        = $forum_info['forum_id'];
+        if(A('Forum')->isLikeForum($fid, $uid)==false){
+             $this->ajaxReturn('must-like');
+        }
         if (A('Forum')->isPostable($uid, $fid) == false) {
             $this->ajaxReturn('block-status');
         }
@@ -99,13 +102,14 @@ class PostController extends BaseController
             $this->ajaxReturn('content-empty');
             return;
         }
-        $re = M('post')->data($data)->add();
+        $re                    = M('post')->data($data)->add();
+        $data_2['notify_id']   = getMikuInt();
+        $data_2['object_id']   = $data['post_id'];
+        $data_2['notify_type'] = 'reply';
+        $data_2['is_read']     = 0;
         if ($thread_uid != ($data['user_id'])) {
             //添加到提醒表
-            $data_2['notify_id']   = getMikuInt();
-            $data_2['object_id']   = $data['post_id'];
-            $data_2['notify_type'] = 'reply';
-            $data_2['is_read']     = 0;
+
             if ($data['reply_post_id'] == '0') {
                 //回复的是楼主
                 $data_2['user_id'] = $thread_uid;
@@ -125,6 +129,15 @@ class PostController extends BaseController
 
             }
             $re_2 = M('notify')->data($data_2)->add();
+        } else {
+            if ($data['reply_post_id'] != '0') {
+                $post_uid = $this->getPostUid($data['reply_post_id']);
+                if ($post_uid != $data['user_id']) {
+                    $data_2['user_id'] = $post_uid;
+                    $re_2              = M('notify')->data($data_2)->add();
+                }
+
+            }
         }
         if ($re) {
             $this->ajaxReturn('post-success');
@@ -158,10 +171,11 @@ class PostController extends BaseController
         $Pager = new \Tieba\Library\Pager($count, 30, 'tP', false);
         $show  = $Pager->show();
         //获取帖子所属的贴吧信息
-        $forum_info = $this->getForumInfoByTid($tid);
-        $forum_id   = $forum_info['forum_id'];
+        $forum_info                 = $this->getForumInfoByTid($tid);
+        $forum_id                   = $forum_info['forum_id'];
+        $condition["{$t}.is_exist"] = 1;
 
-        $info = M('post')->field("{$p}.post_id,{$p}.thread_id,{$p}.user_id,{$p}.post_content,{$p}.post_date,{$p}.reply_post_id,{$p}.floor_id,{$u}.user_name")->join("{$u} ON {$p}.user_id = {$u}.user_id")->where($condition)->order('post_date')->limit($Pager->firstRow . ',' . $Pager->listRows)
+        $info = M('post')->field("{$p}.post_id,{$p}.thread_id,{$p}.user_id,{$p}.post_content,{$p}.post_date,{$p}.reply_post_id,{$p}.floor_id,{$u}.user_name")->join("{$u} ON {$p}.user_id = {$u}.user_id")->join("{$t} ON {$p}.thread_id = {$t}.thread_id")->where($condition)->order('post_date')->limit($Pager->firstRow . ',' . $Pager->listRows)
             ->select();
         foreach ($info as $key => $value) {
             $info[$key]['reply_content']        = $this->getReply($info[$key]['reply_post_id']);

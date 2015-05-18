@@ -180,11 +180,11 @@ class HomeController extends BaseController
 
     /**
      * 获取吧龄
-     * @access private
+     * @access public
      * @param string $uid 用户id
      * @return string
      */
-    private function getAge($uid)
+    public function getAge($uid)
     {
         $info  = $this->getBaseUserInfo($uid);
         $minus = time() - strtotime($info['user_regdate']);
@@ -193,11 +193,11 @@ class HomeController extends BaseController
 
     /**
      * 获取发帖数
-     * @access private
+     * @access public
      * @param string $uid 用户id
      * @return int
      */
-    private function getPostCount($uid)
+    public function getPostCount($uid)
     {
         $info = M('post')->where(array('user_id' => $uid))->count();
         return $info;
