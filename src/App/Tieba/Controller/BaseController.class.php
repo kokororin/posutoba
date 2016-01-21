@@ -2,7 +2,7 @@
 /**
  * @name 基类控制器
  * @author Kokororin <ritsuka.sunny@gmail.com>
- * @copyright (c) 2014-2015 http://return.moe All rights reserved.
+ * @copyright (c) 2014-2015 https://kotori.love All rights reserved.
  * @version 1.0
  */
 namespace Tieba\Controller;

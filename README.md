@@ -1,14 +1,19 @@
-This is Posutoba!
+# This is Posutoba!
 ===================
 
-
-This is my graduation project called *Posutoba*.It is a baidu-tieba-liked PHP project.
+## Description
 ----------
+This is my graduation project called *Posutoba*.It is a baidu-tieba-liked PHP project.
 
 
-Documents
+## Documents
 -------------
 I think there is nothing to write.
+
+
+License
+-------------
+GNU GENERAL PUBLIC LICENSE
 
 
 ScreenShots
